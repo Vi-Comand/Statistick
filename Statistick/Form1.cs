@@ -16,5 +16,10 @@ namespace Statistick
         {
             InitializeComponent();
         }
+
+        private void but_save_db_Click(object sender, EventArgs e)
+        {
+            //jhk
+        }
     }
 }

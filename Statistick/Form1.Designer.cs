@@ -163,7 +163,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage5);
             this.metroTabControl1.Location = new System.Drawing.Point(12, 12);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1090, 531);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -290,6 +290,7 @@
             this.but_save_db.TabIndex = 7;
             this.but_save_db.Text = "Сохранить в БД";
             this.but_save_db.UseSelectable = true;
+            this.but_save_db.Click += new System.EventHandler(this.but_save_db_Click);
             // 
             // but_load_excel
             // 
