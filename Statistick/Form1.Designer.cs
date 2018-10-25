@@ -290,6 +290,7 @@
             this.but_save_db.TabIndex = 7;
             this.but_save_db.Text = "Сохранить в БД";
             this.but_save_db.UseSelectable = true;
+            this.but_save_db.Click += new System.EventHandler(this.but_save_db_Click);
             // 
             // but_load_excel
             // 
