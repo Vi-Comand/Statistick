@@ -16,5 +16,10 @@ namespace Statistick
         {
             InitializeComponent();
         }
+
+        private void but_load_excel_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("hg");
+        }
     }
 }
