@@ -1268,6 +1268,10 @@ namespace Statistick {
             
             private global::System.Data.DataColumn columnuud33;
             
+            private global::System.Data.DataColumn columnuud4;
+            
+            private global::System.Data.DataColumn columnuud5;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public uudDataTable() {
@@ -1415,6 +1419,22 @@ namespace Statistick {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn uud4Column {
+                get {
+                    return this.columnuud4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn uud5Column {
+                get {
+                    return this.columnuud5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1450,7 +1470,7 @@ namespace Statistick {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public uudRow AdduudRow(int id_user, int id_kontr, int id_klass, int god, int uud11, int uud12, int uud13, int uud21, int uud22, int uud23, int uud31, int uud32, int uud33) {
+            public uudRow AdduudRow(int id_user, int id_kontr, int id_klass, int god, int uud11, int uud12, int uud13, int uud21, int uud22, int uud23, int uud31, int uud32, int uud33, int uud4, int uud5) {
                 uudRow rowuudRow = ((uudRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1466,7 +1486,9 @@ namespace Statistick {
                         uud23,
                         uud31,
                         uud32,
-                        uud33};
+                        uud33,
+                        uud4,
+                        uud5};
                 rowuudRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowuudRow);
                 return rowuudRow;
@@ -1510,6 +1532,8 @@ namespace Statistick {
                 this.columnuud31 = base.Columns["uud31"];
                 this.columnuud32 = base.Columns["uud32"];
                 this.columnuud33 = base.Columns["uud33"];
+                this.columnuud4 = base.Columns["uud4"];
+                this.columnuud5 = base.Columns["uud5"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1543,6 +1567,10 @@ namespace Statistick {
                 base.Columns.Add(this.columnuud32);
                 this.columnuud33 = new global::System.Data.DataColumn("uud33", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnuud33);
+                this.columnuud4 = new global::System.Data.DataColumn("uud4", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnuud4);
+                this.columnuud5 = new global::System.Data.DataColumn("uud5", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnuud5);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -2129,6 +2157,38 @@ namespace Statistick {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int uud4 {
+                get {
+                    try {
+                        return ((int)(this[this.tableuud.uud4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'uud4\' в таблице \'uud\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuud.uud4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int uud5 {
+                get {
+                    try {
+                        return ((int)(this[this.tableuud.uud5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'uud5\' в таблице \'uud\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableuud.uud5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool Isid_userNull() {
                 return this.IsNull(this.tableuud.id_userColumn);
             }
@@ -2281,6 +2341,30 @@ namespace Statistick {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Setuud33Null() {
                 this[this.tableuud.uud33Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isuud4Null() {
+                return this.IsNull(this.tableuud.uud4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setuud4Null() {
+                this[this.tableuud.uud4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Isuud5Null() {
+                return this.IsNull(this.tableuud.uud5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Setuud5Null() {
+                this[this.tableuud.uud5Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -3567,10 +3651,12 @@ namespace Statistick.in_statDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("uud31", "uud31");
             tableMapping.ColumnMappings.Add("uud32", "uud32");
             tableMapping.ColumnMappings.Add("uud33", "uud33");
+            tableMapping.ColumnMappings.Add("uud4", "uud4");
+            tableMapping.ColumnMappings.Add("uud5", "uud5");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `uud` WHERE ((`id` = ?) AND ((? = 1 AND `id_user` IS NULL) OR (`id_user` = ?)) AND ((? = 1 AND `id_kontr` IS NULL) OR (`id_kontr` = ?)) AND ((? = 1 AND `id_klass` IS NULL) OR (`id_klass` = ?)) AND ((? = 1 AND `god` IS NULL) OR (`god` = ?)) AND ((? = 1 AND `uud11` IS NULL) OR (`uud11` = ?)) AND ((? = 1 AND `uud12` IS NULL) OR (`uud12` = ?)) AND ((? = 1 AND `uud13` IS NULL) OR (`uud13` = ?)) AND ((? = 1 AND `uud21` IS NULL) OR (`uud21` = ?)) AND ((? = 1 AND `uud22` IS NULL) OR (`uud22` = ?)) AND ((? = 1 AND `uud23` IS NULL) OR (`uud23` = ?)) AND ((? = 1 AND `uud31` IS NULL) OR (`uud31` = ?)) AND ((? = 1 AND `uud32` IS NULL) OR (`uud32` = ?)) AND ((? = 1 AND `uud33` IS NULL) OR (`uud33` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `uud` WHERE ((`id` = ?) AND ((? = 1 AND `id_user` IS NULL) OR (`id_user` = ?)) AND ((? = 1 AND `id_kontr` IS NULL) OR (`id_kontr` = ?)) AND ((? = 1 AND `id_klass` IS NULL) OR (`id_klass` = ?)) AND ((? = 1 AND `god` IS NULL) OR (`god` = ?)) AND ((? = 1 AND `uud11` IS NULL) OR (`uud11` = ?)) AND ((? = 1 AND `uud12` IS NULL) OR (`uud12` = ?)) AND ((? = 1 AND `uud13` IS NULL) OR (`uud13` = ?)) AND ((? = 1 AND `uud21` IS NULL) OR (`uud21` = ?)) AND ((? = 1 AND `uud22` IS NULL) OR (`uud22` = ?)) AND ((? = 1 AND `uud23` IS NULL) OR (`uud23` = ?)) AND ((? = 1 AND `uud31` IS NULL) OR (`uud31` = ?)) AND ((? = 1 AND `uud32` IS NULL) OR (`uud32` = ?)) AND ((? = 1 AND `uud33` IS NULL) OR (`uud33` = ?)) AND ((? = 1 AND `uud4` IS NULL) OR (`uud4` = ?)) AND ((? = 1 AND `uud5` IS NULL) OR (`uud5` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_id_user", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_user", global::System.Data.DataRowVersion.Original, true, null));
@@ -3599,11 +3685,15 @@ namespace Statistick.in_statDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_uud32", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud32", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_uud33", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud33", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_uud33", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud33", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_uud4", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud4", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_uud4", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud4", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_uud5", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud5", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_uud5", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud5", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `uud` (`id_user`, `id_kontr`, `id_klass`, `god`, `uud11`, `uud12`, `u" +
-                "ud13`, `uud21`, `uud22`, `uud23`, `uud31`, `uud32`, `uud33`) VALUES (?, ?, ?, ?," +
-                " ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                "ud13`, `uud21`, `uud22`, `uud23`, `uud31`, `uud32`, `uud33`, `uud4`, `uud5`) VAL" +
+                "UES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("id_user", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_user", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("id_kontr", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_kontr", global::System.Data.DataRowVersion.Current, false, null));
@@ -3618,9 +3708,11 @@ namespace Statistick.in_statDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("uud31", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud31", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("uud32", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud32", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("uud33", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud33", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("uud4", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud4", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("uud5", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud5", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `uud` SET `id_user` = ?, `id_kontr` = ?, `id_klass` = ?, `god` = ?, `uud11` = ?, `uud12` = ?, `uud13` = ?, `uud21` = ?, `uud22` = ?, `uud23` = ?, `uud31` = ?, `uud32` = ?, `uud33` = ? WHERE ((`id` = ?) AND ((? = 1 AND `id_user` IS NULL) OR (`id_user` = ?)) AND ((? = 1 AND `id_kontr` IS NULL) OR (`id_kontr` = ?)) AND ((? = 1 AND `id_klass` IS NULL) OR (`id_klass` = ?)) AND ((? = 1 AND `god` IS NULL) OR (`god` = ?)) AND ((? = 1 AND `uud11` IS NULL) OR (`uud11` = ?)) AND ((? = 1 AND `uud12` IS NULL) OR (`uud12` = ?)) AND ((? = 1 AND `uud13` IS NULL) OR (`uud13` = ?)) AND ((? = 1 AND `uud21` IS NULL) OR (`uud21` = ?)) AND ((? = 1 AND `uud22` IS NULL) OR (`uud22` = ?)) AND ((? = 1 AND `uud23` IS NULL) OR (`uud23` = ?)) AND ((? = 1 AND `uud31` IS NULL) OR (`uud31` = ?)) AND ((? = 1 AND `uud32` IS NULL) OR (`uud32` = ?)) AND ((? = 1 AND `uud33` IS NULL) OR (`uud33` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `uud` SET `id_user` = ?, `id_kontr` = ?, `id_klass` = ?, `god` = ?, `uud11` = ?, `uud12` = ?, `uud13` = ?, `uud21` = ?, `uud22` = ?, `uud23` = ?, `uud31` = ?, `uud32` = ?, `uud33` = ?, `uud4` = ?, `uud5` = ? WHERE ((`id` = ?) AND ((? = 1 AND `id_user` IS NULL) OR (`id_user` = ?)) AND ((? = 1 AND `id_kontr` IS NULL) OR (`id_kontr` = ?)) AND ((? = 1 AND `id_klass` IS NULL) OR (`id_klass` = ?)) AND ((? = 1 AND `god` IS NULL) OR (`god` = ?)) AND ((? = 1 AND `uud11` IS NULL) OR (`uud11` = ?)) AND ((? = 1 AND `uud12` IS NULL) OR (`uud12` = ?)) AND ((? = 1 AND `uud13` IS NULL) OR (`uud13` = ?)) AND ((? = 1 AND `uud21` IS NULL) OR (`uud21` = ?)) AND ((? = 1 AND `uud22` IS NULL) OR (`uud22` = ?)) AND ((? = 1 AND `uud23` IS NULL) OR (`uud23` = ?)) AND ((? = 1 AND `uud31` IS NULL) OR (`uud31` = ?)) AND ((? = 1 AND `uud32` IS NULL) OR (`uud32` = ?)) AND ((? = 1 AND `uud33` IS NULL) OR (`uud33` = ?)) AND ((? = 1 AND `uud4` IS NULL) OR (`uud4` = ?)) AND ((? = 1 AND `uud5` IS NULL) OR (`uud5` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("id_user", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_user", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("id_kontr", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_kontr", global::System.Data.DataRowVersion.Current, false, null));
@@ -3635,6 +3727,8 @@ namespace Statistick.in_statDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("uud31", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud31", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("uud32", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud32", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("uud33", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud33", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("uud4", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud4", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("uud5", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud5", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_id_user", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_user", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_id_user", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_user", global::System.Data.DataRowVersion.Original, false, null));
@@ -3662,6 +3756,10 @@ namespace Statistick.in_statDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_uud32", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud32", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_uud33", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud33", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_uud33", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud33", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_uud4", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud4", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_uud4", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud4", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_uud5", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud5", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_uud5", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "uud5", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3678,7 +3776,7 @@ namespace Statistick.in_statDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT id, id_user, id_kontr, id_klass, god, uud11, uud12, uud13, uud21, uud22, u" +
-                "ud23, uud31, uud32, uud33 FROM uud";
+                "ud23, uud31, uud32, uud33, uud4, uud5 FROM uud";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3739,7 +3837,23 @@ namespace Statistick.in_statDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, global::System.Nullable<int> Original_id_user, global::System.Nullable<int> Original_id_kontr, global::System.Nullable<int> Original_id_klass, global::System.Nullable<int> Original_god, global::System.Nullable<int> Original_uud11, global::System.Nullable<int> Original_uud12, global::System.Nullable<int> Original_uud13, global::System.Nullable<int> Original_uud21, global::System.Nullable<int> Original_uud22, global::System.Nullable<int> Original_uud23, global::System.Nullable<int> Original_uud31, global::System.Nullable<int> Original_uud32, global::System.Nullable<int> Original_uud33) {
+        public virtual int Delete(
+                    int Original_id, 
+                    global::System.Nullable<int> Original_id_user, 
+                    global::System.Nullable<int> Original_id_kontr, 
+                    global::System.Nullable<int> Original_id_klass, 
+                    global::System.Nullable<int> Original_god, 
+                    global::System.Nullable<int> Original_uud11, 
+                    global::System.Nullable<int> Original_uud12, 
+                    global::System.Nullable<int> Original_uud13, 
+                    global::System.Nullable<int> Original_uud21, 
+                    global::System.Nullable<int> Original_uud22, 
+                    global::System.Nullable<int> Original_uud23, 
+                    global::System.Nullable<int> Original_uud31, 
+                    global::System.Nullable<int> Original_uud32, 
+                    global::System.Nullable<int> Original_uud33, 
+                    global::System.Nullable<int> Original_uud4, 
+                    global::System.Nullable<int> Original_uud5) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_id_user.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -3845,6 +3959,22 @@ namespace Statistick.in_statDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[25].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
+            if ((Original_uud4.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[28].Value = ((int)(Original_uud4.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
+            }
+            if ((Original_uud5.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((int)(Original_uud5.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3865,7 +3995,7 @@ namespace Statistick.in_statDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> id_user, global::System.Nullable<int> id_kontr, global::System.Nullable<int> id_klass, global::System.Nullable<int> god, global::System.Nullable<int> uud11, global::System.Nullable<int> uud12, global::System.Nullable<int> uud13, global::System.Nullable<int> uud21, global::System.Nullable<int> uud22, global::System.Nullable<int> uud23, global::System.Nullable<int> uud31, global::System.Nullable<int> uud32, global::System.Nullable<int> uud33) {
+        public virtual int Insert(global::System.Nullable<int> id_user, global::System.Nullable<int> id_kontr, global::System.Nullable<int> id_klass, global::System.Nullable<int> god, global::System.Nullable<int> uud11, global::System.Nullable<int> uud12, global::System.Nullable<int> uud13, global::System.Nullable<int> uud21, global::System.Nullable<int> uud22, global::System.Nullable<int> uud23, global::System.Nullable<int> uud31, global::System.Nullable<int> uud32, global::System.Nullable<int> uud33, global::System.Nullable<int> uud4, global::System.Nullable<int> uud5) {
             if ((id_user.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_user.Value));
             }
@@ -3944,6 +4074,18 @@ namespace Statistick.in_statDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
+            if ((uud4.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((int)(uud4.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            if ((uud5.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[14].Value = ((int)(uud5.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3978,6 +4120,8 @@ namespace Statistick.in_statDataSetTableAdapters {
                     global::System.Nullable<int> uud31, 
                     global::System.Nullable<int> uud32, 
                     global::System.Nullable<int> uud33, 
+                    global::System.Nullable<int> uud4, 
+                    global::System.Nullable<int> uud5, 
                     int Original_id, 
                     global::System.Nullable<int> Original_id_user, 
                     global::System.Nullable<int> Original_id_kontr, 
@@ -3991,7 +4135,9 @@ namespace Statistick.in_statDataSetTableAdapters {
                     global::System.Nullable<int> Original_uud23, 
                     global::System.Nullable<int> Original_uud31, 
                     global::System.Nullable<int> Original_uud32, 
-                    global::System.Nullable<int> Original_uud33) {
+                    global::System.Nullable<int> Original_uud33, 
+                    global::System.Nullable<int> Original_uud4, 
+                    global::System.Nullable<int> Original_uud5) {
             if ((id_user.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_user.Value));
             }
@@ -4070,110 +4216,138 @@ namespace Statistick.in_statDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_id));
-            if ((Original_id_user.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_id_user.Value));
+            if ((uud4.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(uud4.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
-            if ((Original_id_kontr.HasValue == true)) {
+            if ((uud5.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(uud5.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_id));
+            if ((Original_id_user.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_id_kontr.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_id_user.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
-            if ((Original_id_klass.HasValue == true)) {
+            if ((Original_id_kontr.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_id_klass.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_id_kontr.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
-            if ((Original_god.HasValue == true)) {
+            if ((Original_id_klass.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_god.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_id_klass.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
-            if ((Original_uud11.HasValue == true)) {
+            if ((Original_god.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_uud11.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_god.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
-            if ((Original_uud12.HasValue == true)) {
+            if ((Original_uud11.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_uud12.Value));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_uud11.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
-            if ((Original_uud13.HasValue == true)) {
+            if ((Original_uud12.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_uud13.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_uud12.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
-            if ((Original_uud21.HasValue == true)) {
+            if ((Original_uud13.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_uud21.Value));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((int)(Original_uud13.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
             }
-            if ((Original_uud22.HasValue == true)) {
+            if ((Original_uud21.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_uud22.Value));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((int)(Original_uud21.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
             }
-            if ((Original_uud23.HasValue == true)) {
+            if ((Original_uud22.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_uud23.Value));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((int)(Original_uud22.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
             }
-            if ((Original_uud31.HasValue == true)) {
+            if ((Original_uud23.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_uud31.Value));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_uud23.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[34].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[35].Value = global::System.DBNull.Value;
             }
-            if ((Original_uud32.HasValue == true)) {
+            if ((Original_uud31.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_uud32.Value));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((int)(Original_uud31.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
-            if ((Original_uud33.HasValue == true)) {
+            if ((Original_uud32.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_uud33.Value));
+                this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_uud32.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[38].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[39].Value = global::System.DBNull.Value;
+            }
+            if ((Original_uud33.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((int)(Original_uud33.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[41].Value = global::System.DBNull.Value;
+            }
+            if ((Original_uud4.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((int)(Original_uud4.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
+            }
+            if ((Original_uud5.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((int)(Original_uud5.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
