@@ -101,5 +101,16 @@ namespace Statistick
                     break;
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.kontrolnie". При необходимости она может быть перемещена или удалена.
+            this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.user". При необходимости она может быть перемещена или удалена.
+            this.userTableAdapter.Fill(this.in_statDataSet.user);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.klass". При необходимости она может быть перемещена или удалена.
+            this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+
+        }
     }
 }
