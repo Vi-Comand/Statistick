@@ -111,6 +111,9 @@
             this.klassTableAdapter = new Statistick.in_statDataSetTableAdapters.klassTableAdapter();
             this.userTableAdapter = new Statistick.in_statDataSetTableAdapters.userTableAdapter();
             this.kontrolnieTableAdapter = new Statistick.in_statDataSetTableAdapters.kontrolnieTableAdapter();
+            this.uudBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.uudTableAdapter = new Statistick.in_statDataSetTableAdapters.uudTableAdapter();
+            this.instatDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -123,6 +126,8 @@
             this.metroTabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // FI
@@ -195,7 +200,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage6);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 3;
             this.metroTabControl1.Size = new System.Drawing.Size(1090, 531);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -915,6 +920,21 @@
             // 
             this.kontrolnieTableAdapter.ClearBeforeFill = true;
             // 
+            // uudBindingSource
+            // 
+            this.uudBindingSource.DataMember = "uud";
+            this.uudBindingSource.DataSource = this.in_statDataSet;
+            this.uudBindingSource.Position = 0;
+            // 
+            // uudTableAdapter
+            // 
+            this.uudTableAdapter.ClearBeforeFill = true;
+            // 
+            // instatDataSetBindingSource
+            // 
+            this.instatDataSetBindingSource.DataSource = this.in_statDataSet;
+            this.instatDataSetBindingSource.Position = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -940,6 +960,8 @@
             this.metroTabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1019,6 +1041,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.BindingSource kontrolnieBindingSource;
         private in_statDataSetTableAdapters.kontrolnieTableAdapter kontrolnieTableAdapter;
+        private in_statDataSetTableAdapters.uudTableAdapter uudTableAdapter;
+        private System.Windows.Forms.BindingSource uudBindingSource;
+        private System.Windows.Forms.BindingSource instatDataSetBindingSource;
     }
 }
 
