@@ -96,8 +96,6 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
-            this.uudTableAdapter = new Statistick.in_statDataSetTableAdapters.uudTableAdapter();
-            this.uudBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
             this.but_Del_Klass = new MetroFramework.Controls.MetroTile();
             this.but_New_klass = new MetroFramework.Controls.MetroTile();
@@ -110,6 +108,8 @@
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroTabPage6 = new MetroFramework.Controls.MetroTabPage();
+            this.uudTableAdapter = new Statistick.in_statDataSetTableAdapters.uudTableAdapter();
+            this.uudBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.klassTableAdapter = new Statistick.in_statDataSetTableAdapters.klassTableAdapter();
             this.userTableAdapter = new Statistick.in_statDataSetTableAdapters.userTableAdapter();
             this.kontrolnieTableAdapter = new Statistick.in_statDataSetTableAdapters.kontrolnieTableAdapter();
@@ -123,10 +123,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Load_UUD)).BeginInit();
             this.metroTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Red_UUD)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).BeginInit();
             this.metroTabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,7 +200,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage6);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1090, 531);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -728,15 +728,6 @@
             this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage4.VerticalScrollbarSize = 10;
             // 
-            // uudTableAdapter
-            // 
-            this.uudTableAdapter.ClearBeforeFill = true;
-            // 
-            // uudBindingSource
-            // 
-            this.uudBindingSource.DataMember = "uud";
-            this.uudBindingSource.DataSource = this.in_statDataSet;
-            // 
             // metroTabPage5
             // 
             this.metroTabPage5.Controls.Add(this.but_Del_Klass);
@@ -794,9 +785,9 @@
             // 
             // 
             this.TB_New_Klass.CustomButton.Image = null;
-            this.TB_New_Klass.CustomButton.Location = new System.Drawing.Point(191, 2);
+            this.TB_New_Klass.CustomButton.Location = new System.Drawing.Point(143, 2);
             this.TB_New_Klass.CustomButton.Name = "";
-            this.TB_New_Klass.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.TB_New_Klass.CustomButton.Size = new System.Drawing.Size(17, 19);
             this.TB_New_Klass.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.TB_New_Klass.CustomButton.TabIndex = 1;
             this.TB_New_Klass.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -921,6 +912,15 @@
             this.metroTabPage6.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage6.VerticalScrollbarSize = 10;
             // 
+            // uudTableAdapter
+            // 
+            this.uudTableAdapter.ClearBeforeFill = true;
+            // 
+            // uudBindingSource
+            // 
+            this.uudBindingSource.DataMember = "uud";
+            this.uudBindingSource.DataSource = this.in_statDataSet;
+            // 
             // klassTableAdapter
             // 
             this.klassTableAdapter.ClearBeforeFill = true;
@@ -959,11 +959,11 @@
             this.metroTabPage3.ResumeLayout(false);
             this.metroTabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Red_UUD)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).EndInit();
             this.metroTabPage5.ResumeLayout(false);
             this.metroTabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
