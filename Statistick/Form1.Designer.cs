@@ -751,7 +751,6 @@
             // 
             // metroTabPage4
             // 
-            this.metroTabPage4.Controls.Add(this.chartControl1);
             this.metroTabPage4.HorizontalScrollbarBarColor = true;
             this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage4.HorizontalScrollbarSize = 12;
@@ -781,6 +780,15 @@
             this.chartControl1.Size = new System.Drawing.Size(876, 246);
             this.chartControl1.TabIndex = 2;
             this.chartControl1.Click += new System.EventHandler(this.chartControl1_Click);
+            // 
+            // uudTableAdapter
+            // 
+            this.uudTableAdapter.ClearBeforeFill = true;
+            // 
+            // uudBindingSource
+            // 
+            this.uudBindingSource.DataMember = "uud";
+            this.uudBindingSource.DataSource = this.in_statDataSet;
             // 
             // uudTableAdapter
             // 
@@ -1113,7 +1121,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private DevExpress.XtraCharts.ChartControl chartControl1;
         private in_statDataSetTableAdapters.uudTableAdapter uudTableAdapter;
         private System.Windows.Forms.BindingSource instatDataSetBindingSource;
         private System.Windows.Forms.BindingSource uudBindingSource;
