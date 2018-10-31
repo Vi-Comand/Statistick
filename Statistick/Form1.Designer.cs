@@ -237,7 +237,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage6);
             this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1090, 531);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -845,9 +845,9 @@
             // 
             // 
             this.TB_New_Klass.CustomButton.Image = null;
-            this.TB_New_Klass.CustomButton.Location = new System.Drawing.Point(191, 2);
+            this.TB_New_Klass.CustomButton.Location = new System.Drawing.Point(143, 2);
             this.TB_New_Klass.CustomButton.Name = "";
-            this.TB_New_Klass.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.TB_New_Klass.CustomButton.Size = new System.Drawing.Size(17, 19);
             this.TB_New_Klass.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.TB_New_Klass.CustomButton.TabIndex = 1;
             this.TB_New_Klass.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;

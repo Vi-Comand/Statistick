@@ -23,7 +23,7 @@ namespace Statistick
 
         private void but_save_db_Click(object sender, EventArgs e)
         {
-            //jhk
+            
         }
 
         private void but_load_excel_Click(object sender, EventArgs e)
