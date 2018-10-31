@@ -114,6 +114,7 @@
             this.userTableAdapter = new Statistick.in_statDataSetTableAdapters.userTableAdapter();
             this.kontrolnieTableAdapter = new Statistick.in_statDataSetTableAdapters.kontrolnieTableAdapter();
             this.instatDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -123,11 +124,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Load_UUD)).BeginInit();
             this.metroTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Red_UUD)).BeginInit();
+            this.metroTabPage4.SuspendLayout();
             this.metroTabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // FI
@@ -716,6 +719,7 @@
             // 
             // metroTabPage4
             // 
+            this.metroTabPage4.Controls.Add(this.chartControl1);
             this.metroTabPage4.HorizontalScrollbarBarColor = true;
             this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage4.HorizontalScrollbarSize = 10;
@@ -938,6 +942,15 @@
             this.instatDataSetBindingSource.DataSource = this.in_statDataSet;
             this.instatDataSetBindingSource.Position = 0;
             // 
+            // chartControl1
+            // 
+            this.chartControl1.Legend.Name = "Default Legend";
+            this.chartControl1.Location = new System.Drawing.Point(305, 30);
+            this.chartControl1.Name = "chartControl1";
+            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            this.chartControl1.Size = new System.Drawing.Size(728, 403);
+            this.chartControl1.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -959,12 +972,14 @@
             this.metroTabPage3.ResumeLayout(false);
             this.metroTabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Red_UUD)).EndInit();
+            this.metroTabPage4.ResumeLayout(false);
             this.metroTabPage5.ResumeLayout(false);
             this.metroTabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1047,6 +1062,7 @@
         private in_statDataSetTableAdapters.uudTableAdapter uudTableAdapter;
         private System.Windows.Forms.BindingSource instatDataSetBindingSource;
         private System.Windows.Forms.BindingSource uudBindingSource;
+        private DevExpress.XtraCharts.ChartControl chartControl1;
     }
 }
 

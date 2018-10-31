@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using DevExpress.XtraCharts;
 
 namespace Statistick
 {
@@ -193,7 +194,46 @@ namespace Statistick
             this.userTableAdapter.Fill(this.in_statDataSet.user);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.klass". При необходимости она может быть перемещена или удалена.
             this.klassTableAdapter.Fill(this.in_statDataSet.klass);
-
+            Stat1_Points();
         }
+
+
+        private void Stat1_Points()
+        {
+            int uud = 0;
+            string fi = "";
+            Series series1 = new Series("Side-by-Side Bar Series 1", ViewType.Bar);
+            foreach (DataRow row in in_statDataSet.uud.Rows)
+            {
+                uud = Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) + Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) + Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) + Convert.ToInt16(row["uud4"]) + Convert.ToInt16(row["uud5"]);
+                foreach (DataRow roww in in_statDataSet.user.Rows)
+                {
+                    if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]) )
+                    {
+                        fi = roww["fi"].ToString();
+                    }
+                }
+                series1.Points.Add(new SeriesPoint(fi, uud));
+            }
+                    
+           
+
+            // Add the series to the chart.
+            chartControl1.Series.Add(series1);
+          
+
+            // Hide the legend (if necessary).
+            chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.False;
+
+            // Rotate the diagram (if necessary).
+            ((XYDiagram)chartControl1.Diagram).Rotated = false;
+
+            // Add a title to the chart (if necessary).
+            ChartTitle chartTitle1 = new ChartTitle();
+            chartTitle1.Text = "Side-by-Side Bar Chart";
+            chartControl1.Titles.Add(chartTitle1);
+        }
+
+
     }
 }
