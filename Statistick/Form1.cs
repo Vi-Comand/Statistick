@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Configuration;
+
 
 namespace Statistick
 {
@@ -21,7 +24,8 @@ namespace Statistick
 
         private void but_save_db_Click(object sender, EventArgs e)
         {
-            //jhk
+           OleDbCommand  bd=new OleDbCommand();
+         bd.CommandText= "SELECT * FROM  ";
         }
 
         private void but_load_excel_Click(object sender, EventArgs e)
@@ -193,6 +197,11 @@ namespace Statistick
             this.userTableAdapter.Fill(this.in_statDataSet.user);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.klass". При необходимости она может быть перемещена или удалена.
             this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+
+        }
+
+        private void chartControl1_Click(object sender, EventArgs e)
+        {
 
         }
     }
