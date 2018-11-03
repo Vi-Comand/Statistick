@@ -194,7 +194,8 @@ namespace Statistick
             this.userTableAdapter.Fill(this.in_statDataSet.user);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.klass". При необходимости она может быть перемещена или удалена.
             this.klassTableAdapter.Fill(this.in_statDataSet.klass);
-           
+
+            
         }
 
 
@@ -236,9 +237,9 @@ namespace Statistick
         {
             chartControl1.Series.Clear();
             chartControl1.Titles.Clear();
-            int uud1 = 0 , uud2 = 0, uud3 = 0, uud4 = 0, uud5 = 0;
-            
-            Series series1 = new Series("УУД", ViewType.Bar);
+            int uud1 = 0, uud2 = 0, uud3 = 0, uud4 = 0, uud5 = 0;
+
+            Series series1 = new Series("УУД", ViewType.Bar3D);
             foreach (DataRow row in in_statDataSet.uud.Rows)
             {
                 if (Convert.ToInt32(row["id_kontr"]) == id_kontr && Convert.ToInt32(row["id_klass"]) == id_klass && Convert.ToInt32(row["god"]) == god)
@@ -248,10 +249,10 @@ namespace Statistick
                     uud3 += Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]);
                     uud4 += Convert.ToInt16(row["uud4"]);
                     uud5 += Convert.ToInt16(row["uud5"]);
-                    
+
                 }
             }
-            for (int i=1; i<6; i++)
+            for (int i = 1; i < 6; i++)
             {
                 switch (i)
                 {
@@ -274,14 +275,30 @@ namespace Statistick
             }
             // Add the series to the chart.
             chartControl1.Series.Add(series1);
-            // Hide the legend (if necessary).
-            chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            // Rotate the diagram (if necessary).
-            ((XYDiagram)chartControl1.Diagram).Rotated = false;
-            // Add a title to the chart (if necessary).
+            //     ((BarSeriesLabel)series1.Label).Visible = true;
+            ((BarSeriesLabel)series1.Label).ResolveOverlappingMode =
+            ResolveOverlappingMode.Default;
+
+            // Access the series options.
+            series1.PointOptions.PointView = PointView.ArgumentAndValues;
+
+
+            // Customize the view-type-specific properties of the series.
+            Bar3DSeriesView myView = (Bar3DSeriesView)series1.View;
+            myView.BarDepthAuto = false;
+            myView.BarDepth = 1;
+            myView.BarWidth = 1;
+            myView.Transparency = 80;
+
+            // Access the diagram's options.
+            ((XYDiagram3D)chartControl1.Diagram).ZoomPercent = 110;
+
+            // Add a title to the chart and hide the legend.
             ChartTitle chartTitle1 = new ChartTitle();
+
             chartTitle1.Text = "Общая диограмма по позициям";
             chartControl1.Titles.Add(chartTitle1);
+            //   chartControl1.Legend.Visible = false;
         }
 
 
@@ -304,10 +321,69 @@ namespace Statistick
 
                         break;
                     default:
-                            MessageBox.Show("Неизвестный график");
+                        MessageBox.Show("Неизвестный график");
                         break;
 
                 }
+            }
+        }
+ private Excel.Application excelapp;
+        private Excel.Workbooks excelappworkbooks;
+        private Excel.Workbook excelappworkbook;
+        private Excel.Sheets excelsheets;
+        private Excel.Worksheet excelworksheet;
+        private Excel.Range excelcells;
+        private Excel.Window excelWindow;
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            int i = Convert.ToInt32(((Button)(sender)).Tag);
+            switch (i)
+            {
+                case 0:
+                     excelapp = new Excel.Application();
+            excelapp.Visible = true;
+            excelappworkbooks = excelapp.Workbooks;
+                    String templatePath = System.Windows.Forms.Application.StartupPath;
+                    excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\Свод 1 ш.xlsx", Type.Missing,
+                                                             Type.Missing, Type.Missing,
+                     "WWWWW", "WWWWW", Type.Missing, Type.Missing, Type.Missing,
+                      Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                      Type.Missing, Type.Missing);
+                    excelsheets = excelappworkbook.Worksheets;
+            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
+            excelworksheet.Activate();
+            Excel.ChartObjects chartsobjrcts =
+             (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+            Excel.ChartObject chartsobjrct = chartsobjrcts.Add(10, 200, 500, 400);
+                  
+                    chartsobjrct.Chart.ChartWizard(excelworksheet.get_Range("c3", "g5"),
+            Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, Type.Missing,
+             Type.Missing, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                    chartsobjrct.Activate();
+                    Excel.SeriesCollection seriesCollection =
+    (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
+                    Excel.Series series = seriesCollection.Item(1);
+                     series.Name = "1";
+
+                    Excel.ChartObjects chartsobjrcts2 =
+             (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+                    Excel.ChartObject chartsobjrct2 = chartsobjrcts2.Add(10, 200, 500, 400);
+                    chartsobjrct2.Chart.ChartWizard(excelworksheet.get_Range("h3", "h5"),
+                    Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, excelworksheet.get_Range("b3", "b5"),
+                      0, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+                    break;
+           
+                case 2:
+                    excelappworkbooks = excelapp.Workbooks;
+                    excelappworkbook = excelappworkbooks[1];
+                    excelappworkbook.Save();
+                    excelapp.Quit();
+                    break;
+                default:
+                    Close();
+                    break;
             }
         }
     }
