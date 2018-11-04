@@ -195,7 +195,7 @@ namespace Statistick
             // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.klass". При необходимости она может быть перемещена или удалена.
             this.klassTableAdapter.Fill(this.in_statDataSet.klass);
 
-            
+
         }
 
 
@@ -323,11 +323,16 @@ namespace Statistick
                     default:
                         MessageBox.Show("Неизвестный график");
                         break;
-
                 }
             }
         }
- private Excel.Application excelapp;
+
+
+
+
+
+        //--------------------методы диограмм---------------------------------------------------------------------------------------------------------
+        private Excel.Application excelapp;
         private Excel.Workbooks excelappworkbooks;
         private Excel.Workbook excelappworkbook;
         private Excel.Sheets excelsheets;
@@ -335,46 +340,166 @@ namespace Statistick
         private Excel.Range excelcells;
         private Excel.Window excelWindow;
 
-        private void metroTile2_Click(object sender, EventArgs e)
+        private void Excel_Diag()
         {
-            int i = Convert.ToInt32(((Button)(sender)).Tag);
-            switch (i)
-            {
-                case 0:
-                     excelapp = new Excel.Application();
+            excelapp = new Excel.Application();
             excelapp.Visible = true;
             excelappworkbooks = excelapp.Workbooks;
-                    String templatePath = System.Windows.Forms.Application.StartupPath;
-                    excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\Свод 1 ш.xlsx", Type.Missing,
+            String templatePath = System.Windows.Forms.Application.StartupPath;
+            excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\Свод 1 ш.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing, 
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            excelsheets = excelappworkbook.Worksheets;
+
+            Diag_2();
+        }
+
+        private void Diag_1()
+        {
+            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
+            excelworksheet.Activate();
+            Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+            Excel.ChartObject chartsobjrct = chartsobjrcts.Add(10, 200, 500, 400);
+            chartsobjrct.Chart.ChartWizard(excelworksheet.get_Range("c3", "g5"),
+            Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, Type.Missing, Type.Missing, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            chartsobjrct.Activate();
+            Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
+            Excel.Series series = seriesCollection.Item(1);
+            series.Name = "1";
+        }
+
+        private void Diag_2()
+        {
+            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
+            excelworksheet.Activate();
+            Excel.ChartObjects chartsobjrcts2 = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+          //  Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
+            Excel.Series oSeries;
+            //    Dim oSeries As Series
+            oSeries = excelworksheet.ChartObjects(1).SeriesCollection.NewSeries;
+            //Set oSeries = Worksheets(1).ChartObjects(1).Chart.SeriesCollection.NewSeries
+            oSeries.Values = excelworksheet.Range["H3:H6"];
+//oSeries.Values = Worksheets(1).Range("B1:B10")
+
+            //Excel.ChartObject chartsobjrct2 = chartsobjrcts2.Select("1");
+//chartsobjrct2.Chart.ChartWizard(excelworksheet.get_Range("h3", "h5"),
+         //   Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, excelworksheet.get_Range("b3", "b5"), 0, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            
+        }
+
+        private void Diad_3()
+        {
+            int i=0;
+            switch (i)
+            {
+                case 1:
+                    excelapp = new Excel.Application();
+                    excelapp.Visible = true;
+                    //Получаем набор объектов Workbook (массив ссылок на созданные книги)
+                    excelappworkbooks = excelapp.Workbooks;
+                    //Открываем книгу и получаем на нее ссылку
+                    //Помним, что файл был запаралирован
+                    excelappworkbook = excelapp.Workbooks.Open(@"C:\a.xls", Type.Missing,
                                                              Type.Missing, Type.Missing,
                      "WWWWW", "WWWWW", Type.Missing, Type.Missing, Type.Missing,
                       Type.Missing, Type.Missing, Type.Missing, Type.Missing,
                       Type.Missing, Type.Missing);
+                    //Если бы мы открыли несколько книг, то получили ссылку так
+                    //excelappworkbook=excelappworkbooks[1];
+                    //Получаем массив ссылок на листы выбранной книги
                     excelsheets = excelappworkbook.Worksheets;
-            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
-            excelworksheet.Activate();
-            Excel.ChartObjects chartsobjrcts =
-             (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
-            Excel.ChartObject chartsobjrct = chartsobjrcts.Add(10, 200, 500, 400);
-                  
-                    chartsobjrct.Chart.ChartWizard(excelworksheet.get_Range("c3", "g5"),
-            Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, Type.Missing,
-             Type.Missing, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                    chartsobjrct.Activate();
+                    //Получаем ссылку на лист 1
+                    excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+                    //Выделяем ячейки с данными  в таблице
+                    excelcells = excelworksheet.get_Range("D8", "K10");
+                    //И выбираем их
+                    excelcells.Select();
+                    //Создаем объект Excel.Chart диаграмму по умолчанию
+                    Excel.Chart excelchart = (Excel.Chart)excelapp.Charts.Add(Type.Missing,
+                     Type.Missing, Type.Missing, Type.Missing);
+                    //Выбираем диграмму - отображаем лист с диаграммой
+                    excelchart.Activate();
+                    excelchart.Select(Type.Missing);
+                    //Изменяем тип диаграммы
+                    excelapp.ActiveChart.ChartType = Excel.XlChartType.xlConeCol;
+                    //Создаем надпись - Заглавие диаграммы
+                    excelapp.ActiveChart.HasTitle = true;
+                    excelapp.ActiveChart.ChartTitle.Text
+                       = "Продажи фирмы Рога и Копыта за неделю";
+                    //Меняем шрифт, можно поменять и другие параметры шрифта
+                    excelapp.ActiveChart.ChartTitle.Font.Size = 14;
+                    excelapp.ActiveChart.ChartTitle.Font.Color = 255;
+                    //Обрамление для надписи c тенями
+                    excelapp.ActiveChart.ChartTitle.Shadow = true;
+                    excelapp.ActiveChart.ChartTitle.Border.LineStyle
+                         = Excel.Constants.xlSolid;
+                    //Даем названия осей
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlCategory,
+                        Excel.XlAxisGroup.xlPrimary)).HasTitle = true;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlCategory,
+                        Excel.XlAxisGroup.xlPrimary)).AxisTitle.Text = "День недели";
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlSeriesAxis,
+                        Excel.XlAxisGroup.xlPrimary)).HasTitle = false;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlValue,
+                        Excel.XlAxisGroup.xlPrimary)).HasTitle = true;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlValue,
+                        Excel.XlAxisGroup.xlPrimary)).AxisTitle.Text = "Рогов/Копыт";
+                    //Координатная сетка - оставляем только крупную сетку
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlCategory,
+                       Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlCategory,
+                      Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlSeriesAxis,
+                      Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlSeriesAxis,
+                      Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlValue,
+                      Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlValue,
+                      Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+                    //Будем отображать легенду и уберем строки, 
+                    //которые отображают пустые строки таблицы
+                    excelapp.ActiveChart.HasLegend = true;
+                    //Расположение легенды
+                    excelapp.ActiveChart.Legend.Position
+                       = Excel.XlLegendPosition.xlLegendPositionLeft;
+                    //Можно изменить шрифт легенды и другие параметры 
+                    ((Excel.LegendEntry)excelapp.ActiveChart.Legend.LegendEntries(1)).Font.Size = 12;
+                    ((Excel.LegendEntry)excelapp.ActiveChart.Legend.LegendEntries(3)).Font.Size = 12;
+                    //Легенда тесно связана с подписями на осях - изменяем надписи
+                    // - меняем легенду, удаляем чтото на оси - изменяется легенда
                     Excel.SeriesCollection seriesCollection =
-    (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
+                     (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
                     Excel.Series series = seriesCollection.Item(1);
-                     series.Name = "1";
-
-                    Excel.ChartObjects chartsobjrcts2 =
-             (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
-                    Excel.ChartObject chartsobjrct2 = chartsobjrcts2.Add(10, 200, 500, 400);
-                    chartsobjrct2.Chart.ChartWizard(excelworksheet.get_Range("h3", "h5"),
-                    Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, excelworksheet.get_Range("b3", "b5"),
-                      0, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-
+                    series.Name = "Рога";
+                    //Помним, что у нас объединенные ячейки, значит каждая второя строка - пустая
+                    //Удаляем их из диаграммы и из легенды
+                    series = seriesCollection.Item(2);
+                    series.Delete();
+                    //После удаления второго (пустого набора значений) третий занял его место
+                    series = seriesCollection.Item(2);
+                    series.Name = "Копыта";
+                    series = seriesCollection.Item(3);
+                    series.Delete();
+                    series = seriesCollection.Item(1);
+                    //Переименуем ось X
+                    series.XValues = "Понедельник;Вторник;Среда;Четверг;Пятница;Суббота;Воскресенье;Итог";
+                    //Если закончить код на этом месте то у нас Диаграммы на отдельном листе - Рис.9.
+                    //Строку легенды можно удалить здесь, но строка на оси не изменится
+                    //Поэтому мы удаляли в Excel.Series
+                    //((Excel.LegendEntry)excelapp.ActiveChart.Legend.LegendEntries(2)).Delete();
+                    //Перемещаем диаграмму на лист 1
+                    excelapp.ActiveChart.Location(Excel.XlChartLocation.xlLocationAsObject, "Лист1");
+                    //Получаем ссылку на лист 1
+                    excelsheets = excelappworkbook.Worksheets;
+                    excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+                    //Перемещаем диаграмму в нужное место
+                    excelworksheet.Shapes.Item(1).IncrementLeft(-201);
+                    excelworksheet.Shapes.Item(1).IncrementTop((float)20.5);
+                    //Задаем размеры диаграммы
+                    excelworksheet.Shapes.Item(1).Height = 550;
+                    excelworksheet.Shapes.Item(1).Width = 500;
+                    //Конец кода - диаграммы на листе там где и таблица
                     break;
-           
                 case 2:
                     excelappworkbooks = excelapp.Workbooks;
                     excelappworkbook = excelappworkbooks[1];
@@ -386,5 +511,84 @@ namespace Statistick
                     break;
             }
         }
+
+        private void Diad_4()
+        {
+            excelapp = new Excel.Application();
+            excelapp.Visible = true;
+            excelappworkbooks = excelapp.Workbooks;
+            excelappworkbook = excelapp.Workbooks.Open(@"C:\a.xls", Type.Missing,
+                                                       Type.Missing, Type.Missing,
+           "WWWWW", "WWWWW", Type.Missing, Type.Missing, Type.Missing,
+           Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+           Type.Missing, Type.Missing);
+            excelsheets = excelappworkbook.Worksheets;
+            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+            //Определяем диаграммы как объекты Excel.ChartObjects
+            Excel.ChartObjects chartsobjrcts =
+           (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+            //Добавляем одну диаграмму  в Excel.ChartObjects - диаграмма пока 
+            //не выбрана, но место для нее выделено в методе Add
+            Excel.ChartObject chartsobjrct = chartsobjrcts.Add(10, 200, 500, 400);
+            excelcells = excelworksheet.get_Range("D8", "K10");
+            //Получаем ссылку на созданную диаграмму
+            Excel.Chart excelchart = chartsobjrct.Chart;
+            //Устанавливаем источник данных для диаграммы
+            excelchart.SetSourceData(excelcells, Type.Missing);
+            //Далее отличия нет
+            excelchart.ChartType = Excel.XlChartType.xlConeCol;
+            excelchart.HasTitle = true;
+            excelchart.ChartTitle.Text = "Продажи фирмы Рога и Копыта за неделю";
+            excelchart.ChartTitle.Font.Size = 14;
+            excelchart.ChartTitle.Font.Color = 255;
+            excelchart.ChartTitle.Shadow = true;
+            excelchart.ChartTitle.Border.LineStyle = Excel.Constants.xlSolid;
+            ((Excel.Axis)(excelchart.Axes(Excel.XlAxisType.xlCategory,
+                          Excel.XlAxisGroup.xlPrimary)))
+                               .HasTitle = true;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlCategory,
+              Excel.XlAxisGroup.xlPrimary)).HasTitle = true;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlCategory,
+              Excel.XlAxisGroup.xlPrimary)).AxisTitle.Text = "День недели";
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlSeriesAxis,
+              Excel.XlAxisGroup.xlPrimary)).HasTitle = false;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlValue,
+              Excel.XlAxisGroup.xlPrimary)).HasTitle = true;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlValue,
+              Excel.XlAxisGroup.xlPrimary)).AxisTitle.Text = "Рогов/Копыт";
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlCategory,
+              Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlCategory,
+              Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlSeriesAxis,
+              Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlSeriesAxis,
+              Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlValue,
+              Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlValue,
+              Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+            excelchart.HasLegend = true;
+            excelchart.Legend.Position = Excel.XlLegendPosition.xlLegendPositionLeft;
+            ((Excel.LegendEntry)excelchart.Legend.LegendEntries(1)).Font.Size = 12;
+            ((Excel.LegendEntry)excelchart.Legend.LegendEntries(3)).Font.Size = 12;
+            Excel.SeriesCollection seriesCollection =
+             (Excel.SeriesCollection)excelchart.SeriesCollection(Type.Missing);
+            Excel.Series series = seriesCollection.Item(1);
+            series.Name = "Рога";
+            series = seriesCollection.Item(2);
+            series.Delete();
+            series = seriesCollection.Item(2);
+            series.Name = "Копыта";
+            series = seriesCollection.Item(1);
+            series.XValues = "Понедельник;Вторник;Среда;Четверг;Пятница;Суббота;Воскресенье;Итог";
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            Excel_Diag();
+        }
+
+
     }
 }
