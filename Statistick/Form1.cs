@@ -352,6 +352,7 @@ namespace Statistick
             excelsheets = excelappworkbook.Worksheets;
 
             Diag_1();
+            Diag_2();
         }
 
         private void Diag_1()
@@ -359,60 +360,58 @@ namespace Statistick
             excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
             excelworksheet.Activate();
             Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
-
-            for (int i = 1; i <= chartsobjrcts.Count; i++)
-            {
-                Excel.Series oSeries;
-               /* oSeries = */excelworksheet.ChartObjects(i).Chart.ChartWizard(excelworksheet.get_Range("c3", "d5"));   //SeriesCollection.NewSeries;  // 
-                //oSeries.Values = excelworksheet.Range["C3:D5"];
-            }
-                /*  Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
-                  Excel.ChartObject chartsobjrct = chartsobjrcts.Add(10, 200, 500, 400);
-                  chartsobjrct.Chart.ChartWizard(excelworksheet.get_Range("c3", "g5"),
-                  Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, Type.Missing, Type.Missing, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                  chartsobjrct.Activate();
-                  Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
-                  Excel.Series series = seriesCollection.Item(1);
-                  series.Name = "1";*/
-            }
+            Excel.Chart xlChart = excelworksheet.ChartObjects(1).Chart;
+            xlChart.ChartWizard(excelworksheet.get_Range("h2", "h5"));
+            
+            //  excelworksheet.ChartObjects(1).Chart.Ledend(excelworksheet.get_Range("h2"));
+            /*  Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+              Excel.ChartObject chartsobjrct = chartsobjrcts.Add(10, 200, 500, 400);
+              chartsobjrct.Chart.ChartWizard(excelworksheet.get_Range("c3", "g5"),
+              Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, Type.Missing, Type.Missing, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+              chartsobjrct.Activate();
+              Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
+              Excel.Series series = seriesCollection.Item(1);
+              series.Name = "1";*/
+        }
 
         private void Diag_2()
         {
-           /* Aspose.Cell пока удалил
-            * 
-            * 
-            * String templatePath = System.Windows.Forms.Application.StartupPath;
-            Workbook book = new Workbook(templatePath + @"\Шаблоны\Свод 1 ш.xlsx");
+            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
+            excelworksheet.Activate();
+            Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+            Excel.Chart xlChart2 = excelworksheet.ChartObjects(2).Chart;
+            xlChart2.ChartWizard(excelworksheet.get_Range("c3", "g5"));
 
-            // Access the first worksheet which contains the charts
-            Worksheet sheet = book.Worksheets[3];
-
-            for (int i = 0; i < sheet.Charts.Count; i++)
+            Excel.SeriesCollection seriesCollection = xlChart2.SeriesCollection();
+            for (int i = 1; i <= seriesCollection.Count; i++)
             {
-                // Access the chart
-                Chart ch = sheet.Charts[i];
-
-                // Print chart type
-                Console.WriteLine(ch.Type);
-
-                // Change the title of the charts as per their types
-                ch.Title.Text = "Chart Type is " + ch.Type.ToString();
-            
+                Excel.Series series = seriesCollection.Item(i);
+                series.Name = Convert.ToString(excelworksheet.get_Range("b" + (i + 2), Type.Missing).Value2);
             }
-            book.Save(templatePath + "out_excel2016Charts.xlsx");*/
 
-            /* Excel.ChartObjects chartsobjrcts2 = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
-           //  Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
-             Excel.Series oSeries;
-             //    Dim oSeries As Series
-             oSeries = excelworksheet.ChartObjects(1).SeriesCollection.NewSeries;
-             //Set oSeries = Worksheets(1).ChartObjects(1).Chart.SeriesCollection.NewSeries
-             oSeries.Values = excelworksheet.Range["H3:H6"];
- //oSeries.Values = Worksheets(1).Range("B1:B10")*/
+            /* Aspose.Cell пока удалил
+             * 
+             * 
+             * String templatePath = System.Windows.Forms.Application.StartupPath;
+             Workbook book = new Workbook(templatePath + @"\Шаблоны\Свод 1 ш.xlsx");
 
-            //Excel.ChartObject chartsobjrct2 = chartsobjrcts2.Select("1");
-            //chartsobjrct2.Chart.ChartWizard(excelworksheet.get_Range("h3", "h5"),
-            //   Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, excelworksheet.get_Range("b3", "b5"), 0, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+             // Access the first worksheet which contains the charts
+             Worksheet sheet = book.Worksheets[3];
+
+             for (int i = 0; i < sheet.Charts.Count; i++)
+             {
+                 // Access the chart
+                 Chart ch = sheet.Charts[i];
+
+                 // Print chart type
+                 Console.WriteLine(ch.Type);
+
+                 // Change the title of the charts as per their types
+                 ch.Title.Text = "Chart Type is " + ch.Type.ToString();
+
+             }
+             book.Save(templatePath + "out_excel2016Charts.xlsx");*/
+
 
         }
 
