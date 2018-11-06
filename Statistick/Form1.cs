@@ -10,8 +10,7 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using DevExpress.XtraCharts;
-using Aspose.Cells.Charts;
-using Aspose.Cells;
+
 
 namespace Statistick
 {
@@ -344,15 +343,15 @@ namespace Statistick
 
         private void Excel_Diag()
         {
-           /* excelapp = new Excel.Application();
+            excelapp = new Excel.Application();
             excelapp.Visible = true;
             excelappworkbooks = excelapp.Workbooks;
             String templatePath = System.Windows.Forms.Application.StartupPath;
             excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\Свод 1 ш.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing, 
                 Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            excelsheets = excelappworkbook.Worksheets;*/
+            excelsheets = excelappworkbook.Worksheets;
 
-            Diag_2();
+            Diag_1();
         }
 
         private void Diag_1()
@@ -360,18 +359,29 @@ namespace Statistick
             excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
             excelworksheet.Activate();
             Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
-            Excel.ChartObject chartsobjrct = chartsobjrcts.Add(10, 200, 500, 400);
-            chartsobjrct.Chart.ChartWizard(excelworksheet.get_Range("c3", "g5"),
-            Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, Type.Missing, Type.Missing, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            chartsobjrct.Activate();
-            Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
-            Excel.Series series = seriesCollection.Item(1);
-            series.Name = "1";
-        }
+
+            for (int i = 1; i <= chartsobjrcts.Count; i++)
+            {
+                Excel.Series oSeries;
+               /* oSeries = */excelworksheet.ChartObjects(i).Chart.ChartWizard(excelworksheet.get_Range("c3", "d5"));   //SeriesCollection.NewSeries;  // 
+                //oSeries.Values = excelworksheet.Range["C3:D5"];
+            }
+                /*  Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+                  Excel.ChartObject chartsobjrct = chartsobjrcts.Add(10, 200, 500, 400);
+                  chartsobjrct.Chart.ChartWizard(excelworksheet.get_Range("c3", "g5"),
+                  Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, Type.Missing, Type.Missing, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                  chartsobjrct.Activate();
+                  Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
+                  Excel.Series series = seriesCollection.Item(1);
+                  series.Name = "1";*/
+            }
 
         private void Diag_2()
         {
-            String templatePath = System.Windows.Forms.Application.StartupPath;
+           /* Aspose.Cell пока удалил
+            * 
+            * 
+            * String templatePath = System.Windows.Forms.Application.StartupPath;
             Workbook book = new Workbook(templatePath + @"\Шаблоны\Свод 1 ш.xlsx");
 
             // Access the first worksheet which contains the charts
@@ -389,7 +399,7 @@ namespace Statistick
                 ch.Title.Text = "Chart Type is " + ch.Type.ToString();
             
             }
-            book.Save(templatePath + "out_excel2016Charts.xlsx");
+            book.Save(templatePath + "out_excel2016Charts.xlsx");*/
 
             /* Excel.ChartObjects chartsobjrcts2 = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
            //  Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
