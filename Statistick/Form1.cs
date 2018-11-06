@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using DevExpress.XtraCharts;
+using Aspose.Cells.Charts;
+using Aspose.Cells;
 
 namespace Statistick
 {
@@ -205,7 +207,7 @@ namespace Statistick
             chartControl1.Titles.Clear();
             int uud = 0;
             string fi = "";
-            Series series1 = new Series("Ученики", ViewType.Bar);
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series("Ученики", DevExpress.XtraCharts.ViewType.Bar);
             foreach (DataRow row in in_statDataSet.uud.Rows)
             {
                 if (Convert.ToInt32(row["id_kontr"]) == id_kontr && Convert.ToInt32(row["id_klass"]) == id_klass && Convert.ToInt32(row["god"]) == god)
@@ -239,7 +241,7 @@ namespace Statistick
             chartControl1.Titles.Clear();
             int uud1 = 0, uud2 = 0, uud3 = 0, uud4 = 0, uud5 = 0;
 
-            Series series1 = new Series("УУД", ViewType.Bar3D);
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series("УУД", DevExpress.XtraCharts.ViewType.Bar3D);
             foreach (DataRow row in in_statDataSet.uud.Rows)
             {
                 if (Convert.ToInt32(row["id_kontr"]) == id_kontr && Convert.ToInt32(row["id_klass"]) == id_klass && Convert.ToInt32(row["god"]) == god)
@@ -342,13 +344,13 @@ namespace Statistick
 
         private void Excel_Diag()
         {
-            excelapp = new Excel.Application();
+           /* excelapp = new Excel.Application();
             excelapp.Visible = true;
             excelappworkbooks = excelapp.Workbooks;
             String templatePath = System.Windows.Forms.Application.StartupPath;
             excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\Свод 1 ш.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing, 
                 Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            excelsheets = excelappworkbook.Worksheets;
+            excelsheets = excelappworkbook.Worksheets;*/
 
             Diag_2();
         }
@@ -369,21 +371,39 @@ namespace Statistick
 
         private void Diag_2()
         {
-            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
-            excelworksheet.Activate();
-            Excel.ChartObjects chartsobjrcts2 = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
-          //  Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
-            Excel.Series oSeries;
-            //    Dim oSeries As Series
-            oSeries = excelworksheet.ChartObjects(1).SeriesCollection.NewSeries;
-            //Set oSeries = Worksheets(1).ChartObjects(1).Chart.SeriesCollection.NewSeries
-            oSeries.Values = excelworksheet.Range["H3:H6"];
-//oSeries.Values = Worksheets(1).Range("B1:B10")
+            String templatePath = System.Windows.Forms.Application.StartupPath;
+            Workbook book = new Workbook(templatePath + @"\Шаблоны\Свод 1 ш.xlsx");
+
+            // Access the first worksheet which contains the charts
+            Worksheet sheet = book.Worksheets[3];
+
+            for (int i = 0; i < sheet.Charts.Count; i++)
+            {
+                // Access the chart
+                Chart ch = sheet.Charts[i];
+
+                // Print chart type
+                Console.WriteLine(ch.Type);
+
+                // Change the title of the charts as per their types
+                ch.Title.Text = "Chart Type is " + ch.Type.ToString();
+            
+            }
+            book.Save(templatePath + "out_excel2016Charts.xlsx");
+
+            /* Excel.ChartObjects chartsobjrcts2 = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+           //  Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
+             Excel.Series oSeries;
+             //    Dim oSeries As Series
+             oSeries = excelworksheet.ChartObjects(1).SeriesCollection.NewSeries;
+             //Set oSeries = Worksheets(1).ChartObjects(1).Chart.SeriesCollection.NewSeries
+             oSeries.Values = excelworksheet.Range["H3:H6"];
+ //oSeries.Values = Worksheets(1).Range("B1:B10")*/
 
             //Excel.ChartObject chartsobjrct2 = chartsobjrcts2.Select("1");
-//chartsobjrct2.Chart.ChartWizard(excelworksheet.get_Range("h3", "h5"),
-         //   Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, excelworksheet.get_Range("b3", "b5"), 0, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            
+            //chartsobjrct2.Chart.ChartWizard(excelworksheet.get_Range("h3", "h5"),
+            //   Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, excelworksheet.get_Range("b3", "b5"), 0, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
         }
 
         private void Diad_3()
