@@ -381,14 +381,17 @@ namespace Statistick
             Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
             Excel.Chart xlChart2 = excelworksheet.ChartObjects(2).Chart;
             xlChart2.ChartWizard(excelworksheet.get_Range("c3", "g5"));
-
             Excel.SeriesCollection seriesCollection = xlChart2.SeriesCollection();
+            
+            Excel.Series series = seriesCollection.Item(1);
+            
             for (int i = 1; i <= seriesCollection.Count; i++)
             {
-                Excel.Series series = seriesCollection.Item(i);
+                series = seriesCollection.Item(i);
                 series.Name = Convert.ToString(excelworksheet.get_Range("b" + (i + 2), Type.Missing).Value2);
+                
             }
-
+            series.XValues = "Понедельник;Вторник;Среда;";
             /* Aspose.Cell пока удалил
              * 
              * 
