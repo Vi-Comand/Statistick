@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using DevExpress.XtraCharts;
-
+using Microsoft.Office.Interop.Excel;
 
 namespace Statistick
 {
@@ -229,7 +229,7 @@ namespace Statistick
             // Rotate the diagram (if necessary).
             ((XYDiagram)chartControl1.Diagram).Rotated = false;
             // Add a title to the chart (if necessary).
-            ChartTitle chartTitle1 = new ChartTitle();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             chartTitle1.Text = "Диаграмма по учащимся";
             chartControl1.Titles.Add(chartTitle1);
         }
@@ -295,7 +295,7 @@ namespace Statistick
             ((XYDiagram3D)chartControl1.Diagram).ZoomPercent = 110;
 
             // Add a title to the chart and hide the legend.
-            ChartTitle chartTitle1 = new ChartTitle();
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
 
             chartTitle1.Text = "Общая диограмма по позициям";
             chartControl1.Titles.Add(chartTitle1);
@@ -347,7 +347,7 @@ namespace Statistick
             excelapp.Visible = true;
             excelappworkbooks = excelapp.Workbooks;
             String templatePath = System.Windows.Forms.Application.StartupPath;
-            excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\Свод 1 ш.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing, 
+            excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\1.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing, 
                 Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             excelsheets = excelappworkbook.Worksheets;
 
@@ -356,6 +356,40 @@ namespace Statistick
         }
 
         private void Diag_1()
+        {
+            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(3);
+            excelworksheet.Activate();
+            Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+            Excel.Chart xlChart = excelworksheet.ChartObjects(1).Chart;
+
+           
+            Excel.Series ser = (Excel.Series)xlChart.SeriesCollection(1);
+          /*  ser.Format.Line.ForeColor.RGB = (int)Excel.XlRgbColor.rgbGreen;
+            ser.Format.Line.BackColor.RGB = (int)Excel.XlRgbColor.rgbGreen;
+            ser.Format.Shadow.ForeColor.RGB = (int)Excel.XlRgbColor.rgbGreen;
+            ser.Format.Fill.BackColor.RGB = (int)Excel.XlRgbColor.rgbGreen;*/
+
+            ser.Points(1).Interior.Color = (int)XlRgbColor.rgbRed;
+            ser.XValues = "fg";
+        }
+
+        private void Diag_2()
+        {
+
+        }
+
+        private void Diag_3()
+        {
+
+        }
+
+        private void Diag_14()
+        {
+
+        }
+
+
+                        private void Diag_98()
         {
             excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
             excelworksheet.Activate();
@@ -374,7 +408,7 @@ namespace Statistick
               series.Name = "1";*/
         }
 
-        private void Diag_2()
+        private void Diag_99()
         {
             excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
             excelworksheet.Activate();
@@ -391,7 +425,7 @@ namespace Statistick
                 series.Name = Convert.ToString(excelworksheet.get_Range("b" + (i + 2), Type.Missing).Value2);
                 
             }
-            series.XValues = "Понедельник;Вторник;Среда;";
+         //   series.XValues = "Понедельник;Вторник;Среда;";
             /* Aspose.Cell пока удалил
              * 
              * 
