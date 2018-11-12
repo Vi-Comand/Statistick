@@ -849,7 +849,7 @@ namespace Statistick
 
         
 
-
+/*
         private void Diag_98()
         {
             excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
@@ -866,7 +866,7 @@ namespace Statistick
               chartsobjrct.Activate();
               Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
               Excel.Series series = seriesCollection.Item(1);
-              series.Name = "1";*/
+              series.Name = "1";
         }
 
         private void Diag_99()
@@ -908,7 +908,7 @@ namespace Statistick
                  ch.Title.Text = "Chart Type is " + ch.Type.ToString();
 
              }
-             book.Save(templatePath + "out_excel2016Charts.xlsx");*/
+             book.Save(templatePath + "out_excel2016Charts.xlsx");
 
 
         }
@@ -1110,7 +1110,7 @@ namespace Statistick
             series = seriesCollection.Item(1);
             series.XValues = "Понедельник;Вторник;Среда;Четверг;Пятница;Суббота;Воскресенье;Итог";
         }
-
+    */
         private void metroTile2_Click(object sender, EventArgs e)
         {
             Excel_Diag_tab1();
