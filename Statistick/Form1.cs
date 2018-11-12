@@ -341,7 +341,7 @@ namespace Statistick
         private Excel.Range excelcells;
         private Excel.Window excelWindow;
 
-        private void Excel_Diag()
+        private void Excel_Diag_tab1()
         {
             excelapp = new Excel.Application();
             excelapp.Visible = true;
@@ -351,195 +351,506 @@ namespace Statistick
                 Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             excelsheets = excelappworkbook.Worksheets;
 
-         //   Diag_1();
-            Diag_2();
+        
+            Diad_tabl_1();
         }
 
-        private void Diag_1()
+        private void Excel_Diag_tab2()
+        {
+            excelapp = new Excel.Application();
+            excelapp.Visible = true;
+            excelappworkbooks = excelapp.Workbooks;
+            String templatePath = System.Windows.Forms.Application.StartupPath;
+            excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\2.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            excelsheets = excelappworkbook.Worksheets;
+
+
+            Diad_tabl_2();
+        }
+
+        string uud = "";
+        private void Coloring_Diag_1(string uud)
         {
             excelworksheet = (Excel.Worksheet)excelsheets.get_Item(3);
             excelworksheet.Activate();
             Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
             Excel.Chart xlChart = excelworksheet.ChartObjects(1).Chart;
-
-           
             Excel.Series ser = (Excel.Series)xlChart.SeriesCollection(1);
-          /*  ser.Format.Line.ForeColor.RGB = (int)Excel.XlRgbColor.rgbGreen;
-            ser.Format.Line.BackColor.RGB = (int)Excel.XlRgbColor.rgbGreen;
-            ser.Format.Shadow.ForeColor.RGB = (int)Excel.XlRgbColor.rgbGreen;
-            ser.Format.Fill.BackColor.RGB = (int)Excel.XlRgbColor.rgbGreen;*/
 
-            ser.Points(1).Interior.Color = (int)XlRgbColor.rgbRed;
-        //    ser.XValues = "fg";
-        }
-
-        private void Diag_2()
-        {
-            string _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
-            string _klass = ComboBox_Klass_Stat.SelectedValue.ToString();
-            string _god = ComboBox_God_Stat.SelectedItem.ToString();
-
-
-            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
-
-            //MySqlDataReader datareader = command.ExecuteReader();
-            int i = 2;
-            string uud = "";
-            foreach (DataRow row in in_statDataSet.uud.Rows)
-            {
-                foreach (DataRow roww in in_statDataSet.user.Rows)
-                    {
-                        if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
-                        {
-                            excelworksheet.Cells[i, 2] = roww["fi"].ToString();
-                        }
-                    }
-                if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god))
-                {
-                    uud = "";
-                    if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
-                        uud += "1";
-                    if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
-                        uud += "2";
-                    if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
-                        uud += "3";
-                    switch (uud)
-                    {
-                        case "":
-                            excelworksheet.Cells[i, 3] = row["uud11"];
-                            excelworksheet.Cells[i, 4] = row["uud12"];
-                            excelworksheet.Cells[i, 5] = row["uud13"];
-                            excelworksheet.Cells[i, 6] = row["uud21"];
-                            excelworksheet.Cells[i, 7] = row["uud22"];
-                            excelworksheet.Cells[i, 8] = row["uud23"];
-                            excelworksheet.Cells[i, 9] = row["uud31"];
-                            excelworksheet.Cells[i, 10] = row["uud32"];
-                            excelworksheet.Cells[i, 11] = row["uud33"];
-                            excelworksheet.Cells[i, 12] = row["uud4"];
-                            excelworksheet.Cells[i, 13] = row["uud5"];
-                            i++;
-                            break;
-                        case "1":
-                            excelworksheet.Cells[i, 3] = row["uud11"];
-                            excelworksheet.Cells[i, 6] = row["uud21"];
-                            excelworksheet.Cells[i, 7] = row["uud22"];
-                            excelworksheet.Cells[i, 8] = row["uud23"];
-                            excelworksheet.Cells[i, 9] = row["uud31"];
-                            excelworksheet.Cells[i, 10] = row["uud32"];
-                            excelworksheet.Cells[i, 11] = row["uud33"];
-                            excelworksheet.Cells[i, 12] = row["uud4"];
-                            excelworksheet.Cells[i, 13] = row["uud5"];
-                            i++;
-                            break;
-                        case "2":
-                            excelworksheet.Cells[i, 3] = row["uud11"];
-                            excelworksheet.Cells[i, 4] = row["uud12"];
-                            excelworksheet.Cells[i, 5] = row["uud13"];
-                            excelworksheet.Cells[i, 6] = row["uud21"];
-                            excelworksheet.Cells[i, 9] = row["uud31"];
-                            excelworksheet.Cells[i, 10] = row["uud32"];
-                            excelworksheet.Cells[i, 11] = row["uud33"];
-                            excelworksheet.Cells[i, 12] = row["uud4"];
-                            excelworksheet.Cells[i, 13] = row["uud5"];
-                            i++;
-                            break;
-                        case "3":
-                            excelworksheet.Cells[i, 3] = row["uud11"];
-                            excelworksheet.Cells[i, 4] = row["uud12"];
-                            excelworksheet.Cells[i, 5] = row["uud13"];
-                            excelworksheet.Cells[i, 6] = row["uud21"];
-                            excelworksheet.Cells[i, 7] = row["uud22"];
-                            excelworksheet.Cells[i, 8] = row["uud23"];
-                            excelworksheet.Cells[i, 9] = row["uud31"];
-                            excelworksheet.Cells[i, 12] = row["uud4"];
-                            excelworksheet.Cells[i, 13] = row["uud5"];
-                            i++;
-                            break;
-                        case "12":
-                            excelworksheet.Cells[i, 3] = row["uud11"];
-                            excelworksheet.Cells[i, 6] = row["uud21"];
-                            excelworksheet.Cells[i, 9] = row["uud31"];
-                            excelworksheet.Cells[i, 10] = row["uud32"];
-                            excelworksheet.Cells[i, 11] = row["uud33"];
-                            excelworksheet.Cells[i, 12] = row["uud4"];
-                            excelworksheet.Cells[i, 13] = row["uud5"];
-                            i++;
-                            break;
-                        case "13":
-                            excelworksheet.Cells[i, 3] = row["uud11"];
-                            excelworksheet.Cells[i, 6] = row["uud21"];
-                            excelworksheet.Cells[i, 7] = row["uud22"];
-                            excelworksheet.Cells[i, 8] = row["uud23"];
-                            excelworksheet.Cells[i, 9] = row["uud31"];
-                            excelworksheet.Cells[i, 12] = row["uud4"];
-                            excelworksheet.Cells[i, 13] = row["uud5"];
-                            i++;
-                            break;
-                        case "123":
-                            excelworksheet.Cells[i, 3] = row["uud11"];
-                            excelworksheet.Cells[i, 6] = row["uud21"];
-                            excelworksheet.Cells[i, 9] = row["uud31"];
-                            excelworksheet.Cells[i, 12] = row["uud4"];
-                            excelworksheet.Cells[i, 13] = row["uud5"];
-                            i++;
-                            break;
-                        case "23":
-                            excelworksheet.Cells[i, 3] = row["uud11"];
-                            excelworksheet.Cells[i, 4] = row["uud12"];
-                            excelworksheet.Cells[i, 5] = row["uud13"];
-                            excelworksheet.Cells[i, 6] = row["uud21"];
-                            excelworksheet.Cells[i, 9] = row["uud31"];
-                            excelworksheet.Cells[i, 12] = row["uud4"];
-                            excelworksheet.Cells[i, 13] = row["uud5"];
-                            i++;
-                            break;
-                    }
-                            
-
-
-                    
-                }
-            }
             switch (uud)
             {
-                
                 case "1":
-                    excelworksheet.Columns[4].Delete();
-                    excelworksheet.Columns[5].Delete();
+                    ser.Points(1).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(2).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(3).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(4).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(5).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(6).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(7).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(8).Interior.Color = (int)XlRgbColor.rgbBlue;
+                    ser.Points(9).Interior.Color = (int)XlRgbColor.rgbPurple;
                     break;
                 case "2":
+                    ser.Points(1).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(2).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(3).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(4).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(5).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(6).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(7).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(8).Interior.Color = (int)XlRgbColor.rgbBlue;
+                    ser.Points(9).Interior.Color = (int)XlRgbColor.rgbPurple;
                     break;
                 case "3":
+                    ser.Points(1).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(2).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(3).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(4).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(5).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(6).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(7).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(8).Interior.Color = (int)XlRgbColor.rgbBlue;
+                    ser.Points(9).Interior.Color = (int)XlRgbColor.rgbPurple;
                     break;
                 case "12":
+                    ser.Points(1).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(2).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(3).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(4).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(5).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(6).Interior.Color = (int)XlRgbColor.rgbBlue;
+                    ser.Points(7).Interior.Color = (int)XlRgbColor.rgbPurple;
                     break;
                 case "13":
+                    ser.Points(1).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(2).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(3).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(4).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(5).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(6).Interior.Color = (int)XlRgbColor.rgbBlue;
+                    ser.Points(7).Interior.Color = (int)XlRgbColor.rgbPurple;
                     break;
                 case "123":
-                    excelworksheet.Columns[4].Delete();
-                    excelworksheet.Columns[4].Delete();
-                    excelworksheet.Columns[5].Delete();
-                    excelworksheet.Columns[5].Delete();
-                    excelworksheet.Columns[6].Delete();
-                    excelworksheet.Columns[6].Delete();
+                    ser.Points(1).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(2).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(3).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(4).Interior.Color = (int)XlRgbColor.rgbBlue;
+                    ser.Points(5).Interior.Color = (int)XlRgbColor.rgbPurple;
                     break;
                 case "23":
+                    ser.Points(1).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(2).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(3).Interior.Color = (int)XlRgbColor.rgbGreen;
+                    ser.Points(4).Interior.Color = (int)XlRgbColor.rgbDarkBlue;
+                    ser.Points(5).Interior.Color = (int)XlRgbColor.rgbOrange;
+                    ser.Points(6).Interior.Color = (int)XlRgbColor.rgbBlue;
+                    ser.Points(7).Interior.Color = (int)XlRgbColor.rgbPurple;
                     break;
             }
+          
+       
         }
 
-        private void Diag_3()
+        private void Diad_tabl_1()
         {
+            int i = 2;
+            try
+            {
+                string _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
+                string _klass = ComboBox_Klass_Stat.SelectedValue.ToString();
+                string _god = ComboBox_God_Stat.SelectedItem.ToString();
+
+                
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+
+                //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
+                foreach (DataRow row in in_statDataSet.uud.Rows)
+                {
+                    
+                    if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god))
+                    {
+                        foreach (DataRow roww in in_statDataSet.user.Rows)
+                        {
+                            if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                            {
+                                excelworksheet.Cells[i, 2] = roww["fi"].ToString();
+                            }
+                        }
+                        
+                        uud = "";
+                        if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
+                            uud += "1";
+                        if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
+                            uud += "2";
+                        if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
+                            uud += "3";
+                        switch (uud)
+                        {
+                            case "":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud12"];
+                                excelworksheet.Cells[i, 5] = row["uud13"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 7] = row["uud22"];
+                                excelworksheet.Cells[i, 8] = row["uud23"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 10] = row["uud32"];
+                                excelworksheet.Cells[i, 11] = row["uud33"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "1":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 7] = row["uud22"];
+                                excelworksheet.Cells[i, 8] = row["uud23"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 10] = row["uud32"];
+                                excelworksheet.Cells[i, 11] = row["uud33"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "2":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud12"];
+                                excelworksheet.Cells[i, 5] = row["uud13"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 10] = row["uud32"];
+                                excelworksheet.Cells[i, 11] = row["uud33"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "3":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud12"];
+                                excelworksheet.Cells[i, 5] = row["uud13"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 7] = row["uud22"];
+                                excelworksheet.Cells[i, 8] = row["uud23"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "12":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 10] = row["uud32"];
+                                excelworksheet.Cells[i, 11] = row["uud33"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "13":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 7] = row["uud22"];
+                                excelworksheet.Cells[i, 8] = row["uud23"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "123":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "23":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud12"];
+                                excelworksheet.Cells[i, 5] = row["uud13"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                        }
+                    }
+
+                }
+                //-------------------------------------------------------удаление столбцов------------------------------------------------------------------
+                switch (uud)
+                {
+                    case "1":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "2":
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "3":
+                        excelworksheet.Columns[10].Delete();
+                        excelworksheet.Columns[10].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "12":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "13":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "123":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[6].Delete();
+                        excelworksheet.Columns[6].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "23":
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[8].Delete();
+                        excelworksheet.Columns[8].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                }
+                //----------------------------------------------удаление строк---------------------------------------------------------------------------
+                for(int j=i;j<111;j++)
+                {
+                    excelworksheet.Rows[i].Delete();
+                }
+            }
+            catch (FormatException fEx)
+            {
+                MessageBox.Show(fEx.ToString());
+            }
+
+            catch (OverflowException oEx)
+            {
+                MessageBox.Show(oEx.ToString());
+            }
+            catch (NullReferenceException nEx)
+            {
+                MessageBox.Show("Вы не заполнили один из комбобокс");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if(i==2)
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+                }
+            }
 
         }
 
-        private void Diag_14()
+        private void Diad_tabl_2()
         {
+            int i = 2;
+            try
+            {
+                string _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
+                string _klass = ComboBox_Klass_Stat.SelectedValue.ToString();
+                string _god = ComboBox_God_Stat.SelectedItem.ToString();
+
+
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+
+                //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
+                foreach (DataRow row in in_statDataSet.uud.Rows)
+                {
+
+                    if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god))
+                    {
+                        foreach (DataRow roww in in_statDataSet.user.Rows)
+                        {
+                            if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                            {
+                                excelworksheet.Cells[i, 2] = roww["fi"].ToString();
+                            }
+                        }
+
+                        uud = "";
+                        if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
+                            uud += "1";
+                        if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
+                            uud += "2";
+                        if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
+                            uud += "3";
+                        switch (uud)
+                        {
+                            case "":
+                                excelworksheet.Cells[i, 3] = (Convert.ToInt16(row["uud11"])+ Convert.ToInt16(row["uud12"])+ Convert.ToInt16(row["uud13"])>1) ? 1 : 0;
+                                excelworksheet.Cells[i, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "1":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "2":
+                                excelworksheet.Cells[i, 4] = row["uud21"];
+                                excelworksheet.Cells[i, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "3":
+                                excelworksheet.Cells[i, 5] = row["uud31"];
+                                excelworksheet.Cells[i, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "12":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud21"];
+                                excelworksheet.Cells[i, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "13":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 5] = row["uud31"];
+                                excelworksheet.Cells[i, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "123":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud21"];
+                                excelworksheet.Cells[i, 5] = row["uud31"];
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "23":
+                                excelworksheet.Cells[i, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 4] = row["uud21"];
+                                excelworksheet.Cells[i, 5] = row["uud31"];
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                        }
+                    }
+
+                }
+                /*-------------------------------------------------------удаление столбцов------------------------------------------------------------------
+                switch (uud)
+                {
+                    case "1":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "2":
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "3":
+                        excelworksheet.Columns[10].Delete();
+                        excelworksheet.Columns[10].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "12":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "13":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "123":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[6].Delete();
+                        excelworksheet.Columns[6].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "23":
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[8].Delete();
+                        excelworksheet.Columns[8].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                }
+                */
+                //----------------------------------------------удаление строк---------------------------------------------------------------------------
+                for (int j = i; j < 111; j++)
+                {
+                    excelworksheet.Rows[i].Delete();
+                }
+            }
+            catch (FormatException fEx)
+            {
+                MessageBox.Show(fEx.ToString());
+            }
+
+            catch (OverflowException oEx)
+            {
+                MessageBox.Show(oEx.ToString());
+            }
+            catch (NullReferenceException nEx)
+            {
+                MessageBox.Show("Вы не заполнили один из комбобокс");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if (i == 2)
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+                }
+            }
 
         }
 
+        
 
-                        private void Diag_98()
+
+        private void Diag_98()
         {
             excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
             excelworksheet.Activate();
@@ -802,9 +1113,8 @@ namespace Statistick
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
-            
-
-            Excel_Diag();
+            Excel_Diag_tab1();
+            Excel_Diag_tab2();
         }
 
 
