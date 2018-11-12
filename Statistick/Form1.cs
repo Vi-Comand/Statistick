@@ -351,7 +351,7 @@ namespace Statistick
                 Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             excelsheets = excelappworkbook.Worksheets;
 
-            Diag_1();
+         //   Diag_1();
             Diag_2();
         }
 
@@ -370,12 +370,162 @@ namespace Statistick
             ser.Format.Fill.BackColor.RGB = (int)Excel.XlRgbColor.rgbGreen;*/
 
             ser.Points(1).Interior.Color = (int)XlRgbColor.rgbRed;
-            ser.XValues = "fg";
+        //    ser.XValues = "fg";
         }
 
         private void Diag_2()
         {
+            string _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
+            string _klass = ComboBox_Klass_Stat.SelectedValue.ToString();
+            string _god = ComboBox_God_Stat.SelectedItem.ToString();
 
+
+            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+
+            //MySqlDataReader datareader = command.ExecuteReader();
+            int i = 2;
+            string uud = "";
+            foreach (DataRow row in in_statDataSet.uud.Rows)
+            {
+                foreach (DataRow roww in in_statDataSet.user.Rows)
+                    {
+                        if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                        {
+                            excelworksheet.Cells[i, 2] = roww["fi"].ToString();
+                        }
+                    }
+                if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god))
+                {
+                    uud = "";
+                    if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
+                        uud += "1";
+                    if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
+                        uud += "2";
+                    if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
+                        uud += "3";
+                    switch (uud)
+                    {
+                        case "":
+                            excelworksheet.Cells[i, 3] = row["uud11"];
+                            excelworksheet.Cells[i, 4] = row["uud12"];
+                            excelworksheet.Cells[i, 5] = row["uud13"];
+                            excelworksheet.Cells[i, 6] = row["uud21"];
+                            excelworksheet.Cells[i, 7] = row["uud22"];
+                            excelworksheet.Cells[i, 8] = row["uud23"];
+                            excelworksheet.Cells[i, 9] = row["uud31"];
+                            excelworksheet.Cells[i, 10] = row["uud32"];
+                            excelworksheet.Cells[i, 11] = row["uud33"];
+                            excelworksheet.Cells[i, 12] = row["uud4"];
+                            excelworksheet.Cells[i, 13] = row["uud5"];
+                            i++;
+                            break;
+                        case "1":
+                            excelworksheet.Cells[i, 3] = row["uud11"];
+                            excelworksheet.Cells[i, 6] = row["uud21"];
+                            excelworksheet.Cells[i, 7] = row["uud22"];
+                            excelworksheet.Cells[i, 8] = row["uud23"];
+                            excelworksheet.Cells[i, 9] = row["uud31"];
+                            excelworksheet.Cells[i, 10] = row["uud32"];
+                            excelworksheet.Cells[i, 11] = row["uud33"];
+                            excelworksheet.Cells[i, 12] = row["uud4"];
+                            excelworksheet.Cells[i, 13] = row["uud5"];
+                            i++;
+                            break;
+                        case "2":
+                            excelworksheet.Cells[i, 3] = row["uud11"];
+                            excelworksheet.Cells[i, 4] = row["uud12"];
+                            excelworksheet.Cells[i, 5] = row["uud13"];
+                            excelworksheet.Cells[i, 6] = row["uud21"];
+                            excelworksheet.Cells[i, 9] = row["uud31"];
+                            excelworksheet.Cells[i, 10] = row["uud32"];
+                            excelworksheet.Cells[i, 11] = row["uud33"];
+                            excelworksheet.Cells[i, 12] = row["uud4"];
+                            excelworksheet.Cells[i, 13] = row["uud5"];
+                            i++;
+                            break;
+                        case "3":
+                            excelworksheet.Cells[i, 3] = row["uud11"];
+                            excelworksheet.Cells[i, 4] = row["uud12"];
+                            excelworksheet.Cells[i, 5] = row["uud13"];
+                            excelworksheet.Cells[i, 6] = row["uud21"];
+                            excelworksheet.Cells[i, 7] = row["uud22"];
+                            excelworksheet.Cells[i, 8] = row["uud23"];
+                            excelworksheet.Cells[i, 9] = row["uud31"];
+                            excelworksheet.Cells[i, 12] = row["uud4"];
+                            excelworksheet.Cells[i, 13] = row["uud5"];
+                            i++;
+                            break;
+                        case "12":
+                            excelworksheet.Cells[i, 3] = row["uud11"];
+                            excelworksheet.Cells[i, 6] = row["uud21"];
+                            excelworksheet.Cells[i, 9] = row["uud31"];
+                            excelworksheet.Cells[i, 10] = row["uud32"];
+                            excelworksheet.Cells[i, 11] = row["uud33"];
+                            excelworksheet.Cells[i, 12] = row["uud4"];
+                            excelworksheet.Cells[i, 13] = row["uud5"];
+                            i++;
+                            break;
+                        case "13":
+                            excelworksheet.Cells[i, 3] = row["uud11"];
+                            excelworksheet.Cells[i, 6] = row["uud21"];
+                            excelworksheet.Cells[i, 7] = row["uud22"];
+                            excelworksheet.Cells[i, 8] = row["uud23"];
+                            excelworksheet.Cells[i, 9] = row["uud31"];
+                            excelworksheet.Cells[i, 12] = row["uud4"];
+                            excelworksheet.Cells[i, 13] = row["uud5"];
+                            i++;
+                            break;
+                        case "123":
+                            excelworksheet.Cells[i, 3] = row["uud11"];
+                            excelworksheet.Cells[i, 6] = row["uud21"];
+                            excelworksheet.Cells[i, 9] = row["uud31"];
+                            excelworksheet.Cells[i, 12] = row["uud4"];
+                            excelworksheet.Cells[i, 13] = row["uud5"];
+                            i++;
+                            break;
+                        case "23":
+                            excelworksheet.Cells[i, 3] = row["uud11"];
+                            excelworksheet.Cells[i, 4] = row["uud12"];
+                            excelworksheet.Cells[i, 5] = row["uud13"];
+                            excelworksheet.Cells[i, 6] = row["uud21"];
+                            excelworksheet.Cells[i, 9] = row["uud31"];
+                            excelworksheet.Cells[i, 12] = row["uud4"];
+                            excelworksheet.Cells[i, 13] = row["uud5"];
+                            i++;
+                            break;
+                    }
+                            
+
+
+                    
+                }
+            }
+            switch (uud)
+            {
+                
+                case "1":
+                    excelworksheet.Columns[4].Delete();
+                    excelworksheet.Columns[5].Delete();
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                case "12":
+                    break;
+                case "13":
+                    break;
+                case "123":
+                    excelworksheet.Columns[4].Delete();
+                    excelworksheet.Columns[4].Delete();
+                    excelworksheet.Columns[5].Delete();
+                    excelworksheet.Columns[5].Delete();
+                    excelworksheet.Columns[6].Delete();
+                    excelworksheet.Columns[6].Delete();
+                    break;
+                case "23":
+                    break;
+            }
         }
 
         private void Diag_3()
@@ -652,6 +802,8 @@ namespace Statistick
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
+            
+
             Excel_Diag();
         }
 
