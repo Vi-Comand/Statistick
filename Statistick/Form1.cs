@@ -10,8 +10,10 @@ using System.Windows.Forms;
 using DevExpress.Charts.Native;
 using MetroFramework.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+
 using DevExpress.XtraCharts;
 using Microsoft.Office.Interop.Excel;
+
 using System.Text.RegularExpressions;
 
 namespace Statistick
@@ -327,7 +329,7 @@ namespace Statistick
                     }
                     MyRows++;
                     row++;
-                
+
                 }
                 excelApp.Quit();
             }
@@ -368,6 +370,7 @@ namespace Statistick
 
             Grid_Load_UUD.ClearSelection();
             return kol;
+//<<<<<<< HEAD
         }
 
         private void Update_Combobox_Kontrol_Load()
@@ -395,6 +398,10 @@ namespace Statistick
 
         }
 
+//=======
+       
+
+//>>>>>>> 6e168095ff9b9a19d30e617a0b07114c2a31c458
 
         private void check_uud1_CheckedChanged(object sender, EventArgs e)
         {
@@ -470,6 +477,7 @@ namespace Statistick
             }
         }
 
+//<<<<<<< HEAD
       
 
 
@@ -1394,18 +1402,13 @@ namespace Statistick
 
             Update_Combobox_Kontrol_Load();
 
-        private void ComboBox_God_Load_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Update_Combobox_Kontrol_Load();
-
-        }
-
-        private void metroTile1_Click(object sender, EventArgs e)
-        {
-          
-            MessageBox.Show(Est_v_BD().ToString());
         }
 
       
+//=======
+       
+
+        
+//>>>>>>> 6e168095ff9b9a19d30e617a0b07114c2a31c458
     }
 }
