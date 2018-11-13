@@ -479,6 +479,673 @@ namespace Statistick
           
         }
 
+        private void Diad_tabl_1()
+        {
+            int i = 2;
+            try
+            {
+                string _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
+                string _klass = ComboBox_Klass_Stat.SelectedValue.ToString();
+                string _god = ComboBox_God_Stat.SelectedItem.ToString();
+
+                
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+
+                //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
+                foreach (DataRow row in in_statDataSet.uud.Rows)
+                {
+                    
+                    if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god))
+                    {
+                        foreach (DataRow roww in in_statDataSet.user.Rows)
+                        {
+                            if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                            {
+                                excelworksheet.Cells[i, 2] = roww["fi"].ToString();
+                            }
+                        }
+                        
+                        uud = "";
+                        if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
+                            uud += "1";
+                        if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
+                            uud += "2";
+                        if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
+                            uud += "3";
+                        switch (uud)
+                        {
+                            case "":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud12"];
+                                excelworksheet.Cells[i, 5] = row["uud13"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 7] = row["uud22"];
+                                excelworksheet.Cells[i, 8] = row["uud23"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 10] = row["uud32"];
+                                excelworksheet.Cells[i, 11] = row["uud33"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "1":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 7] = row["uud22"];
+                                excelworksheet.Cells[i, 8] = row["uud23"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 10] = row["uud32"];
+                                excelworksheet.Cells[i, 11] = row["uud33"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "2":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud12"];
+                                excelworksheet.Cells[i, 5] = row["uud13"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 10] = row["uud32"];
+                                excelworksheet.Cells[i, 11] = row["uud33"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "3":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud12"];
+                                excelworksheet.Cells[i, 5] = row["uud13"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 7] = row["uud22"];
+                                excelworksheet.Cells[i, 8] = row["uud23"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "12":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 10] = row["uud32"];
+                                excelworksheet.Cells[i, 11] = row["uud33"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "13":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 7] = row["uud22"];
+                                excelworksheet.Cells[i, 8] = row["uud23"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "123":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                            case "23":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud12"];
+                                excelworksheet.Cells[i, 5] = row["uud13"];
+                                excelworksheet.Cells[i, 6] = row["uud21"];
+                                excelworksheet.Cells[i, 9] = row["uud31"];
+                                excelworksheet.Cells[i, 12] = row["uud4"];
+                                excelworksheet.Cells[i, 13] = row["uud5"];
+                                i++;
+                                break;
+                        }
+                    }
+
+                }
+                //-------------------------------------------------------удаление столбцов------------------------------------------------------------------
+                switch (uud)
+                {
+                    case "1":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "2":
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "3":
+                        excelworksheet.Columns[10].Delete();
+                        excelworksheet.Columns[10].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "12":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "13":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "123":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[6].Delete();
+                        excelworksheet.Columns[6].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "23":
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[8].Delete();
+                        excelworksheet.Columns[8].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                }
+                //----------------------------------------------удаление строк---------------------------------------------------------------------------
+                for(int j=i;j<111;j++)
+                {
+                    excelworksheet.Rows[i].Delete();
+                }
+            }
+            catch (FormatException fEx)
+            {
+                MessageBox.Show(fEx.ToString());
+            }
+
+            catch (OverflowException oEx)
+            {
+                MessageBox.Show(oEx.ToString());
+            }
+            catch (NullReferenceException nEx)
+            {
+                MessageBox.Show("Вы не заполнили один из комбобокс");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if(i==2)
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+                }
+            }
+
+        }
+
+        private void Diad_tabl_2()
+        {
+            int i = 2;
+            try
+            {
+                string _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
+                string _klass = ComboBox_Klass_Stat.SelectedValue.ToString();
+                string _god = ComboBox_God_Stat.SelectedItem.ToString();
+
+
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+
+                //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
+                foreach (DataRow row in in_statDataSet.uud.Rows)
+                {
+
+                    if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god))
+                    {
+                        foreach (DataRow roww in in_statDataSet.user.Rows)
+                        {
+                            if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                            {
+                                excelworksheet.Cells[i, 2] = roww["fi"].ToString();
+                            }
+                        }
+
+                        uud = "";
+                        if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
+                            uud += "1";
+                        if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
+                            uud += "2";
+                        if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
+                            uud += "3";
+                        switch (uud)
+                        {
+                            case "":
+                                excelworksheet.Cells[i, 3] = (Convert.ToInt16(row["uud11"])+ Convert.ToInt16(row["uud12"])+ Convert.ToInt16(row["uud13"])>1) ? 1 : 0;
+                                excelworksheet.Cells[i, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "1":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "2":
+                                excelworksheet.Cells[i, 4] = row["uud21"];
+                                excelworksheet.Cells[i, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "3":
+                                excelworksheet.Cells[i, 5] = row["uud31"];
+                                excelworksheet.Cells[i, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "12":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud21"];
+                                excelworksheet.Cells[i, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "13":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 5] = row["uud31"];
+                                excelworksheet.Cells[i, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "123":
+                                excelworksheet.Cells[i, 3] = row["uud11"];
+                                excelworksheet.Cells[i, 4] = row["uud21"];
+                                excelworksheet.Cells[i, 5] = row["uud31"];
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                            case "23":
+                                excelworksheet.Cells[i, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                                excelworksheet.Cells[i, 4] = row["uud21"];
+                                excelworksheet.Cells[i, 5] = row["uud31"];
+                                excelworksheet.Cells[i, 6] = row["uud4"];
+                                excelworksheet.Cells[i, 7] = row["uud5"];
+                                i++;
+                                break;
+                        }
+                    }
+
+                }
+                /*-------------------------------------------------------удаление столбцов------------------------------------------------------------------
+                switch (uud)
+                {
+                    case "1":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "2":
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "3":
+                        excelworksheet.Columns[10].Delete();
+                        excelworksheet.Columns[10].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "12":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "13":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "123":
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[4].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[5].Delete();
+                        excelworksheet.Columns[6].Delete();
+                        excelworksheet.Columns[6].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                    case "23":
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[7].Delete();
+                        excelworksheet.Columns[8].Delete();
+                        excelworksheet.Columns[8].Delete();
+                        Coloring_Diag_1(uud);
+                        break;
+                }
+                */
+                //----------------------------------------------удаление строк---------------------------------------------------------------------------
+                for (int j = i; j < 111; j++)
+                {
+                    excelworksheet.Rows[i].Delete();
+                }
+            }
+            catch (FormatException fEx)
+            {
+                MessageBox.Show(fEx.ToString());
+            }
+
+            catch (OverflowException oEx)
+            {
+                MessageBox.Show(oEx.ToString());
+            }
+            catch (NullReferenceException nEx)
+            {
+                MessageBox.Show("Вы не заполнили один из комбобокс");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if (i == 2)
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+                }
+            }
+
+        }
+
+        
+
+/*
+        private void Diag_98()
+        {
+            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
+            excelworksheet.Activate();
+            Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+            Excel.Chart xlChart = excelworksheet.ChartObjects(1).Chart;
+            xlChart.ChartWizard(excelworksheet.get_Range("h2", "h5"));
+            
+            //  excelworksheet.ChartObjects(1).Chart.Ledend(excelworksheet.get_Range("h2"));
+            /*  Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+              Excel.ChartObject chartsobjrct = chartsobjrcts.Add(10, 200, 500, 400);
+              chartsobjrct.Chart.ChartWizard(excelworksheet.get_Range("c3", "g5"),
+              Excel.XlChartType.xlColumnClustered, 2, Excel.XlRowCol.xlRows, Type.Missing, Type.Missing, true, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+              chartsobjrct.Activate();
+              Excel.SeriesCollection seriesCollection = (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
+              Excel.Series series = seriesCollection.Item(1);
+              series.Name = "1";
+        }
+
+        private void Diag_99()
+        {
+            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
+            excelworksheet.Activate();
+            Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+            Excel.Chart xlChart2 = excelworksheet.ChartObjects(2).Chart;
+            xlChart2.ChartWizard(excelworksheet.get_Range("c3", "g5"));
+            Excel.SeriesCollection seriesCollection = xlChart2.SeriesCollection();
+            
+            Excel.Series series = seriesCollection.Item(1);
+            
+            for (int i = 1; i <= seriesCollection.Count; i++)
+            {
+                series = seriesCollection.Item(i);
+                series.Name = Convert.ToString(excelworksheet.get_Range("b" + (i + 2), Type.Missing).Value2);
+                
+            }
+         //   series.XValues = "Понедельник;Вторник;Среда;";
+            /* Aspose.Cell пока удалил
+             * 
+             * 
+             * String templatePath = System.Windows.Forms.Application.StartupPath;
+             Workbook book = new Workbook(templatePath + @"\Шаблоны\Свод 1 ш.xlsx");
+
+             // Access the first worksheet which contains the charts
+             Worksheet sheet = book.Worksheets[3];
+
+             for (int i = 0; i < sheet.Charts.Count; i++)
+             {
+                 // Access the chart
+                 Chart ch = sheet.Charts[i];
+
+                 // Print chart type
+                 Console.WriteLine(ch.Type);
+
+                 // Change the title of the charts as per their types
+                 ch.Title.Text = "Chart Type is " + ch.Type.ToString();
+
+             }
+             book.Save(templatePath + "out_excel2016Charts.xlsx");
+
+
+        }
+
+        private void Diad_3()
+        {
+            int i=0;
+            switch (i)
+            {
+                case 1:
+                    excelapp = new Excel.Application();
+                    excelapp.Visible = true;
+                    //Получаем набор объектов Workbook (массив ссылок на созданные книги)
+                    excelappworkbooks = excelapp.Workbooks;
+                    //Открываем книгу и получаем на нее ссылку
+                    //Помним, что файл был запаралирован
+                    excelappworkbook = excelapp.Workbooks.Open(@"C:\a.xls", Type.Missing,
+                                                             Type.Missing, Type.Missing,
+                     "WWWWW", "WWWWW", Type.Missing, Type.Missing, Type.Missing,
+                      Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                      Type.Missing, Type.Missing);
+                    //Если бы мы открыли несколько книг, то получили ссылку так
+                    //excelappworkbook=excelappworkbooks[1];
+                    //Получаем массив ссылок на листы выбранной книги
+                    excelsheets = excelappworkbook.Worksheets;
+                    //Получаем ссылку на лист 1
+                    excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+                    //Выделяем ячейки с данными  в таблице
+                    excelcells = excelworksheet.get_Range("D8", "K10");
+                    //И выбираем их
+                    excelcells.Select();
+                    //Создаем объект Excel.Chart диаграмму по умолчанию
+                    Excel.Chart excelchart = (Excel.Chart)excelapp.Charts.Add(Type.Missing,
+                     Type.Missing, Type.Missing, Type.Missing);
+                    //Выбираем диграмму - отображаем лист с диаграммой
+                    excelchart.Activate();
+                    excelchart.Select(Type.Missing);
+                    //Изменяем тип диаграммы
+                    excelapp.ActiveChart.ChartType = Excel.XlChartType.xlConeCol;
+                    //Создаем надпись - Заглавие диаграммы
+                    excelapp.ActiveChart.HasTitle = true;
+                    excelapp.ActiveChart.ChartTitle.Text
+                       = "Продажи фирмы Рога и Копыта за неделю";
+                    //Меняем шрифт, можно поменять и другие параметры шрифта
+                    excelapp.ActiveChart.ChartTitle.Font.Size = 14;
+                    excelapp.ActiveChart.ChartTitle.Font.Color = 255;
+                    //Обрамление для надписи c тенями
+                    excelapp.ActiveChart.ChartTitle.Shadow = true;
+                    excelapp.ActiveChart.ChartTitle.Border.LineStyle
+                         = Excel.Constants.xlSolid;
+                    //Даем названия осей
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlCategory,
+                        Excel.XlAxisGroup.xlPrimary)).HasTitle = true;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlCategory,
+                        Excel.XlAxisGroup.xlPrimary)).AxisTitle.Text = "День недели";
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlSeriesAxis,
+                        Excel.XlAxisGroup.xlPrimary)).HasTitle = false;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlValue,
+                        Excel.XlAxisGroup.xlPrimary)).HasTitle = true;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlValue,
+                        Excel.XlAxisGroup.xlPrimary)).AxisTitle.Text = "Рогов/Копыт";
+                    //Координатная сетка - оставляем только крупную сетку
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlCategory,
+                       Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlCategory,
+                      Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlSeriesAxis,
+                      Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlSeriesAxis,
+                      Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlValue,
+                      Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+                    ((Excel.Axis)excelapp.ActiveChart.Axes(Excel.XlAxisType.xlValue,
+                      Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+                    //Будем отображать легенду и уберем строки, 
+                    //которые отображают пустые строки таблицы
+                    excelapp.ActiveChart.HasLegend = true;
+                    //Расположение легенды
+                    excelapp.ActiveChart.Legend.Position
+                       = Excel.XlLegendPosition.xlLegendPositionLeft;
+                    //Можно изменить шрифт легенды и другие параметры 
+                    ((Excel.LegendEntry)excelapp.ActiveChart.Legend.LegendEntries(1)).Font.Size = 12;
+                    ((Excel.LegendEntry)excelapp.ActiveChart.Legend.LegendEntries(3)).Font.Size = 12;
+                    //Легенда тесно связана с подписями на осях - изменяем надписи
+                    // - меняем легенду, удаляем чтото на оси - изменяется легенда
+                    Excel.SeriesCollection seriesCollection =
+                     (Excel.SeriesCollection)excelapp.ActiveChart.SeriesCollection(Type.Missing);
+                    Excel.Series series = seriesCollection.Item(1);
+                    series.Name = "Рога";
+                    //Помним, что у нас объединенные ячейки, значит каждая второя строка - пустая
+                    //Удаляем их из диаграммы и из легенды
+                    series = seriesCollection.Item(2);
+                    series.Delete();
+                    //После удаления второго (пустого набора значений) третий занял его место
+                    series = seriesCollection.Item(2);
+                    series.Name = "Копыта";
+                    series = seriesCollection.Item(3);
+                    series.Delete();
+                    series = seriesCollection.Item(1);
+                    //Переименуем ось X
+                    series.XValues = "Понедельник;Вторник;Среда;Четверг;Пятница;Суббота;Воскресенье;Итог";
+                    //Если закончить код на этом месте то у нас Диаграммы на отдельном листе - Рис.9.
+                    //Строку легенды можно удалить здесь, но строка на оси не изменится
+                    //Поэтому мы удаляли в Excel.Series
+                    //((Excel.LegendEntry)excelapp.ActiveChart.Legend.LegendEntries(2)).Delete();
+                    //Перемещаем диаграмму на лист 1
+                    excelapp.ActiveChart.Location(Excel.XlChartLocation.xlLocationAsObject, "Лист1");
+                    //Получаем ссылку на лист 1
+                    excelsheets = excelappworkbook.Worksheets;
+                    excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+                    //Перемещаем диаграмму в нужное место
+                    excelworksheet.Shapes.Item(1).IncrementLeft(-201);
+                    excelworksheet.Shapes.Item(1).IncrementTop((float)20.5);
+                    //Задаем размеры диаграммы
+                    excelworksheet.Shapes.Item(1).Height = 550;
+                    excelworksheet.Shapes.Item(1).Width = 500;
+                    //Конец кода - диаграммы на листе там где и таблица
+                    break;
+                case 2:
+                    excelappworkbooks = excelapp.Workbooks;
+                    excelappworkbook = excelappworkbooks[1];
+                    excelappworkbook.Save();
+                    excelapp.Quit();
+                    break;
+                default:
+                    Close();
+                    break;
+            }
+        }
+
+        private void Diad_4()
+        {
+            excelapp = new Excel.Application();
+            excelapp.Visible = true;
+            excelappworkbooks = excelapp.Workbooks;
+            excelappworkbook = excelapp.Workbooks.Open(@"C:\a.xls", Type.Missing,
+                                                       Type.Missing, Type.Missing,
+           "WWWWW", "WWWWW", Type.Missing, Type.Missing, Type.Missing,
+           Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+           Type.Missing, Type.Missing);
+            excelsheets = excelappworkbook.Worksheets;
+            excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+            //Определяем диаграммы как объекты Excel.ChartObjects
+            Excel.ChartObjects chartsobjrcts =
+           (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+            //Добавляем одну диаграмму  в Excel.ChartObjects - диаграмма пока 
+            //не выбрана, но место для нее выделено в методе Add
+            Excel.ChartObject chartsobjrct = chartsobjrcts.Add(10, 200, 500, 400);
+            excelcells = excelworksheet.get_Range("D8", "K10");
+            //Получаем ссылку на созданную диаграмму
+            Excel.Chart excelchart = chartsobjrct.Chart;
+            //Устанавливаем источник данных для диаграммы
+            excelchart.SetSourceData(excelcells, Type.Missing);
+            //Далее отличия нет
+            excelchart.ChartType = Excel.XlChartType.xlConeCol;
+            excelchart.HasTitle = true;
+            excelchart.ChartTitle.Text = "Продажи фирмы Рога и Копыта за неделю";
+            excelchart.ChartTitle.Font.Size = 14;
+            excelchart.ChartTitle.Font.Color = 255;
+            excelchart.ChartTitle.Shadow = true;
+            excelchart.ChartTitle.Border.LineStyle = Excel.Constants.xlSolid;
+            ((Excel.Axis)(excelchart.Axes(Excel.XlAxisType.xlCategory,
+                          Excel.XlAxisGroup.xlPrimary)))
+                               .HasTitle = true;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlCategory,
+              Excel.XlAxisGroup.xlPrimary)).HasTitle = true;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlCategory,
+              Excel.XlAxisGroup.xlPrimary)).AxisTitle.Text = "День недели";
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlSeriesAxis,
+              Excel.XlAxisGroup.xlPrimary)).HasTitle = false;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlValue,
+              Excel.XlAxisGroup.xlPrimary)).HasTitle = true;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlValue,
+              Excel.XlAxisGroup.xlPrimary)).AxisTitle.Text = "Рогов/Копыт";
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlCategory,
+              Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlCategory,
+              Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlSeriesAxis,
+              Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlSeriesAxis,
+              Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlValue,
+              Excel.XlAxisGroup.xlPrimary)).HasMinorGridlines = false;
+            ((Excel.Axis)excelchart.Axes(Excel.XlAxisType.xlValue,
+              Excel.XlAxisGroup.xlPrimary)).HasMajorGridlines = true;
+            excelchart.HasLegend = true;
+            excelchart.Legend.Position = Excel.XlLegendPosition.xlLegendPositionLeft;
+            ((Excel.LegendEntry)excelchart.Legend.LegendEntries(1)).Font.Size = 12;
+            ((Excel.LegendEntry)excelchart.Legend.LegendEntries(3)).Font.Size = 12;
+            Excel.SeriesCollection seriesCollection =
+             (Excel.SeriesCollection)excelchart.SeriesCollection(Type.Missing);
+            Excel.Series series = seriesCollection.Item(1);
+            series.Name = "Рога";
+            series = seriesCollection.Item(2);
+            series.Delete();
+            series = seriesCollection.Item(2);
+            series.Name = "Копыта";
+            series = seriesCollection.Item(1);
+            series.XValues = "Понедельник;Вторник;Среда;Четверг;Пятница;Суббота;Воскресенье;Итог";
+        }
+    */
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            Excel_Diag_tab1();
+            Excel_Diag_tab2();
+            //
+        }
+
+
         private void Proverka_Click(object sender, EventArgs e)
         {
 
