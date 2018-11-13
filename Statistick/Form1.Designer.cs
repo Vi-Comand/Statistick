@@ -266,7 +266,7 @@
             // 
             this.Proverka.ActiveControl = null;
             this.Proverka.Location = new System.Drawing.Point(22, 72);
-            this.Proverka.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Proverka.Margin = new System.Windows.Forms.Padding(2);
             this.Proverka.Name = "Proverka";
             this.Proverka.Size = new System.Drawing.Size(188, 58);
             this.Proverka.TabIndex = 2;
@@ -798,9 +798,9 @@
             // 
             // 
             this.TB_New_Klass.CustomButton.Image = null;
-            this.TB_New_Klass.CustomButton.Location = new System.Drawing.Point(143, 2);
+            this.TB_New_Klass.CustomButton.Location = new System.Drawing.Point(191, 2);
             this.TB_New_Klass.CustomButton.Name = "";
-            this.TB_New_Klass.CustomButton.Size = new System.Drawing.Size(17, 19);
+            this.TB_New_Klass.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.TB_New_Klass.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.TB_New_Klass.CustomButton.TabIndex = 1;
             this.TB_New_Klass.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
