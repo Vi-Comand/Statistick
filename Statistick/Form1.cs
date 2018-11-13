@@ -622,7 +622,7 @@ namespace Statistick
         private Excel.Range excelcells;
         private Excel.Window excelWindow;
         string uud = "";
-        int i_rows = 0;
+        int i_rows = 2;
         string _control = "";
         string _klass = "";
         string _god = "";
@@ -672,6 +672,20 @@ namespace Statistick
             Diad_tabl_3();
         }
 
+        private void Excel_Diag_tab4()
+        {
+            excelapp = new Excel.Application();
+            excelapp.Visible = true;
+            excelappworkbooks = excelapp.Workbooks;
+            String templatePath = System.Windows.Forms.Application.StartupPath;
+            excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\4.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            excelsheets = excelappworkbook.Worksheets;
+
+
+            Diad_tabl_4();
+        }
+
         private void Add_Row1()
         {
             //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
@@ -697,6 +711,36 @@ namespace Statistick
                 if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control2) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass2) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god2))
                 {
                     Add_Rows(row);
+                }
+
+            }
+        }
+
+        private void Add_Row_3_v_1()
+        {
+            //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
+            i_rows = 2;
+            foreach (DataRow row in in_statDataSet.uud.Rows)
+            {
+
+                if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god))
+                {
+                    Add_Rows_3_v_1(row);
+                }
+
+            }
+        }
+
+        private void Add_Row_3_v_1_2()
+        {
+            //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
+            i_rows = 2;
+            foreach (DataRow row in in_statDataSet.uud.Rows)
+            {
+
+                if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control2) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass2) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god2))
+                {
+                    Add_Rows_3_v_1_2(row);
                 }
 
             }
@@ -811,6 +855,180 @@ namespace Statistick
                     i_rows++;
                     break;
             }
+        }
+
+        private void Add_Rows_3_v_1(DataRow row)
+        {
+                foreach (DataRow roww in in_statDataSet.user.Rows)
+                    {
+                        if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                        {
+                            excelworksheet.Cells[i_rows, 2] = roww["fi"].ToString();
+                        }
+                    }
+
+                    uud = "";
+                    if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
+                        uud += "1";
+                    if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
+                        uud += "2";
+                    if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
+                        uud += "3";
+                    switch (uud)
+                    {
+                        case "":
+                            excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                            i_rows++;
+                            break;
+                        case "1":
+                            excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                            excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                            i_rows++;
+                            break;
+                        case "2":
+                            excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                            excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                            i_rows++;
+                            break;
+                        case "3":
+                            excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                            excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                            i_rows++;
+                            break;
+                        case "12":
+                            excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                            excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                            excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                            i_rows++;
+                            break;
+                        case "13":
+                            excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                            excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                            excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                            i_rows++;
+                            break;
+                        case "123":
+                            excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                            excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                            excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                            i_rows++;
+                            break;
+                        case "23":
+                            excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                            excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                            excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                            i_rows++;
+                            break;
+                    }
+
+                }
+
+        private void Add_Rows_3_v_1_2(DataRow row)
+        {
+            foreach (DataRow roww in in_statDataSet.user.Rows)
+            {
+                if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                {
+                    excelworksheet.Cells[i_rows, 2] = roww["fi"].ToString();
+                }
+            }
+
+            uud = "";
+            if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
+                uud += "1";
+            if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
+                uud += "2";
+            if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
+                uud += "3";
+            switch (uud)
+            {
+                case "":
+                    excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "1":
+                    excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                    excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "2":
+                    excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                    excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "3":
+                    excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                    excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "12":
+                    excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                    excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                    excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "13":
+                    excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                    excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                    excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "123":
+                    excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                    excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                    excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "23":
+                    excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                    excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+            }
+
         }
 
         private void Del_Collums()
@@ -1012,7 +1230,7 @@ namespace Statistick
 
         private void Diad_tabl_1()
         {
-            int i = 2;
+            i_rows = 2;
             try
             {
                  _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
@@ -1047,7 +1265,7 @@ namespace Statistick
             }
             finally
             {
-                if(i==2)
+                if(i_rows == 2)
                 {
                     MessageBox.Show("Такой контрольной не найденно");
                 }
@@ -1057,7 +1275,7 @@ namespace Statistick
 
         private void Diad_tabl_2()
         {
-            int i = 2;
+            i_rows = 2;
             try
             {
                  _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
@@ -1067,7 +1285,7 @@ namespace Statistick
 
                 excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
 
-                Add_Row1();
+                Add_Row_3_v_1();
 
                 Del_Rows();
 
@@ -1091,7 +1309,7 @@ namespace Statistick
             }
             finally
             {
-                if (i == 2)
+                if (i_rows == 2)
                 {
                     MessageBox.Show("Такой контрольной не найденно");
                 }
@@ -1101,7 +1319,7 @@ namespace Statistick
 
         private void Diad_tabl_3()
         {
-            int i = 2;
+            i_rows = 2;
             try
             {
                  _control = ComboBox_Kontrol_Stat1.SelectedValue.ToString();
@@ -1147,7 +1365,7 @@ namespace Statistick
             }
             finally
             {
-                if (i == 2)
+                if (i_rows == 2)
                 {
                     MessageBox.Show("Такой контрольной не найденно");
                 }
@@ -1155,6 +1373,57 @@ namespace Statistick
 
         }
 
+        private void Diad_tabl_4()
+        {
+            i_rows = 2;
+            try
+            {
+                _control = ComboBox_Kontrol_Stat1.SelectedValue.ToString();
+                _klass = ComboBox_Klass_Stat1.SelectedValue.ToString();
+                _god = ComboBox_God_Stat1.SelectedItem.ToString();
+                _control2 = ComboBox_Kontrol_Stat2.SelectedValue.ToString();
+                _klass2 = ComboBox_Klass_Stat2.SelectedValue.ToString();
+                _god2 = ComboBox_God_Stat2.SelectedItem.ToString();
+
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+
+                Add_Row_3_v_1();
+
+                Del_Rows();
+
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(2);
+
+                Add_Row_3_v_1_2();
+
+                Del_Rows();
+
+            }
+            catch (FormatException fEx)
+            {
+                MessageBox.Show(fEx.ToString());
+            }
+
+            catch (OverflowException oEx)
+            {
+                MessageBox.Show(oEx.ToString());
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Вы не заполнили один из комбобокс");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if (i_rows == 2)
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+                }
+            }
+
+        }
 
         /*
                 private void Diag_98()
@@ -1428,6 +1697,7 @@ namespace Statistick
                     break;
                 case 1:
                     Excel_Diag_tab3();
+                    Excel_Diag_tab4();
                     break;
             }
         }
