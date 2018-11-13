@@ -202,7 +202,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage5);
             this.metroTabControl1.Controls.Add(this.metroTabPage6);
             this.metroTabControl1.Location = new System.Drawing.Point(31, 78);
-            this.metroTabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1453, 654);
@@ -216,7 +216,7 @@
             this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.HorizontalScrollbarSize = 12;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabPage1.Name = "metroTabPage1";
             this.metroTabPage1.Size = new System.Drawing.Size(1445, 612);
             this.metroTabPage1.TabIndex = 0;
@@ -257,7 +257,7 @@
             this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.HorizontalScrollbarSize = 12;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabPage2.Name = "metroTabPage2";
             this.metroTabPage2.Size = new System.Drawing.Size(1445, 612);
             this.metroTabPage2.TabIndex = 1;
@@ -329,7 +329,7 @@
             "2021",
             "2022"});
             this.ComboBox_God_Load.Location = new System.Drawing.Point(1064, 33);
-            this.ComboBox_God_Load.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ComboBox_God_Load.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBox_God_Load.Name = "ComboBox_God_Load";
             this.ComboBox_God_Load.Size = new System.Drawing.Size(159, 30);
             this.ComboBox_God_Load.TabIndex = 12;
@@ -353,7 +353,7 @@
             this.ComboBox_Klass_Load.FormattingEnabled = true;
             this.ComboBox_Klass_Load.ItemHeight = 24;
             this.ComboBox_Klass_Load.Location = new System.Drawing.Point(828, 33);
-            this.ComboBox_Klass_Load.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ComboBox_Klass_Load.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBox_Klass_Load.Name = "ComboBox_Klass_Load";
             this.ComboBox_Klass_Load.Size = new System.Drawing.Size(227, 30);
             this.ComboBox_Klass_Load.TabIndex = 10;
@@ -385,7 +385,7 @@
             this.ComboBox_Kontrol_Load.FormattingEnabled = true;
             this.ComboBox_Kontrol_Load.ItemHeight = 24;
             this.ComboBox_Kontrol_Load.Location = new System.Drawing.Point(544, 33);
-            this.ComboBox_Kontrol_Load.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ComboBox_Kontrol_Load.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBox_Kontrol_Load.Name = "ComboBox_Kontrol_Load";
             this.ComboBox_Kontrol_Load.Size = new System.Drawing.Size(275, 30);
             this.ComboBox_Kontrol_Load.TabIndex = 8;
@@ -395,7 +395,7 @@
             // 
             this.but_save_db.ActiveControl = null;
             this.but_save_db.Location = new System.Drawing.Point(1232, 4);
-            this.but_save_db.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.but_save_db.Margin = new System.Windows.Forms.Padding(4);
             this.but_save_db.Name = "but_save_db";
             this.but_save_db.Size = new System.Drawing.Size(207, 64);
             this.but_save_db.TabIndex = 7;
@@ -407,7 +407,7 @@
             // 
             this.but_load_excel.ActiveControl = null;
             this.but_load_excel.Location = new System.Drawing.Point(4, 4);
-            this.but_load_excel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.but_load_excel.Margin = new System.Windows.Forms.Padding(4);
             this.but_load_excel.Name = "but_load_excel";
             this.but_load_excel.Size = new System.Drawing.Size(155, 65);
             this.but_load_excel.TabIndex = 6;
@@ -420,7 +420,7 @@
             this.check_uud3.AutoSize = true;
             this.check_uud3.DisplayStatus = false;
             this.check_uud3.Location = new System.Drawing.Point(455, 44);
-            this.check_uud3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.check_uud3.Margin = new System.Windows.Forms.Padding(4);
             this.check_uud3.Name = "check_uud3";
             this.check_uud3.Size = new System.Drawing.Size(50, 21);
             this.check_uud3.TabIndex = 5;
@@ -433,7 +433,7 @@
             this.check_uud2.AutoSize = true;
             this.check_uud2.DisplayStatus = false;
             this.check_uud2.Location = new System.Drawing.Point(327, 44);
-            this.check_uud2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.check_uud2.Margin = new System.Windows.Forms.Padding(4);
             this.check_uud2.Name = "check_uud2";
             this.check_uud2.Size = new System.Drawing.Size(50, 21);
             this.check_uud2.TabIndex = 4;
@@ -446,7 +446,7 @@
             this.check_uud1.AutoSize = true;
             this.check_uud1.DisplayStatus = false;
             this.check_uud1.Location = new System.Drawing.Point(195, 44);
-            this.check_uud1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.check_uud1.Margin = new System.Windows.Forms.Padding(4);
             this.check_uud1.Name = "check_uud1";
             this.check_uud1.Size = new System.Drawing.Size(50, 21);
             this.check_uud1.TabIndex = 3;
@@ -488,7 +488,7 @@
             this.Grid_Load_UUD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Grid_Load_UUD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Load_UUD.Location = new System.Drawing.Point(4, 89);
-            this.Grid_Load_UUD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Grid_Load_UUD.Margin = new System.Windows.Forms.Padding(4);
             this.Grid_Load_UUD.Name = "Grid_Load_UUD";
             this.Grid_Load_UUD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -552,7 +552,7 @@
             this.metroTabPage3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.HorizontalScrollbarSize = 12;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabPage3.Name = "metroTabPage3";
             this.metroTabPage3.Size = new System.Drawing.Size(1445, 612);
             this.metroTabPage3.TabIndex = 2;
@@ -565,7 +565,7 @@
             // 
             this.but_Del_UUD.ActiveControl = null;
             this.but_Del_UUD.Location = new System.Drawing.Point(1191, 9);
-            this.but_Del_UUD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.but_Del_UUD.Margin = new System.Windows.Forms.Padding(4);
             this.but_Del_UUD.Name = "but_Del_UUD";
             this.but_Del_UUD.Size = new System.Drawing.Size(212, 63);
             this.but_Del_UUD.TabIndex = 16;
@@ -593,7 +593,7 @@
             "2021",
             "2022"});
             this.ComboBox_God_Red.Location = new System.Drawing.Point(524, 36);
-            this.ComboBox_God_Red.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ComboBox_God_Red.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBox_God_Red.Name = "ComboBox_God_Red";
             this.ComboBox_God_Red.Size = new System.Drawing.Size(159, 29);
             this.ComboBox_God_Red.TabIndex = 14;
@@ -603,7 +603,7 @@
             // 
             this.but_Save_UUD.ActiveControl = null;
             this.but_Save_UUD.Location = new System.Drawing.Point(971, 9);
-            this.but_Save_UUD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.but_Save_UUD.Margin = new System.Windows.Forms.Padding(4);
             this.but_Save_UUD.Name = "but_Save_UUD";
             this.but_Save_UUD.Size = new System.Drawing.Size(212, 63);
             this.but_Save_UUD.TabIndex = 9;
@@ -614,7 +614,7 @@
             // 
             this.but_Open_UUD.ActiveControl = null;
             this.but_Open_UUD.Location = new System.Drawing.Point(821, 9);
-            this.but_Open_UUD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.but_Open_UUD.Margin = new System.Windows.Forms.Padding(4);
             this.but_Open_UUD.Name = "but_Open_UUD";
             this.but_Open_UUD.Size = new System.Drawing.Size(141, 63);
             this.but_Open_UUD.TabIndex = 8;
@@ -638,7 +638,7 @@
             this.ComboBox_Klass_Red.FormattingEnabled = true;
             this.ComboBox_Klass_Red.ItemHeight = 23;
             this.ComboBox_Klass_Red.Location = new System.Drawing.Point(288, 36);
-            this.ComboBox_Klass_Red.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ComboBox_Klass_Red.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBox_Klass_Red.Name = "ComboBox_Klass_Red";
             this.ComboBox_Klass_Red.Size = new System.Drawing.Size(227, 29);
             this.ComboBox_Klass_Red.TabIndex = 6;
@@ -662,7 +662,7 @@
             this.ComboBox_Kontrol_Red.FormattingEnabled = true;
             this.ComboBox_Kontrol_Red.ItemHeight = 23;
             this.ComboBox_Kontrol_Red.Location = new System.Drawing.Point(4, 36);
-            this.ComboBox_Kontrol_Red.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ComboBox_Kontrol_Red.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBox_Kontrol_Red.Name = "ComboBox_Kontrol_Red";
             this.ComboBox_Kontrol_Red.Size = new System.Drawing.Size(275, 29);
             this.ComboBox_Kontrol_Red.TabIndex = 4;
@@ -709,7 +709,7 @@
             this.Grid_Red_UUD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Grid_Red_UUD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Red_UUD.Location = new System.Drawing.Point(4, 79);
-            this.Grid_Red_UUD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Grid_Red_UUD.Margin = new System.Windows.Forms.Padding(4);
             this.Grid_Red_UUD.Name = "Grid_Red_UUD";
             this.Grid_Red_UUD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -763,7 +763,7 @@
             this.metroTabPage4.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage4.HorizontalScrollbarSize = 12;
             this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabPage4.Name = "metroTabPage4";
             this.metroTabPage4.Size = new System.Drawing.Size(1445, 612);
             this.metroTabPage4.TabIndex = 3;
@@ -785,7 +785,7 @@
             this.metroTabPage5.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage5.HorizontalScrollbarSize = 12;
             this.metroTabPage5.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabPage5.Name = "metroTabPage5";
             this.metroTabPage5.Size = new System.Drawing.Size(1445, 612);
             this.metroTabPage5.TabIndex = 4;
@@ -798,7 +798,7 @@
             // 
             this.but_Del_Klass.ActiveControl = null;
             this.but_Del_Klass.Location = new System.Drawing.Point(1051, 9);
-            this.but_Del_Klass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.but_Del_Klass.Margin = new System.Windows.Forms.Padding(4);
             this.but_Del_Klass.Name = "but_Del_Klass";
             this.but_Del_Klass.Size = new System.Drawing.Size(212, 63);
             this.but_Del_Klass.TabIndex = 23;
@@ -809,7 +809,7 @@
             // 
             this.but_New_klass.ActiveControl = null;
             this.but_New_klass.Location = new System.Drawing.Point(831, 9);
-            this.but_New_klass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.but_New_klass.Margin = new System.Windows.Forms.Padding(4);
             this.but_New_klass.Name = "but_New_klass";
             this.but_New_klass.Size = new System.Drawing.Size(212, 63);
             this.but_New_klass.TabIndex = 22;
@@ -820,7 +820,7 @@
             // 
             this.but_Save_Klass.ActiveControl = null;
             this.but_Save_Klass.Location = new System.Drawing.Point(240, 9);
-            this.but_Save_Klass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.but_Save_Klass.Margin = new System.Windows.Forms.Padding(4);
             this.but_Save_Klass.Name = "but_Save_Klass";
             this.but_Save_Klass.Size = new System.Drawing.Size(212, 63);
             this.but_Save_Klass.TabIndex = 21;
@@ -833,10 +833,10 @@
             // 
             // 
             this.TB_New_Klass.CustomButton.Image = null;
-            this.TB_New_Klass.CustomButton.Location = new System.Drawing.Point(343, 2);
-            this.TB_New_Klass.CustomButton.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TB_New_Klass.CustomButton.Location = new System.Drawing.Point(257, 2);
+            this.TB_New_Klass.CustomButton.Margin = new System.Windows.Forms.Padding(5);
             this.TB_New_Klass.CustomButton.Name = "";
-            this.TB_New_Klass.CustomButton.Size = new System.Drawing.Size(39, 36);
+            this.TB_New_Klass.CustomButton.Size = new System.Drawing.Size(29, 29);
             this.TB_New_Klass.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.TB_New_Klass.CustomButton.TabIndex = 1;
             this.TB_New_Klass.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -845,7 +845,7 @@
             this.TB_New_Klass.Lines = new string[] {
         "Название_нового_класса"};
             this.TB_New_Klass.Location = new System.Drawing.Point(533, 36);
-            this.TB_New_Klass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TB_New_Klass.Margin = new System.Windows.Forms.Padding(4);
             this.TB_New_Klass.MaxLength = 32767;
             this.TB_New_Klass.Name = "TB_New_Klass";
             this.TB_New_Klass.PasswordChar = '\0';
@@ -878,7 +878,7 @@
             this.ComboBox_Klass.FormattingEnabled = true;
             this.ComboBox_Klass.ItemHeight = 24;
             this.ComboBox_Klass.Location = new System.Drawing.Point(4, 36);
-            this.ComboBox_Klass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ComboBox_Klass.Margin = new System.Windows.Forms.Padding(4);
             this.ComboBox_Klass.Name = "ComboBox_Klass";
             this.ComboBox_Klass.Size = new System.Drawing.Size(227, 30);
             this.ComboBox_Klass.TabIndex = 18;
@@ -918,7 +918,7 @@
             this.Grid_Klass.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Grid_Klass.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Klass.Location = new System.Drawing.Point(4, 79);
-            this.Grid_Klass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Grid_Klass.Margin = new System.Windows.Forms.Padding(4);
             this.Grid_Klass.Name = "Grid_Klass";
             this.Grid_Klass.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -957,7 +957,7 @@
             this.metroTabPage6.HorizontalScrollbarHighlightOnWheel = false;
             this.metroTabPage6.HorizontalScrollbarSize = 12;
             this.metroTabPage6.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.metroTabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.metroTabPage6.Name = "metroTabPage6";
             this.metroTabPage6.Size = new System.Drawing.Size(1445, 612);
             this.metroTabPage6.TabIndex = 5;
@@ -998,7 +998,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1485, 687);
             this.Controls.Add(this.metroTabControl1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Статистика Тимашевск";
