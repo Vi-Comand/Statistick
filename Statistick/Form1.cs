@@ -470,21 +470,7 @@ namespace Statistick
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.uud". При необходимости она может быть перемещена или удалена.
-            this.uudTableAdapter.Fill(this.in_statDataSet.uud);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.uud". При необходимости она может быть перемещена или удалена.
-            //   this.uudTableAdapter.Fill(this.in_statDataSet.uud);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.kontrolnie". При необходимости она может быть перемещена или удалена.
-            this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.user". При необходимости она может быть перемещена или удалена.
-            this.userTableAdapter.Fill(this.in_statDataSet.user);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.klass". При необходимости она может быть перемещена или удалена.
-            this.klassTableAdapter.Fill(this.in_statDataSet.klass);
-
-
-        }
+      
 
 
         private void DiagPoUch_Points(int id_kontr, int id_klass, int god)
@@ -1404,15 +1390,12 @@ namespace Statistick
             Excel_Diag_tab2();
         }
         private void ComboBox_God_Load_SelectedIndexChanged(object sender, EventArgs e)
+        { 
 
             Update_Combobox_Kontrol_Load();
 
         }
 
-        private void metroTile1_Click(object sender, EventArgs e)
-        {
-          
-            MessageBox.Show(Est_v_BD().ToString());
-        }
+      
     }
 }
