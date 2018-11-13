@@ -118,32 +118,32 @@
             this.instatDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroTabControl2 = new MetroFramework.Controls.MetroTabControl();
+            this.TabControl_Stat = new MetroFramework.Controls.MetroTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.ComboBox_God_Stat = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.ComboBox_Klass_Stat = new MetroFramework.Controls.MetroComboBox();
             this.ComboBox_Kontrol_Stat = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel14 = new MetroFramework.Controls.MetroLabel();
-            this.ComboBox_Grafik_Stat = new MetroFramework.Controls.MetroComboBox();
-            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.StatmetroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.StatComboBox_Grafik_Stat = new MetroFramework.Controls.MetroComboBox();
+            this.StatchartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.metroLabel15 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel16 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel15 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel16 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel17 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
             this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel19 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel20 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox5 = new MetroFramework.Controls.MetroComboBox();
-            this.metroComboBox6 = new MetroFramework.Controls.MetroComboBox();
+            this.ComboBox_Kontrol_Stat1 = new MetroFramework.Controls.MetroComboBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -160,11 +160,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.metroTabControl2.SuspendLayout();
+            this.TabControl_Stat.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatchartControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // FI
@@ -1009,7 +1009,7 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.Controls.Add(this.metroTabControl2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TabControl_Stat, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.metroTile2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.metroTile1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1021,27 +1021,27 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1082, 489);
             this.tableLayoutPanel1.TabIndex = 24;
             // 
-            // metroTabControl2
+            // TabControl_Stat
             // 
-            this.metroTabControl2.Controls.Add(this.tabPage1);
-            this.metroTabControl2.Controls.Add(this.tabPage2);
-            this.metroTabControl2.Controls.Add(this.tabPage3);
-            this.metroTabControl2.Controls.Add(this.tabPage4);
-            this.metroTabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroTabControl2.Location = new System.Drawing.Point(3, 3);
-            this.metroTabControl2.Name = "metroTabControl2";
-            this.tableLayoutPanel1.SetRowSpan(this.metroTabControl2, 2);
-            this.metroTabControl2.SelectedIndex = 0;
-            this.metroTabControl2.Size = new System.Drawing.Size(876, 483);
-            this.metroTabControl2.TabIndex = 0;
-            this.metroTabControl2.UseSelectable = true;
+            this.TabControl_Stat.Controls.Add(this.tabPage1);
+            this.TabControl_Stat.Controls.Add(this.tabPage2);
+            this.TabControl_Stat.Controls.Add(this.tabPage3);
+            this.TabControl_Stat.Controls.Add(this.tabPage4);
+            this.TabControl_Stat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControl_Stat.Location = new System.Drawing.Point(3, 3);
+            this.TabControl_Stat.Name = "TabControl_Stat";
+            this.tableLayoutPanel1.SetRowSpan(this.TabControl_Stat, 2);
+            this.TabControl_Stat.SelectedIndex = 1;
+            this.TabControl_Stat.Size = new System.Drawing.Size(876, 483);
+            this.TabControl_Stat.TabIndex = 0;
+            this.TabControl_Stat.UseSelectable = true;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.metroLabel13);
-            this.tabPage1.Controls.Add(this.metroLabel11);
+            this.tabPage1.Controls.Add(this.StatmetroLabel13);
+            this.tabPage1.Controls.Add(this.StatmetroLabel11);
             this.tabPage1.Controls.Add(this.ComboBox_God_Stat);
-            this.tabPage1.Controls.Add(this.metroLabel12);
+            this.tabPage1.Controls.Add(this.StatmetroLabel12);
             this.tabPage1.Controls.Add(this.ComboBox_Klass_Stat);
             this.tabPage1.Controls.Add(this.ComboBox_Kontrol_Stat);
             this.tabPage1.Location = new System.Drawing.Point(4, 38);
@@ -1052,16 +1052,16 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.metroLabel18);
-            this.tabPage2.Controls.Add(this.metroLabel19);
+            this.tabPage2.Controls.Add(this.StatmetroLabel18);
+            this.tabPage2.Controls.Add(this.StatmetroLabel19);
             this.tabPage2.Controls.Add(this.metroComboBox4);
-            this.tabPage2.Controls.Add(this.metroLabel20);
+            this.tabPage2.Controls.Add(this.StatmetroLabel20);
             this.tabPage2.Controls.Add(this.metroComboBox5);
-            this.tabPage2.Controls.Add(this.metroComboBox6);
-            this.tabPage2.Controls.Add(this.metroLabel15);
-            this.tabPage2.Controls.Add(this.metroLabel16);
+            this.tabPage2.Controls.Add(this.ComboBox_Kontrol_Stat1);
+            this.tabPage2.Controls.Add(this.StatmetroLabel15);
+            this.tabPage2.Controls.Add(this.StatmetroLabel16);
             this.tabPage2.Controls.Add(this.metroComboBox1);
-            this.tabPage2.Controls.Add(this.metroLabel17);
+            this.tabPage2.Controls.Add(this.StatmetroLabel17);
             this.tabPage2.Controls.Add(this.metroComboBox2);
             this.tabPage2.Controls.Add(this.metroComboBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 38);
@@ -1072,32 +1072,32 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.metroLabel14);
-            this.tabPage3.Controls.Add(this.ComboBox_Grafik_Stat);
-            this.tabPage3.Controls.Add(this.chartControl1);
+            this.tabPage3.Controls.Add(this.StatmetroLabel14);
+            this.tabPage3.Controls.Add(this.StatComboBox_Grafik_Stat);
+            this.tabPage3.Controls.Add(this.StatchartControl1);
             this.tabPage3.Location = new System.Drawing.Point(4, 38);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(868, 441);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Сравнение параллели";
             // 
-            // metroLabel13
+            // StatmetroLabel13
             // 
-            this.metroLabel13.AutoSize = true;
-            this.metroLabel13.Location = new System.Drawing.Point(13, 10);
-            this.metroLabel13.Name = "metroLabel13";
-            this.metroLabel13.Size = new System.Drawing.Size(88, 19);
-            this.metroLabel13.TabIndex = 21;
-            this.metroLabel13.Text = "Контрольная";
+            this.StatmetroLabel13.AutoSize = true;
+            this.StatmetroLabel13.Location = new System.Drawing.Point(13, 10);
+            this.StatmetroLabel13.Name = "StatmetroLabel13";
+            this.StatmetroLabel13.Size = new System.Drawing.Size(88, 19);
+            this.StatmetroLabel13.TabIndex = 21;
+            this.StatmetroLabel13.Text = "Контрольная";
             // 
-            // metroLabel11
+            // StatmetroLabel11
             // 
-            this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(403, 10);
-            this.metroLabel11.Name = "metroLabel11";
-            this.metroLabel11.Size = new System.Drawing.Size(30, 19);
-            this.metroLabel11.TabIndex = 25;
-            this.metroLabel11.Text = "Год";
+            this.StatmetroLabel11.AutoSize = true;
+            this.StatmetroLabel11.Location = new System.Drawing.Point(403, 10);
+            this.StatmetroLabel11.Name = "StatmetroLabel11";
+            this.StatmetroLabel11.Size = new System.Drawing.Size(30, 19);
+            this.StatmetroLabel11.TabIndex = 25;
+            this.StatmetroLabel11.Text = "Год";
             // 
             // ComboBox_God_Stat
             // 
@@ -1115,14 +1115,14 @@
             this.ComboBox_God_Stat.TabIndex = 24;
             this.ComboBox_God_Stat.UseSelectable = true;
             // 
-            // metroLabel12
+            // StatmetroLabel12
             // 
-            this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(226, 10);
-            this.metroLabel12.Name = "metroLabel12";
-            this.metroLabel12.Size = new System.Drawing.Size(42, 19);
-            this.metroLabel12.TabIndex = 23;
-            this.metroLabel12.Text = "Класс";
+            this.StatmetroLabel12.AutoSize = true;
+            this.StatmetroLabel12.Location = new System.Drawing.Point(226, 10);
+            this.StatmetroLabel12.Name = "StatmetroLabel12";
+            this.StatmetroLabel12.Size = new System.Drawing.Size(42, 19);
+            this.StatmetroLabel12.TabIndex = 23;
+            this.StatmetroLabel12.Text = "Класс";
             // 
             // ComboBox_Klass_Stat
             // 
@@ -1150,41 +1150,41 @@
             this.ComboBox_Kontrol_Stat.UseSelectable = true;
             this.ComboBox_Kontrol_Stat.ValueMember = "id";
             // 
-            // metroLabel14
+            // StatmetroLabel14
             // 
-            this.metroLabel14.AutoSize = true;
-            this.metroLabel14.Location = new System.Drawing.Point(11, 155);
-            this.metroLabel14.Name = "metroLabel14";
-            this.metroLabel14.Size = new System.Drawing.Size(53, 19);
-            this.metroLabel14.TabIndex = 24;
-            this.metroLabel14.Text = "График";
-            this.metroLabel14.Visible = false;
+            this.StatmetroLabel14.AutoSize = true;
+            this.StatmetroLabel14.Location = new System.Drawing.Point(11, 155);
+            this.StatmetroLabel14.Name = "StatmetroLabel14";
+            this.StatmetroLabel14.Size = new System.Drawing.Size(53, 19);
+            this.StatmetroLabel14.TabIndex = 24;
+            this.StatmetroLabel14.Text = "График";
+            this.StatmetroLabel14.Visible = false;
             // 
-            // ComboBox_Grafik_Stat
+            // StatComboBox_Grafik_Stat
             // 
-            this.ComboBox_Grafik_Stat.FormattingEnabled = true;
-            this.ComboBox_Grafik_Stat.ItemHeight = 23;
-            this.ComboBox_Grafik_Stat.Items.AddRange(new object[] {
+            this.StatComboBox_Grafik_Stat.FormattingEnabled = true;
+            this.StatComboBox_Grafik_Stat.ItemHeight = 23;
+            this.StatComboBox_Grafik_Stat.Items.AddRange(new object[] {
             "Диаграмма по учащимся",
             "Общая диаграмма по позициям",
             "Диаграмма полная",
             "Диаграмма по ученику"});
-            this.ComboBox_Grafik_Stat.Location = new System.Drawing.Point(11, 177);
-            this.ComboBox_Grafik_Stat.Name = "ComboBox_Grafik_Stat";
-            this.ComboBox_Grafik_Stat.Size = new System.Drawing.Size(212, 29);
-            this.ComboBox_Grafik_Stat.TabIndex = 23;
-            this.ComboBox_Grafik_Stat.UseSelectable = true;
-            this.ComboBox_Grafik_Stat.Visible = false;
+            this.StatComboBox_Grafik_Stat.Location = new System.Drawing.Point(11, 177);
+            this.StatComboBox_Grafik_Stat.Name = "StatComboBox_Grafik_Stat";
+            this.StatComboBox_Grafik_Stat.Size = new System.Drawing.Size(212, 29);
+            this.StatComboBox_Grafik_Stat.TabIndex = 23;
+            this.StatComboBox_Grafik_Stat.UseSelectable = true;
+            this.StatComboBox_Grafik_Stat.Visible = false;
             // 
-            // chartControl1
+            // StatchartControl1
             // 
-            this.chartControl1.Legend.Name = "Default Legend";
-            this.chartControl1.Location = new System.Drawing.Point(73, 121);
-            this.chartControl1.Name = "chartControl1";
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.chartControl1.Size = new System.Drawing.Size(64, 53);
-            this.chartControl1.TabIndex = 22;
-            this.chartControl1.Visible = false;
+            this.StatchartControl1.Legend.Name = "Default Legend";
+            this.StatchartControl1.Location = new System.Drawing.Point(73, 121);
+            this.StatchartControl1.Name = "StatchartControl1";
+            this.StatchartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            this.StatchartControl1.Size = new System.Drawing.Size(64, 53);
+            this.StatchartControl1.TabIndex = 22;
+            this.StatchartControl1.Visible = false;
             // 
             // tabPage4
             // 
@@ -1194,23 +1194,23 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Статистика по ученику";
             // 
-            // metroLabel15
+            // StatmetroLabel15
             // 
-            this.metroLabel15.AutoSize = true;
-            this.metroLabel15.Location = new System.Drawing.Point(16, 85);
-            this.metroLabel15.Name = "metroLabel15";
-            this.metroLabel15.Size = new System.Drawing.Size(88, 19);
-            this.metroLabel15.TabIndex = 27;
-            this.metroLabel15.Text = "Контрольная";
+            this.StatmetroLabel15.AutoSize = true;
+            this.StatmetroLabel15.Location = new System.Drawing.Point(16, 85);
+            this.StatmetroLabel15.Name = "StatmetroLabel15";
+            this.StatmetroLabel15.Size = new System.Drawing.Size(88, 19);
+            this.StatmetroLabel15.TabIndex = 27;
+            this.StatmetroLabel15.Text = "Контрольная";
             // 
-            // metroLabel16
+            // StatmetroLabel16
             // 
-            this.metroLabel16.AutoSize = true;
-            this.metroLabel16.Location = new System.Drawing.Point(406, 85);
-            this.metroLabel16.Name = "metroLabel16";
-            this.metroLabel16.Size = new System.Drawing.Size(30, 19);
-            this.metroLabel16.TabIndex = 31;
-            this.metroLabel16.Text = "Год";
+            this.StatmetroLabel16.AutoSize = true;
+            this.StatmetroLabel16.Location = new System.Drawing.Point(406, 85);
+            this.StatmetroLabel16.Name = "StatmetroLabel16";
+            this.StatmetroLabel16.Size = new System.Drawing.Size(30, 19);
+            this.StatmetroLabel16.TabIndex = 31;
+            this.StatmetroLabel16.Text = "Год";
             // 
             // metroComboBox1
             // 
@@ -1228,14 +1228,14 @@
             this.metroComboBox1.TabIndex = 30;
             this.metroComboBox1.UseSelectable = true;
             // 
-            // metroLabel17
+            // StatmetroLabel17
             // 
-            this.metroLabel17.AutoSize = true;
-            this.metroLabel17.Location = new System.Drawing.Point(229, 85);
-            this.metroLabel17.Name = "metroLabel17";
-            this.metroLabel17.Size = new System.Drawing.Size(42, 19);
-            this.metroLabel17.TabIndex = 29;
-            this.metroLabel17.Text = "Класс";
+            this.StatmetroLabel17.AutoSize = true;
+            this.StatmetroLabel17.Location = new System.Drawing.Point(229, 85);
+            this.StatmetroLabel17.Name = "StatmetroLabel17";
+            this.StatmetroLabel17.Size = new System.Drawing.Size(42, 19);
+            this.StatmetroLabel17.TabIndex = 29;
+            this.StatmetroLabel17.Text = "Класс";
             // 
             // metroComboBox2
             // 
@@ -1263,23 +1263,23 @@
             this.metroComboBox3.UseSelectable = true;
             this.metroComboBox3.ValueMember = "id";
             // 
-            // metroLabel18
+            // StatmetroLabel18
             // 
-            this.metroLabel18.AutoSize = true;
-            this.metroLabel18.Location = new System.Drawing.Point(15, 14);
-            this.metroLabel18.Name = "metroLabel18";
-            this.metroLabel18.Size = new System.Drawing.Size(88, 19);
-            this.metroLabel18.TabIndex = 33;
-            this.metroLabel18.Text = "Контрольная";
+            this.StatmetroLabel18.AutoSize = true;
+            this.StatmetroLabel18.Location = new System.Drawing.Point(15, 14);
+            this.StatmetroLabel18.Name = "StatmetroLabel18";
+            this.StatmetroLabel18.Size = new System.Drawing.Size(88, 19);
+            this.StatmetroLabel18.TabIndex = 33;
+            this.StatmetroLabel18.Text = "Контрольная";
             // 
-            // metroLabel19
+            // StatmetroLabel19
             // 
-            this.metroLabel19.AutoSize = true;
-            this.metroLabel19.Location = new System.Drawing.Point(405, 14);
-            this.metroLabel19.Name = "metroLabel19";
-            this.metroLabel19.Size = new System.Drawing.Size(30, 19);
-            this.metroLabel19.TabIndex = 37;
-            this.metroLabel19.Text = "Год";
+            this.StatmetroLabel19.AutoSize = true;
+            this.StatmetroLabel19.Location = new System.Drawing.Point(405, 14);
+            this.StatmetroLabel19.Name = "StatmetroLabel19";
+            this.StatmetroLabel19.Size = new System.Drawing.Size(30, 19);
+            this.StatmetroLabel19.TabIndex = 37;
+            this.StatmetroLabel19.Text = "Год";
             // 
             // metroComboBox4
             // 
@@ -1297,14 +1297,14 @@
             this.metroComboBox4.TabIndex = 36;
             this.metroComboBox4.UseSelectable = true;
             // 
-            // metroLabel20
+            // StatmetroLabel20
             // 
-            this.metroLabel20.AutoSize = true;
-            this.metroLabel20.Location = new System.Drawing.Point(228, 14);
-            this.metroLabel20.Name = "metroLabel20";
-            this.metroLabel20.Size = new System.Drawing.Size(42, 19);
-            this.metroLabel20.TabIndex = 35;
-            this.metroLabel20.Text = "Класс";
+            this.StatmetroLabel20.AutoSize = true;
+            this.StatmetroLabel20.Location = new System.Drawing.Point(228, 14);
+            this.StatmetroLabel20.Name = "StatmetroLabel20";
+            this.StatmetroLabel20.Size = new System.Drawing.Size(42, 19);
+            this.StatmetroLabel20.TabIndex = 35;
+            this.StatmetroLabel20.Text = "Класс";
             // 
             // metroComboBox5
             // 
@@ -1319,18 +1319,18 @@
             this.metroComboBox5.UseSelectable = true;
             this.metroComboBox5.ValueMember = "id";
             // 
-            // metroComboBox6
+            // ComboBox_Kontrol_Stat1
             // 
-            this.metroComboBox6.DataSource = this.kontrolnieBindingSource;
-            this.metroComboBox6.DisplayMember = "nazv";
-            this.metroComboBox6.FormattingEnabled = true;
-            this.metroComboBox6.ItemHeight = 23;
-            this.metroComboBox6.Location = new System.Drawing.Point(15, 36);
-            this.metroComboBox6.Name = "metroComboBox6";
-            this.metroComboBox6.Size = new System.Drawing.Size(207, 29);
-            this.metroComboBox6.TabIndex = 32;
-            this.metroComboBox6.UseSelectable = true;
-            this.metroComboBox6.ValueMember = "id";
+            this.ComboBox_Kontrol_Stat1.DataSource = this.kontrolnieBindingSource;
+            this.ComboBox_Kontrol_Stat1.DisplayMember = "nazv";
+            this.ComboBox_Kontrol_Stat1.FormattingEnabled = true;
+            this.ComboBox_Kontrol_Stat1.ItemHeight = 23;
+            this.ComboBox_Kontrol_Stat1.Location = new System.Drawing.Point(15, 36);
+            this.ComboBox_Kontrol_Stat1.Name = "ComboBox_Kontrol_Stat1";
+            this.ComboBox_Kontrol_Stat1.Size = new System.Drawing.Size(207, 29);
+            this.ComboBox_Kontrol_Stat1.TabIndex = 32;
+            this.ComboBox_Kontrol_Stat1.UseSelectable = true;
+            this.ComboBox_Kontrol_Stat1.ValueMember = "id";
             // 
             // Form1
             // 
@@ -1361,14 +1361,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.metroTabControl2.ResumeLayout(false);
+            this.TabControl_Stat.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.StatchartControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1455,31 +1455,31 @@
         private MetroFramework.Controls.MetroTile metroTile1;
         private MetroFramework.Components.MetroToolTip metroToolTip1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private MetroFramework.Controls.MetroTabControl metroTabControl2;
+        private MetroFramework.Controls.MetroTabControl TabControl_Stat;
         private System.Windows.Forms.TabPage tabPage1;
-        private MetroFramework.Controls.MetroLabel metroLabel13;
-        private MetroFramework.Controls.MetroLabel metroLabel11;
+        private MetroFramework.Controls.MetroLabel StatmetroLabel13;
+        private MetroFramework.Controls.MetroLabel StatmetroLabel11;
         private MetroFramework.Controls.MetroComboBox ComboBox_God_Stat;
-        private MetroFramework.Controls.MetroLabel metroLabel12;
+        private MetroFramework.Controls.MetroLabel StatmetroLabel12;
         private MetroFramework.Controls.MetroComboBox ComboBox_Klass_Stat;
         private MetroFramework.Controls.MetroComboBox ComboBox_Kontrol_Stat;
         private System.Windows.Forms.TabPage tabPage2;
-        private MetroFramework.Controls.MetroLabel metroLabel18;
-        private MetroFramework.Controls.MetroLabel metroLabel19;
+        private MetroFramework.Controls.MetroLabel StatmetroLabel18;
+        private MetroFramework.Controls.MetroLabel StatmetroLabel19;
         private MetroFramework.Controls.MetroComboBox metroComboBox4;
-        private MetroFramework.Controls.MetroLabel metroLabel20;
+        private MetroFramework.Controls.MetroLabel StatmetroLabel20;
         private MetroFramework.Controls.MetroComboBox metroComboBox5;
-        private MetroFramework.Controls.MetroComboBox metroComboBox6;
-        private MetroFramework.Controls.MetroLabel metroLabel15;
-        private MetroFramework.Controls.MetroLabel metroLabel16;
+        private MetroFramework.Controls.MetroComboBox ComboBox_Kontrol_Stat1;
+        private MetroFramework.Controls.MetroLabel StatmetroLabel15;
+        private MetroFramework.Controls.MetroLabel StatmetroLabel16;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
-        private MetroFramework.Controls.MetroLabel metroLabel17;
+        private MetroFramework.Controls.MetroLabel StatmetroLabel17;
         private MetroFramework.Controls.MetroComboBox metroComboBox2;
         private MetroFramework.Controls.MetroComboBox metroComboBox3;
         private System.Windows.Forms.TabPage tabPage3;
-        private MetroFramework.Controls.MetroLabel metroLabel14;
-        private MetroFramework.Controls.MetroComboBox ComboBox_Grafik_Stat;
-        private DevExpress.XtraCharts.ChartControl chartControl1;
+        private MetroFramework.Controls.MetroLabel StatmetroLabel14;
+        private MetroFramework.Controls.MetroComboBox StatComboBox_Grafik_Stat;
+        private DevExpress.XtraCharts.ChartControl StatchartControl1;
         private System.Windows.Forms.TabPage tabPage4;
     }
 }

@@ -202,8 +202,8 @@ namespace Statistick
 
         private void DiagPoUch_Points(int id_kontr, int id_klass, int god)
         {
-            chartControl1.Series.Clear();
-            chartControl1.Titles.Clear();
+            StatchartControl1.Series.Clear();
+            StatchartControl1.Titles.Clear();
             int uud = 0;
             string fi = "";
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series("Ученики", DevExpress.XtraCharts.ViewType.Bar);
@@ -223,21 +223,21 @@ namespace Statistick
                 }
             }
             // Add the series to the chart.
-            chartControl1.Series.Add(series1);
+            StatchartControl1.Series.Add(series1);
             // Hide the legend (if necessary).
-            chartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            StatchartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
             // Rotate the diagram (if necessary).
-            ((XYDiagram)chartControl1.Diagram).Rotated = false;
+            ((XYDiagram)StatchartControl1.Diagram).Rotated = false;
             // Add a title to the chart (if necessary).
             DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
             chartTitle1.Text = "Диаграмма по учащимся";
-            chartControl1.Titles.Add(chartTitle1);
+            StatchartControl1.Titles.Add(chartTitle1);
         }
 
         private void DiagPoPoziciyam_Points(int id_kontr, int id_klass, int god)
         {
-            chartControl1.Series.Clear();
-            chartControl1.Titles.Clear();
+            StatchartControl1.Series.Clear();
+            StatchartControl1.Titles.Clear();
             int uud1 = 0, uud2 = 0, uud3 = 0, uud4 = 0, uud5 = 0;
 
             DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series("УУД", DevExpress.XtraCharts.ViewType.Bar3D);
@@ -275,7 +275,7 @@ namespace Statistick
                 }
             }
             // Add the series to the chart.
-            chartControl1.Series.Add(series1);
+            StatchartControl1.Series.Add(series1);
             //     ((BarSeriesLabel)series1.Label).Visible = true;
             ((BarSeriesLabel)series1.Label).ResolveOverlappingMode =
             ResolveOverlappingMode.Default;
@@ -292,22 +292,22 @@ namespace Statistick
             myView.Transparency = 80;
 
             // Access the diagram's options.
-            ((XYDiagram3D)chartControl1.Diagram).ZoomPercent = 110;
+            ((XYDiagram3D)StatchartControl1.Diagram).ZoomPercent = 110;
 
             // Add a title to the chart and hide the legend.
             DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
 
             chartTitle1.Text = "Общая диограмма по позициям";
-            chartControl1.Titles.Add(chartTitle1);
+            StatchartControl1.Titles.Add(chartTitle1);
             //   chartControl1.Legend.Visible = false;
         }
 
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            if (ComboBox_God_Stat.SelectedIndex != -1 && ComboBox_Grafik_Stat.SelectedIndex != -1)
+            if (ComboBox_God_Stat.SelectedIndex != -1 && StatComboBox_Grafik_Stat.SelectedIndex != -1)
             {
-                switch (ComboBox_Grafik_Stat.SelectedIndex)
+                switch (StatComboBox_Grafik_Stat.SelectedIndex)
                 {
                     case 0:
                         DiagPoUch_Points(Convert.ToInt32(ComboBox_Kontrol_Stat.SelectedValue), Convert.ToInt32(ComboBox_Klass_Stat.SelectedValue), Convert.ToInt32(ComboBox_God_Stat.SelectedItem));
