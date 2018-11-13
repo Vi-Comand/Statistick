@@ -477,6 +477,11 @@ namespace Statistick
         private void metroTile1_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void Proverka_Click(object sender, EventArgs e)
+        {
+
             MessageBox.Show(Est_v_BD().ToString());
         }
     }
