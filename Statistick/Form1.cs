@@ -327,7 +327,7 @@ namespace Statistick
                     }
                     MyRows++;
                     row++;
-
+                
                 }
                 excelApp.Quit();
             }
@@ -1394,6 +1394,16 @@ namespace Statistick
 
             Update_Combobox_Kontrol_Load();
 
+        private void ComboBox_God_Load_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Update_Combobox_Kontrol_Load();
+
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+          
+            MessageBox.Show(Est_v_BD().ToString());
         }
 
       
