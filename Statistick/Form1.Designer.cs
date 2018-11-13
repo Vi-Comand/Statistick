@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.FI = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.UUD1_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UUD2_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,6 +96,33 @@
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TabControl_Stat = new MetroFramework.Controls.MetroTabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.StatmetroLabel13 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel11 = new MetroFramework.Controls.MetroLabel();
+            this.ComboBox_God_Stat = new MetroFramework.Controls.MetroComboBox();
+            this.StatmetroLabel12 = new MetroFramework.Controls.MetroLabel();
+            this.ComboBox_Klass_Stat = new MetroFramework.Controls.MetroComboBox();
+            this.ComboBox_Kontrol_Stat = new MetroFramework.Controls.MetroComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.StatmetroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel19 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
+            this.StatmetroLabel20 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox5 = new MetroFramework.Controls.MetroComboBox();
+            this.ComboBox_Kontrol_Stat1 = new MetroFramework.Controls.MetroComboBox();
+            this.StatmetroLabel15 = new MetroFramework.Controls.MetroLabel();
+            this.StatmetroLabel16 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.StatmetroLabel17 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
+            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.StatmetroLabel14 = new MetroFramework.Controls.MetroLabel();
+            this.StatComboBox_Grafik_Stat = new MetroFramework.Controls.MetroComboBox();
+            this.StatchartControl1 = new DevExpress.XtraCharts.ChartControl();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
@@ -117,33 +144,6 @@
             this.kontrolnieTableAdapter = new Statistick.in_statDataSetTableAdapters.kontrolnieTableAdapter();
             this.instatDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.TabControl_Stat = new MetroFramework.Controls.MetroTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.StatmetroLabel13 = new MetroFramework.Controls.MetroLabel();
-            this.StatmetroLabel11 = new MetroFramework.Controls.MetroLabel();
-            this.ComboBox_God_Stat = new MetroFramework.Controls.MetroComboBox();
-            this.StatmetroLabel12 = new MetroFramework.Controls.MetroLabel();
-            this.ComboBox_Klass_Stat = new MetroFramework.Controls.MetroComboBox();
-            this.ComboBox_Kontrol_Stat = new MetroFramework.Controls.MetroComboBox();
-            this.StatmetroLabel14 = new MetroFramework.Controls.MetroLabel();
-            this.StatComboBox_Grafik_Stat = new MetroFramework.Controls.MetroComboBox();
-            this.StatchartControl1 = new DevExpress.XtraCharts.ChartControl();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.StatmetroLabel15 = new MetroFramework.Controls.MetroLabel();
-            this.StatmetroLabel16 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.StatmetroLabel17 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
-            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
-            this.StatmetroLabel18 = new MetroFramework.Controls.MetroLabel();
-            this.StatmetroLabel19 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
-            this.StatmetroLabel20 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox5 = new MetroFramework.Controls.MetroComboBox();
-            this.ComboBox_Kontrol_Stat1 = new MetroFramework.Controls.MetroComboBox();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -154,17 +154,17 @@
             this.metroTabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Red_UUD)).BeginInit();
             this.metroTabPage4.SuspendLayout();
-            this.metroTabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.TabControl_Stat.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StatchartControl1)).BeginInit();
+            this.metroTabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // FI
@@ -471,14 +471,14 @@
             this.Grid_Load_UUD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Grid_Load_UUD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.Grid_Load_UUD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Grid_Load_UUD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grid_Load_UUD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.Grid_Load_UUD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid_Load_UUD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.faim,
@@ -487,28 +487,28 @@
             this.uud7,
             this.uud10,
             this.uud11});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Grid_Load_UUD.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Grid_Load_UUD.DefaultCellStyle = dataGridViewCellStyle11;
             this.Grid_Load_UUD.EnableHeadersVisualStyles = false;
             this.Grid_Load_UUD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Grid_Load_UUD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Load_UUD.Location = new System.Drawing.Point(3, 72);
             this.Grid_Load_UUD.Name = "Grid_Load_UUD";
             this.Grid_Load_UUD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Grid_Load_UUD.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grid_Load_UUD.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.Grid_Load_UUD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Grid_Load_UUD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grid_Load_UUD.Size = new System.Drawing.Size(1076, 361);
@@ -676,14 +676,14 @@
             this.Grid_Red_UUD.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Grid_Red_UUD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.Grid_Red_UUD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Grid_Red_UUD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grid_Red_UUD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.Grid_Red_UUD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid_Red_UUD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewComboBoxColumn3,
@@ -692,28 +692,28 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Grid_Red_UUD.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Grid_Red_UUD.DefaultCellStyle = dataGridViewCellStyle14;
             this.Grid_Red_UUD.EnableHeadersVisualStyles = false;
             this.Grid_Red_UUD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Grid_Red_UUD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Red_UUD.Location = new System.Drawing.Point(3, 64);
             this.Grid_Red_UUD.Name = "Grid_Red_UUD";
             this.Grid_Red_UUD.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Grid_Red_UUD.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grid_Red_UUD.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.Grid_Red_UUD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Grid_Red_UUD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grid_Red_UUD.Size = new System.Drawing.Size(1076, 361);
@@ -765,6 +765,334 @@
             this.metroTabPage4.VerticalScrollbarBarColor = true;
             this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage4.VerticalScrollbarSize = 10;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.Controls.Add(this.TabControl_Stat, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.metroTile2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.metroTile1, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.27273F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1082, 489);
+            this.tableLayoutPanel1.TabIndex = 24;
+            // 
+            // TabControl_Stat
+            // 
+            this.TabControl_Stat.Controls.Add(this.tabPage1);
+            this.TabControl_Stat.Controls.Add(this.tabPage2);
+            this.TabControl_Stat.Controls.Add(this.tabPage3);
+            this.TabControl_Stat.Controls.Add(this.tabPage4);
+            this.TabControl_Stat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabControl_Stat.Location = new System.Drawing.Point(3, 3);
+            this.TabControl_Stat.Name = "TabControl_Stat";
+            this.tableLayoutPanel1.SetRowSpan(this.TabControl_Stat, 2);
+            this.TabControl_Stat.SelectedIndex = 1;
+            this.TabControl_Stat.Size = new System.Drawing.Size(876, 483);
+            this.TabControl_Stat.TabIndex = 0;
+            this.TabControl_Stat.UseSelectable = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.StatmetroLabel13);
+            this.tabPage1.Controls.Add(this.StatmetroLabel11);
+            this.tabPage1.Controls.Add(this.ComboBox_God_Stat);
+            this.tabPage1.Controls.Add(this.StatmetroLabel12);
+            this.tabPage1.Controls.Add(this.ComboBox_Klass_Stat);
+            this.tabPage1.Controls.Add(this.ComboBox_Kontrol_Stat);
+            this.tabPage1.Location = new System.Drawing.Point(4, 38);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(868, 441);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Одиночная аналитика";
+            // 
+            // StatmetroLabel13
+            // 
+            this.StatmetroLabel13.AutoSize = true;
+            this.StatmetroLabel13.Location = new System.Drawing.Point(13, 10);
+            this.StatmetroLabel13.Name = "StatmetroLabel13";
+            this.StatmetroLabel13.Size = new System.Drawing.Size(88, 19);
+            this.StatmetroLabel13.TabIndex = 21;
+            this.StatmetroLabel13.Text = "Контрольная";
+            // 
+            // StatmetroLabel11
+            // 
+            this.StatmetroLabel11.AutoSize = true;
+            this.StatmetroLabel11.Location = new System.Drawing.Point(403, 10);
+            this.StatmetroLabel11.Name = "StatmetroLabel11";
+            this.StatmetroLabel11.Size = new System.Drawing.Size(30, 19);
+            this.StatmetroLabel11.TabIndex = 25;
+            this.StatmetroLabel11.Text = "Год";
+            // 
+            // ComboBox_God_Stat
+            // 
+            this.ComboBox_God_Stat.FormattingEnabled = true;
+            this.ComboBox_God_Stat.ItemHeight = 23;
+            this.ComboBox_God_Stat.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022"});
+            this.ComboBox_God_Stat.Location = new System.Drawing.Point(403, 32);
+            this.ComboBox_God_Stat.Name = "ComboBox_God_Stat";
+            this.ComboBox_God_Stat.Size = new System.Drawing.Size(120, 29);
+            this.ComboBox_God_Stat.TabIndex = 24;
+            this.ComboBox_God_Stat.UseSelectable = true;
+            // 
+            // StatmetroLabel12
+            // 
+            this.StatmetroLabel12.AutoSize = true;
+            this.StatmetroLabel12.Location = new System.Drawing.Point(226, 10);
+            this.StatmetroLabel12.Name = "StatmetroLabel12";
+            this.StatmetroLabel12.Size = new System.Drawing.Size(42, 19);
+            this.StatmetroLabel12.TabIndex = 23;
+            this.StatmetroLabel12.Text = "Класс";
+            // 
+            // ComboBox_Klass_Stat
+            // 
+            this.ComboBox_Klass_Stat.DataSource = this.klassBindingSource;
+            this.ComboBox_Klass_Stat.DisplayMember = "klass";
+            this.ComboBox_Klass_Stat.FormattingEnabled = true;
+            this.ComboBox_Klass_Stat.ItemHeight = 23;
+            this.ComboBox_Klass_Stat.Location = new System.Drawing.Point(226, 32);
+            this.ComboBox_Klass_Stat.Name = "ComboBox_Klass_Stat";
+            this.ComboBox_Klass_Stat.Size = new System.Drawing.Size(171, 29);
+            this.ComboBox_Klass_Stat.TabIndex = 22;
+            this.ComboBox_Klass_Stat.UseSelectable = true;
+            this.ComboBox_Klass_Stat.ValueMember = "id";
+            // 
+            // ComboBox_Kontrol_Stat
+            // 
+            this.ComboBox_Kontrol_Stat.DataSource = this.kontrolnieBindingSource;
+            this.ComboBox_Kontrol_Stat.DisplayMember = "nazv";
+            this.ComboBox_Kontrol_Stat.FormattingEnabled = true;
+            this.ComboBox_Kontrol_Stat.ItemHeight = 23;
+            this.ComboBox_Kontrol_Stat.Location = new System.Drawing.Point(13, 32);
+            this.ComboBox_Kontrol_Stat.Name = "ComboBox_Kontrol_Stat";
+            this.ComboBox_Kontrol_Stat.Size = new System.Drawing.Size(207, 29);
+            this.ComboBox_Kontrol_Stat.TabIndex = 20;
+            this.ComboBox_Kontrol_Stat.UseSelectable = true;
+            this.ComboBox_Kontrol_Stat.ValueMember = "id";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.StatmetroLabel18);
+            this.tabPage2.Controls.Add(this.StatmetroLabel19);
+            this.tabPage2.Controls.Add(this.metroComboBox4);
+            this.tabPage2.Controls.Add(this.StatmetroLabel20);
+            this.tabPage2.Controls.Add(this.metroComboBox5);
+            this.tabPage2.Controls.Add(this.ComboBox_Kontrol_Stat1);
+            this.tabPage2.Controls.Add(this.StatmetroLabel15);
+            this.tabPage2.Controls.Add(this.StatmetroLabel16);
+            this.tabPage2.Controls.Add(this.metroComboBox1);
+            this.tabPage2.Controls.Add(this.StatmetroLabel17);
+            this.tabPage2.Controls.Add(this.metroComboBox2);
+            this.tabPage2.Controls.Add(this.metroComboBox3);
+            this.tabPage2.Location = new System.Drawing.Point(4, 38);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(868, 441);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Сравнение двух КДР";
+            // 
+            // StatmetroLabel18
+            // 
+            this.StatmetroLabel18.AutoSize = true;
+            this.StatmetroLabel18.Location = new System.Drawing.Point(15, 14);
+            this.StatmetroLabel18.Name = "StatmetroLabel18";
+            this.StatmetroLabel18.Size = new System.Drawing.Size(88, 19);
+            this.StatmetroLabel18.TabIndex = 33;
+            this.StatmetroLabel18.Text = "Контрольная";
+            // 
+            // StatmetroLabel19
+            // 
+            this.StatmetroLabel19.AutoSize = true;
+            this.StatmetroLabel19.Location = new System.Drawing.Point(405, 14);
+            this.StatmetroLabel19.Name = "StatmetroLabel19";
+            this.StatmetroLabel19.Size = new System.Drawing.Size(30, 19);
+            this.StatmetroLabel19.TabIndex = 37;
+            this.StatmetroLabel19.Text = "Год";
+            // 
+            // metroComboBox4
+            // 
+            this.metroComboBox4.FormattingEnabled = true;
+            this.metroComboBox4.ItemHeight = 23;
+            this.metroComboBox4.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022"});
+            this.metroComboBox4.Location = new System.Drawing.Point(405, 36);
+            this.metroComboBox4.Name = "metroComboBox4";
+            this.metroComboBox4.Size = new System.Drawing.Size(120, 29);
+            this.metroComboBox4.TabIndex = 36;
+            this.metroComboBox4.UseSelectable = true;
+            // 
+            // StatmetroLabel20
+            // 
+            this.StatmetroLabel20.AutoSize = true;
+            this.StatmetroLabel20.Location = new System.Drawing.Point(228, 14);
+            this.StatmetroLabel20.Name = "StatmetroLabel20";
+            this.StatmetroLabel20.Size = new System.Drawing.Size(42, 19);
+            this.StatmetroLabel20.TabIndex = 35;
+            this.StatmetroLabel20.Text = "Класс";
+            // 
+            // metroComboBox5
+            // 
+            this.metroComboBox5.DataSource = this.klassBindingSource;
+            this.metroComboBox5.DisplayMember = "klass";
+            this.metroComboBox5.FormattingEnabled = true;
+            this.metroComboBox5.ItemHeight = 23;
+            this.metroComboBox5.Location = new System.Drawing.Point(228, 36);
+            this.metroComboBox5.Name = "metroComboBox5";
+            this.metroComboBox5.Size = new System.Drawing.Size(171, 29);
+            this.metroComboBox5.TabIndex = 34;
+            this.metroComboBox5.UseSelectable = true;
+            this.metroComboBox5.ValueMember = "id";
+            // 
+            // ComboBox_Kontrol_Stat1
+            // 
+            this.ComboBox_Kontrol_Stat1.DataSource = this.kontrolnieBindingSource;
+            this.ComboBox_Kontrol_Stat1.DisplayMember = "nazv";
+            this.ComboBox_Kontrol_Stat1.FormattingEnabled = true;
+            this.ComboBox_Kontrol_Stat1.ItemHeight = 23;
+            this.ComboBox_Kontrol_Stat1.Location = new System.Drawing.Point(15, 36);
+            this.ComboBox_Kontrol_Stat1.Name = "ComboBox_Kontrol_Stat1";
+            this.ComboBox_Kontrol_Stat1.Size = new System.Drawing.Size(207, 29);
+            this.ComboBox_Kontrol_Stat1.TabIndex = 32;
+            this.ComboBox_Kontrol_Stat1.UseSelectable = true;
+            this.ComboBox_Kontrol_Stat1.ValueMember = "id";
+            // 
+            // StatmetroLabel15
+            // 
+            this.StatmetroLabel15.AutoSize = true;
+            this.StatmetroLabel15.Location = new System.Drawing.Point(16, 85);
+            this.StatmetroLabel15.Name = "StatmetroLabel15";
+            this.StatmetroLabel15.Size = new System.Drawing.Size(88, 19);
+            this.StatmetroLabel15.TabIndex = 27;
+            this.StatmetroLabel15.Text = "Контрольная";
+            // 
+            // StatmetroLabel16
+            // 
+            this.StatmetroLabel16.AutoSize = true;
+            this.StatmetroLabel16.Location = new System.Drawing.Point(406, 85);
+            this.StatmetroLabel16.Name = "StatmetroLabel16";
+            this.StatmetroLabel16.Size = new System.Drawing.Size(30, 19);
+            this.StatmetroLabel16.TabIndex = 31;
+            this.StatmetroLabel16.Text = "Год";
+            // 
+            // metroComboBox1
+            // 
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022"});
+            this.metroComboBox1.Location = new System.Drawing.Point(409, 107);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(120, 29);
+            this.metroComboBox1.TabIndex = 30;
+            this.metroComboBox1.UseSelectable = true;
+            // 
+            // StatmetroLabel17
+            // 
+            this.StatmetroLabel17.AutoSize = true;
+            this.StatmetroLabel17.Location = new System.Drawing.Point(229, 85);
+            this.StatmetroLabel17.Name = "StatmetroLabel17";
+            this.StatmetroLabel17.Size = new System.Drawing.Size(42, 19);
+            this.StatmetroLabel17.TabIndex = 29;
+            this.StatmetroLabel17.Text = "Класс";
+            // 
+            // metroComboBox2
+            // 
+            this.metroComboBox2.DataSource = this.klassBindingSource;
+            this.metroComboBox2.DisplayMember = "klass";
+            this.metroComboBox2.FormattingEnabled = true;
+            this.metroComboBox2.ItemHeight = 23;
+            this.metroComboBox2.Location = new System.Drawing.Point(229, 107);
+            this.metroComboBox2.Name = "metroComboBox2";
+            this.metroComboBox2.Size = new System.Drawing.Size(171, 29);
+            this.metroComboBox2.TabIndex = 28;
+            this.metroComboBox2.UseSelectable = true;
+            this.metroComboBox2.ValueMember = "id";
+            // 
+            // metroComboBox3
+            // 
+            this.metroComboBox3.DataSource = this.kontrolnieBindingSource;
+            this.metroComboBox3.DisplayMember = "nazv";
+            this.metroComboBox3.FormattingEnabled = true;
+            this.metroComboBox3.ItemHeight = 23;
+            this.metroComboBox3.Location = new System.Drawing.Point(16, 107);
+            this.metroComboBox3.Name = "metroComboBox3";
+            this.metroComboBox3.Size = new System.Drawing.Size(207, 29);
+            this.metroComboBox3.TabIndex = 26;
+            this.metroComboBox3.UseSelectable = true;
+            this.metroComboBox3.ValueMember = "id";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.StatmetroLabel14);
+            this.tabPage3.Controls.Add(this.StatComboBox_Grafik_Stat);
+            this.tabPage3.Controls.Add(this.StatchartControl1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 38);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(868, 441);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Сравнение параллели";
+            // 
+            // StatmetroLabel14
+            // 
+            this.StatmetroLabel14.AutoSize = true;
+            this.StatmetroLabel14.Location = new System.Drawing.Point(11, 155);
+            this.StatmetroLabel14.Name = "StatmetroLabel14";
+            this.StatmetroLabel14.Size = new System.Drawing.Size(53, 19);
+            this.StatmetroLabel14.TabIndex = 24;
+            this.StatmetroLabel14.Text = "График";
+            this.StatmetroLabel14.Visible = false;
+            // 
+            // StatComboBox_Grafik_Stat
+            // 
+            this.StatComboBox_Grafik_Stat.FormattingEnabled = true;
+            this.StatComboBox_Grafik_Stat.ItemHeight = 23;
+            this.StatComboBox_Grafik_Stat.Items.AddRange(new object[] {
+            "Диаграмма по учащимся",
+            "Общая диаграмма по позициям",
+            "Диаграмма полная",
+            "Диаграмма по ученику"});
+            this.StatComboBox_Grafik_Stat.Location = new System.Drawing.Point(11, 177);
+            this.StatComboBox_Grafik_Stat.Name = "StatComboBox_Grafik_Stat";
+            this.StatComboBox_Grafik_Stat.Size = new System.Drawing.Size(212, 29);
+            this.StatComboBox_Grafik_Stat.TabIndex = 23;
+            this.StatComboBox_Grafik_Stat.UseSelectable = true;
+            this.StatComboBox_Grafik_Stat.Visible = false;
+            // 
+            // StatchartControl1
+            // 
+            this.StatchartControl1.Legend.Name = "Default Legend";
+            this.StatchartControl1.Location = new System.Drawing.Point(73, 121);
+            this.StatchartControl1.Name = "StatchartControl1";
+            this.StatchartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
+            this.StatchartControl1.Size = new System.Drawing.Size(64, 53);
+            this.StatchartControl1.TabIndex = 22;
+            this.StatchartControl1.Visible = false;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 38);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(868, 441);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Статистика по ученику";
             // 
             // metroTile2
             // 
@@ -901,41 +1229,41 @@
             this.Grid_Klass.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Grid_Klass.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.Grid_Klass.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Grid_Klass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grid_Klass.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.Grid_Klass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid_Klass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn6});
             this.Grid_Klass.DataSource = this.userBindingSource;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Grid_Klass.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Grid_Klass.DefaultCellStyle = dataGridViewCellStyle17;
             this.Grid_Klass.EnableHeadersVisualStyles = false;
             this.Grid_Klass.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Grid_Klass.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Klass.Location = new System.Drawing.Point(3, 64);
             this.Grid_Klass.Name = "Grid_Klass";
             this.Grid_Klass.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Grid_Klass.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Grid_Klass.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.Grid_Klass.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Grid_Klass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grid_Klass.Size = new System.Drawing.Size(514, 361);
@@ -1004,334 +1332,6 @@
             this.metroToolTip1.StyleManager = null;
             this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.Controls.Add(this.TabControl_Stat, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.metroTile2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.metroTile1, 1, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.72727F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.27273F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1082, 489);
-            this.tableLayoutPanel1.TabIndex = 24;
-            // 
-            // TabControl_Stat
-            // 
-            this.TabControl_Stat.Controls.Add(this.tabPage1);
-            this.TabControl_Stat.Controls.Add(this.tabPage2);
-            this.TabControl_Stat.Controls.Add(this.tabPage3);
-            this.TabControl_Stat.Controls.Add(this.tabPage4);
-            this.TabControl_Stat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabControl_Stat.Location = new System.Drawing.Point(3, 3);
-            this.TabControl_Stat.Name = "TabControl_Stat";
-            this.tableLayoutPanel1.SetRowSpan(this.TabControl_Stat, 2);
-            this.TabControl_Stat.SelectedIndex = 1;
-            this.TabControl_Stat.Size = new System.Drawing.Size(876, 483);
-            this.TabControl_Stat.TabIndex = 0;
-            this.TabControl_Stat.UseSelectable = true;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.StatmetroLabel13);
-            this.tabPage1.Controls.Add(this.StatmetroLabel11);
-            this.tabPage1.Controls.Add(this.ComboBox_God_Stat);
-            this.tabPage1.Controls.Add(this.StatmetroLabel12);
-            this.tabPage1.Controls.Add(this.ComboBox_Klass_Stat);
-            this.tabPage1.Controls.Add(this.ComboBox_Kontrol_Stat);
-            this.tabPage1.Location = new System.Drawing.Point(4, 38);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(868, 441);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Одиночная аналитика";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.StatmetroLabel18);
-            this.tabPage2.Controls.Add(this.StatmetroLabel19);
-            this.tabPage2.Controls.Add(this.metroComboBox4);
-            this.tabPage2.Controls.Add(this.StatmetroLabel20);
-            this.tabPage2.Controls.Add(this.metroComboBox5);
-            this.tabPage2.Controls.Add(this.ComboBox_Kontrol_Stat1);
-            this.tabPage2.Controls.Add(this.StatmetroLabel15);
-            this.tabPage2.Controls.Add(this.StatmetroLabel16);
-            this.tabPage2.Controls.Add(this.metroComboBox1);
-            this.tabPage2.Controls.Add(this.StatmetroLabel17);
-            this.tabPage2.Controls.Add(this.metroComboBox2);
-            this.tabPage2.Controls.Add(this.metroComboBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 38);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(868, 441);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Сравнение двух КДР";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.StatmetroLabel14);
-            this.tabPage3.Controls.Add(this.StatComboBox_Grafik_Stat);
-            this.tabPage3.Controls.Add(this.StatchartControl1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 38);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(868, 441);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Сравнение параллели";
-            // 
-            // StatmetroLabel13
-            // 
-            this.StatmetroLabel13.AutoSize = true;
-            this.StatmetroLabel13.Location = new System.Drawing.Point(13, 10);
-            this.StatmetroLabel13.Name = "StatmetroLabel13";
-            this.StatmetroLabel13.Size = new System.Drawing.Size(88, 19);
-            this.StatmetroLabel13.TabIndex = 21;
-            this.StatmetroLabel13.Text = "Контрольная";
-            // 
-            // StatmetroLabel11
-            // 
-            this.StatmetroLabel11.AutoSize = true;
-            this.StatmetroLabel11.Location = new System.Drawing.Point(403, 10);
-            this.StatmetroLabel11.Name = "StatmetroLabel11";
-            this.StatmetroLabel11.Size = new System.Drawing.Size(30, 19);
-            this.StatmetroLabel11.TabIndex = 25;
-            this.StatmetroLabel11.Text = "Год";
-            // 
-            // ComboBox_God_Stat
-            // 
-            this.ComboBox_God_Stat.FormattingEnabled = true;
-            this.ComboBox_God_Stat.ItemHeight = 23;
-            this.ComboBox_God_Stat.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022"});
-            this.ComboBox_God_Stat.Location = new System.Drawing.Point(403, 32);
-            this.ComboBox_God_Stat.Name = "ComboBox_God_Stat";
-            this.ComboBox_God_Stat.Size = new System.Drawing.Size(120, 29);
-            this.ComboBox_God_Stat.TabIndex = 24;
-            this.ComboBox_God_Stat.UseSelectable = true;
-            // 
-            // StatmetroLabel12
-            // 
-            this.StatmetroLabel12.AutoSize = true;
-            this.StatmetroLabel12.Location = new System.Drawing.Point(226, 10);
-            this.StatmetroLabel12.Name = "StatmetroLabel12";
-            this.StatmetroLabel12.Size = new System.Drawing.Size(42, 19);
-            this.StatmetroLabel12.TabIndex = 23;
-            this.StatmetroLabel12.Text = "Класс";
-            // 
-            // ComboBox_Klass_Stat
-            // 
-            this.ComboBox_Klass_Stat.DataSource = this.klassBindingSource;
-            this.ComboBox_Klass_Stat.DisplayMember = "klass";
-            this.ComboBox_Klass_Stat.FormattingEnabled = true;
-            this.ComboBox_Klass_Stat.ItemHeight = 23;
-            this.ComboBox_Klass_Stat.Location = new System.Drawing.Point(226, 32);
-            this.ComboBox_Klass_Stat.Name = "ComboBox_Klass_Stat";
-            this.ComboBox_Klass_Stat.Size = new System.Drawing.Size(171, 29);
-            this.ComboBox_Klass_Stat.TabIndex = 22;
-            this.ComboBox_Klass_Stat.UseSelectable = true;
-            this.ComboBox_Klass_Stat.ValueMember = "id";
-            // 
-            // ComboBox_Kontrol_Stat
-            // 
-            this.ComboBox_Kontrol_Stat.DataSource = this.kontrolnieBindingSource;
-            this.ComboBox_Kontrol_Stat.DisplayMember = "nazv";
-            this.ComboBox_Kontrol_Stat.FormattingEnabled = true;
-            this.ComboBox_Kontrol_Stat.ItemHeight = 23;
-            this.ComboBox_Kontrol_Stat.Location = new System.Drawing.Point(13, 32);
-            this.ComboBox_Kontrol_Stat.Name = "ComboBox_Kontrol_Stat";
-            this.ComboBox_Kontrol_Stat.Size = new System.Drawing.Size(207, 29);
-            this.ComboBox_Kontrol_Stat.TabIndex = 20;
-            this.ComboBox_Kontrol_Stat.UseSelectable = true;
-            this.ComboBox_Kontrol_Stat.ValueMember = "id";
-            // 
-            // StatmetroLabel14
-            // 
-            this.StatmetroLabel14.AutoSize = true;
-            this.StatmetroLabel14.Location = new System.Drawing.Point(11, 155);
-            this.StatmetroLabel14.Name = "StatmetroLabel14";
-            this.StatmetroLabel14.Size = new System.Drawing.Size(53, 19);
-            this.StatmetroLabel14.TabIndex = 24;
-            this.StatmetroLabel14.Text = "График";
-            this.StatmetroLabel14.Visible = false;
-            // 
-            // StatComboBox_Grafik_Stat
-            // 
-            this.StatComboBox_Grafik_Stat.FormattingEnabled = true;
-            this.StatComboBox_Grafik_Stat.ItemHeight = 23;
-            this.StatComboBox_Grafik_Stat.Items.AddRange(new object[] {
-            "Диаграмма по учащимся",
-            "Общая диаграмма по позициям",
-            "Диаграмма полная",
-            "Диаграмма по ученику"});
-            this.StatComboBox_Grafik_Stat.Location = new System.Drawing.Point(11, 177);
-            this.StatComboBox_Grafik_Stat.Name = "StatComboBox_Grafik_Stat";
-            this.StatComboBox_Grafik_Stat.Size = new System.Drawing.Size(212, 29);
-            this.StatComboBox_Grafik_Stat.TabIndex = 23;
-            this.StatComboBox_Grafik_Stat.UseSelectable = true;
-            this.StatComboBox_Grafik_Stat.Visible = false;
-            // 
-            // StatchartControl1
-            // 
-            this.StatchartControl1.Legend.Name = "Default Legend";
-            this.StatchartControl1.Location = new System.Drawing.Point(73, 121);
-            this.StatchartControl1.Name = "StatchartControl1";
-            this.StatchartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            this.StatchartControl1.Size = new System.Drawing.Size(64, 53);
-            this.StatchartControl1.TabIndex = 22;
-            this.StatchartControl1.Visible = false;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 38);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(868, 441);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Статистика по ученику";
-            // 
-            // StatmetroLabel15
-            // 
-            this.StatmetroLabel15.AutoSize = true;
-            this.StatmetroLabel15.Location = new System.Drawing.Point(16, 85);
-            this.StatmetroLabel15.Name = "StatmetroLabel15";
-            this.StatmetroLabel15.Size = new System.Drawing.Size(88, 19);
-            this.StatmetroLabel15.TabIndex = 27;
-            this.StatmetroLabel15.Text = "Контрольная";
-            // 
-            // StatmetroLabel16
-            // 
-            this.StatmetroLabel16.AutoSize = true;
-            this.StatmetroLabel16.Location = new System.Drawing.Point(406, 85);
-            this.StatmetroLabel16.Name = "StatmetroLabel16";
-            this.StatmetroLabel16.Size = new System.Drawing.Size(30, 19);
-            this.StatmetroLabel16.TabIndex = 31;
-            this.StatmetroLabel16.Text = "Год";
-            // 
-            // metroComboBox1
-            // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022"});
-            this.metroComboBox1.Location = new System.Drawing.Point(406, 107);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(120, 29);
-            this.metroComboBox1.TabIndex = 30;
-            this.metroComboBox1.UseSelectable = true;
-            // 
-            // StatmetroLabel17
-            // 
-            this.StatmetroLabel17.AutoSize = true;
-            this.StatmetroLabel17.Location = new System.Drawing.Point(229, 85);
-            this.StatmetroLabel17.Name = "StatmetroLabel17";
-            this.StatmetroLabel17.Size = new System.Drawing.Size(42, 19);
-            this.StatmetroLabel17.TabIndex = 29;
-            this.StatmetroLabel17.Text = "Класс";
-            // 
-            // metroComboBox2
-            // 
-            this.metroComboBox2.DataSource = this.klassBindingSource;
-            this.metroComboBox2.DisplayMember = "klass";
-            this.metroComboBox2.FormattingEnabled = true;
-            this.metroComboBox2.ItemHeight = 23;
-            this.metroComboBox2.Location = new System.Drawing.Point(229, 107);
-            this.metroComboBox2.Name = "metroComboBox2";
-            this.metroComboBox2.Size = new System.Drawing.Size(171, 29);
-            this.metroComboBox2.TabIndex = 28;
-            this.metroComboBox2.UseSelectable = true;
-            this.metroComboBox2.ValueMember = "id";
-            // 
-            // metroComboBox3
-            // 
-            this.metroComboBox3.DataSource = this.kontrolnieBindingSource;
-            this.metroComboBox3.DisplayMember = "nazv";
-            this.metroComboBox3.FormattingEnabled = true;
-            this.metroComboBox3.ItemHeight = 23;
-            this.metroComboBox3.Location = new System.Drawing.Point(16, 107);
-            this.metroComboBox3.Name = "metroComboBox3";
-            this.metroComboBox3.Size = new System.Drawing.Size(207, 29);
-            this.metroComboBox3.TabIndex = 26;
-            this.metroComboBox3.UseSelectable = true;
-            this.metroComboBox3.ValueMember = "id";
-            // 
-            // StatmetroLabel18
-            // 
-            this.StatmetroLabel18.AutoSize = true;
-            this.StatmetroLabel18.Location = new System.Drawing.Point(15, 14);
-            this.StatmetroLabel18.Name = "StatmetroLabel18";
-            this.StatmetroLabel18.Size = new System.Drawing.Size(88, 19);
-            this.StatmetroLabel18.TabIndex = 33;
-            this.StatmetroLabel18.Text = "Контрольная";
-            // 
-            // StatmetroLabel19
-            // 
-            this.StatmetroLabel19.AutoSize = true;
-            this.StatmetroLabel19.Location = new System.Drawing.Point(405, 14);
-            this.StatmetroLabel19.Name = "StatmetroLabel19";
-            this.StatmetroLabel19.Size = new System.Drawing.Size(30, 19);
-            this.StatmetroLabel19.TabIndex = 37;
-            this.StatmetroLabel19.Text = "Год";
-            // 
-            // metroComboBox4
-            // 
-            this.metroComboBox4.FormattingEnabled = true;
-            this.metroComboBox4.ItemHeight = 23;
-            this.metroComboBox4.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022"});
-            this.metroComboBox4.Location = new System.Drawing.Point(405, 36);
-            this.metroComboBox4.Name = "metroComboBox4";
-            this.metroComboBox4.Size = new System.Drawing.Size(120, 29);
-            this.metroComboBox4.TabIndex = 36;
-            this.metroComboBox4.UseSelectable = true;
-            // 
-            // StatmetroLabel20
-            // 
-            this.StatmetroLabel20.AutoSize = true;
-            this.StatmetroLabel20.Location = new System.Drawing.Point(228, 14);
-            this.StatmetroLabel20.Name = "StatmetroLabel20";
-            this.StatmetroLabel20.Size = new System.Drawing.Size(42, 19);
-            this.StatmetroLabel20.TabIndex = 35;
-            this.StatmetroLabel20.Text = "Класс";
-            // 
-            // metroComboBox5
-            // 
-            this.metroComboBox5.DataSource = this.klassBindingSource;
-            this.metroComboBox5.DisplayMember = "klass";
-            this.metroComboBox5.FormattingEnabled = true;
-            this.metroComboBox5.ItemHeight = 23;
-            this.metroComboBox5.Location = new System.Drawing.Point(228, 36);
-            this.metroComboBox5.Name = "metroComboBox5";
-            this.metroComboBox5.Size = new System.Drawing.Size(171, 29);
-            this.metroComboBox5.TabIndex = 34;
-            this.metroComboBox5.UseSelectable = true;
-            this.metroComboBox5.ValueMember = "id";
-            // 
-            // ComboBox_Kontrol_Stat1
-            // 
-            this.ComboBox_Kontrol_Stat1.DataSource = this.kontrolnieBindingSource;
-            this.ComboBox_Kontrol_Stat1.DisplayMember = "nazv";
-            this.ComboBox_Kontrol_Stat1.FormattingEnabled = true;
-            this.ComboBox_Kontrol_Stat1.ItemHeight = 23;
-            this.ComboBox_Kontrol_Stat1.Location = new System.Drawing.Point(15, 36);
-            this.ComboBox_Kontrol_Stat1.Name = "ComboBox_Kontrol_Stat1";
-            this.ComboBox_Kontrol_Stat1.Size = new System.Drawing.Size(207, 29);
-            this.ComboBox_Kontrol_Stat1.TabIndex = 32;
-            this.ComboBox_Kontrol_Stat1.UseSelectable = true;
-            this.ComboBox_Kontrol_Stat1.ValueMember = "id";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1354,12 +1354,6 @@
             this.metroTabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Red_UUD)).EndInit();
             this.metroTabPage4.ResumeLayout(false);
-            this.metroTabPage5.ResumeLayout(false);
-            this.metroTabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.TabControl_Stat.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -1369,6 +1363,12 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StatchartControl1)).EndInit();
+            this.metroTabPage5.ResumeLayout(false);
+            this.metroTabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instatDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
