@@ -860,6 +860,11 @@ namespace Statistick
                     }
 
                 }
+                //----------------------------------------------удаление строк---------------------------------------------------------------------------
+                for (int j = i; j < 111; j++)
+                {
+                    excelworksheet.Rows[i].Delete();
+                }
                 //-------------------------------------------------------удаление столбцов------------------------------------------------------------------
                 switch (uud)
                 {
@@ -909,11 +914,7 @@ namespace Statistick
                         Coloring_Diag_1(uud);
                         break;
                 }
-                //----------------------------------------------удаление строк---------------------------------------------------------------------------
-                for(int j=i;j<111;j++)
-                {
-                    excelworksheet.Rows[i].Delete();
-                }
+               
             }
             catch (FormatException fEx)
             {
@@ -1394,8 +1395,13 @@ namespace Statistick
     */
         private void metroTile2_Click(object sender, EventArgs e)
         {
-            Excel_Diag_tab1();
-            Excel_Diag_tab2();
+            switch (TabControl_Stat.SelectedIndex)
+            {
+                case 0:
+                    Excel_Diag_tab1();
+                    Excel_Diag_tab2();
+                    break;
+            }
         }
         private void ComboBox_God_Load_SelectedIndexChanged(object sender, EventArgs e)
         { 
