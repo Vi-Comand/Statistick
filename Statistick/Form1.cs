@@ -1708,11 +1708,16 @@ namespace Statistick
 
         }
 
-      
-//=======
-       
+        private void but_New_klass_Click(object sender, EventArgs e)
+        {
 
-        
-//>>>>>>> 6e168095ff9b9a19d30e617a0b07114c2a31c458
+        }
+
+
+        //=======
+
+
+
+        //>>>>>>> 6e168095ff9b9a19d30e617a0b07114c2a31c458
     }
 }
