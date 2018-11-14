@@ -206,16 +206,13 @@ namespace Statistick
                 MessageBox.Show("Измененя внесены");
             }
 
-            //------------Фильтр пар-----------------------------
-          /*  gridControl1.Visible = true;
-            парыBindingSource.Filter = "id_Утп ='" + _idUtp + "'";
-            tabControl1.SelectTab(0);*/
-            //------------Фильтр пар-----------------------------
+           
         }
 
         private void but_load_excel_Click(object sender, EventArgs e)
         {
-          
+            ComboBox_Klass_Load.SelectedValue = 10;
+
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Filter = "Microsoft Excel (*.xls*)|*.xls*"
@@ -286,29 +283,78 @@ namespace Statistick
                         ComboBox_God_Load.SelectedIndex = i;
                     }
 
+                bool est_kalss = false;
+                int id_klass_bd = 0;
                 foreach (DataRow row1 in in_statDataSet.klass.Rows)
                 {
                     
                     if (row1[1].ToString() == klass)
                     {
                         ComboBox_Klass_Load.SelectedValue = (int) row1[0];
+                        est_kalss = true;
+                    }
+                    else
+                    {
+                        if (id_klass_bd < (int) row1[0])
+                            id_klass_bd = (int) row1[0];
+
+
+
 
                     }
                 }
+
+                if (!est_kalss)
+                {
+                    DialogResult dialogResult = MessageBox.Show( klass + " не найден. Добавить?", "Some Title", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        DataRow rowklass = in_statDataSet.klass.NewRow();
+                      rowklass["klass"] =klass;
+                        in_statDataSet.klass.Rows.Add(rowklass);
+
+                        klassTableAdapter.Update(in_statDataSet);
+                        this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+                        ComboBox_Klass_Load.SelectedValue = id_klass_bd + 1;
+
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+
+                    }
+
+                }
+
+                bool est_kontroln = false;
                 foreach (DataRow row1 in in_statDataSet.kontrolnie.Rows)
                 {
 
                     if (row1[1].ToString() == kontrolnie && Convert.ToDateTime(row1[2])==data)
                     {
                         ComboBox_Kontrol_Load.SelectedValue = row1[0].ToString();
-
+                        est_kontroln = true;
                     }
                 }
 
-                //kontrolnieBindingSource.Filter = "data ='" + _idUtp + "'";
+                if (!est_kontroln)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Контрольная "+ kontrolnie + " не найдена. Хотите перейти к созданию контрольной?", "Some Title", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        metroTabControl1.SelectedIndex = 5;
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                       
+                    }
+                }
 
 
-                int MyRows = 0;
+            
+            //kontrolnieBindingSource.Filter = "data ='" + _idUtp + "'";
+
+
+            int MyRows = 0;
                 while (currentSheet.get_Range("B" + row).Value2 != null)
                 {
                     Grid_Load_UUD.Rows.Add();
@@ -333,7 +379,7 @@ namespace Statistick
                 }
                 excelApp.Quit();
             }
-       
+            
             MessageBox.Show(Est_v_BD().ToString());
 
         }
@@ -370,7 +416,7 @@ namespace Statistick
 
             Grid_Load_UUD.ClearSelection();
             return kol;
-//<<<<<<< HEAD
+
         }
 
         private void Update_Combobox_Kontrol_Load()
