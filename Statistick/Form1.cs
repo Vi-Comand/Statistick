@@ -732,6 +732,20 @@ namespace Statistick
             Diad_tabl_4();
         }
 
+        private void Excel_Diag_tab5()
+        {
+            excelapp = new Excel.Application();
+            excelapp.Visible = true;
+            excelappworkbooks = excelapp.Workbooks;
+            String templatePath = System.Windows.Forms.Application.StartupPath;
+            excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\5.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            excelsheets = excelappworkbook.Worksheets;
+
+
+            Diad_tabl_5();
+        }
+
         private void Add_Row1()
         {
             //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
@@ -1471,6 +1485,71 @@ namespace Statistick
 
         }
 
+        private void Diad_tabl_5()
+        {
+            i_rows = 3;
+            try
+            {
+                _control = ComboBox_Kontrol_Stat3.SelectedItem.ToString();
+                _klass = ComboBox_Klass_Stat3.SelectedItem.ToString();
+                _god = ComboBox_God_Stat3.SelectedItem.ToString();
+                int sheet = 1;
+                foreach (DataRow kon in in_statDataSet.kontrolnie.Rows)
+                {
+                    if (kon["nazv"].ToString() == _control)
+                    {
+                        int id_kontr = Convert.ToInt16(kon["id"]);
+                        foreach (DataRow klass in in_statDataSet.klass.Rows)
+                        {
+                            if (Regex.Replace(klass["klass"].ToString(), "[^0-9]", "") == _klass)
+                            {
+                                int id_klass = Convert.ToInt16(klass["id"]);
+                                foreach (DataRow row in in_statDataSet.uud.Rows)
+                                {
+                                    if (Convert.ToInt32(row["id_kontr"]) == id_kontr && Convert.ToInt32(row["id_klass"]) == id_klass && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god))
+                                    {
+                                        excelworksheet = (Excel.Worksheet)excelsheets.get_Item(sheet);
+                                        Add_Rows_3_v_1(row);
+                                        
+                                    }
+
+                                }
+
+                            }
+                        }
+                        Del_Rows();
+                        i_rows = 3;
+                        sheet++;
+                    }
+                }
+            }
+            catch (FormatException fEx)
+            {
+                MessageBox.Show(fEx.ToString());
+            }
+
+            catch (OverflowException oEx)
+            {
+                MessageBox.Show(oEx.ToString());
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Вы не заполнили один из комбобокс");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                if (i_rows == 2)
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+                }
+            }
+
+        }
+
         /*
                 private void Diag_98()
                 {
@@ -1744,6 +1823,9 @@ namespace Statistick
                 case 1:
                     Excel_Diag_tab3();
                     Excel_Diag_tab4();
+                    break;
+                case 2:
+                    Excel_Diag_tab5();
                     break;
             }
         }
