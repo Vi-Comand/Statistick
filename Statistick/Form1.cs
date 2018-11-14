@@ -44,6 +44,21 @@ namespace Statistick
 
         }
 
+        private void proverka_na_vernost()
+        {
+            for (int i = 0; i < Grid_Load_UUD.Rows.Count; i++)
+            {
+                for (int j = 1; j < Grid_Load_UUD.Columns.Count; j++)
+                {
+                    if (Grid_Load_UUD.Rows[i].Cells[j].Value == null )
+                        Grid_Load_UUD.Rows[i].Cells[j].Style.BackColor = Color.Red;
+                    else if (  Grid_Load_UUD.Rows[i].Cells[j].Value.ToString()!= "1" &&
+                        Grid_Load_UUD.Rows[i].Cells[j].Value.ToString() !="0")
+                    Grid_Load_UUD.Rows[i].Cells[j].Style.BackColor = Color.Red;
+                    
+                }
+            }
+        }
         private void but_save_db_Click(object sender, EventArgs e)
         {
             bool prinmatizmenenia=true;
@@ -1839,6 +1854,11 @@ namespace Statistick
         private void but_New_klass_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Proverka_Click(object sender, EventArgs e)
+        {
+            proverka_na_vernost();
         }
 
 
