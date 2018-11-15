@@ -47,7 +47,7 @@ namespace Statistick
             Update_Combobox_Kontrol_Red();
         }
 
-        private bool proverka_na_vernost()
+        private bool Proverka_na_vernost()
         {
             bool ok = true;
             for (int i = 0; i < Grid_Load_UUD.Rows.Count; i++)
@@ -76,9 +76,9 @@ namespace Statistick
 
             return ok;
         }
-        private void but_save_db_Click(object sender, EventArgs e)
+        private void But_save_db_Click(object sender, EventArgs e)
         {
-            if (proverka_na_vernost() == false)
+            if (Proverka_na_vernost() == false)
             {
                 MessageBox.Show("Данные не корректны!");
             }
@@ -267,7 +267,7 @@ namespace Statistick
 
         }
 
-        private void but_load_excel_Click(object sender, EventArgs e)
+        private void But_load_excel_Click(object sender, EventArgs e)
         {
             Grid_Load_UUD.Rows.Clear();
             ComboBox_Klass_Load.SelectedValue = 10;
@@ -285,9 +285,10 @@ namespace Statistick
 
                         int row = 4;
                 int LishnColumn = 0;
-                List<string> maping = new List<string>();
-
-                maping.Add("faim");
+                List<string> maping = new List<string>
+                {
+                    "faim"
+                };
 
                 if (check_uud1.Checked == true)
                 {
@@ -522,7 +523,7 @@ namespace Statistick
             //  ComboBox_Kontrol_Load.SelectedIndex = 0;
         }
 
-        private void check_uud1_CheckedChanged(object sender, EventArgs e)
+        private void Check_uud1_CheckedChanged(object sender, EventArgs e)
         {
             if (check_uud1.Checked)
             {
@@ -535,7 +536,7 @@ namespace Statistick
 
         }
 
-        private void check_uud2_CheckedChanged(object sender, EventArgs e)
+        private void Check_uud2_CheckedChanged(object sender, EventArgs e)
         {
             if (check_uud2.Checked)
             {
@@ -547,7 +548,7 @@ namespace Statistick
             }
         }
 
-        private void check_uud3_CheckedChanged(object sender, EventArgs e)
+        private void Check_uud3_CheckedChanged(object sender, EventArgs e)
         {
             if (check_uud3.Checked)
             {
@@ -629,8 +630,10 @@ namespace Statistick
             // Rotate the diagram (if necessary).
             ((XYDiagram)StatchartControl1.Diagram).Rotated = false;
             // Add a title to the chart (if necessary).
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
-            chartTitle1.Text = "Диаграмма по учащимся";
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle
+            {
+                Text = "Диаграмма по учащимся"
+            };
             StatchartControl1.Titles.Add(chartTitle1);
         }
 
@@ -681,7 +684,7 @@ namespace Statistick
             ResolveOverlappingMode.Default;
 
             // Access the series options.
-            series1.PointOptions.PointView = PointView.ArgumentAndValues;
+           // series1.PointOptions.PointView = PointView.ArgumentAndValues;
 
 
             // Customize the view-type-specific properties of the series.
@@ -695,15 +698,16 @@ namespace Statistick
             ((XYDiagram3D)StatchartControl1.Diagram).ZoomPercent = 110;
 
             // Add a title to the chart and hide the legend.
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle();
-
-            chartTitle1.Text = "Общая диограмма по позициям";
+            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle
+            {
+                Text = "Общая диограмма по позициям"
+            };
             StatchartControl1.Titles.Add(chartTitle1);
             //   chartControl1.Legend.Visible = false;
         }
 
 
-        private void metroTile1_Click(object sender, EventArgs e)
+        private void MetroTile1_Click(object sender, EventArgs e)
         {
             if (ComboBox_God_Stat.SelectedIndex != -1 && StatComboBox_Grafik_Stat.SelectedIndex != -1)
             {
@@ -738,8 +742,6 @@ namespace Statistick
         private Excel.Workbook excelappworkbook;
         private Excel.Sheets excelsheets;
         private Excel.Worksheet excelworksheet;
-        private Excel.Range excelcells;
-        private Excel.Window excelWindow;
         string uud = "";
         int i_rows = 2;
         string _control = "";
@@ -753,8 +755,10 @@ namespace Statistick
 
         private void Excel_Diag_tab1()
         {
-            excelapp = new Excel.Application();
-            excelapp.Visible = true;
+            excelapp = new Excel.Application
+            {
+                Visible = false
+            };
             excelappworkbooks = excelapp.Workbooks;
 
             excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\1.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
@@ -769,8 +773,10 @@ namespace Statistick
         }
         private void Excel_Diag_tab2()
         {
-            excelapp = new Excel.Application();
-            excelapp.Visible = true;
+            excelapp = new Excel.Application
+            {
+                Visible = false
+            };
             excelappworkbooks = excelapp.Workbooks;
             excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\2.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
                 Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
@@ -784,8 +790,10 @@ namespace Statistick
 
         private void Excel_Diag_tab3()
         {
-            excelapp = new Excel.Application();
-            excelapp.Visible = true;
+            excelapp = new Excel.Application
+            {
+                Visible = false
+            };
             excelappworkbooks = excelapp.Workbooks;
             String templatePath = System.Windows.Forms.Application.StartupPath;
             excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\3.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
@@ -800,8 +808,10 @@ namespace Statistick
 
         private void Excel_Diag_tab4()
         {
-            excelapp = new Excel.Application();
-            excelapp.Visible = true;
+            excelapp = new Excel.Application
+            {
+                Visible = false
+            };
             excelappworkbooks = excelapp.Workbooks;
             String templatePath = System.Windows.Forms.Application.StartupPath;
             excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\4.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
@@ -817,8 +827,10 @@ namespace Statistick
 
         private void Excel_Diag_tab5()
         {
-            excelapp = new Excel.Application();
-            excelapp.Visible = true;
+            excelapp = new Excel.Application
+            {
+                Visible = false
+            };
             excelappworkbooks = excelapp.Workbooks;
             String templatePath = System.Windows.Forms.Application.StartupPath;
             excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\5.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
@@ -1446,7 +1458,7 @@ namespace Statistick
             {
                 MessageBox.Show(oEx.ToString());
             }
-            catch (NullReferenceException nEx)
+            catch (NullReferenceException )
             {
                 MessageBox.Show("Вы не заполнили один из комбобокс");
             }
@@ -1899,21 +1911,32 @@ namespace Statistick
                     series.XValues = "Понедельник;Вторник;Среда;Четверг;Пятница;Суббота;Воскресенье;Итог";
                 }
             */
-        private void metroTile2_Click(object sender, EventArgs e)
+        private void MetroTile2_Click(object sender, EventArgs e)
         {
             Directory.CreateDirectory(templatePath + @"\Отчеты\" + _date);
             switch (TabControl_Stat.SelectedIndex)
             {
                 case 0:
+                    metroLabel16.Text = "Создается Таблица 1";
                     Excel_Diag_tab1();
+                    metroLabel16.Text = "Создается Таблица 2";
                     Excel_Diag_tab2();
+                    metroLabel16.Text = "Таблицы созданы";
+                    System.Diagnostics.Process.Start("explorer", templatePath + @"\Отчеты\"+_date+"\\");
                     break;
                 case 1:
+                    metroLabel16.Text = "Создается Таблица 3";
                     Excel_Diag_tab3();
+                    metroLabel16.Text = "Создается Таблица 4";
                     Excel_Diag_tab4();
+                    metroLabel16.Text = "Таблицы созданы";
+                    System.Diagnostics.Process.Start("explorer", templatePath + @"\Отчеты\" + _date + "\\");
                     break;
                 case 2:
+                    metroLabel16.Text = "Создается Таблица 5";
                     Excel_Diag_tab5();
+                    metroLabel16.Text = "Таблица создана";
+                    System.Diagnostics.Process.Start("explorer", templatePath + @"\Отчеты\" + _date + "\\");
                     break;
             }
         }
@@ -1928,35 +1951,35 @@ namespace Statistick
         {
             Update_Combobox_Kontrol_Red();
         }
-        private void but_New_klass_Click(object sender, EventArgs e)
+        private void But_New_klass_Click(object sender, EventArgs e)
         {
 
         }
 
         private void Proverka_Click(object sender, EventArgs e)
         {
-            proverka_na_vernost();
+            Proverka_na_vernost();
         }
 
-        private void but_Open_UUD_Click(object sender, EventArgs e)
+        private void But_Open_UUD_Click(object sender, EventArgs e)
         {
             uudBindingSource.Filter = "id_kontr ='" + ComboBox_Kontrol_Red.SelectedValue.ToString() + "' and id_klass ='" + ComboBox_Klass_Red.SelectedValue.ToString() + "' and god ='" + ComboBox_God_Red.SelectedItem.ToString() + "'";
         }
 
-        private void but_Save_UUD_Click(object sender, EventArgs e)
+        private void But_Save_UUD_Click(object sender, EventArgs e)
         {
             uudTableAdapter.Update(in_statDataSet);
             uudTableAdapter.Fill(in_statDataSet.uud);
         }
 
-        private void but_Del_UUD_Click(object sender, EventArgs e)
+        private void But_Del_UUD_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Вы дестйствительно хотите удалить эту запись?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
                 int a = Grid_Red_UUD.CurrentRow.Index;
                 Grid_Red_UUD.Rows.Remove(Grid_Red_UUD.Rows[a]);
-                but_Save_UUD_Click(sender, e);
+                But_Save_UUD_Click(sender, e);
             }
 
         }
