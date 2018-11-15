@@ -60,12 +60,6 @@
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Grid_Load_UUD = new MetroFramework.Controls.MetroGrid();
-            this.faim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.but_load_excel = new MetroFramework.Controls.MetroTile();
             this.check_uud1 = new MetroFramework.Controls.MetroToggle();
@@ -141,6 +135,14 @@
             this.StatComboBox_Grafik_Stat = new MetroFramework.Controls.MetroComboBox();
             this.StatchartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox8 = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
+            this.metroComboBox6 = new MetroFramework.Controls.MetroComboBox();
+            this.metroComboBox7 = new MetroFramework.Controls.MetroComboBox();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
@@ -181,14 +183,12 @@
             this.userTableAdapter = new Statistick.in_statDataSetTableAdapters.userTableAdapter();
             this.kontrolnieTableAdapter = new Statistick.in_statDataSetTableAdapters.kontrolnieTableAdapter();
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
-            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox6 = new MetroFramework.Controls.MetroComboBox();
-            this.metroComboBox7 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox8 = new MetroFramework.Controls.MetroComboBox();
+            this.faim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -298,7 +298,7 @@
             this.metroTabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 3;
+            this.metroTabControl1.SelectedIndex = 1;
             this.metroTabControl1.Size = new System.Drawing.Size(1352, 483);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -362,6 +362,7 @@
             // 
             // Grid_Load_UUD
             // 
+            this.Grid_Load_UUD.AllowUserToAddRows = false;
             this.Grid_Load_UUD.AllowUserToResizeRows = false;
             this.Grid_Load_UUD.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Load_UUD.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -392,7 +393,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Grid_Load_UUD.DefaultCellStyle = dataGridViewCellStyle2;
             this.Grid_Load_UUD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Grid_Load_UUD.EnableHeadersVisualStyles = false;
             this.Grid_Load_UUD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Grid_Load_UUD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Load_UUD.Location = new System.Drawing.Point(3, 83);
@@ -408,42 +408,10 @@
             this.Grid_Load_UUD.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.Grid_Load_UUD.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Grid_Load_UUD.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Grid_Load_UUD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Grid_Load_UUD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Grid_Load_UUD.Size = new System.Drawing.Size(1338, 349);
             this.Grid_Load_UUD.TabIndex = 2;
             this.Grid_Load_UUD.UseCustomBackColor = true;
-            // 
-            // faim
-            // 
-            this.faim.HeaderText = "Ф.И.";
-            this.faim.Name = "faim";
-            this.faim.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.faim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // uud1
-            // 
-            this.uud1.HeaderText = "УУД1-1";
-            this.uud1.Name = "uud1";
-            // 
-            // uud4
-            // 
-            this.uud4.HeaderText = "УУД2-1";
-            this.uud4.Name = "uud4";
-            // 
-            // uud7
-            // 
-            this.uud7.HeaderText = "УУД3-1";
-            this.uud7.Name = "uud7";
-            // 
-            // uud10
-            // 
-            this.uud10.HeaderText = "УУД4";
-            this.uud10.Name = "uud10";
-            // 
-            // uud11
-            // 
-            this.uud11.HeaderText = "УУД5";
-            this.uud11.Name = "uud11";
             // 
             // panel1
             // 
@@ -993,7 +961,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1123, 383);
+            this.tabPage1.Size = new System.Drawing.Size(1092, 383);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Одиночная аналитика";
             // 
@@ -1096,7 +1064,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 44);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1123, 383);
+            this.tabPage2.Size = new System.Drawing.Size(1092, 383);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Сравнение двух КДР";
             // 
@@ -1292,7 +1260,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 44);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1123, 383);
+            this.tabPage3.Size = new System.Drawing.Size(1092, 383);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Сравнение параллели";
             // 
@@ -1462,6 +1430,110 @@
             this.tabPage4.Size = new System.Drawing.Size(1092, 383);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Статистика по ученику";
+            // 
+            // metroLabel22
+            // 
+            this.metroLabel22.AutoSize = true;
+            this.metroLabel22.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel22.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel22.Location = new System.Drawing.Point(399, 6);
+            this.metroLabel22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel22.Name = "metroLabel22";
+            this.metroLabel22.Size = new System.Drawing.Size(70, 25);
+            this.metroLabel22.TabIndex = 45;
+            this.metroLabel22.Text = "Ученик";
+            // 
+            // metroComboBox8
+            // 
+            this.metroComboBox8.FormattingEnabled = true;
+            this.metroComboBox8.ItemHeight = 23;
+            this.metroComboBox8.Location = new System.Drawing.Point(398, 36);
+            this.metroComboBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.metroComboBox8.Name = "metroComboBox8";
+            this.metroComboBox8.Size = new System.Drawing.Size(208, 29);
+            this.metroComboBox8.TabIndex = 44;
+            this.metroComboBox8.UseSelectable = true;
+            // 
+            // metroLabel19
+            // 
+            this.metroLabel19.AutoSize = true;
+            this.metroLabel19.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel19.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel19.Location = new System.Drawing.Point(12, 6);
+            this.metroLabel19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel19.Name = "metroLabel19";
+            this.metroLabel19.Size = new System.Drawing.Size(118, 25);
+            this.metroLabel19.TabIndex = 39;
+            this.metroLabel19.Text = "Контрольная";
+            // 
+            // metroLabel20
+            // 
+            this.metroLabel20.AutoSize = true;
+            this.metroLabel20.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel20.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel20.Location = new System.Drawing.Point(324, 6);
+            this.metroLabel20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel20.Name = "metroLabel20";
+            this.metroLabel20.Size = new System.Drawing.Size(41, 25);
+            this.metroLabel20.TabIndex = 43;
+            this.metroLabel20.Text = "Год";
+            // 
+            // metroComboBox4
+            // 
+            this.metroComboBox4.FormattingEnabled = true;
+            this.metroComboBox4.ItemHeight = 23;
+            this.metroComboBox4.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022"});
+            this.metroComboBox4.Location = new System.Drawing.Point(323, 36);
+            this.metroComboBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.metroComboBox4.Name = "metroComboBox4";
+            this.metroComboBox4.Size = new System.Drawing.Size(69, 29);
+            this.metroComboBox4.TabIndex = 42;
+            this.metroComboBox4.UseSelectable = true;
+            // 
+            // metroLabel21
+            // 
+            this.metroLabel21.AutoSize = true;
+            this.metroLabel21.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel21.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel21.Location = new System.Drawing.Point(224, 6);
+            this.metroLabel21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.metroLabel21.Name = "metroLabel21";
+            this.metroLabel21.Size = new System.Drawing.Size(56, 25);
+            this.metroLabel21.TabIndex = 41;
+            this.metroLabel21.Text = "Класс";
+            // 
+            // metroComboBox6
+            // 
+            this.metroComboBox6.DataSource = this.klassBindingSource;
+            this.metroComboBox6.DisplayMember = "klass";
+            this.metroComboBox6.FormattingEnabled = true;
+            this.metroComboBox6.ItemHeight = 23;
+            this.metroComboBox6.Location = new System.Drawing.Point(223, 36);
+            this.metroComboBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.metroComboBox6.Name = "metroComboBox6";
+            this.metroComboBox6.Size = new System.Drawing.Size(98, 29);
+            this.metroComboBox6.TabIndex = 40;
+            this.metroComboBox6.UseSelectable = true;
+            this.metroComboBox6.ValueMember = "id";
+            // 
+            // metroComboBox7
+            // 
+            this.metroComboBox7.DataSource = this.kontrolnieBindingSource;
+            this.metroComboBox7.DisplayMember = "nazv";
+            this.metroComboBox7.FormattingEnabled = true;
+            this.metroComboBox7.ItemHeight = 23;
+            this.metroComboBox7.Location = new System.Drawing.Point(11, 36);
+            this.metroComboBox7.Margin = new System.Windows.Forms.Padding(2);
+            this.metroComboBox7.Name = "metroComboBox7";
+            this.metroComboBox7.Size = new System.Drawing.Size(208, 29);
+            this.metroComboBox7.TabIndex = 38;
+            this.metroComboBox7.UseSelectable = true;
+            this.metroComboBox7.ValueMember = "id";
             // 
             // metroTile2
             // 
@@ -2037,109 +2109,38 @@
             this.metroToolTip1.StyleManager = null;
             this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
-            // metroLabel19
+            // faim
             // 
-            this.metroLabel19.AutoSize = true;
-            this.metroLabel19.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel19.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel19.Location = new System.Drawing.Point(12, 6);
-            this.metroLabel19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.metroLabel19.Name = "metroLabel19";
-            this.metroLabel19.Size = new System.Drawing.Size(118, 25);
-            this.metroLabel19.TabIndex = 39;
-            this.metroLabel19.Text = "Контрольная";
+            this.faim.HeaderText = "Ф.И.";
+            this.faim.Name = "faim";
+            this.faim.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.faim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.faim.Width = 250;
             // 
-            // metroLabel20
+            // uud1
             // 
-            this.metroLabel20.AutoSize = true;
-            this.metroLabel20.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel20.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel20.Location = new System.Drawing.Point(324, 6);
-            this.metroLabel20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.metroLabel20.Name = "metroLabel20";
-            this.metroLabel20.Size = new System.Drawing.Size(41, 25);
-            this.metroLabel20.TabIndex = 43;
-            this.metroLabel20.Text = "Год";
+            this.uud1.HeaderText = "УУД1-1";
+            this.uud1.Name = "uud1";
             // 
-            // metroComboBox4
+            // uud4
             // 
-            this.metroComboBox4.FormattingEnabled = true;
-            this.metroComboBox4.ItemHeight = 23;
-            this.metroComboBox4.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022"});
-            this.metroComboBox4.Location = new System.Drawing.Point(323, 36);
-            this.metroComboBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.metroComboBox4.Name = "metroComboBox4";
-            this.metroComboBox4.Size = new System.Drawing.Size(69, 29);
-            this.metroComboBox4.TabIndex = 42;
-            this.metroComboBox4.UseSelectable = true;
+            this.uud4.HeaderText = "УУД2-1";
+            this.uud4.Name = "uud4";
             // 
-            // metroLabel21
+            // uud7
             // 
-            this.metroLabel21.AutoSize = true;
-            this.metroLabel21.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel21.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel21.Location = new System.Drawing.Point(224, 6);
-            this.metroLabel21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.metroLabel21.Name = "metroLabel21";
-            this.metroLabel21.Size = new System.Drawing.Size(56, 25);
-            this.metroLabel21.TabIndex = 41;
-            this.metroLabel21.Text = "Класс";
+            this.uud7.HeaderText = "УУД3-1";
+            this.uud7.Name = "uud7";
             // 
-            // metroComboBox6
+            // uud10
             // 
-            this.metroComboBox6.DataSource = this.klassBindingSource;
-            this.metroComboBox6.DisplayMember = "klass";
-            this.metroComboBox6.FormattingEnabled = true;
-            this.metroComboBox6.ItemHeight = 23;
-            this.metroComboBox6.Location = new System.Drawing.Point(223, 36);
-            this.metroComboBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.metroComboBox6.Name = "metroComboBox6";
-            this.metroComboBox6.Size = new System.Drawing.Size(98, 29);
-            this.metroComboBox6.TabIndex = 40;
-            this.metroComboBox6.UseSelectable = true;
-            this.metroComboBox6.ValueMember = "id";
+            this.uud10.HeaderText = "УУД4";
+            this.uud10.Name = "uud10";
             // 
-            // metroComboBox7
+            // uud11
             // 
-            this.metroComboBox7.DataSource = this.kontrolnieBindingSource;
-            this.metroComboBox7.DisplayMember = "nazv";
-            this.metroComboBox7.FormattingEnabled = true;
-            this.metroComboBox7.ItemHeight = 23;
-            this.metroComboBox7.Location = new System.Drawing.Point(11, 36);
-            this.metroComboBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.metroComboBox7.Name = "metroComboBox7";
-            this.metroComboBox7.Size = new System.Drawing.Size(208, 29);
-            this.metroComboBox7.TabIndex = 38;
-            this.metroComboBox7.UseSelectable = true;
-            this.metroComboBox7.ValueMember = "id";
-            // 
-            // metroLabel22
-            // 
-            this.metroLabel22.AutoSize = true;
-            this.metroLabel22.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel22.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel22.Location = new System.Drawing.Point(399, 6);
-            this.metroLabel22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.metroLabel22.Name = "metroLabel22";
-            this.metroLabel22.Size = new System.Drawing.Size(70, 25);
-            this.metroLabel22.TabIndex = 45;
-            this.metroLabel22.Text = "Ученик";
-            // 
-            // metroComboBox8
-            // 
-            this.metroComboBox8.FormattingEnabled = true;
-            this.metroComboBox8.ItemHeight = 23;
-            this.metroComboBox8.Location = new System.Drawing.Point(398, 36);
-            this.metroComboBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.metroComboBox8.Name = "metroComboBox8";
-            this.metroComboBox8.Size = new System.Drawing.Size(208, 29);
-            this.metroComboBox8.TabIndex = 44;
-            this.metroComboBox8.UseSelectable = true;
+            this.uud11.HeaderText = "УУД5";
+            this.uud11.Name = "uud11";
             // 
             // Form1
             // 
@@ -2262,12 +2263,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.BindingSource kontrolnieBindingSource;
         private in_statDataSetTableAdapters.kontrolnieTableAdapter kontrolnieTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn faim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uud1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uud4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uud7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uud10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uud11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewComboBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
@@ -2352,6 +2347,12 @@
         private MetroFramework.Controls.MetroLabel metroLabel21;
         private MetroFramework.Controls.MetroComboBox metroComboBox6;
         private MetroFramework.Controls.MetroComboBox metroComboBox7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn faim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud11;
     }
 }
 
