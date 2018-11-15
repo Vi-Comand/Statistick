@@ -42,8 +42,9 @@ namespace Statistick
             // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.klass". При необходимости она может быть перемещена или удалена.
             this.klassTableAdapter.Fill(this.in_statDataSet.klass);
             ComboBox_God_Load.SelectedIndex = 0;
+            ComboBox_God_Red.SelectedIndex = 0;
             Update_Combobox_Kontrol_Load();
-
+            Update_Combobox_Kontrol_Red();
         }
 
         private bool proverka_na_vernost()
@@ -118,7 +119,7 @@ namespace Statistick
                     {
                         DialogResult dialogResult =
                             MessageBox.Show(
-                                "Количество новых учентков в  " + ComboBox_Klass_Load.Text + " классе" + kol +
+                                "Количество новых учентков в " + ComboBox_Klass_Load.Text + " классе " + kol +
                                 ". Добавить их в БД?",
                                 "Some Title", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
@@ -492,20 +493,34 @@ namespace Statistick
                     var znach=new KeyValuePair<string,string>(row[0].ToString(),(Convert.ToDateTime( row[2]).ToShortDateString()).ToString()+" "+row[1].ToString());
                     items.Add(znach);
                 }
-
             }
             ComboBox_Kontrol_Load.DataSource = items;
             ComboBox_Kontrol_Load.ValueMember = "Key";
             ComboBox_Kontrol_Load.DisplayMember = "Value";
           //  ComboBox_Kontrol_Load.SelectedIndex = 0;
-
-
         }
 
-//=======
-       
+        private void Update_Combobox_Kontrol_Red()
+        {
+            var items = new List<KeyValuePair<string, string>>();
 
-//>>>>>>> 6e168095ff9b9a19d30e617a0b07114c2a31c458
+            DateTime nachalo = new DateTime(Convert.ToInt32(ComboBox_God_Red.Text), 1, 1);
+            DateTime konec = new DateTime(Convert.ToInt32(ComboBox_God_Red.Text) + 1, 1, 1);
+            //ComboBox_Kontrol_Load.Items.Clear();
+
+            foreach (DataRow row in in_statDataSet.kontrolnie.Rows)
+            {
+                if (nachalo < Convert.ToDateTime(row[2]) && Convert.ToDateTime(row[2]) < konec)
+                {
+                    var znach = new KeyValuePair<string, string>(row[0].ToString(), (Convert.ToDateTime(row[2]).ToShortDateString()).ToString() + " " + row[1].ToString());
+                    items.Add(znach);
+                }
+            }
+            ComboBox_Kontrol_Red.DataSource = items;
+            ComboBox_Kontrol_Red.ValueMember = "Key";
+            ComboBox_Kontrol_Red.DisplayMember = "Value";
+            //  ComboBox_Kontrol_Load.SelectedIndex = 0;
+        }
 
         private void check_uud1_CheckedChanged(object sender, EventArgs e)
         {
@@ -1909,6 +1924,10 @@ namespace Statistick
 
         }
 
+        private void ComboBox_God_Red_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Update_Combobox_Kontrol_Red();
+        }
         private void but_New_klass_Click(object sender, EventArgs e)
         {
 
@@ -1946,6 +1965,11 @@ namespace Statistick
         {
             MessageBox.Show("Вводите только 0 или 1 или оставте поле пустым");
         }
+
+
+
+
+
 
 
 
