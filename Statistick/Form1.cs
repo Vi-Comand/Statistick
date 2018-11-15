@@ -87,7 +87,7 @@ namespace Statistick
                 bool prinmatizmenenia = true;
                 foreach (DataRow row1 in in_statDataSet.uud.Rows)
                 {
-                    if ((int) row1[2] == Convert.ToInt32(ComboBox_Kontrol_Load.SelectedValue))
+                    if ((int) row1[2] == Convert.ToInt32(ComboBox_Kontrol_Load.SelectedValue) && (int)row1[3] == Convert.ToInt32(ComboBox_Klass_Load.SelectedValue))
                     {
                         DialogResult dialogResult =
                             MessageBox.Show(
@@ -152,7 +152,9 @@ namespace Statistick
                             int id = 0;
                             foreach (DataRow row1 in in_statDataSet.user.Rows)
                             {
-                                if (Grid_Load_UUD.Rows[i].Cells[0].Value.ToString() == row1[1].ToString())
+                                string a = row1[1].ToString();
+                                string a1 = row1[2].ToString();
+                                if (Grid_Load_UUD.Rows[i].Cells[0].Value.ToString() == row1[1].ToString() && ComboBox_Klass_Load.SelectedValue.ToString() == row1[2].ToString())
                                 {
                                     id = (int) row1[0];
                                     break;
@@ -168,92 +170,84 @@ namespace Statistick
                             DataRow row = in_statDataSet.uud.NewRow();
                             for (int j = 0; j < Grid_Load_UUD.Columns.Count; j++)
                             {
+                                row["id_user"] = id;
+                                row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
+                                row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                row["god"] = ComboBox_God_Load.Text;
                                 if (Grid_Load_UUD.Columns[j].Name == "uud1")
                                 {
 
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                    
                                     row["uud11"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                   
                                 }
 
                                 if (Grid_Load_UUD.Columns[j].Name == "uud2")
                                 {
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                    
                                     row["uud12"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                  
                                 }
 
                                 if (Grid_Load_UUD.Columns[j].Name == "uud3")
                                 {
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                  
                                     row["uud13"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                 
                                 }
 
                                 if (Grid_Load_UUD.Columns[j].Name == "uud4")
                                 {
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                   
                                     row["uud21"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                   
                                 }
 
                                 if (Grid_Load_UUD.Columns[j].Name == "uud5")
                                 {
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                   
                                     row["uud22"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                  
                                 }
 
                                 if (Grid_Load_UUD.Columns[j].Name == "uud6")
                                 {
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                 
                                     row["uud23"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                  
                                 }
 
                                 if (Grid_Load_UUD.Columns[j].Name == "uud7")
                                 {
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                    
                                     row["uud31"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                   
                                 }
 
                                 if (Grid_Load_UUD.Columns[j].Name == "uud8")
                                 {
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                
                                     row["uud32"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                   
                                 }
 
                                 if (Grid_Load_UUD.Columns[j].Name == "uud9")
                                 {
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                    
                                     row["uud33"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                    
                                 }
 
                                 if (Grid_Load_UUD.Columns[j].Name == "uud10")
                                 {
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                   
                                     row["uud4"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                   
                                 }
 
                                 if (Grid_Load_UUD.Columns[j].Name == "uud11")
                                 {
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                                    
                                     row["uud5"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
                                 }
                             }
