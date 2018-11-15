@@ -32,6 +32,12 @@ namespace Statistick {
         
         private uudDataTable tableuud;
         
+        private global::System.Data.DataRelation relationklass_uud;
+        
+        private global::System.Data.DataRelation relationkontrolnie_uud;
+        
+        private global::System.Data.DataRelation relationuser_uud;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -266,6 +272,9 @@ namespace Statistick {
                     this.tableuud.InitVars();
                 }
             }
+            this.relationklass_uud = this.Relations["klass_uud"];
+            this.relationkontrolnie_uud = this.Relations["kontrolnie_uud"];
+            this.relationuser_uud = this.Relations["user_uud"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -284,6 +293,18 @@ namespace Statistick {
             base.Tables.Add(this.tableuser);
             this.tableuud = new uudDataTable();
             base.Tables.Add(this.tableuud);
+            this.relationklass_uud = new global::System.Data.DataRelation("klass_uud", new global::System.Data.DataColumn[] {
+                        this.tableklass.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableuud.id_klassColumn}, false);
+            this.Relations.Add(this.relationklass_uud);
+            this.relationkontrolnie_uud = new global::System.Data.DataRelation("kontrolnie_uud", new global::System.Data.DataColumn[] {
+                        this.tablekontrolnie.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableuud.id_kontrColumn}, false);
+            this.Relations.Add(this.relationkontrolnie_uud);
+            this.relationuser_uud = new global::System.Data.DataRelation("user_uud", new global::System.Data.DataColumn[] {
+                        this.tableuser.idColumn}, new global::System.Data.DataColumn[] {
+                        this.tableuud.id_userColumn}, false);
+            this.Relations.Add(this.relationuser_uud);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1470,13 +1491,13 @@ namespace Statistick {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public uudRow AdduudRow(int id_user, int id_kontr, int id_klass, int god, int uud11, int uud12, int uud13, int uud21, int uud22, int uud23, int uud31, int uud32, int uud33, int uud4, int uud5) {
+            public uudRow AdduudRow(userRow parentuserRowByuser_uud, kontrolnieRow parentkontrolnieRowBykontrolnie_uud, klassRow parentklassRowByklass_uud, int god, int uud11, int uud12, int uud13, int uud21, int uud22, int uud23, int uud31, int uud32, int uud33, int uud4, int uud5) {
                 uudRow rowuudRow = ((uudRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        id_user,
-                        id_kontr,
-                        id_klass,
+                        null,
+                        null,
+                        null,
                         god,
                         uud11,
                         uud12,
@@ -1489,6 +1510,15 @@ namespace Statistick {
                         uud33,
                         uud4,
                         uud5};
+                if ((parentuserRowByuser_uud != null)) {
+                    columnValuesArray[1] = parentuserRowByuser_uud[0];
+                }
+                if ((parentkontrolnieRowBykontrolnie_uud != null)) {
+                    columnValuesArray[2] = parentkontrolnieRowBykontrolnie_uud[0];
+                }
+                if ((parentklassRowByklass_uud != null)) {
+                    columnValuesArray[3] = parentklassRowByklass_uud[0];
+                }
                 rowuudRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowuudRow);
                 return rowuudRow;
@@ -1756,6 +1786,17 @@ namespace Statistick {
             public void SetklassNull() {
                 this[this.tableklass.klassColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public uudRow[] GetuudRows() {
+                if ((this.Table.ChildRelations["klass_uud"] == null)) {
+                    return new uudRow[0];
+                }
+                else {
+                    return ((uudRow[])(base.GetChildRows(this.Table.ChildRelations["klass_uud"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1838,6 +1879,17 @@ namespace Statistick {
             public void SetdataNull() {
                 this[this.tablekontrolnie.dataColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public uudRow[] GetuudRows() {
+                if ((this.Table.ChildRelations["kontrolnie_uud"] == null)) {
+                    return new uudRow[0];
+                }
+                else {
+                    return ((uudRow[])(base.GetChildRows(this.Table.ChildRelations["kontrolnie_uud"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1919,6 +1971,17 @@ namespace Statistick {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void Setid_klassNull() {
                 this[this.tableuser.id_klassColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public uudRow[] GetuudRows() {
+                if ((this.Table.ChildRelations["user_uud"] == null)) {
+                    return new uudRow[0];
+                }
+                else {
+                    return ((uudRow[])(base.GetChildRows(this.Table.ChildRelations["user_uud"])));
+                }
             }
         }
         
@@ -2184,6 +2247,39 @@ namespace Statistick {
                 }
                 set {
                     this[this.tableuud.uud5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public klassRow klassRow {
+                get {
+                    return ((klassRow)(this.GetParentRow(this.Table.ParentRelations["klass_uud"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["klass_uud"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public kontrolnieRow kontrolnieRow {
+                get {
+                    return ((kontrolnieRow)(this.GetParentRow(this.Table.ParentRelations["kontrolnie_uud"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["kontrolnie_uud"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public userRow userRow {
+                get {
+                    return ((userRow)(this.GetParentRow(this.Table.ParentRelations["user_uud"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["user_uud"]);
                 }
             }
             

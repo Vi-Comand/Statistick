@@ -1861,7 +1861,35 @@ namespace Statistick
             proverka_na_vernost();
         }
 
- 
+        private void but_Open_UUD_Click(object sender, EventArgs e)
+        {
+            uudBindingSource.Filter = "id_kontr ='" + ComboBox_Kontrol_Red.SelectedValue.ToString() + "' and id_klass ='" + ComboBox_Klass_Red.SelectedValue.ToString() + "' and god ='" + ComboBox_God_Red.SelectedItem.ToString() + "'";
+        }
+
+        private void but_Save_UUD_Click(object sender, EventArgs e)
+        {
+            uudTableAdapter.Update(in_statDataSet);
+            uudTableAdapter.Fill(in_statDataSet.uud);
+        }
+
+        private void but_Del_UUD_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы дестйствительно хотите удалить эту запись?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int a = Grid_Red_UUD.CurrentRow.Index;
+                Grid_Red_UUD.Rows.Remove(Grid_Red_UUD.Rows[a]);
+                but_Save_UUD_Click(sender, e);
+            }
+
+        }
+
+        private void Grid_Red_UUD_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Вводите только 0 или 1 или оставте поле пустым");
+        }
+
+
 
         //=======
 

@@ -60,6 +60,12 @@
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Grid_Load_UUD = new MetroFramework.Controls.MetroGrid();
+            this.faim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.but_load_excel = new MetroFramework.Controls.MetroTile();
             this.check_uud1 = new MetroFramework.Controls.MetroToggle();
@@ -81,15 +87,11 @@
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.Grid_Red_UUD = new MetroFramework.Controls.MetroGrid();
-            this.dataGridViewComboBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kontrolnieBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.uudBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.ComboBox_Kontrol_Red = new MetroFramework.Controls.MetroComboBox();
-            this.kontrolnieBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.but_Open_UUD = new MetroFramework.Controls.MetroTile();
             this.but_Save_UUD = new MetroFramework.Controls.MetroTile();
             this.but_Del_UUD = new MetroFramework.Controls.MetroTile();
@@ -160,7 +162,6 @@
             this.Grid_Klass = new MetroFramework.Controls.MetroGrid();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.metroTabPage6 = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -178,17 +179,25 @@
             this.nazv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uudTableAdapter = new Statistick.in_statDataSetTableAdapters.uudTableAdapter();
-            this.uudBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.klassTableAdapter = new Statistick.in_statDataSetTableAdapters.klassTableAdapter();
             this.userTableAdapter = new Statistick.in_statDataSetTableAdapters.userTableAdapter();
             this.kontrolnieTableAdapter = new Statistick.in_statDataSetTableAdapters.kontrolnieTableAdapter();
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
-            this.faim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iduserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.idkontrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.idklassDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.godDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud11DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud12DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud13DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud21DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud22DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud23DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud31DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud32DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud33DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud5DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -200,8 +209,10 @@
             this.metroTabPage3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Red_UUD)).BeginInit();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kontrolnieBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
             this.metroTabPage4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.TabControl_Stat.SuspendLayout();
@@ -217,12 +228,10 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.metroTabPage6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // FI
@@ -298,7 +307,7 @@
             this.metroTabControl1.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.metroTabControl1.Location = new System.Drawing.Point(20, 60);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 2;
             this.metroTabControl1.Size = new System.Drawing.Size(1352, 483);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -393,6 +402,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Grid_Load_UUD.DefaultCellStyle = dataGridViewCellStyle2;
             this.Grid_Load_UUD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Grid_Load_UUD.EnableHeadersVisualStyles = false;
             this.Grid_Load_UUD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Grid_Load_UUD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Load_UUD.Location = new System.Drawing.Point(3, 83);
@@ -412,6 +422,39 @@
             this.Grid_Load_UUD.Size = new System.Drawing.Size(1338, 349);
             this.Grid_Load_UUD.TabIndex = 2;
             this.Grid_Load_UUD.UseCustomBackColor = true;
+            // 
+            // faim
+            // 
+            this.faim.HeaderText = "Ф.И.";
+            this.faim.Name = "faim";
+            this.faim.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.faim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.faim.Width = 250;
+            // 
+            // uud1
+            // 
+            this.uud1.HeaderText = "УУД1-1";
+            this.uud1.Name = "uud1";
+            // 
+            // uud4
+            // 
+            this.uud4.HeaderText = "УУД2-1";
+            this.uud4.Name = "uud4";
+            // 
+            // uud7
+            // 
+            this.uud7.HeaderText = "УУД3-1";
+            this.uud7.Name = "uud7";
+            // 
+            // uud10
+            // 
+            this.uud10.HeaderText = "УУД4";
+            this.uud10.Name = "uud10";
+            // 
+            // uud11
+            // 
+            this.uud11.HeaderText = "УУД5";
+            this.uud11.Name = "uud11";
             // 
             // panel1
             // 
@@ -668,6 +711,7 @@
             // Grid_Red_UUD
             // 
             this.Grid_Red_UUD.AllowUserToResizeRows = false;
+            this.Grid_Red_UUD.AutoGenerateColumns = false;
             this.Grid_Red_UUD.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Red_UUD.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Grid_Red_UUD.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -682,12 +726,23 @@
             this.Grid_Red_UUD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.Grid_Red_UUD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid_Red_UUD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewComboBoxColumn3,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15});
+            this.iduserDataGridViewTextBoxColumn,
+            this.idkontrDataGridViewTextBoxColumn,
+            this.idklassDataGridViewTextBoxColumn,
+            this.godDataGridViewTextBoxColumn,
+            this.uud11DataGridViewTextBoxColumn,
+            this.uud12DataGridViewTextBoxColumn,
+            this.uud13DataGridViewTextBoxColumn,
+            this.uud21DataGridViewTextBoxColumn,
+            this.uud22DataGridViewTextBoxColumn,
+            this.uud23DataGridViewTextBoxColumn,
+            this.uud31DataGridViewTextBoxColumn,
+            this.uud32DataGridViewTextBoxColumn,
+            this.uud33DataGridViewTextBoxColumn,
+            this.uud4DataGridViewTextBoxColumn,
+            this.uud5DataGridViewTextBoxColumn});
+            this.Grid_Red_UUD.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Grid_Red_UUD.DataSource = this.uudBindingSource;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -697,7 +752,6 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.Grid_Red_UUD.DefaultCellStyle = dataGridViewCellStyle5;
             this.Grid_Red_UUD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Grid_Red_UUD.EnableHeadersVisualStyles = false;
             this.Grid_Red_UUD.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.Grid_Red_UUD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Grid_Red_UUD.Location = new System.Drawing.Point(3, 83);
@@ -721,40 +775,22 @@
             this.Grid_Red_UUD.UseCustomBackColor = true;
             this.Grid_Red_UUD.UseCustomForeColor = true;
             this.Grid_Red_UUD.UseStyleColors = true;
-            this.Grid_Red_UUD.UseWaitCursor = true;
-            this.Grid_Red_UUD.VirtualMode = true;
+            this.Grid_Red_UUD.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grid_Red_UUD_DataError);
             // 
-            // dataGridViewComboBoxColumn3
+            // userBindingSource
             // 
-            this.dataGridViewComboBoxColumn3.HeaderText = "Ф.И.";
-            this.dataGridViewComboBoxColumn3.Name = "dataGridViewComboBoxColumn3";
-            this.dataGridViewComboBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewComboBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.userBindingSource.DataMember = "user";
+            this.userBindingSource.DataSource = this.in_statDataSet;
             // 
-            // dataGridViewTextBoxColumn11
+            // kontrolnieBindingSource
             // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "УУД1-1";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.kontrolnieBindingSource.DataMember = "kontrolnie";
+            this.kontrolnieBindingSource.DataSource = this.in_statDataSet;
             // 
-            // dataGridViewTextBoxColumn12
+            // uudBindingSource
             // 
-            this.dataGridViewTextBoxColumn12.HeaderText = "УУД2-1";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "УУД3-1";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.HeaderText = "УУД4";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "УУД5";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.uudBindingSource.DataMember = "uud";
+            this.uudBindingSource.DataSource = this.in_statDataSet;
             // 
             // panel2
             // 
@@ -788,11 +824,6 @@
             this.ComboBox_Kontrol_Red.UseSelectable = true;
             this.ComboBox_Kontrol_Red.ValueMember = "id";
             // 
-            // kontrolnieBindingSource
-            // 
-            this.kontrolnieBindingSource.DataMember = "kontrolnie";
-            this.kontrolnieBindingSource.DataSource = this.in_statDataSet;
-            // 
             // but_Open_UUD
             // 
             this.but_Open_UUD.ActiveControl = null;
@@ -804,6 +835,7 @@
             this.but_Open_UUD.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.but_Open_UUD.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.but_Open_UUD.UseSelectable = true;
+            this.but_Open_UUD.Click += new System.EventHandler(this.but_Open_UUD_Click);
             // 
             // but_Save_UUD
             // 
@@ -818,6 +850,7 @@
             this.but_Save_UUD.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.but_Save_UUD.UseSelectable = true;
             this.but_Save_UUD.UseStyleColors = true;
+            this.but_Save_UUD.Click += new System.EventHandler(this.but_Save_UUD_Click);
             // 
             // but_Del_UUD
             // 
@@ -832,6 +865,7 @@
             this.but_Del_UUD.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.but_Del_UUD.UseSelectable = true;
             this.but_Del_UUD.UseStyleColors = true;
+            this.but_Del_UUD.Click += new System.EventHandler(this.but_Del_UUD_Click);
             // 
             // metroLabel2
             // 
@@ -1826,11 +1860,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "FI";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataMember = "user";
-            this.userBindingSource.DataSource = this.in_statDataSet;
-            // 
             // metroTabPage6
             // 
             this.metroTabPage6.Controls.Add(this.tableLayoutPanel5);
@@ -2086,11 +2115,6 @@
             // 
             this.uudTableAdapter.ClearBeforeFill = true;
             // 
-            // uudBindingSource
-            // 
-            this.uudBindingSource.DataMember = "uud";
-            this.uudBindingSource.DataSource = this.in_statDataSet;
-            // 
             // klassTableAdapter
             // 
             this.klassTableAdapter.ClearBeforeFill = true;
@@ -2109,38 +2133,123 @@
             this.metroToolTip1.StyleManager = null;
             this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
             // 
-            // faim
+            // iduserDataGridViewTextBoxColumn
             // 
-            this.faim.HeaderText = "Ф.И.";
-            this.faim.Name = "faim";
-            this.faim.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.faim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.faim.Width = 250;
+            this.iduserDataGridViewTextBoxColumn.DataPropertyName = "id_user";
+            this.iduserDataGridViewTextBoxColumn.DataSource = this.userBindingSource;
+            this.iduserDataGridViewTextBoxColumn.DisplayMember = "FI";
+            this.iduserDataGridViewTextBoxColumn.HeaderText = "Ученики";
+            this.iduserDataGridViewTextBoxColumn.Name = "iduserDataGridViewTextBoxColumn";
+            this.iduserDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.iduserDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.iduserDataGridViewTextBoxColumn.ValueMember = "id";
+            this.iduserDataGridViewTextBoxColumn.Width = 200;
             // 
-            // uud1
+            // idkontrDataGridViewTextBoxColumn
             // 
-            this.uud1.HeaderText = "УУД1-1";
-            this.uud1.Name = "uud1";
+            this.idkontrDataGridViewTextBoxColumn.DataPropertyName = "id_kontr";
+            this.idkontrDataGridViewTextBoxColumn.DataSource = this.kontrolnieBindingSource;
+            this.idkontrDataGridViewTextBoxColumn.DisplayMember = "nazv";
+            this.idkontrDataGridViewTextBoxColumn.HeaderText = "Контрольные";
+            this.idkontrDataGridViewTextBoxColumn.Name = "idkontrDataGridViewTextBoxColumn";
+            this.idkontrDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idkontrDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.idkontrDataGridViewTextBoxColumn.ValueMember = "id";
+            this.idkontrDataGridViewTextBoxColumn.Width = 200;
             // 
-            // uud4
+            // idklassDataGridViewTextBoxColumn
             // 
-            this.uud4.HeaderText = "УУД2-1";
-            this.uud4.Name = "uud4";
+            this.idklassDataGridViewTextBoxColumn.DataPropertyName = "id_klass";
+            this.idklassDataGridViewTextBoxColumn.DataSource = this.klassBindingSource;
+            this.idklassDataGridViewTextBoxColumn.DisplayMember = "klass";
+            this.idklassDataGridViewTextBoxColumn.HeaderText = "Классы";
+            this.idklassDataGridViewTextBoxColumn.Name = "idklassDataGridViewTextBoxColumn";
+            this.idklassDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idklassDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.idklassDataGridViewTextBoxColumn.ValueMember = "id";
             // 
-            // uud7
+            // godDataGridViewTextBoxColumn
             // 
-            this.uud7.HeaderText = "УУД3-1";
-            this.uud7.Name = "uud7";
+            this.godDataGridViewTextBoxColumn.DataPropertyName = "god";
+            this.godDataGridViewTextBoxColumn.HeaderText = "Год";
+            this.godDataGridViewTextBoxColumn.Name = "godDataGridViewTextBoxColumn";
             // 
-            // uud10
+            // uud11DataGridViewTextBoxColumn
             // 
-            this.uud10.HeaderText = "УУД4";
-            this.uud10.Name = "uud10";
+            this.uud11DataGridViewTextBoxColumn.DataPropertyName = "uud11";
+            this.uud11DataGridViewTextBoxColumn.HeaderText = "УУД1-1";
+            this.uud11DataGridViewTextBoxColumn.Name = "uud11DataGridViewTextBoxColumn";
+            this.uud11DataGridViewTextBoxColumn.Width = 50;
             // 
-            // uud11
+            // uud12DataGridViewTextBoxColumn
             // 
-            this.uud11.HeaderText = "УУД5";
-            this.uud11.Name = "uud11";
+            this.uud12DataGridViewTextBoxColumn.DataPropertyName = "uud12";
+            this.uud12DataGridViewTextBoxColumn.HeaderText = "УУД1-2";
+            this.uud12DataGridViewTextBoxColumn.Name = "uud12DataGridViewTextBoxColumn";
+            this.uud12DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // uud13DataGridViewTextBoxColumn
+            // 
+            this.uud13DataGridViewTextBoxColumn.DataPropertyName = "uud13";
+            this.uud13DataGridViewTextBoxColumn.HeaderText = "УУД1-3";
+            this.uud13DataGridViewTextBoxColumn.Name = "uud13DataGridViewTextBoxColumn";
+            this.uud13DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // uud21DataGridViewTextBoxColumn
+            // 
+            this.uud21DataGridViewTextBoxColumn.DataPropertyName = "uud21";
+            this.uud21DataGridViewTextBoxColumn.HeaderText = "УУД2-1";
+            this.uud21DataGridViewTextBoxColumn.Name = "uud21DataGridViewTextBoxColumn";
+            this.uud21DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // uud22DataGridViewTextBoxColumn
+            // 
+            this.uud22DataGridViewTextBoxColumn.DataPropertyName = "uud22";
+            this.uud22DataGridViewTextBoxColumn.HeaderText = "УУД2-2";
+            this.uud22DataGridViewTextBoxColumn.Name = "uud22DataGridViewTextBoxColumn";
+            this.uud22DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // uud23DataGridViewTextBoxColumn
+            // 
+            this.uud23DataGridViewTextBoxColumn.DataPropertyName = "uud23";
+            this.uud23DataGridViewTextBoxColumn.HeaderText = "УУД2-3";
+            this.uud23DataGridViewTextBoxColumn.Name = "uud23DataGridViewTextBoxColumn";
+            this.uud23DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // uud31DataGridViewTextBoxColumn
+            // 
+            this.uud31DataGridViewTextBoxColumn.DataPropertyName = "uud31";
+            this.uud31DataGridViewTextBoxColumn.HeaderText = "УУД3-1";
+            this.uud31DataGridViewTextBoxColumn.Name = "uud31DataGridViewTextBoxColumn";
+            this.uud31DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // uud32DataGridViewTextBoxColumn
+            // 
+            this.uud32DataGridViewTextBoxColumn.DataPropertyName = "uud32";
+            this.uud32DataGridViewTextBoxColumn.HeaderText = "УУД3-2";
+            this.uud32DataGridViewTextBoxColumn.Name = "uud32DataGridViewTextBoxColumn";
+            this.uud32DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // uud33DataGridViewTextBoxColumn
+            // 
+            this.uud33DataGridViewTextBoxColumn.DataPropertyName = "uud33";
+            this.uud33DataGridViewTextBoxColumn.HeaderText = "УУД3-3";
+            this.uud33DataGridViewTextBoxColumn.Name = "uud33DataGridViewTextBoxColumn";
+            this.uud33DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // uud4DataGridViewTextBoxColumn
+            // 
+            this.uud4DataGridViewTextBoxColumn.DataPropertyName = "uud4";
+            this.uud4DataGridViewTextBoxColumn.HeaderText = "УУД4";
+            this.uud4DataGridViewTextBoxColumn.Name = "uud4DataGridViewTextBoxColumn";
+            this.uud4DataGridViewTextBoxColumn.Width = 50;
+            // 
+            // uud5DataGridViewTextBoxColumn
+            // 
+            this.uud5DataGridViewTextBoxColumn.DataPropertyName = "uud5";
+            this.uud5DataGridViewTextBoxColumn.HeaderText = "УУД5";
+            this.uud5DataGridViewTextBoxColumn.Name = "uud5DataGridViewTextBoxColumn";
+            this.uud5DataGridViewTextBoxColumn.Width = 50;
             // 
             // Form1
             // 
@@ -2167,9 +2276,11 @@
             this.metroTabPage3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Red_UUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontrolnieBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kontrolnieBindingSource)).EndInit();
             this.metroTabPage4.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.TabControl_Stat.ResumeLayout(false);
@@ -2190,13 +2301,11 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid_Klass)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             this.metroTabPage6.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uudBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2263,12 +2372,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.BindingSource kontrolnieBindingSource;
         private in_statDataSetTableAdapters.kontrolnieTableAdapter kontrolnieTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewComboBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private in_statDataSetTableAdapters.uudTableAdapter uudTableAdapter;
         private System.Windows.Forms.BindingSource instatDataSetBindingSource;
         private System.Windows.Forms.BindingSource uudBindingSource;
@@ -2353,6 +2456,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn uud7;
         private System.Windows.Forms.DataGridViewTextBoxColumn uud10;
         private System.Windows.Forms.DataGridViewTextBoxColumn uud11;
+        private System.Windows.Forms.DataGridViewComboBoxColumn iduserDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn idkontrDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn idklassDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn godDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud11DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud12DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud13DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud21DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud22DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud23DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud31DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud32DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud33DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud4DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uud5DataGridViewTextBoxColumn;
     }
 }
 
