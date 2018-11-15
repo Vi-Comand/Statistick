@@ -16,6 +16,7 @@ using Microsoft.Office.Interop.Excel;
 
 using System.Text.RegularExpressions;
 using DevExpress.Utils.Extensions;
+using System.IO;
 
 namespace Statistick
 {
@@ -738,33 +739,38 @@ namespace Statistick
         string _control2 = "";
         string _klass2 = "";
         string _god2 = "";
+        string _date = DateTime.Now.Day.ToString() +"."+ DateTime.Now.Month + "." + DateTime.Now.Year;
+        String templatePath = System.Windows.Forms.Application.StartupPath;
 
         private void Excel_Diag_tab1()
         {
             excelapp = new Excel.Application();
             excelapp.Visible = true;
             excelappworkbooks = excelapp.Workbooks;
-            String templatePath = System.Windows.Forms.Application.StartupPath;
-            excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\1.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing, 
+
+            excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\1.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
                 Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             excelsheets = excelappworkbook.Worksheets;
 
-        
-            Diad_tabl_1();
-        }
 
+            Diad_tabl_1();
+
+            excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 1 " + ComboBox_Kontrol_Stat.Text + " " + ComboBox_Klass_Stat.Text + " класс.xlsx");//сохранить в эксель файл
+            excelapp.Quit();
+        }
         private void Excel_Diag_tab2()
         {
             excelapp = new Excel.Application();
             excelapp.Visible = true;
             excelappworkbooks = excelapp.Workbooks;
-            String templatePath = System.Windows.Forms.Application.StartupPath;
             excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\2.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
                 Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
             excelsheets = excelappworkbook.Worksheets;
 
 
             Diad_tabl_2();
+            excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 2 " + ComboBox_Kontrol_Stat.Text + " " + ComboBox_Klass_Stat.Text + " класс.xlsx");//сохранить в эксель файл
+            excelapp.Quit();
         }
 
         private void Excel_Diag_tab3()
@@ -779,6 +785,8 @@ namespace Statistick
 
 
             Diad_tabl_3();
+            excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 3 " + ComboBox_Kontrol_Stat1.Text + " " + ComboBox_Klass_Stat1.Text + ComboBox_Kontrol_Stat2.Text + " " + ComboBox_Klass_Stat2.Text + " класс.xlsx");//сохранить в эксель файл
+            excelapp.Quit();
         }
 
         private void Excel_Diag_tab4()
@@ -793,6 +801,9 @@ namespace Statistick
 
 
             Diad_tabl_4();
+            excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 4 " + ComboBox_Kontrol_Stat1.Text + " " + ComboBox_Klass_Stat1.Text + ComboBox_Kontrol_Stat2.Text + " " + ComboBox_Klass_Stat2.Text + " класс.xlsx");//сохранить в эксель файл
+            excelapp.Quit();
+
         }
 
         private void Excel_Diag_tab5()
@@ -807,6 +818,10 @@ namespace Statistick
 
 
             Diad_tabl_5();
+
+            excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 5 " + ComboBox_Kontrol_Stat3.Text + " " + ComboBox_Klass_Stat3.Text + " класс.xlsx");//сохранить в эксель файл
+            excelapp.Quit();
+
         }
 
         private void Add_Row1()
@@ -1877,6 +1892,7 @@ namespace Statistick
             */
         private void metroTile2_Click(object sender, EventArgs e)
         {
+            Directory.CreateDirectory(templatePath + @"\Отчеты\" + _date);
             switch (TabControl_Stat.SelectedIndex)
             {
                 case 0:
