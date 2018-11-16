@@ -102,7 +102,7 @@ namespace Statistick
                         DialogResult dialogResult =
                             MessageBox.Show(
                                 "Такая контрольная работа уже есть в системе. Обновить данные контрольной работы?",
-                                "Some Title", MessageBoxButtons.YesNo);
+                                "", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
                             prinmatizmenenia = true;
@@ -129,7 +129,7 @@ namespace Statistick
                             MessageBox.Show(
                                 "Количество новых учентков в " + ComboBox_Klass_Load.Text + " классе " + kol +
                                 ". Добавить их в БД?",
-                                "Some Title", MessageBoxButtons.YesNo);
+                                "", MessageBoxButtons.YesNo);
                         if (dialogResult == DialogResult.Yes)
                         {
                            
@@ -155,7 +155,7 @@ namespace Statistick
 
                         userTableAdapter.Update(in_statDataSet);
 
-
+                        this.userTableAdapter.Fill(this.in_statDataSet.user);
 
                         for (int i = 0; i < Grid_Load_UUD.Rows.Count - 1; i++)
                         {
@@ -180,6 +180,7 @@ namespace Statistick
                             DataRow row = in_statDataSet.uud.NewRow();
                             for (int j = 0; j < Grid_Load_UUD.Columns.Count; j++)
                             {
+                                Grid_Load_UUD.Rows[i].Cells[0].Style.BackColor = Color.White;
                                 row["id_user"] = id;
                                 row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
                                 row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
@@ -339,12 +340,17 @@ namespace Statistick
                 maping.Add("uud10");
                 maping.Add("uud11");
                 Excel.Worksheet currentSheet = (Excel.Worksheet)excelApp.Workbooks[1].Worksheets[1];
-                string klass = currentSheet.get_Range("A2").Value.ToString();
-                klass = Regex.Replace(klass, "[^А-Яа-я0-9]", "");
-                klass=klass.ToUpper();
-              DateTime data= Convert.ToDateTime(currentSheet.get_Range("B2").Value);
+                string klass = currentSheet.get_Range("A2").Value != null ? currentSheet.get_Range("A2").Value.ToString() : "false";
+                if (klass != "false")
+                {
+                    klass = Regex.Replace(klass, "[^А-Яа-я0-9]", "");
+                    klass = klass.ToUpper();
+                }
+
+                DateTime data= Convert.ToDateTime(currentSheet.get_Range("B2").Value);
                 string god = data.Year.ToString();
-                string kontrolnie = currentSheet.get_Range("C2").Value.ToString();
+                string kontrolnie = currentSheet.get_Range("C2").Value != null ? currentSheet.get_Range("C2").Value.ToString() : "false";
+                 
                 for (int i = 0; i < ComboBox_God_Load.Items.Count; i++)
                     if (ComboBox_God_Load.Items[i].ToString() == god)
                     {
@@ -355,12 +361,19 @@ namespace Statistick
                 int id_klass_bd = 0;
                 foreach (DataRow row1 in in_statDataSet.klass.Rows)
                 {
-                    
+                    if (klass == "false")
+                    {
+                        ComboBox_Klass_Load.SelectedIndex = 0;
+                        est_kalss = true;
+                        break;
+                    }
+                    else
                     if (row1[1].ToString() == klass)
                     {
                         ComboBox_Klass_Load.SelectedValue = (int) row1[0];
                         est_kalss = true;
                     }
+                   
                     else
                     {
                         if (id_klass_bd < (int) row1[0])
@@ -374,7 +387,7 @@ namespace Statistick
 
                 if (!est_kalss)
                 {
-                    DialogResult dialogResult = MessageBox.Show( klass + " не найден. Добавить?", "Some Title", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show( klass + " не найден. Добавить?", "", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         DataRow rowklass = in_statDataSet.klass.NewRow();
@@ -396,17 +409,38 @@ namespace Statistick
                 bool est_kontroln = false;
                 foreach (DataRow row1 in in_statDataSet.kontrolnie.Rows)
                 {
-
-                    if (row1[1].ToString() == kontrolnie && Convert.ToDateTime(row1[2])==data)
+                    if (kontrolnie == "false")
+                    {
+                        ComboBox_Kontrol_Load.SelectedIndex = 0;
+                        est_kontroln = true;
+                        break;
+                    }
+                    else
+                  if (row1[1].ToString() == kontrolnie && Convert.ToDateTime(row1[2])==data)
                     {
                         ComboBox_Kontrol_Load.SelectedValue = row1[0].ToString();
+                        est_kontroln = true;
+                    }
+                    else if (row1[1].ToString() == kontrolnie && "1" == god)
+                  {
+                      
+                      DateTime date = Convert.ToDateTime(row1[2]);
+                      for (int i = 0; i < ComboBox_God_Load.Items.Count; i++)
+                      {
+                          ComboBox_God_Load.SelectedIndex = i;
+
+                          if (ComboBox_God_Load.Text== date.Year.ToString())
+                            { break;}
+
+                      }
+                      ComboBox_Kontrol_Load.SelectedValue = row1[0].ToString();
                         est_kontroln = true;
                     }
                 }
 
                 if (!est_kontroln)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Контрольная "+ kontrolnie + " не найдена. Хотите перейти к созданию контрольной?", "Some Title", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Контрольная "+ kontrolnie + " не найдена. Хотите перейти к созданию контрольной?", "", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         metroTabControl1.SelectedIndex = 5;
@@ -435,7 +469,7 @@ namespace Statistick
 
                         Excel.Range cell = currentSheet.get_Range(column.ToString() + row.ToString());
 
-                        Grid_Load_UUD.Rows[MyRows].Cells[maping[MyCells]].Value = cell != null ? cell.Value2.ToString() : "";
+                        Grid_Load_UUD.Rows[MyRows].Cells[maping[MyCells]].Value = cell.Value2 != null ? cell.Value2.ToString() : "";
 
                         MyCells++;
 
@@ -447,8 +481,9 @@ namespace Statistick
                 }
                 excelApp.Quit();
             }
-            
-            MessageBox.Show(Est_v_BD().ToString());
+
+            int kol = Est_v_BD();
+           
 
         }
         List<int> NoviePolz;
@@ -483,6 +518,7 @@ namespace Statistick
             }
 
             Grid_Load_UUD.ClearSelection();
+            metroLabel16.Text = "Новых учеников: " + kol;
             return kol;
 
         }
@@ -1838,6 +1874,16 @@ namespace Statistick
         {
             But_Open_UUD_Click(sender, e);
             
+        }
+
+        private void ComboBox_Kontrol_Load_BindingContextChanged(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void ComboBox_Klass_Load_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int kol = Est_v_BD();
         }
 
 
