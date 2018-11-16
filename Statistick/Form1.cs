@@ -1999,10 +1999,7 @@ namespace Statistick
             { }
         }
 
-        private void but_Del_Klass_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void metroTile4_Click(object sender, EventArgs e)
         {
