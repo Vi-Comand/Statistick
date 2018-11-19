@@ -175,7 +175,7 @@ namespace Statistick
 
                             this.userTableAdapter.Fill(this.in_statDataSet.user);
 
-                            for (int i = 0; i < Grid_Load_UUD.Rows.Count - 1; i++)
+                            for (int i = 0; i < Grid_Load_UUD.Rows.Count ; i++)
                             {
                                 int id = 0;
                                 foreach (DataRow row1 in in_statDataSet.user.Rows)
@@ -192,97 +192,27 @@ namespace Statistick
 
 
 
-
-
-
-
-                                DataRow row = in_statDataSet.uud.NewRow();
-                                for (int j = 0; j < Grid_Load_UUD.Columns.Count; j++)
+                                bool izmenen = false;
+                                foreach (DataRow row1 in in_statDataSet.uud.Rows )
                                 {
-                                    Grid_Load_UUD.Rows[i].Cells[0].Style.BackColor = Color.White;
-                                    row["id_user"] = id;
-                                    row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
-                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
-                                    row["god"] = ComboBox_God_Load.Text;
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud1")
+                                    if (row1["id_kontr"].ToString() == ComboBox_Kontrol_Load.SelectedValue.ToString() &&
+                                        id.ToString() == row1["id_user"].ToString())
                                     {
-
-
-                                        row["uud11"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                                    }
-
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud2")
-                                    {
-
-                                        row["uud12"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                                    }
-
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud3")
-                                    {
-
-                                        row["uud13"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                                    }
-
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud4")
-                                    {
-
-                                        row["uud21"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                                    }
-
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud5")
-                                    {
-
-                                        row["uud22"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                                    }
-
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud6")
-                                    {
-
-                                        row["uud23"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                                    }
-
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud7")
-                                    {
-
-                                        row["uud31"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                                    }
-
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud8")
-                                    {
-
-                                        row["uud32"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                                    }
-
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud9")
-                                    {
-
-                                        row["uud33"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                                    }
-
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud10")
-                                    {
-
-                                        row["uud4"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                                    }
-
-                                    if (Grid_Load_UUD.Columns[j].Name == "uud11")
-                                    {
-
-                                        row["uud5"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                                        rabota_s_uud(i,id,row1);
+                                        izmenen = true;
+                                        break;
                                     }
                                 }
 
-                                in_statDataSet.uud.Rows.Add(row);
+                                if (!izmenen)
+                                {
+                                    DataRow row = in_statDataSet.uud.NewRow();
+                                    rabota_s_uud(i, id, row);
+                                    in_statDataSet.uud.Rows.Add(row);
+                                }
+
+
+                               
 
                             }
 
@@ -293,6 +223,94 @@ namespace Statistick
                 }
             }
 
+        }
+
+        private void rabota_s_uud(int i,int id,DataRow row)
+        {
+            for (int j = 0; j < Grid_Load_UUD.Columns.Count; j++)
+            {
+                Grid_Load_UUD.Rows[i].Cells[0].Style.BackColor = Color.White;
+                row["id_user"] = id;
+                row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
+                row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+                row["god"] = ComboBox_God_Load.Text;
+                if (Grid_Load_UUD.Columns[j].Name == "uud1")
+                {
+
+
+                    row["uud11"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+
+                }
+
+                if (Grid_Load_UUD.Columns[j].Name == "uud2")
+                {
+
+                    row["uud12"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+
+                }
+
+                if (Grid_Load_UUD.Columns[j].Name == "uud3")
+                {
+
+                    row["uud13"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+
+                }
+
+                if (Grid_Load_UUD.Columns[j].Name == "uud4")
+                {
+
+                    row["uud21"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+
+                }
+
+                if (Grid_Load_UUD.Columns[j].Name == "uud5")
+                {
+
+                    row["uud22"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+
+                }
+
+                if (Grid_Load_UUD.Columns[j].Name == "uud6")
+                {
+
+                    row["uud23"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+
+                }
+
+                if (Grid_Load_UUD.Columns[j].Name == "uud7")
+                {
+
+                    row["uud31"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+
+                }
+
+                if (Grid_Load_UUD.Columns[j].Name == "uud8")
+                {
+
+                    row["uud32"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+
+                }
+
+                if (Grid_Load_UUD.Columns[j].Name == "uud9")
+                {
+
+                    row["uud33"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+
+                }
+
+                if (Grid_Load_UUD.Columns[j].Name == "uud10")
+                {
+
+                    row["uud4"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+
+                }
+
+                if (Grid_Load_UUD.Columns[j].Name == "uud11")
+                {
+
+                    row["uud5"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                }
+            }
         }
 
         private void But_load_excel_Click(object sender, EventArgs e)
@@ -1964,6 +1982,7 @@ namespace Statistick
 
 
                     kontrolnieTableAdapter.Update(in_statDataSet);
+                
                 }
                 else
                 {
@@ -1971,7 +1990,7 @@ namespace Statistick
 
                 }
             }
-
+            this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
         }
 
 
