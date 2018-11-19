@@ -1851,27 +1851,7 @@ namespace Statistick
 
         private void But_New_klass_Click(object sender, EventArgs e)
         {
-            bool klass_net = true;
-            if (metroComboBox1.Text != "" && metroComboBox2.Text != "")
-            {
-                foreach (DataRow row in in_statDataSet.klass.Rows)
-                {
-                    if (row["klass"].ToString() == metroComboBox1.Text+metroComboBox2.Text)
-                    {
-                        MessageBox.Show("Этот класс уже существует в БД");
-                        klass_net = false;
-                    }
-                }
-                if (klass_net == true)
-                {
-                    DataRow roww = in_statDataSet.klass.NewRow();
-                    roww["klass"] = metroComboBox1.Text + metroComboBox2.Text;
-                    in_statDataSet.klass.Rows.Add(roww);
-                    klassTableAdapter.Update(in_statDataSet);
 
-                    MessageBox.Show("Измененя внесены");
-                }
-            }
         }
 
         private void Proverka_Click(object sender, EventArgs e)
@@ -1911,17 +1891,8 @@ namespace Statistick
 
         private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (metroTabControl1.SelectedIndex)
-            {
-                case 2:
-                    But_Open_UUD_Click(sender, e);
-                    break;
-                case 4:
-                    ComboBox_Klass_SelectedIndexChanged(sender, e);
-                    
-                    break;
-
-            }
+            But_Open_UUD_Click(sender, e);
+            
         }
 
         private void ComboBox_Kontrol_Load_BindingContextChanged(object sender, EventArgs e)
@@ -1933,73 +1904,37 @@ namespace Statistick
         {
             int kol = Est_v_BD();
         }
-       
-        private void ComboBox_Klass_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-            try
-            {
-                userBindingSource.Filter = "id_klass ='" + ComboBox_Klass.SelectedValue.ToString() + "'";
-               
-            }
-            catch
-            {
-               
-            }
-        }
 
         private void but_Del_Klass_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Вы дестйствительно хотите удалить "+ ComboBox_Klass.SelectedText + " класс?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialogResult == DialogResult.Yes)
+            int id_klass = (int)ComboBox_Klass.SelectedValue;
+            foreach (DataRow row in in_statDataSet.klass.Rows) 
             {
-                int a = Grid_Red_UUD.CurrentRow.Index;
-                Grid_Red_UUD.Rows.Remove(Grid_Red_UUD.Rows[a]);
-                But_Save_UUD_Click(sender, e);
-            }
-        }
-
-        string _select_user = "";
-
-        private void Grid_Klass_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            if (Grid_Klass.Rows.Count!=0)
-            {
-                DialogResult dialogResult = MessageBox.Show("Вы дестйствительно хотите удалить " + ComboBox_Klass.SelectedText + " и все его записи о контрольных?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.Yes)
+                if (id_klass == Convert.ToInt32(row["id"]))
                 {
-                    foreach (DataRow row in in_statDataSet.uud.Rows)
-                    {
-                        if (row["id_user"].ToString() == _select_user)
-                        {
-                            row.Delete();
-                        }
-                    }
-                    
-                    uudTableAdapter.Update(in_statDataSet);
-                    userTableAdapter.Update(in_statDataSet);
-                    this.userTableAdapter.Fill(this.in_statDataSet.user);
-                }
-                else
-                {
-                    this.userTableAdapter.Fill(this.in_statDataSet.user);
-                    userBindingSource.Filter = "id_klass ='" + ComboBox_Klass.SelectedValue.ToString() + "'";
+                    row.Delete();
                 }
             }
-        }
-
-        private void Grid_Klass_SelectionChanged(object sender, EventArgs e)
-        {
-            try
+            foreach (DataRow row in in_statDataSet.user.Rows)
             {
-                int a = Grid_Klass.CurrentRow.Index;
-                _select_user = Grid_Klass.Rows[a].Cells[1].Value.ToString();
+                if (id_klass == Convert.ToInt32(row["id_klass"]))
+                {
+                    row.Delete();
+                }
             }
-            catch
-            { }
-        }
+            foreach (DataRow row in in_statDataSet.uud.Rows)
+            {
+                if (id_klass == Convert.ToInt32(row["id_klass"]))
+                {
+                    row.Delete();
+                }
+            }
+            uudTableAdapter.Update(in_statDataSet);
+           klassTableAdapter.Update(in_statDataSet);
+            userTableAdapter.Update(in_statDataSet);
+          
 
-        
+        }
 
         private void metroTile4_Click(object sender, EventArgs e)
         {
@@ -2111,6 +2046,11 @@ namespace Statistick
             }
             uudTableAdapter.Update(in_statDataSet);
             kontrolnieTableAdapter.Update(in_statDataSet);
+        }
+
+        private void but_Save_Klass_Click(object sender, EventArgs e)
+        {
+
         }
 
 
