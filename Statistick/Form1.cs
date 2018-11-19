@@ -17,6 +17,9 @@ using Microsoft.Office.Interop.Excel;
 using System.Text.RegularExpressions;
 using DevExpress.Utils.Extensions;
 using System.IO;
+using System.Net.Sockets;
+using System.Net;
+using System.Globalization;
 
 namespace Statistick
 {
@@ -53,7 +56,35 @@ namespace Statistick
             Update_Combobox_Kontrol_Stat1();
             Update_Combobox_Kontrol_Stat2();
             Update_Combobox_Kontrol_Stat3();
+
+            GetServerTime();
+            if(d>Convert.ToDateTime("03.12.2018"))
+            {
+                metroTile2.Enabled = false;
+                MessageBox.Show("Обратитесь к разработчику");
+            }
         }
+        DateTime d;
+        
+        public void   GetServerTime()
+        {
+            try
+            {
+                using (var response =
+                  WebRequest.Create("http://www.google.com").GetResponse())
+                    //string todaysDates =  response.Headers["date"];
+                     d = DateTime.ParseExact(response.Headers["date"],
+                        "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
+                        CultureInfo.InvariantCulture.DateTimeFormat,
+                        DateTimeStyles.AssumeUniversal);
+            }
+            catch (WebException)
+            {
+                d= DateTime.Now; //In case something goes wrong. 
+            }
+        }
+
+        
 
         private bool Proverka_na_vernost()
         {
@@ -520,8 +551,8 @@ namespace Statistick
             }
 
             int kol = Est_v_BD();
-           
 
+           // but_save_db.Style style
         }
         List<int> NoviePolz;
         private int Est_v_BD(int kol=0)
@@ -1909,7 +1940,10 @@ namespace Statistick
 
         private void But_New_klass_Click(object sender, EventArgs e)
         {
-
+            DataRow row = in_statDataSet.klass.NewRow();
+            row["klass"] = metroComboBox1.Text+ metroComboBox2.Text;
+            in_statDataSet.klass.Rows.Add(row);
+            klassTableAdapter.Update(in_statDataSet);
         }
 
         private void Proverka_Click(object sender, EventArgs e)
