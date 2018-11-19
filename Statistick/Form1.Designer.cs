@@ -1840,6 +1840,7 @@
             this.but_Save_Klass.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.but_Save_Klass.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.but_Save_Klass.UseSelectable = true;
+            this.but_Save_Klass.Click += new System.EventHandler(this.but_Save_Klass_Click);
             // 
             // but_New_klass
             // 
@@ -1916,7 +1917,6 @@
             this.ComboBox_Klass.TabIndex = 18;
             this.ComboBox_Klass.UseSelectable = true;
             this.ComboBox_Klass.ValueMember = "id";
-            this.ComboBox_Klass.SelectedIndexChanged += new System.EventHandler(this.ComboBox_Klass_SelectedIndexChanged);
             // 
             // metroLabel14
             // 
@@ -1935,6 +1935,17 @@
             this.metroComboBox1.FormattingEnabled = true;
             this.metroComboBox1.ItemHeight = 24;
             this.metroComboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
             "1",
             "2",
             "3",
@@ -2003,8 +2014,6 @@
             this.Grid_Klass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grid_Klass.Size = new System.Drawing.Size(1147, 298);
             this.Grid_Klass.TabIndex = 3;
-            this.Grid_Klass.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.Grid_Klass_RowsRemoved);
-            this.Grid_Klass.SelectionChanged += new System.EventHandler(this.Grid_Klass_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -2018,21 +2027,18 @@
             this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
             this.idDataGridViewTextBoxColumn.HeaderText = "id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // fIDataGridViewTextBoxColumn
             // 
             this.fIDataGridViewTextBoxColumn.DataPropertyName = "FI";
             this.fIDataGridViewTextBoxColumn.HeaderText = "FI";
             this.fIDataGridViewTextBoxColumn.Name = "fIDataGridViewTextBoxColumn";
-            this.fIDataGridViewTextBoxColumn.Visible = false;
             // 
             // idklassDataGridViewTextBoxColumn1
             // 
             this.idklassDataGridViewTextBoxColumn1.DataPropertyName = "id_klass";
             this.idklassDataGridViewTextBoxColumn1.HeaderText = "id_klass";
             this.idklassDataGridViewTextBoxColumn1.Name = "idklassDataGridViewTextBoxColumn1";
-            this.idklassDataGridViewTextBoxColumn1.Visible = false;
             // 
             // metroTabPage6
             // 
