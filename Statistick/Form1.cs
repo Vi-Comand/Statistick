@@ -125,130 +125,139 @@ namespace Statistick
             return ok;
         }
         private void But_save_db_Click(object sender, EventArgs e)
-        {
-            if (Grid_Load_UUD.Rows.Count < 1)
+        { 
+
+                if (Grid_Load_UUD.Rows.Count < 1)
             {
                 MessageBox.Show("Нет данных в таблице");
             }
             else
             {
-
-
-                if (Proverka_na_vernost() == false)
+                if (Convert.ToInt32(ComboBox_Kontrol_Load.SelectedValue) == -1)
                 {
-                    MessageBox.Show("Данные не корректны!");
+                    MessageBox.Show("Не выбрана контрольная");
                 }
                 else
                 {
 
 
-                    bool prinmatizmenenia = true;
-                    foreach (DataRow row1 in in_statDataSet.uud.Rows)
+                    if (Proverka_na_vernost() == false)
                     {
-                        if ((int) row1[2] == Convert.ToInt32(ComboBox_Kontrol_Load.SelectedValue) &&
-                            (int) row1[3] == Convert.ToInt32(ComboBox_Klass_Load.SelectedValue))
-                        {
-                            DialogResult dialogResult =
-                                MessageBox.Show(
-                                    "Такая контрольная работа уже есть в системе. Обновить данные контрольной работы?",
-                                    "", MessageBoxButtons.YesNo);
-                            if (dialogResult == DialogResult.Yes)
-                            {
-                                prinmatizmenenia = true;
-                                break;
-                            }
-                            else if (dialogResult == DialogResult.No)
-                            {
-                                prinmatizmenenia = false;
-                                break;
-                            }
-                        }
-
-
+                        MessageBox.Show("Данные не корректны!");
                     }
-
-
-                    if (prinmatizmenenia)
+                    else
                     {
-                        int kol = Est_v_BD();
-                        bool vnost_izmen = true;
-                        if (kol > 0)
-                        {
-                            DialogResult dialogResult =
-                                MessageBox.Show(
-                                    "Количество новых учентков в " + ComboBox_Klass_Load.Text + " классе " + kol +
-                                    ". Добавить их в БД?",
-                                    "", MessageBoxButtons.YesNo);
-                            if (dialogResult == DialogResult.Yes)
-                            {
 
-                            }
-                            else
+
+                        bool prinmatizmenenia = true;
+                        foreach (DataRow row1 in in_statDataSet.uud.Rows)
+                        {
+                            if ((int) row1[2] == Convert.ToInt32(ComboBox_Kontrol_Load.SelectedValue) &&
+                                (int) row1[3] == Convert.ToInt32(ComboBox_Klass_Load.SelectedValue))
                             {
-                                MessageBox.Show("Ученики не добалвены.");
-                                vnost_izmen = false;
+                                DialogResult dialogResult =
+                                    MessageBox.Show(
+                                        "Такая контрольная работа уже есть в системе. Обновить данные контрольной работы?",
+                                        "", MessageBoxButtons.YesNo);
+                                if (dialogResult == DialogResult.Yes)
+                                {
+                                    prinmatizmenenia = true;
+                                    break;
+                                }
+                                else if (dialogResult == DialogResult.No)
+                                {
+                                    prinmatizmenenia = false;
+                                    break;
+                                }
                             }
+
+
                         }
 
-                        if (vnost_izmen)
+
+                        if (prinmatizmenenia)
                         {
-                            for (int i = 0; i < NoviePolz.Count; i++)
+                            int kol = Est_v_BD();
+                            bool vnost_izmen = true;
+                            if (kol > 0)
                             {
+                                DialogResult dialogResult =
+                                    MessageBox.Show(
+                                        "Количество новых учентков в " + ComboBox_Klass_Load.Text + " классе " + kol +
+                                        ". Добавить их в БД?",
+                                        "", MessageBoxButtons.YesNo);
+                                if (dialogResult == DialogResult.Yes)
+                                {
 
-                                DataRow row = in_statDataSet.user.NewRow();
-                                row["fi"] = Grid_Load_UUD.Rows[NoviePolz[i]].Cells[0].Value;
-                                row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
-
-                                in_statDataSet.user.Rows.Add(row);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Ученики не добалвены.");
+                                    vnost_izmen = false;
+                                }
                             }
 
-                            userTableAdapter.Update(in_statDataSet);
-
-                            this.userTableAdapter.Fill(this.in_statDataSet.user);
-
-                            for (int i = 0; i < Grid_Load_UUD.Rows.Count ; i++)
+                            if (vnost_izmen)
                             {
-                                int id = 0;
-                                foreach (DataRow row1 in in_statDataSet.user.Rows)
+                                for (int i = 0; i < NoviePolz.Count; i++)
                                 {
-                                    string a = row1[1].ToString();
-                                    string a1 = row1[2].ToString();
-                                    if (Grid_Load_UUD.Rows[i].Cells[0].Value.ToString() == row1[1].ToString() &&
-                                        ComboBox_Klass_Load.SelectedValue.ToString() == row1[2].ToString())
+
+                                    DataRow row = in_statDataSet.user.NewRow();
+                                    row["fi"] = Grid_Load_UUD.Rows[NoviePolz[i]].Cells[0].Value;
+                                    row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
+
+                                    in_statDataSet.user.Rows.Add(row);
+                                }
+
+                                userTableAdapter.Update(in_statDataSet);
+
+                                this.userTableAdapter.Fill(this.in_statDataSet.user);
+
+                                for (int i = 0; i < Grid_Load_UUD.Rows.Count; i++)
+                                {
+                                    int id = 0;
+                                    foreach (DataRow row1 in in_statDataSet.user.Rows)
                                     {
-                                        id = (int) row1[0];
-                                        break;
+                                        string a = row1[1].ToString();
+                                        string a1 = row1[2].ToString();
+                                        if (Grid_Load_UUD.Rows[i].Cells[0].Value.ToString() == row1[1].ToString() &&
+                                            ComboBox_Klass_Load.SelectedValue.ToString() == row1[2].ToString())
+                                        {
+                                            id = (int) row1[0];
+                                            break;
+                                        }
                                     }
-                                }
 
 
 
-                                bool izmenen = false;
-                                foreach (DataRow row1 in in_statDataSet.uud.Rows )
-                                {
-                                    if (row1["id_kontr"].ToString() == ComboBox_Kontrol_Load.SelectedValue.ToString() &&
-                                        id.ToString() == row1["id_user"].ToString())
+                                    bool izmenen = false;
+                                    foreach (DataRow row1 in in_statDataSet.uud.Rows)
                                     {
-                                        rabota_s_uud(i,id,row1);
-                                        izmenen = true;
-                                        break;
+                                        if (row1["id_kontr"].ToString() ==
+                                            ComboBox_Kontrol_Load.SelectedValue.ToString() &&
+                                            id.ToString() == row1["id_user"].ToString())
+                                        {
+                                            rabota_s_uud(i, id, row1);
+                                            izmenen = true;
+                                            break;
+                                        }
                                     }
+
+                                    if (!izmenen)
+                                    {
+                                        DataRow row = in_statDataSet.uud.NewRow();
+                                        rabota_s_uud(i, id, row);
+                                        in_statDataSet.uud.Rows.Add(row);
+                                    }
+
+
+
+
                                 }
 
-                                if (!izmenen)
-                                {
-                                    DataRow row = in_statDataSet.uud.NewRow();
-                                    rabota_s_uud(i, id, row);
-                                    in_statDataSet.uud.Rows.Add(row);
-                                }
-
-
-                               
-
+                                uudTableAdapter.Update(in_statDataSet);
+                                MessageBox.Show("Измененя внесены.");
                             }
-
-                            uudTableAdapter.Update(in_statDataSet);
-                            MessageBox.Show("Измененя внесены.");
                         }
                     }
                 }
@@ -540,10 +549,18 @@ namespace Statistick
                     items.Add(znach);
                 }
             }
+
+            if (items.Count == 0)
+            {
+                var net_znach = new KeyValuePair<string, string>("-1", "Нет контрольной для " + ComboBox_God_Load.Text+" года");
+                items.Add(net_znach);
+            }
+
             ComboBox_Kontrol_Load.DataSource = items;
             ComboBox_Kontrol_Load.ValueMember = "Key";
             ComboBox_Kontrol_Load.DisplayMember = "Value";
-          //  ComboBox_Kontrol_Load.SelectedIndex1 = 0;
+           
+            //  ComboBox_Kontrol_Load.SelectedIndex1 = 0;
         }
 
         private void Update_Combobox_Kontrol_Red()
