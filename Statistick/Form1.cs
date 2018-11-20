@@ -17,6 +17,9 @@ using Microsoft.Office.Interop.Excel;
 using System.Text.RegularExpressions;
 using DevExpress.Utils.Extensions;
 using System.IO;
+using System.Net.Sockets;
+using System.Net;
+using System.Globalization;
 
 namespace Statistick
 {
@@ -53,7 +56,35 @@ namespace Statistick
             Update_Combobox_Kontrol_Stat1();
             Update_Combobox_Kontrol_Stat2();
             Update_Combobox_Kontrol_Stat3();
+
+            GetServerTime();
+            if(d>Convert.ToDateTime("03.12.2018"))
+            {
+                metroTile2.Enabled = false;
+                MessageBox.Show("Обратитесь к разработчику");
+            }
         }
+        DateTime d;
+        
+        public void   GetServerTime()
+        {
+            try
+            {
+                using (var response =
+                  WebRequest.Create("http://www.google.com").GetResponse())
+                    //string todaysDates =  response.Headers["date"];
+                     d = DateTime.ParseExact(response.Headers["date"],
+                        "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
+                        CultureInfo.InvariantCulture.DateTimeFormat,
+                        DateTimeStyles.AssumeUniversal);
+            }
+            catch (WebException)
+            {
+                d= DateTime.Now; //In case something goes wrong. 
+            }
+        }
+
+        
 
         private bool Proverka_na_vernost()
         {
@@ -520,8 +551,8 @@ namespace Statistick
             }
 
             int kol = Est_v_BD();
-           
 
+           // but_save_db.Style style
         }
         List<int> NoviePolz;
         private int Est_v_BD(int kol=0)
@@ -982,7 +1013,8 @@ namespace Statistick
         {
             excelapp = new Excel.Application
             {
-                Visible = false
+                Visible = false,
+                DisplayAlerts = false
             };
             excelappworkbooks = excelapp.Workbooks;
             String templatePath = System.Windows.Forms.Application.StartupPath;
@@ -1742,13 +1774,13 @@ namespace Statistick
             i_rows = 3;
             try
             {
-                _control = ComboBox_Kontrol_Stat3.SelectedItem.ToString();
+                _control = ComboBox_Kontrol_Stat3.SelectedValue.ToString();
                 _klass = ComboBox_Klass_Stat3.SelectedItem.ToString();
                 _god = ComboBox_God_Stat3.SelectedItem.ToString();
                 int sheet = 1;
                 foreach (DataRow kon in in_statDataSet.kontrolnie.Rows)
                 {
-                    if (kon["nazv"].ToString() == _control)
+                    if (kon["id"].ToString() == _control)
                     {
                         int id_kontr = Convert.ToInt16(kon["id"]);
                         foreach (DataRow klass in in_statDataSet.klass.Rows)
@@ -1756,24 +1788,63 @@ namespace Statistick
                             if (Regex.Replace(klass["klass"].ToString(), "[^0-9]", "") == _klass)
                             {
                                 int id_klass = Convert.ToInt16(klass["id"]);
+                                string name_klass = klass["klass"].ToString();
                                 foreach (DataRow row in in_statDataSet.uud.Rows)
                                 {
                                     if (Convert.ToInt32(row["id_kontr"]) == id_kontr && Convert.ToInt32(row["id_klass"]) == id_klass && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god))
                                     {
                                         excelworksheet = (Excel.Worksheet)excelsheets.get_Item(sheet);
+                                        excelworksheet.Name = name_klass;
                                         Add_Rows_3_v_1(row);
-                                        
                                     }
 
                                 }
+                            for (int j = i_rows; j < 112; j++)
+                            {
+                                excelworksheet.Rows[i_rows].Delete();
+                            }
+                            i_rows = 3;
+                        sheet++;
 
                             }
                         }
-                        Del_Rows();
-                        i_rows = 3;
-                        sheet++;
+                        
                     }
                 }
+
+                for(int s = 1; s<=11-sheet;s++)
+                {
+                    //excelworksheet = (Excel.Worksheet)excelsheets.get_Item(sheet+1);
+                    ((Excel.Worksheet)this.excelapp.ActiveWorkbook.Sheets[sheet]).Visible= Excel.XlSheetVisibility.xlSheetVisible;
+                    ((Excel.Worksheet)this.excelapp.ActiveWorkbook.Sheets[sheet]).Delete();
+                    // excelworksheet.Delete();
+
+                }
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(sheet);
+                for (int s = 1; s <= 11 - sheet; s++)
+                {
+                    
+                    excelworksheet.Rows[sheet+2].Delete();
+                    // excelworksheet.Delete();
+
+                }
+
+               
+                excelworksheet.Activate();
+                Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
+                Excel.Chart xlChart2 = excelworksheet.ChartObjects(2).Chart;
+                
+                Excel.SeriesCollection seriesCollection = xlChart2.SeriesCollection();
+
+                Excel.Series series = seriesCollection.Item(1);
+
+                for (int i = 1; i <= 11-sheet ; i++)
+                {
+                    series = seriesCollection.Item(sheet);
+                    series.Delete();
+
+                }
+                //   series.XValues = "Понедельник;Вторник;Среда;";
             }
             catch (FormatException fEx)
             {
@@ -1869,7 +1940,10 @@ namespace Statistick
 
         private void But_New_klass_Click(object sender, EventArgs e)
         {
-
+            DataRow row = in_statDataSet.klass.NewRow();
+            row["klass"] = metroComboBox1.Text+ metroComboBox2.Text;
+            in_statDataSet.klass.Rows.Add(row);
+            klassTableAdapter.Update(in_statDataSet);
         }
 
         private void Proverka_Click(object sender, EventArgs e)
@@ -1909,8 +1983,18 @@ namespace Statistick
 
         private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            But_Open_UUD_Click(sender, e);
-            
+            switch (metroTabControl1.SelectedIndex)
+            {
+                case 2:
+                    But_Open_UUD_Click(sender, e);
+                    break;
+                case 4:
+                    ComboBox_Klass_SelectedIndexChanged(sender, e);
+
+                    break;
+
+            }
+
         }
 
         private void ComboBox_Kontrol_Load_BindingContextChanged(object sender, EventArgs e)
@@ -2070,6 +2154,58 @@ namespace Statistick
         private void but_Save_Klass_Click(object sender, EventArgs e)
         {
 
+        }
+
+        string _select_user = "";
+        private void Grid_Klass_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if (Grid_Klass.Rows.Count != 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Вы дестйствительно хотите удалить " + ComboBox_Klass.SelectedText + " и все его записи о контрольных?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    foreach (DataRow row in in_statDataSet.uud.Rows)
+                    {
+                        if (row["id_user"].ToString() == _select_user)
+                        {
+                            row.Delete();
+                        }
+                    }
+
+                    uudTableAdapter.Update(in_statDataSet);
+                    userTableAdapter.Update(in_statDataSet);
+                    this.userTableAdapter.Fill(this.in_statDataSet.user);
+                }
+                else
+                {
+                    this.userTableAdapter.Fill(this.in_statDataSet.user);
+                    userBindingSource.Filter = "id_klass ='" + ComboBox_Klass.SelectedValue.ToString() + "'";
+                }
+            }
+        }
+
+        private void ComboBox_Klass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                userBindingSource.Filter = "id_klass ='" + ComboBox_Klass.SelectedValue.ToString() + "'";
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void Grid_Klass_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int a = Grid_Klass.CurrentRow.Index;
+                _select_user = Grid_Klass.Rows[a].Cells[1].Value.ToString();
+            }
+            catch
+            { }
         }
 
 
