@@ -265,82 +265,15 @@ namespace Statistick
                 row["id_kontr"] = ComboBox_Kontrol_Load.SelectedValue;
                 row["id_klass"] = ComboBox_Klass_Load.SelectedValue;
                 row["god"] = ComboBox_God_Load.Text;
-                if (Grid_Load_UUD.Columns[j].Name == "uud1")
+                for (int id_uud = 1; id_uud < 12; id_uud++)
                 {
+                    if (Grid_Load_UUD.Columns[j].Name == "uud"+id_uud)
+                    {
+                        row[4+id_uud] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
 
-
-                    row["uud11"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
+                    }
                 }
-
-                if (Grid_Load_UUD.Columns[j].Name == "uud2")
-                {
-
-                    row["uud12"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                }
-
-                if (Grid_Load_UUD.Columns[j].Name == "uud3")
-                {
-
-                    row["uud13"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                }
-
-                if (Grid_Load_UUD.Columns[j].Name == "uud4")
-                {
-
-                    row["uud21"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                }
-
-                if (Grid_Load_UUD.Columns[j].Name == "uud5")
-                {
-
-                    row["uud22"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                }
-
-                if (Grid_Load_UUD.Columns[j].Name == "uud6")
-                {
-
-                    row["uud23"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                }
-
-                if (Grid_Load_UUD.Columns[j].Name == "uud7")
-                {
-
-                    row["uud31"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                }
-
-                if (Grid_Load_UUD.Columns[j].Name == "uud8")
-                {
-
-                    row["uud32"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                }
-
-                if (Grid_Load_UUD.Columns[j].Name == "uud9")
-                {
-
-                    row["uud33"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                }
-
-                if (Grid_Load_UUD.Columns[j].Name == "uud10")
-                {
-
-                    row["uud4"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-
-                }
-
-                if (Grid_Load_UUD.Columns[j].Name == "uud11")
-                {
-
-                    row["uud5"] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
-                }
+               
             }
         }
 
