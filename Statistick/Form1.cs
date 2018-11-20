@@ -1983,8 +1983,18 @@ namespace Statistick
 
         private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            But_Open_UUD_Click(sender, e);
-            
+            switch (metroTabControl1.SelectedIndex)
+            {
+                case 2:
+                    But_Open_UUD_Click(sender, e);
+                    break;
+                case 4:
+                    ComboBox_Klass_SelectedIndexChanged(sender, e);
+
+                    break;
+
+            }
+
         }
 
         private void ComboBox_Kontrol_Load_BindingContextChanged(object sender, EventArgs e)
@@ -2144,6 +2154,58 @@ namespace Statistick
         private void but_Save_Klass_Click(object sender, EventArgs e)
         {
 
+        }
+
+        string _select_user = "";
+        private void Grid_Klass_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            if (Grid_Klass.Rows.Count != 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Вы дестйствительно хотите удалить " + ComboBox_Klass.SelectedText + " и все его записи о контрольных?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    foreach (DataRow row in in_statDataSet.uud.Rows)
+                    {
+                        if (row["id_user"].ToString() == _select_user)
+                        {
+                            row.Delete();
+                        }
+                    }
+
+                    uudTableAdapter.Update(in_statDataSet);
+                    userTableAdapter.Update(in_statDataSet);
+                    this.userTableAdapter.Fill(this.in_statDataSet.user);
+                }
+                else
+                {
+                    this.userTableAdapter.Fill(this.in_statDataSet.user);
+                    userBindingSource.Filter = "id_klass ='" + ComboBox_Klass.SelectedValue.ToString() + "'";
+                }
+            }
+        }
+
+        private void ComboBox_Klass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                userBindingSource.Filter = "id_klass ='" + ComboBox_Klass.SelectedValue.ToString() + "'";
+
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void Grid_Klass_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int a = Grid_Klass.CurrentRow.Index;
+                _select_user = Grid_Klass.Rows[a].Cells[1].Value.ToString();
+            }
+            catch
+            { }
         }
 
 
