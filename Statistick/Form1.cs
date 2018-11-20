@@ -579,7 +579,7 @@ namespace Statistick
             ComboBox_Kontrol_Load.DataSource = items;
             ComboBox_Kontrol_Load.ValueMember = "Key";
             ComboBox_Kontrol_Load.DisplayMember = "Value";
-          //  ComboBox_Kontrol_Load.SelectedIndex = 0;
+          //  ComboBox_Kontrol_Load.SelectedIndex1 = 0;
         }
 
         private void Update_Combobox_Kontrol_Red()
