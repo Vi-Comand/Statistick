@@ -58,7 +58,7 @@ namespace Statistick
             Update_Combobox_Kontrol_Stat3();
 
             GetServerTime();
-            if(d>Convert.ToDateTime("03.12.2018"))
+            if(d>Convert.ToDateTime("13.12.2018"))
             {
                 metroTile2.Enabled = false;
                 MessageBox.Show("Обратитесь к разработчику");
@@ -2203,6 +2203,17 @@ namespace Statistick
             {
                 int a = Grid_Klass.CurrentRow.Index;
                 _select_user = Grid_Klass.Rows[a].Cells[1].Value.ToString();
+            }
+            catch
+            { }
+        }
+
+        private void Grid_Red_UUD_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            try
+            {
+                int a = Grid_Red_UUD.CurrentRow.Index;
+            Grid_Red_UUD.Rows[-1].Cells[1].Value = ComboBox_Kontrol_Red.Text;
             }
             catch
             { }

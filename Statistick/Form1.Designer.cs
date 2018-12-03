@@ -87,19 +87,7 @@
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.Grid_Red_UUD = new MetroFramework.Controls.MetroGrid();
-            this.iduserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.uud11DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud12DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud13DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud21DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud22DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud23DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud31DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud32DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud33DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uud5DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.uudBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.ComboBox_Kontrol_Red = new MetroFramework.Controls.MetroComboBox();
@@ -150,16 +138,6 @@
             this.ComboBox_Klass_Stat3 = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel13 = new MetroFramework.Controls.MetroLabel();
             this.ComboBox_Kontrol_Stat3 = new MetroFramework.Controls.MetroComboBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox8 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox6 = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel20 = new MetroFramework.Controls.MetroLabel();
-            this.metroComboBox7 = new MetroFramework.Controls.MetroComboBox();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.metroTabPage5 = new MetroFramework.Controls.MetroTabPage();
@@ -202,6 +180,21 @@
             this.kontrolnieTableAdapter = new Statistick.in_statDataSetTableAdapters.kontrolnieTableAdapter();
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.iduserDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.id_kontr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_klass = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.god = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud11DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud12DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud13DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud21DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud22DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud23DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud31DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud32DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud33DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uud5DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -229,8 +222,6 @@
             this.tabPage3.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StatchartControl1)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
             this.metroTabPage5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -317,7 +308,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(2, 2);
             this.metroTabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.SelectedIndex = 2;
             this.metroTabControl1.Size = new System.Drawing.Size(1162, 466);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -730,6 +721,9 @@
             this.Grid_Red_UUD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid_Red_UUD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iduserDataGridViewTextBoxColumn,
+            this.id_kontr,
+            this.id_klass,
+            this.god,
             this.uud11DataGridViewTextBoxColumn,
             this.uud12DataGridViewTextBoxColumn,
             this.uud13DataGridViewTextBoxColumn,
@@ -777,100 +771,12 @@
             this.Grid_Red_UUD.UseCustomForeColor = true;
             this.Grid_Red_UUD.UseStyleColors = true;
             this.Grid_Red_UUD.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.Grid_Red_UUD_DataError);
-            // 
-            // iduserDataGridViewTextBoxColumn
-            // 
-            this.iduserDataGridViewTextBoxColumn.DataPropertyName = "id_user";
-            this.iduserDataGridViewTextBoxColumn.DataSource = this.userBindingSource;
-            this.iduserDataGridViewTextBoxColumn.DisplayMember = "FI";
-            this.iduserDataGridViewTextBoxColumn.HeaderText = "Учащиеся";
-            this.iduserDataGridViewTextBoxColumn.Name = "iduserDataGridViewTextBoxColumn";
-            this.iduserDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.iduserDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.iduserDataGridViewTextBoxColumn.ValueMember = "id";
-            this.iduserDataGridViewTextBoxColumn.Width = 200;
+            this.Grid_Red_UUD.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.Grid_Red_UUD_RowsAdded);
             // 
             // userBindingSource
             // 
             this.userBindingSource.DataMember = "user";
             this.userBindingSource.DataSource = this.in_statDataSet;
-            // 
-            // uud11DataGridViewTextBoxColumn
-            // 
-            this.uud11DataGridViewTextBoxColumn.DataPropertyName = "uud11";
-            this.uud11DataGridViewTextBoxColumn.HeaderText = "УУД1-1";
-            this.uud11DataGridViewTextBoxColumn.Name = "uud11DataGridViewTextBoxColumn";
-            this.uud11DataGridViewTextBoxColumn.Width = 65;
-            // 
-            // uud12DataGridViewTextBoxColumn
-            // 
-            this.uud12DataGridViewTextBoxColumn.DataPropertyName = "uud12";
-            this.uud12DataGridViewTextBoxColumn.HeaderText = "УУД1-2";
-            this.uud12DataGridViewTextBoxColumn.Name = "uud12DataGridViewTextBoxColumn";
-            this.uud12DataGridViewTextBoxColumn.Width = 65;
-            // 
-            // uud13DataGridViewTextBoxColumn
-            // 
-            this.uud13DataGridViewTextBoxColumn.DataPropertyName = "uud13";
-            this.uud13DataGridViewTextBoxColumn.HeaderText = "УУД1-3";
-            this.uud13DataGridViewTextBoxColumn.Name = "uud13DataGridViewTextBoxColumn";
-            this.uud13DataGridViewTextBoxColumn.Width = 65;
-            // 
-            // uud21DataGridViewTextBoxColumn
-            // 
-            this.uud21DataGridViewTextBoxColumn.DataPropertyName = "uud21";
-            this.uud21DataGridViewTextBoxColumn.HeaderText = "УУД2-1";
-            this.uud21DataGridViewTextBoxColumn.Name = "uud21DataGridViewTextBoxColumn";
-            this.uud21DataGridViewTextBoxColumn.Width = 65;
-            // 
-            // uud22DataGridViewTextBoxColumn
-            // 
-            this.uud22DataGridViewTextBoxColumn.DataPropertyName = "uud22";
-            this.uud22DataGridViewTextBoxColumn.HeaderText = "УУД2-2";
-            this.uud22DataGridViewTextBoxColumn.Name = "uud22DataGridViewTextBoxColumn";
-            this.uud22DataGridViewTextBoxColumn.Width = 65;
-            // 
-            // uud23DataGridViewTextBoxColumn
-            // 
-            this.uud23DataGridViewTextBoxColumn.DataPropertyName = "uud23";
-            this.uud23DataGridViewTextBoxColumn.HeaderText = "УУД2-3";
-            this.uud23DataGridViewTextBoxColumn.Name = "uud23DataGridViewTextBoxColumn";
-            this.uud23DataGridViewTextBoxColumn.Width = 65;
-            // 
-            // uud31DataGridViewTextBoxColumn
-            // 
-            this.uud31DataGridViewTextBoxColumn.DataPropertyName = "uud31";
-            this.uud31DataGridViewTextBoxColumn.HeaderText = "УУД3-1";
-            this.uud31DataGridViewTextBoxColumn.Name = "uud31DataGridViewTextBoxColumn";
-            this.uud31DataGridViewTextBoxColumn.Width = 65;
-            // 
-            // uud32DataGridViewTextBoxColumn
-            // 
-            this.uud32DataGridViewTextBoxColumn.DataPropertyName = "uud32";
-            this.uud32DataGridViewTextBoxColumn.HeaderText = "УУД3-2";
-            this.uud32DataGridViewTextBoxColumn.Name = "uud32DataGridViewTextBoxColumn";
-            this.uud32DataGridViewTextBoxColumn.Width = 65;
-            // 
-            // uud33DataGridViewTextBoxColumn
-            // 
-            this.uud33DataGridViewTextBoxColumn.DataPropertyName = "uud33";
-            this.uud33DataGridViewTextBoxColumn.HeaderText = "УУД3-3";
-            this.uud33DataGridViewTextBoxColumn.Name = "uud33DataGridViewTextBoxColumn";
-            this.uud33DataGridViewTextBoxColumn.Width = 65;
-            // 
-            // uud4DataGridViewTextBoxColumn
-            // 
-            this.uud4DataGridViewTextBoxColumn.DataPropertyName = "uud4";
-            this.uud4DataGridViewTextBoxColumn.HeaderText = "УУД4";
-            this.uud4DataGridViewTextBoxColumn.Name = "uud4DataGridViewTextBoxColumn";
-            this.uud4DataGridViewTextBoxColumn.Width = 65;
-            // 
-            // uud5DataGridViewTextBoxColumn
-            // 
-            this.uud5DataGridViewTextBoxColumn.DataPropertyName = "uud5";
-            this.uud5DataGridViewTextBoxColumn.HeaderText = "УУД5";
-            this.uud5DataGridViewTextBoxColumn.Name = "uud5DataGridViewTextBoxColumn";
-            this.uud5DataGridViewTextBoxColumn.Width = 65;
             // 
             // uudBindingSource
             // 
@@ -1060,7 +966,6 @@
             this.TabControl_Stat.Controls.Add(this.tabPage1);
             this.TabControl_Stat.Controls.Add(this.tabPage2);
             this.TabControl_Stat.Controls.Add(this.tabPage3);
-            this.TabControl_Stat.Controls.Add(this.tabPage4);
             this.TabControl_Stat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TabControl_Stat.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.TabControl_Stat.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
@@ -1068,7 +973,7 @@
             this.TabControl_Stat.Margin = new System.Windows.Forms.Padding(2);
             this.TabControl_Stat.Name = "TabControl_Stat";
             this.tableLayoutPanel1.SetRowSpan(this.TabControl_Stat, 2);
-            this.TabControl_Stat.SelectedIndex = 0;
+            this.TabControl_Stat.SelectedIndex = 1;
             this.TabControl_Stat.Size = new System.Drawing.Size(1009, 388);
             this.TabControl_Stat.TabIndex = 0;
             this.TabControl_Stat.UseSelectable = true;
@@ -1251,7 +1156,7 @@
             // ComboBox_God_Stat2
             // 
             this.ComboBox_God_Stat2.FormattingEnabled = true;
-            this.ComboBox_God_Stat2.ItemHeight = 24;
+            this.ComboBox_God_Stat2.ItemHeight = 23;
             this.ComboBox_God_Stat2.Items.AddRange(new object[] {
             "2018",
             "2019",
@@ -1261,7 +1166,7 @@
             this.ComboBox_God_Stat2.Location = new System.Drawing.Point(400, 115);
             this.ComboBox_God_Stat2.Margin = new System.Windows.Forms.Padding(2);
             this.ComboBox_God_Stat2.Name = "ComboBox_God_Stat2";
-            this.ComboBox_God_Stat2.Size = new System.Drawing.Size(88, 30);
+            this.ComboBox_God_Stat2.Size = new System.Drawing.Size(88, 29);
             this.ComboBox_God_Stat2.TabIndex = 30;
             this.ComboBox_God_Stat2.UseSelectable = true;
             this.ComboBox_God_Stat2.SelectedIndexChanged += new System.EventHandler(this.ComboBox_God_Stat2_SelectedIndexChanged);
@@ -1284,11 +1189,11 @@
             this.ComboBox_Klass_Stat2.DisplayMember = "klass";
             this.ComboBox_Klass_Stat2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComboBox_Klass_Stat2.FormattingEnabled = true;
-            this.ComboBox_Klass_Stat2.ItemHeight = 24;
+            this.ComboBox_Klass_Stat2.ItemHeight = 23;
             this.ComboBox_Klass_Stat2.Location = new System.Drawing.Point(302, 115);
             this.ComboBox_Klass_Stat2.Margin = new System.Windows.Forms.Padding(2);
             this.ComboBox_Klass_Stat2.Name = "ComboBox_Klass_Stat2";
-            this.ComboBox_Klass_Stat2.Size = new System.Drawing.Size(94, 30);
+            this.ComboBox_Klass_Stat2.Size = new System.Drawing.Size(94, 29);
             this.ComboBox_Klass_Stat2.TabIndex = 28;
             this.ComboBox_Klass_Stat2.UseSelectable = true;
             this.ComboBox_Klass_Stat2.ValueMember = "id";
@@ -1319,18 +1224,18 @@
             // 
             this.ComboBox_Kontrol_Stat2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComboBox_Kontrol_Stat2.FormattingEnabled = true;
-            this.ComboBox_Kontrol_Stat2.ItemHeight = 24;
+            this.ComboBox_Kontrol_Stat2.ItemHeight = 23;
             this.ComboBox_Kontrol_Stat2.Location = new System.Drawing.Point(2, 115);
             this.ComboBox_Kontrol_Stat2.Margin = new System.Windows.Forms.Padding(2);
             this.ComboBox_Kontrol_Stat2.Name = "ComboBox_Kontrol_Stat2";
-            this.ComboBox_Kontrol_Stat2.Size = new System.Drawing.Size(296, 30);
+            this.ComboBox_Kontrol_Stat2.Size = new System.Drawing.Size(296, 29);
             this.ComboBox_Kontrol_Stat2.TabIndex = 26;
             this.ComboBox_Kontrol_Stat2.UseSelectable = true;
             // 
             // ComboBox_God_Stat1
             // 
             this.ComboBox_God_Stat1.FormattingEnabled = true;
-            this.ComboBox_God_Stat1.ItemHeight = 24;
+            this.ComboBox_God_Stat1.ItemHeight = 23;
             this.ComboBox_God_Stat1.Items.AddRange(new object[] {
             "2018",
             "2019",
@@ -1340,7 +1245,7 @@
             this.ComboBox_God_Stat1.Location = new System.Drawing.Point(400, 34);
             this.ComboBox_God_Stat1.Margin = new System.Windows.Forms.Padding(2);
             this.ComboBox_God_Stat1.Name = "ComboBox_God_Stat1";
-            this.ComboBox_God_Stat1.Size = new System.Drawing.Size(88, 30);
+            this.ComboBox_God_Stat1.Size = new System.Drawing.Size(88, 29);
             this.ComboBox_God_Stat1.TabIndex = 36;
             this.ComboBox_God_Stat1.UseSelectable = true;
             this.ComboBox_God_Stat1.SelectedIndexChanged += new System.EventHandler(this.ComboBox_God_Stat1_SelectedIndexChanged);
@@ -1375,11 +1280,11 @@
             this.ComboBox_Klass_Stat1.DisplayMember = "klass";
             this.ComboBox_Klass_Stat1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComboBox_Klass_Stat1.FormattingEnabled = true;
-            this.ComboBox_Klass_Stat1.ItemHeight = 24;
+            this.ComboBox_Klass_Stat1.ItemHeight = 23;
             this.ComboBox_Klass_Stat1.Location = new System.Drawing.Point(302, 34);
             this.ComboBox_Klass_Stat1.Margin = new System.Windows.Forms.Padding(2);
             this.ComboBox_Klass_Stat1.Name = "ComboBox_Klass_Stat1";
-            this.ComboBox_Klass_Stat1.Size = new System.Drawing.Size(94, 30);
+            this.ComboBox_Klass_Stat1.Size = new System.Drawing.Size(94, 29);
             this.ComboBox_Klass_Stat1.TabIndex = 34;
             this.ComboBox_Klass_Stat1.UseSelectable = true;
             this.ComboBox_Klass_Stat1.ValueMember = "id";
@@ -1400,11 +1305,11 @@
             // 
             this.ComboBox_Kontrol_Stat1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComboBox_Kontrol_Stat1.FormattingEnabled = true;
-            this.ComboBox_Kontrol_Stat1.ItemHeight = 24;
+            this.ComboBox_Kontrol_Stat1.ItemHeight = 23;
             this.ComboBox_Kontrol_Stat1.Location = new System.Drawing.Point(2, 34);
             this.ComboBox_Kontrol_Stat1.Margin = new System.Windows.Forms.Padding(2);
             this.ComboBox_Kontrol_Stat1.Name = "ComboBox_Kontrol_Stat1";
-            this.ComboBox_Kontrol_Stat1.Size = new System.Drawing.Size(296, 30);
+            this.ComboBox_Kontrol_Stat1.Size = new System.Drawing.Size(296, 29);
             this.ComboBox_Kontrol_Stat1.TabIndex = 32;
             this.ComboBox_Kontrol_Stat1.UseSelectable = true;
             // 
@@ -1595,147 +1500,6 @@
             this.ComboBox_Kontrol_Stat3.Size = new System.Drawing.Size(296, 29);
             this.ComboBox_Kontrol_Stat3.TabIndex = 26;
             this.ComboBox_Kontrol_Stat3.UseSelectable = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage4.Controls.Add(this.tableLayoutPanel9);
-            this.tabPage4.Location = new System.Drawing.Point(4, 44);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1001, 340);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Статистика по ученику (в разработке)";
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 4;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 400F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 561F));
-            this.tableLayoutPanel9.Controls.Add(this.metroLabel19, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.metroComboBox8, 3, 1);
-            this.tableLayoutPanel9.Controls.Add(this.metroLabel22, 3, 0);
-            this.tableLayoutPanel9.Controls.Add(this.metroComboBox4, 2, 1);
-            this.tableLayoutPanel9.Controls.Add(this.metroLabel21, 1, 0);
-            this.tableLayoutPanel9.Controls.Add(this.metroComboBox6, 1, 1);
-            this.tableLayoutPanel9.Controls.Add(this.metroLabel20, 2, 0);
-            this.tableLayoutPanel9.Controls.Add(this.metroComboBox7, 0, 1);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 3;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(1001, 340);
-            this.tableLayoutPanel9.TabIndex = 46;
-            // 
-            // metroLabel19
-            // 
-            this.metroLabel19.AutoSize = true;
-            this.metroLabel19.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel19.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel19.Location = new System.Drawing.Point(2, 2);
-            this.metroLabel19.Margin = new System.Windows.Forms.Padding(2);
-            this.metroLabel19.Name = "metroLabel19";
-            this.metroLabel19.Size = new System.Drawing.Size(118, 25);
-            this.metroLabel19.TabIndex = 39;
-            this.metroLabel19.Text = "Контрольная";
-            // 
-            // metroComboBox8
-            // 
-            this.metroComboBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroComboBox8.FormattingEnabled = true;
-            this.metroComboBox8.ItemHeight = 23;
-            this.metroComboBox8.Location = new System.Drawing.Point(632, 34);
-            this.metroComboBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.metroComboBox8.Name = "metroComboBox8";
-            this.metroComboBox8.Size = new System.Drawing.Size(557, 29);
-            this.metroComboBox8.TabIndex = 44;
-            this.metroComboBox8.UseSelectable = true;
-            // 
-            // metroLabel22
-            // 
-            this.metroLabel22.AutoSize = true;
-            this.metroLabel22.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel22.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel22.Location = new System.Drawing.Point(632, 2);
-            this.metroLabel22.Margin = new System.Windows.Forms.Padding(2);
-            this.metroLabel22.Name = "metroLabel22";
-            this.metroLabel22.Size = new System.Drawing.Size(70, 25);
-            this.metroLabel22.TabIndex = 45;
-            this.metroLabel22.Text = "Ученик";
-            // 
-            // metroComboBox4
-            // 
-            this.metroComboBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroComboBox4.FormattingEnabled = true;
-            this.metroComboBox4.ItemHeight = 23;
-            this.metroComboBox4.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022"});
-            this.metroComboBox4.Location = new System.Drawing.Point(532, 34);
-            this.metroComboBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.metroComboBox4.Name = "metroComboBox4";
-            this.metroComboBox4.Size = new System.Drawing.Size(96, 29);
-            this.metroComboBox4.TabIndex = 42;
-            this.metroComboBox4.UseSelectable = true;
-            // 
-            // metroLabel21
-            // 
-            this.metroLabel21.AutoSize = true;
-            this.metroLabel21.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel21.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel21.Location = new System.Drawing.Point(402, 2);
-            this.metroLabel21.Margin = new System.Windows.Forms.Padding(2);
-            this.metroLabel21.Name = "metroLabel21";
-            this.metroLabel21.Size = new System.Drawing.Size(56, 25);
-            this.metroLabel21.TabIndex = 41;
-            this.metroLabel21.Text = "Класс";
-            // 
-            // metroComboBox6
-            // 
-            this.metroComboBox6.DataSource = this.klassBindingSource;
-            this.metroComboBox6.DisplayMember = "klass";
-            this.metroComboBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroComboBox6.FormattingEnabled = true;
-            this.metroComboBox6.ItemHeight = 23;
-            this.metroComboBox6.Location = new System.Drawing.Point(402, 34);
-            this.metroComboBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.metroComboBox6.Name = "metroComboBox6";
-            this.metroComboBox6.Size = new System.Drawing.Size(126, 29);
-            this.metroComboBox6.TabIndex = 40;
-            this.metroComboBox6.UseSelectable = true;
-            this.metroComboBox6.ValueMember = "id";
-            // 
-            // metroLabel20
-            // 
-            this.metroLabel20.AutoSize = true;
-            this.metroLabel20.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel20.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel20.Location = new System.Drawing.Point(532, 2);
-            this.metroLabel20.Margin = new System.Windows.Forms.Padding(2);
-            this.metroLabel20.Name = "metroLabel20";
-            this.metroLabel20.Size = new System.Drawing.Size(41, 25);
-            this.metroLabel20.TabIndex = 43;
-            this.metroLabel20.Text = "Год";
-            // 
-            // metroComboBox7
-            // 
-            this.metroComboBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.metroComboBox7.FormattingEnabled = true;
-            this.metroComboBox7.ItemHeight = 23;
-            this.metroComboBox7.Location = new System.Drawing.Point(2, 34);
-            this.metroComboBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.metroComboBox7.Name = "metroComboBox7";
-            this.metroComboBox7.Size = new System.Drawing.Size(396, 29);
-            this.metroComboBox7.TabIndex = 38;
-            this.metroComboBox7.UseSelectable = true;
             // 
             // metroTile2
             // 
@@ -2177,7 +1941,7 @@
             // 
             this.metroDateTime1.Location = new System.Drawing.Point(284, 72);
             this.metroDateTime1.Margin = new System.Windows.Forms.Padding(2);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(4, 29);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
             this.metroDateTime1.Name = "metroDateTime1";
             this.metroDateTime1.Size = new System.Drawing.Size(280, 29);
             this.metroDateTime1.TabIndex = 44;
@@ -2340,6 +2104,113 @@
             this.tableLayoutPanel10.Size = new System.Drawing.Size(1166, 499);
             this.tableLayoutPanel10.TabIndex = 3;
             // 
+            // iduserDataGridViewTextBoxColumn
+            // 
+            this.iduserDataGridViewTextBoxColumn.DataPropertyName = "id_user";
+            this.iduserDataGridViewTextBoxColumn.DataSource = this.userBindingSource;
+            this.iduserDataGridViewTextBoxColumn.DisplayMember = "FI";
+            this.iduserDataGridViewTextBoxColumn.HeaderText = "Учащиеся";
+            this.iduserDataGridViewTextBoxColumn.Name = "iduserDataGridViewTextBoxColumn";
+            this.iduserDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.iduserDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.iduserDataGridViewTextBoxColumn.ValueMember = "id";
+            this.iduserDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // id_kontr
+            // 
+            this.id_kontr.DataPropertyName = "id_kontr";
+            this.id_kontr.HeaderText = "id_kontr";
+            this.id_kontr.Name = "id_kontr";
+            // 
+            // id_klass
+            // 
+            this.id_klass.DataPropertyName = "id_klass";
+            this.id_klass.HeaderText = "id_klass";
+            this.id_klass.Name = "id_klass";
+            // 
+            // god
+            // 
+            this.god.DataPropertyName = "god";
+            this.god.HeaderText = "god";
+            this.god.Name = "god";
+            // 
+            // uud11DataGridViewTextBoxColumn
+            // 
+            this.uud11DataGridViewTextBoxColumn.DataPropertyName = "uud11";
+            this.uud11DataGridViewTextBoxColumn.HeaderText = "УУД1-1";
+            this.uud11DataGridViewTextBoxColumn.Name = "uud11DataGridViewTextBoxColumn";
+            this.uud11DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // uud12DataGridViewTextBoxColumn
+            // 
+            this.uud12DataGridViewTextBoxColumn.DataPropertyName = "uud12";
+            this.uud12DataGridViewTextBoxColumn.HeaderText = "УУД1-2";
+            this.uud12DataGridViewTextBoxColumn.Name = "uud12DataGridViewTextBoxColumn";
+            this.uud12DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // uud13DataGridViewTextBoxColumn
+            // 
+            this.uud13DataGridViewTextBoxColumn.DataPropertyName = "uud13";
+            this.uud13DataGridViewTextBoxColumn.HeaderText = "УУД1-3";
+            this.uud13DataGridViewTextBoxColumn.Name = "uud13DataGridViewTextBoxColumn";
+            this.uud13DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // uud21DataGridViewTextBoxColumn
+            // 
+            this.uud21DataGridViewTextBoxColumn.DataPropertyName = "uud21";
+            this.uud21DataGridViewTextBoxColumn.HeaderText = "УУД2-1";
+            this.uud21DataGridViewTextBoxColumn.Name = "uud21DataGridViewTextBoxColumn";
+            this.uud21DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // uud22DataGridViewTextBoxColumn
+            // 
+            this.uud22DataGridViewTextBoxColumn.DataPropertyName = "uud22";
+            this.uud22DataGridViewTextBoxColumn.HeaderText = "УУД2-2";
+            this.uud22DataGridViewTextBoxColumn.Name = "uud22DataGridViewTextBoxColumn";
+            this.uud22DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // uud23DataGridViewTextBoxColumn
+            // 
+            this.uud23DataGridViewTextBoxColumn.DataPropertyName = "uud23";
+            this.uud23DataGridViewTextBoxColumn.HeaderText = "УУД2-3";
+            this.uud23DataGridViewTextBoxColumn.Name = "uud23DataGridViewTextBoxColumn";
+            this.uud23DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // uud31DataGridViewTextBoxColumn
+            // 
+            this.uud31DataGridViewTextBoxColumn.DataPropertyName = "uud31";
+            this.uud31DataGridViewTextBoxColumn.HeaderText = "УУД3-1";
+            this.uud31DataGridViewTextBoxColumn.Name = "uud31DataGridViewTextBoxColumn";
+            this.uud31DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // uud32DataGridViewTextBoxColumn
+            // 
+            this.uud32DataGridViewTextBoxColumn.DataPropertyName = "uud32";
+            this.uud32DataGridViewTextBoxColumn.HeaderText = "УУД3-2";
+            this.uud32DataGridViewTextBoxColumn.Name = "uud32DataGridViewTextBoxColumn";
+            this.uud32DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // uud33DataGridViewTextBoxColumn
+            // 
+            this.uud33DataGridViewTextBoxColumn.DataPropertyName = "uud33";
+            this.uud33DataGridViewTextBoxColumn.HeaderText = "УУД3-3";
+            this.uud33DataGridViewTextBoxColumn.Name = "uud33DataGridViewTextBoxColumn";
+            this.uud33DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // uud4DataGridViewTextBoxColumn
+            // 
+            this.uud4DataGridViewTextBoxColumn.DataPropertyName = "uud4";
+            this.uud4DataGridViewTextBoxColumn.HeaderText = "УУД4";
+            this.uud4DataGridViewTextBoxColumn.Name = "uud4DataGridViewTextBoxColumn";
+            this.uud4DataGridViewTextBoxColumn.Width = 65;
+            // 
+            // uud5DataGridViewTextBoxColumn
+            // 
+            this.uud5DataGridViewTextBoxColumn.DataPropertyName = "uud5";
+            this.uud5DataGridViewTextBoxColumn.HeaderText = "УУД5";
+            this.uud5DataGridViewTextBoxColumn.Name = "uud5DataGridViewTextBoxColumn";
+            this.uud5DataGridViewTextBoxColumn.Width = 65;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2385,9 +2256,6 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StatchartControl1)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel9.PerformLayout();
             this.metroTabPage5.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -2498,7 +2366,6 @@
         private MetroFramework.Controls.MetroLabel StatmetroLabel14;
         private MetroFramework.Controls.MetroComboBox StatComboBox_Grafik_Stat;
         private DevExpress.XtraCharts.ChartControl StatchartControl1;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.BindingSource klassBindingSource1;
         private System.Windows.Forms.BindingSource kontrolnieBindingSource1;
         private MetroFramework.Controls.MetroLabel metroLabel11;
@@ -2526,14 +2393,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private MetroFramework.Controls.MetroLabel metroLabel22;
-        private MetroFramework.Controls.MetroComboBox metroComboBox8;
-        private MetroFramework.Controls.MetroLabel metroLabel19;
-        private MetroFramework.Controls.MetroLabel metroLabel20;
-        private MetroFramework.Controls.MetroComboBox metroComboBox4;
-        private MetroFramework.Controls.MetroLabel metroLabel21;
-        private MetroFramework.Controls.MetroComboBox metroComboBox6;
-        private MetroFramework.Controls.MetroComboBox metroComboBox7;
         private System.Windows.Forms.DataGridViewTextBoxColumn faim;
         private System.Windows.Forms.DataGridViewTextBoxColumn uud1;
         private System.Windows.Forms.DataGridViewTextBoxColumn uud4;
@@ -2543,10 +2402,21 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private MetroFramework.Controls.MetroLabel metroLabel16;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn data;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazvDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fIDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idklassDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn iduserDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_kontr;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_klass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn god;
         private System.Windows.Forms.DataGridViewTextBoxColumn uud11DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn uud12DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn uud13DataGridViewTextBoxColumn;
@@ -2558,15 +2428,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn uud33DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn uud4DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn uud5DataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nazv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nazvDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fIDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idklassDataGridViewTextBoxColumn1;
     }
 }
 
