@@ -61,29 +61,50 @@ namespace Statistick
                 MessageBox.Show("Обратитесь к разработчику");
             }
 
-            FileStream fc = File.Open(@"C: \Users\Public\Documents\wuevl1f1gi0cy0", FileMode.OpenOrCreate);
+            FileStream fc = File.Open(System.Windows.Forms.Application.StartupPath+ @"\Тестовоя лицензия", FileMode.OpenOrCreate);
             byte[] array1 = new byte[100];
             int kod = fc.Read(array1, 0, 100);
             array1 = Encoding.Default.GetBytes("1");
             // запись массива байтов в файл
             fc.Write(array1, 0, array1.Length);
             fc.Close();
+
+            FileStream fc2 = File.Open(@"C: \Users\Public\Documents\wuevl1f1gi0cy0", FileMode.OpenOrCreate);
+            byte[] array2 = new byte[100];
+            int kod2 = fc2.Read(array2, 0, 100);
+            array2 = Encoding.Default.GetBytes("1");
+            // запись массива байтов в файл
+            fc2.Write(array2, 0, array2.Length);
+            fc2.Close();
+
             if (kod > 40)
             {
                 metroTile2.Enabled = false;
                 try
                 {
-                    Mail();
+                    Mail("40 дней лицензии истекли");
                 }
                 catch
                 { }
                 MessageBox.Show("Закончилась тестовая лицензия! Обратитесь к разработчику!");
                 Form1.ActiveForm.Close();
             }
+            if(kod!=kod2)
+            {
+                metroTile2.Enabled = false;
+                try
+                {
+                    Mail("Изменена лицензия! Обратитесь к разработчику!");
+                }
+                catch
+                { }
+                MessageBox.Show("Изменена лицензия! Обратитесь к разработчику!");
+                Form1.ActiveForm.Close();
+            }
         }
         DateTime d;
 
-        public void Mail()
+        public void Mail(string mess)
         {
          // отправитель - устанавливаем адрес и отображаемое в письме имя
             MailAddress from = new MailAddress("kve@kkidppo.ru", "prog");
@@ -92,9 +113,9 @@ namespace Statistick
         // создаем объект сообщения
         MailMessage m = new MailMessage(from, to);
         // тема письма
-        m.Subject = "Тест";
+        m.Subject = "Лицензия Тимашевск";
             // текст письма
-            m.Body = "<h2>Письмо-тест работы smtp-клиента</h2>";
+            m.Body = "<h2>"+mess+"</h2>";
             // письмо представляет код html
             m.IsBodyHtml = true;
             // адрес smtp-сервера и порт, с которого будем отправлять письмо
@@ -1935,6 +1956,7 @@ namespace Statistick
             row["klass"] = metroComboBox1.Text+ metroComboBox2.Text;
             in_statDataSet.klass.Rows.Add(row);
             klassTableAdapter.Update(in_statDataSet);
+            metroLabel16.Text = "Класс создан";
         }
 
         private void Proverka_Click(object sender, EventArgs e)
@@ -1988,12 +2010,22 @@ namespace Statistick
         {
             switch (metroTabControl1.SelectedIndex)
             {
+                case 0:
+                    metroLabel16.Text = "Система готова к работе";
+                    break;
+                case 1:
+                    metroLabel16.Text = "Подсказка. Включите необходимые переключатели и нажмите \"Загрузить УУД\"";
+                    break;
                 case 2:
                     But_Open_UUD_Click(sender, e);
+                    metroLabel16.Text = "Подсказка. Для удаления отдельного ученика, выберите строку с учеником в таблице и нажмите клавишу \"Delete\" на клавиатуре";
                     break;
                 case 4:
                     ComboBox_Klass_SelectedIndexChanged(sender, e);
                     metroLabel16.Text = "Подсказка. Для удаления отдельного ученика, выберите строку с учеником в таблице и нажмите клавишу \"Delete\" на клавиатуре";
+                    break;
+                case 5:
+                    metroLabel16.Text = "";
                     break;
 
             }
@@ -2076,12 +2108,12 @@ namespace Statistick
 
 
                     kontrolnieTableAdapter.Update(in_statDataSet);
-                
+                    metroLabel16.Text = "Контрольная создана";
                 }
                 else
                 {
                     MessageBox.Show("Такая контрольная уже есть!");
-
+                    metroLabel16.Text = "Такая контрольная уже есть";
                 }
             }
             this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
@@ -2126,10 +2158,12 @@ namespace Statistick
 
 
                 kontrolnieTableAdapter.Update(in_statDataSet);
+                metroLabel16.Text = "Изменения сохранены";
             }
             else
             {
                 MessageBox.Show("Такая контрольная уже есть!");
+                metroLabel16.Text = "Такая контрольная уже есть";
 
             }
 
@@ -2166,13 +2200,16 @@ namespace Statistick
                 }
                 uudTableAdapter.Update(in_statDataSet);
                 kontrolnieTableAdapter.Update(in_statDataSet);
+                metroLabel16.Text = "Контрольная удалена";
             }
         }
 
         private void but_Save_Klass_Click(object sender, EventArgs e)
         {
-
+            klassTableAdapter.Update(in_statDataSet);
+            metroLabel16.Text = "Изменения сохранены";
         }
+
         bool del_klass = true;
         string _select_user = "";
         private void Grid_Klass_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
