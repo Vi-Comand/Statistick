@@ -54,6 +54,8 @@ namespace Statistick
             Update_Combobox_Kontrol_Stat2();
             Update_Combobox_Kontrol_Stat3();
 
+            Form1 f = new Form1();
+            f.ShowInTaskbar = true;
             GetServerTime();
             if (d > Convert.ToDateTime("24.12.2018"))
             {
@@ -82,14 +84,14 @@ namespace Statistick
                 metroTile2.Enabled = false;
                 try
                 {
-                    Mail("40 дней лицензии истекли");
+                    Mail("40 лицензий истекли");
                 }
                 catch
                 { }
                 MessageBox.Show("Закончилась тестовая лицензия! Обратитесь к разработчику!");
                 Form1.ActiveForm.Close();
             }
-            if(kod!=kod2)
+           /* if(kod!=kod2)
             {
                 metroTile2.Enabled = false;
                 try
@@ -100,7 +102,7 @@ namespace Statistick
                 { }
                 MessageBox.Show("Изменена лицензия! Обратитесь к разработчику!");
                 Form1.ActiveForm.Close();
-            }
+            }*/
         }
         DateTime d;
 
@@ -861,15 +863,32 @@ namespace Statistick
                         break;
                     case 2:
                         series1.Points.Add(new SeriesPoint("Может строить логическую цепь рассуждений (выявлять причинно-следственные связи, выявлять закономерности) (УУД2)", uud2));
+                        Update_Combobox_Kontrol_Load();
                         break;
                     case 3:
                         series1.Points.Add(new SeriesPoint("Может структурировать найденную информацию в нужной форме(УУД3)", uud3));
+                    //    this.uudTableAdapter.Fill(this.in_statDataSet.uud);
+                        //   this.uudTableAdapter.Fill(this.in_statDataSet.uud);
+                        this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+                        this.userTableAdapter.Fill(this.in_statDataSet.user);
+                        this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+                        Update_Combobox_Kontrol_Red();
                         break;
                     case 4:
                         series1.Points.Add(new SeriesPoint("Владеет умением классификации(УУД4)", uud4));
+                        this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+                        this.userTableAdapter.Fill(this.in_statDataSet.user);
+                        this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+                        Update_Combobox_Kontrol_Stat();
+                        Update_Combobox_Kontrol_Stat1();
+                        Update_Combobox_Kontrol_Stat2();
+                        Update_Combobox_Kontrol_Stat3();
                         break;
                     case 5:
                         series1.Points.Add(new SeriesPoint("Умеет осмысленно читать, извлекая нужную информацию(УУД5)", uud5));
+                        this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+                        this.userTableAdapter.Fill(this.in_statDataSet.user);
+                        this.klassTableAdapter.Fill(this.in_statDataSet.klass);
                         break;
                 }
             }
@@ -2288,5 +2307,7 @@ namespace Statistick
         {
             if (e.Control is TextBox) editBox1 = e.Control as TextBox;
         }
+
+       
     }
 }
