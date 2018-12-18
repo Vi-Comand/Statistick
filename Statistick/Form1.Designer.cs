@@ -317,7 +317,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(3, 2);
             this.metroTabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.SelectedIndex = 5;
             this.metroTabControl1.Size = new System.Drawing.Size(1548, 574);
             this.metroTabControl1.TabIndex = 1;
             this.metroTabControl1.UseSelectable = true;
@@ -1058,7 +1058,7 @@
             this.metroTabPage4.Location = new System.Drawing.Point(4, 44);
             this.metroTabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.metroTabPage4.Name = "metroTabPage4";
-            this.metroTabPage4.Size = new System.Drawing.Size(1541, 526);
+            this.metroTabPage4.Size = new System.Drawing.Size(1540, 526);
             this.metroTabPage4.TabIndex = 3;
             this.metroTabPage4.Text = "Формирование статистики";
             this.metroTabPage4.VerticalScrollbarBarColor = true;
@@ -1082,7 +1082,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.7449F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.2551F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1541, 526);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1540, 526);
             this.tableLayoutPanel1.TabIndex = 24;
             // 
             // TabControl_Stat
@@ -1099,7 +1099,7 @@
             this.TabControl_Stat.Name = "TabControl_Stat";
             this.tableLayoutPanel1.SetRowSpan(this.TabControl_Stat, 2);
             this.TabControl_Stat.SelectedIndex = 0;
-            this.TabControl_Stat.Size = new System.Drawing.Size(1347, 490);
+            this.TabControl_Stat.Size = new System.Drawing.Size(1346, 490);
             this.TabControl_Stat.TabIndex = 0;
             this.TabControl_Stat.UseSelectable = true;
             // 
@@ -1110,7 +1110,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1339, 442);
+            this.tabPage1.Size = new System.Drawing.Size(1338, 442);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Одиночная аналитика";
             // 
@@ -1134,7 +1134,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1339, 442);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1338, 442);
             this.tableLayoutPanel6.TabIndex = 26;
             // 
             // ComboBox_Kontrol_Stat
@@ -1143,11 +1143,11 @@
             this.ComboBox_Kontrol_Stat.DisplayMember = "nazv";
             this.ComboBox_Kontrol_Stat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComboBox_Kontrol_Stat.FormattingEnabled = true;
-            this.ComboBox_Kontrol_Stat.ItemHeight = 23;
+            this.ComboBox_Kontrol_Stat.ItemHeight = 24;
             this.ComboBox_Kontrol_Stat.Location = new System.Drawing.Point(3, 41);
             this.ComboBox_Kontrol_Stat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBox_Kontrol_Stat.Name = "ComboBox_Kontrol_Stat";
-            this.ComboBox_Kontrol_Stat.Size = new System.Drawing.Size(394, 29);
+            this.ComboBox_Kontrol_Stat.Size = new System.Drawing.Size(394, 30);
             this.ComboBox_Kontrol_Stat.TabIndex = 20;
             this.ComboBox_Kontrol_Stat.UseSelectable = true;
             this.ComboBox_Kontrol_Stat.ValueMember = "id";
@@ -1175,11 +1175,11 @@
             this.ComboBox_Klass_Stat.DisplayMember = "klass";
             this.ComboBox_Klass_Stat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComboBox_Klass_Stat.FormattingEnabled = true;
-            this.ComboBox_Klass_Stat.ItemHeight = 23;
+            this.ComboBox_Klass_Stat.ItemHeight = 24;
             this.ComboBox_Klass_Stat.Location = new System.Drawing.Point(403, 41);
             this.ComboBox_Klass_Stat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBox_Klass_Stat.Name = "ComboBox_Klass_Stat";
-            this.ComboBox_Klass_Stat.Size = new System.Drawing.Size(125, 29);
+            this.ComboBox_Klass_Stat.Size = new System.Drawing.Size(125, 30);
             this.ComboBox_Klass_Stat.TabIndex = 22;
             this.ComboBox_Klass_Stat.UseSelectable = true;
             this.ComboBox_Klass_Stat.ValueMember = "id";
@@ -1211,7 +1211,7 @@
             // ComboBox_God_Stat
             // 
             this.ComboBox_God_Stat.FormattingEnabled = true;
-            this.ComboBox_God_Stat.ItemHeight = 23;
+            this.ComboBox_God_Stat.ItemHeight = 24;
             this.ComboBox_God_Stat.Items.AddRange(new object[] {
             "2018",
             "2019",
@@ -1221,7 +1221,7 @@
             this.ComboBox_God_Stat.Location = new System.Drawing.Point(534, 41);
             this.ComboBox_God_Stat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboBox_God_Stat.Name = "ComboBox_God_Stat";
-            this.ComboBox_God_Stat.Size = new System.Drawing.Size(144, 29);
+            this.ComboBox_God_Stat.Size = new System.Drawing.Size(144, 30);
             this.ComboBox_God_Stat.TabIndex = 24;
             this.ComboBox_God_Stat.UseSelectable = true;
             this.ComboBox_God_Stat.SelectedIndexChanged += new System.EventHandler(this.ComboBox_God_Stat_SelectedIndexChanged);
@@ -1773,7 +1773,7 @@
             // metroTile2
             // 
             this.metroTile2.ActiveControl = null;
-            this.metroTile2.Location = new System.Drawing.Point(1356, 2);
+            this.metroTile2.Location = new System.Drawing.Point(1355, 2);
             this.metroTile2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroTile2.Name = "metroTile2";
             this.metroTile2.Size = new System.Drawing.Size(182, 114);
@@ -1789,7 +1789,7 @@
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(1356, 124);
+            this.metroTile1.Location = new System.Drawing.Point(1355, 124);
             this.metroTile1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(182, 74);
@@ -1810,7 +1810,7 @@
             this.metroTabPage5.Location = new System.Drawing.Point(4, 44);
             this.metroTabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.metroTabPage5.Name = "metroTabPage5";
-            this.metroTabPage5.Size = new System.Drawing.Size(1541, 526);
+            this.metroTabPage5.Size = new System.Drawing.Size(1540, 526);
             this.metroTabPage5.TabIndex = 4;
             this.metroTabPage5.Text = "Работа с классами";
             this.metroTabPage5.VerticalScrollbarBarColor = true;
@@ -1831,7 +1831,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1541, 526);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1540, 526);
             this.tableLayoutPanel4.TabIndex = 35;
             // 
             // panel3
@@ -1850,7 +1850,7 @@
             this.panel3.Location = new System.Drawing.Point(4, 4);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1533, 132);
+            this.panel3.Size = new System.Drawing.Size(1532, 132);
             this.panel3.TabIndex = 34;
             // 
             // metroLabel8
@@ -1926,7 +1926,7 @@
             // metroComboBox2
             // 
             this.metroComboBox2.FormattingEnabled = true;
-            this.metroComboBox2.ItemHeight = 23;
+            this.metroComboBox2.ItemHeight = 24;
             this.metroComboBox2.Items.AddRange(new object[] {
             "А",
             "Б",
@@ -1940,7 +1940,7 @@
             this.metroComboBox2.Location = new System.Drawing.Point(651, 73);
             this.metroComboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroComboBox2.Name = "metroComboBox2";
-            this.metroComboBox2.Size = new System.Drawing.Size(129, 29);
+            this.metroComboBox2.Size = new System.Drawing.Size(129, 30);
             this.metroComboBox2.TabIndex = 32;
             this.metroComboBox2.UseSelectable = true;
             // 
@@ -1949,11 +1949,11 @@
             this.ComboBox_Klass.DataSource = this.klassBindingSource;
             this.ComboBox_Klass.DisplayMember = "klass";
             this.ComboBox_Klass.FormattingEnabled = true;
-            this.ComboBox_Klass.ItemHeight = 23;
+            this.ComboBox_Klass.ItemHeight = 24;
             this.ComboBox_Klass.Location = new System.Drawing.Point(25, 73);
             this.ComboBox_Klass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ComboBox_Klass.Name = "ComboBox_Klass";
-            this.ComboBox_Klass.Size = new System.Drawing.Size(129, 29);
+            this.ComboBox_Klass.Size = new System.Drawing.Size(129, 30);
             this.ComboBox_Klass.TabIndex = 18;
             this.ComboBox_Klass.UseSelectable = true;
             this.ComboBox_Klass.ValueMember = "id";
@@ -1973,7 +1973,7 @@
             // metroComboBox1
             // 
             this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.ItemHeight = 24;
             this.metroComboBox1.Items.AddRange(new object[] {
             "1",
             "2",
@@ -2000,7 +2000,7 @@
             this.metroComboBox1.Location = new System.Drawing.Point(651, 28);
             this.metroComboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(129, 29);
+            this.metroComboBox1.Size = new System.Drawing.Size(129, 30);
             this.metroComboBox1.TabIndex = 30;
             this.metroComboBox1.UseSelectable = true;
             // 
@@ -2053,7 +2053,7 @@
             this.Grid_Klass.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.Grid_Klass.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.Grid_Klass.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grid_Klass.Size = new System.Drawing.Size(1533, 378);
+            this.Grid_Klass.Size = new System.Drawing.Size(1532, 378);
             this.Grid_Klass.TabIndex = 3;
             this.Grid_Klass.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.Grid_Klass_RowsRemoved);
             this.Grid_Klass.SelectionChanged += new System.EventHandler(this.Grid_Klass_SelectionChanged);

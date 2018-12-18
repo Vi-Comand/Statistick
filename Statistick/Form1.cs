@@ -20,6 +20,8 @@ using System.IO;
 using System.Net.Sockets;
 using System.Net;
 using System.Globalization;
+using System.Threading;
+using System.Diagnostics;
 
 namespace Statistick
 {
@@ -33,6 +35,17 @@ namespace Statistick
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            bool onlyInstance;
+            Mutex mtx = new Mutex(true, Process.GetCurrentProcess().ProcessName, out onlyInstance);
+            if (onlyInstance)
+            {
+              
+            }
+            else
+            {
+                MessageBox.Show("Вы пытаетесь запустить вторую копию программы");
+                System.Windows.Forms.Application.ExitThread();
+            }
 
             // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.uud". При необходимости она может быть перемещена или удалена.
             this.uudTableAdapter.Fill(this.in_statDataSet.uud);
@@ -198,7 +211,7 @@ namespace Statistick
                             }
 
                             if (vnost_izmen)
-                            {
+                            { 
                                 for (int i = 0; i < NoviePolz.Count; i++)
                                 {
 
