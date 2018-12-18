@@ -20,8 +20,8 @@ using System.IO;
 using System.Net.Sockets;
 using System.Net;
 using System.Globalization;
-using System.Threading;
-using System.Diagnostics;
+using TextBox = System.Windows.Forms.TextBox;
+using System.Net.Mail;
 
 namespace Statistick
 {
@@ -30,32 +30,16 @@ namespace Statistick
         public Form1()
         {
             InitializeComponent();
-           
-           
+
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            bool onlyInstance;
-            Mutex mtx = new Mutex(true, Process.GetCurrentProcess().ProcessName, out onlyInstance);
-            if (onlyInstance)
-            {
-              
-            }
-            else
-            {
-                MessageBox.Show("Вы пытаетесь запустить вторую копию программы");
-                System.Windows.Forms.Application.ExitThread();
-            }
 
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.uud". При необходимости она может быть перемещена или удалена.
             this.uudTableAdapter.Fill(this.in_statDataSet.uud);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.uud". При необходимости она может быть перемещена или удалена.
             //   this.uudTableAdapter.Fill(this.in_statDataSet.uud);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.kontrolnie". При необходимости она может быть перемещена или удалена.
             this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.user". При необходимости она может быть перемещена или удалена.
             this.userTableAdapter.Fill(this.in_statDataSet.user);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "in_statDataSet.klass". При необходимости она может быть перемещена или удалена.
             this.klassTableAdapter.Fill(this.in_statDataSet.klass);
             ComboBox_God_Load.SelectedIndex = 0;
             ComboBox_God_Red.SelectedIndex = 0;
@@ -70,15 +54,82 @@ namespace Statistick
             Update_Combobox_Kontrol_Stat2();
             Update_Combobox_Kontrol_Stat3();
 
+            Form1 f = new Form1();
+            f.ShowInTaskbar = true;
             GetServerTime();
-            if(d>Convert.ToDateTime("03.12.2018"))
+            if (d > Convert.ToDateTime("24.12.2018"))
             {
                 metroTile2.Enabled = false;
                 MessageBox.Show("Обратитесь к разработчику");
             }
+
+            FileStream fc = File.Open(System.Windows.Forms.Application.StartupPath+ @"\Тестовоя лицензия", FileMode.OpenOrCreate);
+            byte[] array1 = new byte[100];
+            int kod = fc.Read(array1, 0, 100);
+            array1 = Encoding.Default.GetBytes("1");
+            // запись массива байтов в файл
+            fc.Write(array1, 0, array1.Length);
+            fc.Close();
+
+            FileStream fc2 = File.Open(@"C: \Users\Public\Documents\wuevl1f1gi0cy0", FileMode.OpenOrCreate);
+            byte[] array2 = new byte[100];
+            int kod2 = fc2.Read(array2, 0, 100);
+            array2 = Encoding.Default.GetBytes("1");
+            // запись массива байтов в файл
+            fc2.Write(array2, 0, array2.Length);
+            fc2.Close();
+
+            if (kod > 40)
+            {
+                metroTile2.Enabled = false;
+                try
+                {
+                    Mail("40 лицензий истекли");
+                }
+                catch
+                { }
+                MessageBox.Show("Закончилась тестовая лицензия! Обратитесь к разработчику!");
+                Form1.ActiveForm.Close();
+            }
+           /* if(kod!=kod2)
+            {
+                metroTile2.Enabled = false;
+                try
+                {
+                    Mail("Изменена лицензия! Обратитесь к разработчику!");
+                }
+                catch
+                { }
+                MessageBox.Show("Изменена лицензия! Обратитесь к разработчику!");
+                Form1.ActiveForm.Close();
+            }*/
         }
         DateTime d;
-        
+
+        public void Mail(string mess)
+        {
+         // отправитель - устанавливаем адрес и отображаемое в письме имя
+            MailAddress from = new MailAddress("kve@kkidppo.ru", "prog");
+        // кому отправляем
+        MailAddress to = new MailAddress("kve@kkidppo.ru");
+        // создаем объект сообщения
+        MailMessage m = new MailMessage(from, to);
+        // тема письма
+        m.Subject = "Лицензия Тимашевск";
+            // текст письма
+            m.Body = "<h2>"+mess+"</h2>";
+            // письмо представляет код html
+            m.IsBodyHtml = true;
+            // адрес smtp-сервера и порт, с которого будем отправлять письмо
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+        // логин и пароль
+        smtp.Credentials = new NetworkCredential("kve@kkidppo.ru", "plazma41");
+        smtp.EnableSsl = true;
+            smtp.Send(m);
+            
+}
+
+
         public void   GetServerTime()
         {
             try
@@ -211,7 +262,7 @@ namespace Statistick
                             }
 
                             if (vnost_izmen)
-                            { 
+                            {
                                 for (int i = 0; i < NoviePolz.Count; i++)
                                 {
 
@@ -812,15 +863,32 @@ namespace Statistick
                         break;
                     case 2:
                         series1.Points.Add(new SeriesPoint("Может строить логическую цепь рассуждений (выявлять причинно-следственные связи, выявлять закономерности) (УУД2)", uud2));
+                        Update_Combobox_Kontrol_Load();
                         break;
                     case 3:
                         series1.Points.Add(new SeriesPoint("Может структурировать найденную информацию в нужной форме(УУД3)", uud3));
+                    //    this.uudTableAdapter.Fill(this.in_statDataSet.uud);
+                        //   this.uudTableAdapter.Fill(this.in_statDataSet.uud);
+                        this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+                        this.userTableAdapter.Fill(this.in_statDataSet.user);
+                        this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+                        Update_Combobox_Kontrol_Red();
                         break;
                     case 4:
                         series1.Points.Add(new SeriesPoint("Владеет умением классификации(УУД4)", uud4));
+                        this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+                        this.userTableAdapter.Fill(this.in_statDataSet.user);
+                        this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+                        Update_Combobox_Kontrol_Stat();
+                        Update_Combobox_Kontrol_Stat1();
+                        Update_Combobox_Kontrol_Stat2();
+                        Update_Combobox_Kontrol_Stat3();
                         break;
                     case 5:
                         series1.Points.Add(new SeriesPoint("Умеет осмысленно читать, извлекая нужную информацию(УУД5)", uud5));
+                        this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+                        this.userTableAdapter.Fill(this.in_statDataSet.user);
+                        this.klassTableAdapter.Fill(this.in_statDataSet.klass);
                         break;
                 }
             }
@@ -1907,6 +1975,7 @@ namespace Statistick
             row["klass"] = metroComboBox1.Text+ metroComboBox2.Text;
             in_statDataSet.klass.Rows.Add(row);
             klassTableAdapter.Update(in_statDataSet);
+            metroLabel16.Text = "Класс создан";
         }
 
         private void Proverka_Click(object sender, EventArgs e)
@@ -1916,15 +1985,26 @@ namespace Statistick
 
         private void But_Open_UUD_Click(object sender, EventArgs e)
         {
-            userBindingSource.Filter = "id_klass ='" + ComboBox_Klass_Red.SelectedValue.ToString() + "'";
-            uudBindingSource.Filter = "id_kontr ='" + ComboBox_Kontrol_Red.SelectedValue.ToString() + "' and id_klass ='" + ComboBox_Klass_Red.SelectedValue.ToString() + "' and god ='" + ComboBox_God_Red.SelectedItem.ToString() + "'";
-            
+            try
+            {
+                userBindingSource.Filter = "id_klass ='" + ComboBox_Klass_Red.SelectedValue.ToString() + "'";
+                uudBindingSource.Filter = "id_kontr ='" + ComboBox_Kontrol_Red.SelectedValue.ToString() + "' and id_klass ='" + ComboBox_Klass_Red.SelectedValue.ToString() + "' and god ='" + ComboBox_God_Red.SelectedItem.ToString() + "'";
+                if (uudBindingSource.Count == 0)
+                {
+                    metroLabel16.Text = "Данной контрольной нет в системе";
+                }
+            }
+            catch
+            {
+                metroLabel16.Text = "Контрольных или классов нет в системе";
+            }
         }
 
         private void But_Save_UUD_Click(object sender, EventArgs e)
         {
             uudTableAdapter.Update(in_statDataSet);
             uudTableAdapter.Fill(in_statDataSet.uud);
+            metroLabel16.Text = "Изменения сохранены";
         }
 
         private void But_Del_UUD_Click(object sender, EventArgs e)
@@ -1935,6 +2015,7 @@ namespace Statistick
                 int a = Grid_Red_UUD.CurrentRow.Index;
                 Grid_Red_UUD.Rows.Remove(Grid_Red_UUD.Rows[a]);
                 But_Save_UUD_Click(sender, e);
+                metroLabel16.Text = "УУД удален";
             }
 
         }
@@ -1948,12 +2029,22 @@ namespace Statistick
         {
             switch (metroTabControl1.SelectedIndex)
             {
+                case 0:
+                    metroLabel16.Text = "Система готова к работе";
+                    break;
+                case 1:
+                    metroLabel16.Text = "Подсказка. Включите необходимые переключатели и нажмите \"Загрузить УУД\"";
+                    break;
                 case 2:
                     But_Open_UUD_Click(sender, e);
+                    metroLabel16.Text = "Подсказка. Для удаления отдельного ученика, выберите строку с учеником в таблице и нажмите клавишу \"Delete\" на клавиатуре";
                     break;
                 case 4:
                     ComboBox_Klass_SelectedIndexChanged(sender, e);
-
+                    metroLabel16.Text = "Подсказка. Для удаления отдельного ученика, выберите строку с учеником в таблице и нажмите клавишу \"Delete\" на клавиатуре";
+                    break;
+                case 5:
+                    metroLabel16.Text = "";
                     break;
 
             }
@@ -1972,31 +2063,38 @@ namespace Statistick
 
         private void but_Del_Klass_Click(object sender, EventArgs e)
         {
-            int id_klass = (int)ComboBox_Klass.SelectedValue;
-            foreach (DataRow row in in_statDataSet.klass.Rows) 
+            DialogResult dialogResult = MessageBox.Show("Вы дестйствительно хотите удалить этот класс и всех его пользователей с записями контрольных?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (id_klass == Convert.ToInt32(row["id"]))
+                del_klass = false;
+                int id_klass = (int)ComboBox_Klass.SelectedValue;
+                foreach (DataRow row in in_statDataSet.klass.Rows)
                 {
-                    row.Delete();
+                    if (id_klass == Convert.ToInt32(row["id"]))
+                    {
+                        row.Delete();
+                    }
                 }
-            }
-            foreach (DataRow row in in_statDataSet.user.Rows)
-            {
-                if (id_klass == Convert.ToInt32(row["id_klass"]))
+                foreach (DataRow row in in_statDataSet.user.Rows)
                 {
-                    row.Delete();
+                    if (id_klass == Convert.ToInt32(row["id_klass"]))
+                    {
+                        row.Delete();
+                    }
                 }
-            }
-            foreach (DataRow row in in_statDataSet.uud.Rows)
-            {
-                if (id_klass == Convert.ToInt32(row["id_klass"]))
+                foreach (DataRow row in in_statDataSet.uud.Rows)
                 {
-                    row.Delete();
+                    if (id_klass == Convert.ToInt32(row["id_klass"]))
+                    {
+                        row.Delete();
+                    }
                 }
+                uudTableAdapter.Update(in_statDataSet);
+                klassTableAdapter.Update(in_statDataSet);
+                userTableAdapter.Update(in_statDataSet);
+                metroLabel16.Text = "Класс удален";
+                del_klass = true;
             }
-            uudTableAdapter.Update(in_statDataSet);
-           klassTableAdapter.Update(in_statDataSet);
-            userTableAdapter.Update(in_statDataSet);
           
 
         }
@@ -2029,12 +2127,12 @@ namespace Statistick
 
 
                     kontrolnieTableAdapter.Update(in_statDataSet);
-                
+                    metroLabel16.Text = "Контрольная создана";
                 }
                 else
                 {
                     MessageBox.Show("Такая контрольная уже есть!");
-
+                    metroLabel16.Text = "Такая контрольная уже есть";
                 }
             }
             this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
@@ -2079,10 +2177,12 @@ namespace Statistick
 
 
                 kontrolnieTableAdapter.Update(in_statDataSet);
+                metroLabel16.Text = "Изменения сохранены";
             }
             else
             {
                 MessageBox.Show("Такая контрольная уже есть!");
+                metroLabel16.Text = "Такая контрольная уже есть";
 
             }
 
@@ -2092,37 +2192,48 @@ namespace Statistick
         {
 
         }
-
+        
         private void metroTile3_Click(object sender, EventArgs e)
         {
-            int id_grid_kontrolnie = (int)metroGrid1.Rows[metroGrid1.CurrentCell.RowIndex].Cells[2].Value;
-
-            
-            foreach (DataRow row in in_statDataSet.kontrolnie.Rows)
+            DialogResult dialogResult =
+                                   MessageBox.Show(
+                                       "Удалить контрольную и все ее записи?","Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogResult == DialogResult.Yes)
             {
-                if (Convert.ToInt32(row[0]) == id_grid_kontrolnie) {row.Delete(); }
 
 
+                int id_grid_kontrolnie = (int)metroGrid1.Rows[metroGrid1.CurrentCell.RowIndex].Cells[2].Value;
+
+
+                foreach (DataRow row in in_statDataSet.kontrolnie.Rows)
+                {
+                    if (Convert.ToInt32(row[0]) == id_grid_kontrolnie) { row.Delete(); }
+
+
+                }
+                foreach (DataRow row in in_statDataSet.uud.Rows)
+                {
+                    if (Convert.ToInt32(row[2]) == id_grid_kontrolnie) { row.Delete(); }
+
+
+                }
+                uudTableAdapter.Update(in_statDataSet);
+                kontrolnieTableAdapter.Update(in_statDataSet);
+                metroLabel16.Text = "Контрольная удалена";
             }
-            foreach (DataRow row in in_statDataSet.uud.Rows)
-            {
-                if (Convert.ToInt32(row[2]) == id_grid_kontrolnie) { row.Delete(); }
-
-
-            }
-            uudTableAdapter.Update(in_statDataSet);
-            kontrolnieTableAdapter.Update(in_statDataSet);
         }
 
         private void but_Save_Klass_Click(object sender, EventArgs e)
         {
-
+            klassTableAdapter.Update(in_statDataSet);
+            metroLabel16.Text = "Изменения сохранены";
         }
 
+        bool del_klass = true;
         string _select_user = "";
         private void Grid_Klass_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            if (Grid_Klass.Rows.Count != 0)
+            if (Grid_Klass.Rows.Count != 0 && del_klass)
             {
                 DialogResult dialogResult = MessageBox.Show("Вы дестйствительно хотите удалить " + ComboBox_Klass.SelectedText + " и все его записи о контрольных?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
@@ -2171,14 +2282,32 @@ namespace Statistick
             { }
         }
 
+      
 
+        TextBox editBox = null;
+        TextBox editBox1 = null;
+        private void Grid_Red_UUD_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is TextBox) editBox = e.Control as TextBox;
+        }
 
+        private void Grid_Red_UUD_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            Grid_Red_UUD.Rows[e.RowIndex].Cells[1].Value = ComboBox_Kontrol_Red.SelectedValue;
+            Grid_Red_UUD.Rows[e.RowIndex].Cells[2].Value = ComboBox_Klass_Red.SelectedValue;
+            Grid_Red_UUD.Rows[e.RowIndex].Cells[3].Value = ComboBox_God_Red.Text;
+        }
 
+        private void Grid_Klass_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            Grid_Klass.Rows[e.RowIndex].Cells[3].Value = ComboBox_Klass.SelectedValue;
+        }
 
-        //=======
+        private void Grid_Klass_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is TextBox) editBox1 = e.Control as TextBox;
+        }
 
-
-
-        //>>>>>>> 6e168095ff9b9a19d30e617a0b07114c2a31c458
+       
     }
 }
