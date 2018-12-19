@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.Charts.Native;
+//using DevExpress.Charts.Native;
 using MetroFramework.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 
-using DevExpress.XtraCharts;
+//using DevExpress.XtraCharts;
 using Microsoft.Office.Interop.Excel;
 
 using System.Text.RegularExpressions;
-using DevExpress.Utils.Extensions;
+//using DevExpress.Utils.Extensions;
 using System.IO;
 using System.Net.Sockets;
 using System.Net;
@@ -33,6 +33,7 @@ namespace Statistick
 
 
         }
+    
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -105,6 +106,15 @@ namespace Statistick
             }*/
         }
         DateTime d;
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                
+
+            }
+        }
 
         public void Mail(string mess)
         {
@@ -798,7 +808,7 @@ namespace Statistick
 //<<<<<<< HEAD
       
 
-
+/*
         private void DiagPoUch_Points(int id_kontr, int id_klass, int god)
         {
             StatchartControl1.Series.Clear();
@@ -834,7 +844,7 @@ namespace Statistick
             };
             StatchartControl1.Titles.Add(chartTitle1);
         }
-
+        
         private void DiagPoPoziciyam_Points(int id_kontr, int id_klass, int god)
         {
             StatchartControl1.Series.Clear();
@@ -920,7 +930,7 @@ namespace Statistick
             StatchartControl1.Titles.Add(chartTitle1);
             //   chartControl1.Legend.Visible = false;
         }
-
+       
 
         private void MetroTile1_Click(object sender, EventArgs e)
         {
@@ -947,7 +957,7 @@ namespace Statistick
             }
         }
 
-
+        */
 
 
 
