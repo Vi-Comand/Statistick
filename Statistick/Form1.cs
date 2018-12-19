@@ -36,12 +36,32 @@ namespace Statistick
     
         private void Form1_Load(object sender, EventArgs e)
         {
+            try
+            {
+                this.uudTableAdapter.Fill(this.in_statDataSet.uud);
+                //   this.uudTableAdapter.Fill(this.in_statDataSet.uud);
+                this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+                this.userTableAdapter.Fill(this.in_statDataSet.user);
+                this.klassTableAdapter.Fill(this.in_statDataSet.klass);
 
-            this.uudTableAdapter.Fill(this.in_statDataSet.uud);
-            //   this.uudTableAdapter.Fill(this.in_statDataSet.uud);
-            this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
-            this.userTableAdapter.Fill(this.in_statDataSet.user);
-            this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+            }
+            catch 
+            {
+                DialogResult dialogResult =
+                                    MessageBox.Show(
+                                        "На компьюторе не устоновленна программа для работы с базами данных. Она будет установлена. Нажмите \"Да\", если у вас 64-разрядная оперрационная система." +
+                                        "Нажмите \"Нет\", если у вас 32-разрядная оперрационная система. Нажмите \"Отмена\", если не хотите устанавливать программу.",
+                                        "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(System.Windows.Forms.Application.StartupPath + @"/AccessDatabaseEngine_X64.exe");
+                }
+                if(dialogResult == DialogResult.No)
+                {
+                    System.Diagnostics.Process.Start(System.Windows.Forms.Application.StartupPath + @"/AccessDatabaseEngine.exe");
+                }
+
+            }
             ComboBox_God_Load.SelectedIndex = 0;
             ComboBox_God_Red.SelectedIndex = 0;
             ComboBox_God_Stat.SelectedIndex = 0;
@@ -58,7 +78,7 @@ namespace Statistick
             Form1 f = new Form1();
             f.ShowInTaskbar = true;
             GetServerTime();
-            if (d > Convert.ToDateTime("24.12.2018"))
+            if (d > Convert.ToDateTime("30.12.2018"))
             {
                 metroTile2.Enabled = false;
                 MessageBox.Show("Обратитесь к разработчику");
