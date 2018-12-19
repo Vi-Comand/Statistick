@@ -992,9 +992,15 @@ namespace Statistick
 
 
             Diad_tabl_1();
-
-            excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 1 " + ComboBox_Kontrol_Stat.Text + " " + ComboBox_Klass_Stat.Text + " класс.xlsx");//сохранить в эксель файл
-            excelapp.Quit();
+            if (i_rows != 2)
+            {
+                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 1 " + ComboBox_Kontrol_Stat.Text + " " + ComboBox_Klass_Stat.Text + " класс.xlsx");//сохранить в эксель файл
+                excelapp.Quit();
+            }
+            else
+            {
+                excelapp.Quit();
+            }
         }
         private void Excel_Diag_tab2()
         {
@@ -1009,8 +1015,15 @@ namespace Statistick
 
 
             Diad_tabl_2();
-            excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 2 " + ComboBox_Kontrol_Stat.Text + " " + ComboBox_Klass_Stat.Text + " класс.xlsx");//сохранить в эксель файл
+            if (i_rows != 2)
+            {
+                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 2 " + ComboBox_Kontrol_Stat.Text + " " + ComboBox_Klass_Stat.Text + " класс.xlsx");//сохранить в эксель файл
             excelapp.Quit();
+            }
+            else
+            {
+                excelapp.Quit();
+            }
         }
 
         private void Excel_Diag_tab3()
@@ -1027,8 +1040,16 @@ namespace Statistick
 
 
             Diad_tabl_3();
-            excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 3 " + ComboBox_Kontrol_Stat1.Text + " " + ComboBox_Klass_Stat1.Text + ComboBox_Kontrol_Stat2.Text + " " + ComboBox_Klass_Stat2.Text + " класс.xlsx");//сохранить в эксель файл
+            if (i_rows != 2)
+            {
+
+                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 3 " + ComboBox_Kontrol_Stat1.Text + " " + ComboBox_Klass_Stat1.Text + ComboBox_Kontrol_Stat2.Text + " " + ComboBox_Klass_Stat2.Text + " класс.xlsx");//сохранить в эксель файл
             excelapp.Quit();
+            }
+            else
+            {
+                excelapp.Quit();
+            }
         }
 
         private void Excel_Diag_tab4()
@@ -1045,9 +1066,16 @@ namespace Statistick
 
 
             Diad_tabl_4();
-            excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 4 " + ComboBox_Kontrol_Stat1.Text + " " + ComboBox_Klass_Stat1.Text + ComboBox_Kontrol_Stat2.Text + " " + ComboBox_Klass_Stat2.Text + " класс.xlsx");//сохранить в эксель файл
-            excelapp.Quit();
+                if (i_rows != 2)
+                {
 
+                    excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 4 " + ComboBox_Kontrol_Stat1.Text + " " + ComboBox_Klass_Stat1.Text + ComboBox_Kontrol_Stat2.Text + " " + ComboBox_Klass_Stat2.Text + " класс.xlsx");//сохранить в эксель файл
+            excelapp.Quit();
+            }
+            else
+            {
+                excelapp.Quit();
+            }
         }
 
         private void Excel_Diag_tab5()
@@ -1065,11 +1093,17 @@ namespace Statistick
 
 
             Diad_tabl_5();
+                    if (i_rows != 2)
+                    {
 
-            excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 5 " + ComboBox_Kontrol_Stat3.Text + " " + ComboBox_Klass_Stat3.Text + " класс.xlsx");//сохранить в эксель файл
+                        excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 5 " + ComboBox_Kontrol_Stat3.Text + " " + ComboBox_Klass_Stat3.Text + " класс.xlsx");//сохранить в эксель файл
             excelapp.Quit();
-
-        }
+                }
+                else
+                {
+                    excelapp.Quit();
+                }
+            }
 
         private void Add_Row1()
         {
@@ -1623,13 +1657,20 @@ namespace Statistick
                  _god = ComboBox_God_Stat.SelectedItem.ToString();
 
                 
-                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+                    excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+                
+                    Add_Row1();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
 
-                Add_Row1();
-
-                Del_Rows();
-
-                Del_Collums();
+                    Del_Collums();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+                    
+                }
             }
             catch (FormatException fEx)
             {
@@ -1648,13 +1689,7 @@ namespace Statistick
             {
                 MessageBox.Show(e.ToString());
             }
-            finally
-            {
-                if(i_rows == 2)
-                {
-                    MessageBox.Show("Такой контрольной не найденно");
-                }
-            }
+            
 
         }
 
@@ -1669,11 +1704,17 @@ namespace Statistick
 
 
                 excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
-
-                Add_Row_3_v_1();
-
+                
+                    Add_Row_3_v_1();
+                if (i_rows != 2)
+                {
                 Del_Rows();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
 
+                }
             }
             catch (FormatException fEx)
             {
@@ -1692,13 +1733,7 @@ namespace Statistick
             {
                 MessageBox.Show(e.ToString());
             }
-            finally
-            {
-                if (i_rows == 2)
-                {
-                    MessageBox.Show("Такой контрольной не найденно");
-                }
-            }
+            
 
         }
 
@@ -1715,21 +1750,33 @@ namespace Statistick
                  _god2 = ComboBox_God_Stat2.SelectedItem.ToString();
 
                 excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
-
+                i_rows = 2;
                 Add_Row1();
-
+                if (i_rows != 2)
+                {
                 Del_Rows();
 
                 Hiden_Collums();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
 
+                }
                 excelworksheet = (Excel.Worksheet)excelsheets.get_Item(2);
-
+                i_rows = 2;
                 Add_Row2();
-
+                if (i_rows != 2)
+                {
                 Del_Rows();
 
                 Hiden_Collums();
-              
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+
+                }
             }
             catch (FormatException fEx)
             {
@@ -1748,13 +1795,7 @@ namespace Statistick
             {
                 MessageBox.Show(e.ToString());
             }
-            finally
-            {
-                if (i_rows == 2)
-                {
-                    MessageBox.Show("Такой контрольной не найденно");
-                }
-            }
+
 
         }
 
@@ -1771,17 +1812,29 @@ namespace Statistick
                 _god2 = ComboBox_God_Stat2.SelectedItem.ToString();
 
                 excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
-
+                i_rows = 2;
                 Add_Row_3_v_1();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
 
-                Del_Rows();
-
+                }
                 excelworksheet = (Excel.Worksheet)excelsheets.get_Item(2);
-
+                i_rows = 2;
                 Add_Row_3_v_1_2();
+                    if (i_rows != 2)
+                    {
+                        Del_Rows();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
 
-                Del_Rows();
-
+                }
             }
             catch (FormatException fEx)
             {
@@ -1800,13 +1853,7 @@ namespace Statistick
             {
                 MessageBox.Show(e.ToString());
             }
-            finally
-            {
-                if (i_rows == 2)
-                {
-                    MessageBox.Show("Такой контрольной не найденно");
-                }
-            }
+            
 
         }
 
@@ -2318,6 +2365,9 @@ namespace Statistick
             if (e.Control is TextBox) editBox1 = e.Control as TextBox;
         }
 
-       
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer", templatePath + @"\Отчеты\");
+        }
     }
 }
