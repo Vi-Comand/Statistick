@@ -33,34 +33,44 @@ namespace Statistick
 
 
         }
-    
+    void Update_bd()
+        {
+            in_statDataSet.Clear();
+            this.uudTableAdapter.Fill(this.in_statDataSet.uud);
+            //   this.uudTableAdapter.Fill(this.in_statDataSet.uud);
+            this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+            this.userTableAdapter.Fill(this.in_statDataSet.user);
+            this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
-                this.uudTableAdapter.Fill(this.in_statDataSet.uud);
-                //   this.uudTableAdapter.Fill(this.in_statDataSet.uud);
-                this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
-                this.userTableAdapter.Fill(this.in_statDataSet.user);
-                this.klassTableAdapter.Fill(this.in_statDataSet.klass);
 
+                Update_bd();
             }
             catch 
             {
                 DialogResult dialogResult =
                                     MessageBox.Show(
-                                        "На компьюторе не устоновленна программа для работы с базами данных. Она будет установлена. Нажмите \"Да\", если у вас 64-разрядная оперрационная система." +
-                                        "Нажмите \"Нет\", если у вас 32-разрядная оперрационная система. Нажмите \"Отмена\", если не хотите устанавливать программу.",
-                                        "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                                        "На компьюторе не устоновленна программа для работы с базами данных. Она будет установлена. Нажмите \"Да\", чтобы начать установку. Нажмите \"Нет\", если не хотите устанавливать программу.",
+                                        "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    System.Diagnostics.Process.Start(System.Windows.Forms.Application.StartupPath + @"/AccessDatabaseEngine_X64.exe");
+                    System.Diagnostics.Process.Start(System.Windows.Forms.Application.StartupPath + @"/AccessDatabaseEngine.exe");
+                    MessageBox.Show("Дождитесь установки рограммы и нажмите \"Ок\"");
                 }
                 if(dialogResult == DialogResult.No)
                 {
-                    System.Diagnostics.Process.Start(System.Windows.Forms.Application.StartupPath + @"/AccessDatabaseEngine.exe");
+                    MessageBox.Show("Работаспособность программы не может быть обеспечена!");
+                    Form1.ActiveForm.Close();
                 }
 
+            }
+            finally
+            {
+
+                Update_bd();
             }
             ComboBox_God_Load.SelectedIndex = 0;
             ComboBox_God_Red.SelectedIndex = 0;
@@ -2053,6 +2063,7 @@ namespace Statistick
             in_statDataSet.klass.Rows.Add(row);
             klassTableAdapter.Update(in_statDataSet);
             metroLabel16.Text = "Класс создан";
+
         }
 
         private void Proverka_Click(object sender, EventArgs e)
@@ -2205,6 +2216,7 @@ namespace Statistick
 
                     kontrolnieTableAdapter.Update(in_statDataSet);
                     metroLabel16.Text = "Контрольная создана";
+                    
                 }
                 else
                 {

@@ -25,7 +25,7 @@
     <ProductName>Формирование УУД</ProductName>
     <PublisherName>Vi Corparation</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -55,10 +55,10 @@
     <ApplicationIcon>Stats.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>14F34BC0701B72E9A74AD73757F031FBF41C6177</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A7E68E21D57C0762630AC893BAAFB9876F42B4EA</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Statistick_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Statistick_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -142,9 +142,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Statistick_TemporaryKey.pfx" />
+    <None Include="Statistick_1_TemporaryKey.pfx" />
     <Content Include="AccessDatabaseEngine.exe" />
-    <Content Include="AccessDatabaseEngine_X64.exe" />
     <Content Include="Microsoft.Office.Interop.Excel.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -221,7 +220,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\in_stat.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Stats.ico" />
   </ItemGroup>
