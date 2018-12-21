@@ -142,7 +142,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Statistick_1_TemporaryKey.pfx" />
     <Content Include="AccessDatabaseEngine.exe" />
     <Content Include="Microsoft.Office.Interop.Excel.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

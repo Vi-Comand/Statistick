@@ -2433,5 +2433,21 @@ namespace Statistick
             {
             }
         }
+
+        private void metroGrid1_RowStateChanged(object sender, DataGridViewRowStateChangedEventArgs e)
+        {
+            try
+            {
+                Update_Combobox_Kontrol_Load();
+                Update_Combobox_Kontrol_Red();
+                Update_Combobox_Kontrol_Stat();
+                Update_Combobox_Kontrol_Stat1();
+                Update_Combobox_Kontrol_Stat2();
+                Update_Combobox_Kontrol_Stat3();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
     }
 }
