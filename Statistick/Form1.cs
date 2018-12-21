@@ -2401,5 +2401,37 @@ namespace Statistick
         {
             System.Diagnostics.Process.Start("explorer", templatePath + @"\Отчеты\");
         }
+
+        private void metroGrid1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            try
+            {
+                Update_Combobox_Kontrol_Load();
+                Update_Combobox_Kontrol_Red();
+                Update_Combobox_Kontrol_Stat();
+                Update_Combobox_Kontrol_Stat1();
+                Update_Combobox_Kontrol_Stat2();
+                Update_Combobox_Kontrol_Stat3();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
+
+        private void metroGrid1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            try
+            {
+                Update_Combobox_Kontrol_Load();
+                Update_Combobox_Kontrol_Red();
+                Update_Combobox_Kontrol_Stat();
+                Update_Combobox_Kontrol_Stat1();
+                Update_Combobox_Kontrol_Stat2();
+                Update_Combobox_Kontrol_Stat3();
+            }
+            catch (Exception ex)
+            {
+            }
+        }
     }
 }

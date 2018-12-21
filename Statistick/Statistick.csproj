@@ -55,10 +55,10 @@
     <ApplicationIcon>Stats.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>A7E68E21D57C0762630AC893BAAFB9876F42B4EA</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A019D5CBD607B8E45DA3B534DC9511A66287B878</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Statistick_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Statistick_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -162,6 +162,7 @@
     <Content Include="Шаблоны\5.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Statistick_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
