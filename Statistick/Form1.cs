@@ -1,27 +1,16 @@
-﻿using System;
+﻿using MetroFramework.Forms;
+using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-//using DevExpress.Charts.Native;
-using MetroFramework.Forms;
-using Excel = Microsoft.Office.Interop.Excel;
-
-//using DevExpress.XtraCharts;
-using Microsoft.Office.Interop.Excel;
-
-using System.Text.RegularExpressions;
-//using DevExpress.Utils.Extensions;
-using System.IO;
-using System.Net.Sockets;
-using System.Net;
 using System.Globalization;
+using System.IO;
+using System.Net;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 using TextBox = System.Windows.Forms.TextBox;
-using System.Net.Mail;
 
 namespace Statistick
 {
@@ -33,7 +22,7 @@ namespace Statistick
 
 
         }
-    void Update_bd()
+        void Update_bd()
         {
             in_statDataSet.Clear();
             this.uudTableAdapter.Fill(this.in_statDataSet.uud);
@@ -49,7 +38,7 @@ namespace Statistick
 
                 Update_bd();
             }
-            catch 
+            catch
             {
                 DialogResult dialogResult =
                                     MessageBox.Show(
@@ -60,7 +49,7 @@ namespace Statistick
                     System.Diagnostics.Process.Start(System.Windows.Forms.Application.StartupPath + @"/AccessDatabaseEngine.exe");
                     MessageBox.Show("Дождитесь установки рограммы и нажмите \"Ок\"");
                 }
-                if(dialogResult == DialogResult.No)
+                if (dialogResult == DialogResult.No)
                 {
                     MessageBox.Show("Работаспособность программы не может быть обеспечена!");
                     Form1.ActiveForm.Close();
@@ -78,62 +67,25 @@ namespace Statistick
             ComboBox_God_Stat1.SelectedIndex = 0;
             ComboBox_God_Stat2.SelectedIndex = 0;
             ComboBox_God_Stat3.SelectedIndex = 0;
+            ComboBox_God_Stat5.SelectedIndex = 0;
+            ComboBox_God_Stat6.SelectedIndex = 0;
+            ComboBox_God_Stat7.SelectedIndex = 0;
+            ComboBox_God_Stat8.SelectedIndex = 0;
             Update_Combobox_Kontrol_Load();
             Update_Combobox_Kontrol_Red();
             Update_Combobox_Kontrol_Stat();
             Update_Combobox_Kontrol_Stat1();
             Update_Combobox_Kontrol_Stat2();
             Update_Combobox_Kontrol_Stat3();
+            Update_Combobox_Kontrol_Stat5();
+            Update_Combobox_Kontrol_Stat6();
+            Update_Combobox_Kontrol_Stat7();
+            Update_Combobox_Kontrol_Stat8();
 
             Form1 f = new Form1();
             f.ShowInTaskbar = true;
             GetServerTime();
-            if (d > Convert.ToDateTime("30.12.2018"))
-            {
-                metroTile2.Enabled = false;
-                MessageBox.Show("Обратитесь к разработчику");
-            }
 
-            FileStream fc = File.Open(System.Windows.Forms.Application.StartupPath+ @"\Тестовоя лицензия", FileMode.OpenOrCreate);
-            byte[] array1 = new byte[100];
-            int kod = fc.Read(array1, 0, 100);
-            array1 = Encoding.Default.GetBytes("1");
-            // запись массива байтов в файл
-            fc.Write(array1, 0, array1.Length);
-            fc.Close();
-
-            FileStream fc2 = File.Open(@"C: \Users\Public\Documents\wuevl1f1gi0cy0", FileMode.OpenOrCreate);
-            byte[] array2 = new byte[100];
-            int kod2 = fc2.Read(array2, 0, 100);
-            array2 = Encoding.Default.GetBytes("1");
-            // запись массива байтов в файл
-            fc2.Write(array2, 0, array2.Length);
-            fc2.Close();
-
-            if (kod > 40)
-            {
-                metroTile2.Enabled = false;
-                try
-                {
-                    Mail("40 лицензий истекли");
-                }
-                catch
-                { }
-                MessageBox.Show("Закончилась тестовая лицензия! Обратитесь к разработчику!");
-                Form1.ActiveForm.Close();
-            }
-           /* if(kod!=kod2)
-            {
-                metroTile2.Enabled = false;
-                try
-                {
-                    Mail("Изменена лицензия! Обратитесь к разработчику!");
-                }
-                catch
-                { }
-                MessageBox.Show("Изменена лицензия! Обратитесь к разработчику!");
-                Form1.ActiveForm.Close();
-            }*/
         }
         DateTime d;
 
@@ -141,54 +93,32 @@ namespace Statistick
         {
             if (WindowState == FormWindowState.Minimized)
             {
-                
+
 
             }
         }
 
-        public void Mail(string mess)
-        {
-         // отправитель - устанавливаем адрес и отображаемое в письме имя
-            MailAddress from = new MailAddress("kve@kkidppo.ru", "prog");
-        // кому отправляем
-        MailAddress to = new MailAddress("kve@kkidppo.ru");
-        // создаем объект сообщения
-        MailMessage m = new MailMessage(from, to);
-        // тема письма
-        m.Subject = "Лицензия Тимашевск";
-            // текст письма
-            m.Body = "<h2>"+mess+"</h2>";
-            // письмо представляет код html
-            m.IsBodyHtml = true;
-            // адрес smtp-сервера и порт, с которого будем отправлять письмо
-            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-        // логин и пароль
-        smtp.Credentials = new NetworkCredential("kve@kkidppo.ru", "plazma41");
-        smtp.EnableSsl = true;
-            smtp.Send(m);
-            
-}
 
 
-        public void   GetServerTime()
+        public void GetServerTime()
         {
             try
             {
                 using (var response =
                   WebRequest.Create("http://www.google.com").GetResponse())
                     //string todaysDates =  response.Headers["date"];
-                     d = DateTime.ParseExact(response.Headers["date"],
-                        "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
-                        CultureInfo.InvariantCulture.DateTimeFormat,
-                        DateTimeStyles.AssumeUniversal);
+                    d = DateTime.ParseExact(response.Headers["date"],
+                       "ddd, dd MMM yyyy HH:mm:ss 'GMT'",
+                       CultureInfo.InvariantCulture.DateTimeFormat,
+                       DateTimeStyles.AssumeUniversal);
             }
             catch (WebException)
             {
-                d= DateTime.Now; //In case something goes wrong. 
+                d = DateTime.Now; //In case something goes wrong. 
             }
         }
 
-        
+
 
         private bool Proverka_na_vernost()
         {
@@ -214,12 +144,12 @@ namespace Statistick
 
                     }
                 }
-                
+
             }
 
             for (int i = 0; i < Grid_Load_UUD.Rows.Count; i++)
             {
-                if(Grid_Load_UUD.Rows[i].Cells[0].Value==null)
+                if (Grid_Load_UUD.Rows[i].Cells[0].Value == null)
                 {
                     Grid_Load_UUD.Rows[i].Cells[0].Style.BackColor = Color.Red;
                     ok = false;
@@ -229,9 +159,9 @@ namespace Statistick
             return ok;
         }
         private void But_save_db_Click(object sender, EventArgs e)
-        { 
+        {
 
-                if (Grid_Load_UUD.Rows.Count < 1)
+            if (Grid_Load_UUD.Rows.Count < 1)
             {
                 MessageBox.Show("Нет данных в таблице");
             }
@@ -256,8 +186,8 @@ namespace Statistick
                         bool prinmatizmenenia = true;
                         foreach (DataRow row1 in in_statDataSet.uud.Rows)
                         {
-                            if ((int) row1[2] == Convert.ToInt32(ComboBox_Kontrol_Load.SelectedValue) &&
-                                (int) row1[3] == Convert.ToInt32(ComboBox_Klass_Load.SelectedValue))
+                            if ((int)row1[2] == Convert.ToInt32(ComboBox_Kontrol_Load.SelectedValue) &&
+                                (int)row1[3] == Convert.ToInt32(ComboBox_Klass_Load.SelectedValue))
                             {
                                 DialogResult dialogResult =
                                     MessageBox.Show(
@@ -327,7 +257,7 @@ namespace Statistick
                                         if (Grid_Load_UUD.Rows[i].Cells[0].Value.ToString() == row1[1].ToString() &&
                                             ComboBox_Klass_Load.SelectedValue.ToString() == row1[2].ToString())
                                         {
-                                            id = (int) row1[0];
+                                            id = (int)row1[0];
                                             break;
                                         }
                                     }
@@ -369,7 +299,7 @@ namespace Statistick
 
         }
 
-        private void rabota_s_uud(int i,int id,DataRow row)
+        private void rabota_s_uud(int i, int id, DataRow row)
         {
             for (int j = 0; j < Grid_Load_UUD.Columns.Count; j++)
             {
@@ -380,13 +310,13 @@ namespace Statistick
                 row["god"] = ComboBox_God_Load.Text;
                 for (int id_uud = 1; id_uud < 12; id_uud++)
                 {
-                    if (Grid_Load_UUD.Columns[j].Name == "uud"+id_uud)
+                    if (Grid_Load_UUD.Columns[j].Name == "uud" + id_uud)
                     {
-                        row[4+id_uud] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
+                        row[4 + id_uud] = Grid_Load_UUD.Rows[i].Cells[j].Value.ToString();
 
                     }
                 }
-               
+
             }
         }
 
@@ -404,9 +334,9 @@ namespace Statistick
 
                 Excel.Application excelApp = new Excel.Application();
                 excelApp.Workbooks.Open(openFileDialog.FileName);
-              
 
-                        int row = 4;
+
+                int row = 4;
                 int LishnColumn = 0;
                 List<string> maping = new List<string>
                 {
@@ -460,11 +390,19 @@ namespace Statistick
                     klass = Regex.Replace(klass, "[^А-Яа-я0-9]", "");
                     klass = klass.ToUpper();
                 }
-
-                DateTime data= Convert.ToDateTime(currentSheet.get_Range("B2").Value);
-                string god = data.Year.ToString();
+                string god = "2019";
+                DateTime data = DateTime.Now;
+                try
+                {
+                    data = Convert.ToDateTime(currentSheet.get_Range("B2").Value);
+                    god = data.Year.ToString();
+                }
+                catch
+                {
+                    MessageBox.Show("В файле Excel отсутствует дата");
+                }
                 string kontrolnie = currentSheet.get_Range("C2").Value != null ? currentSheet.get_Range("C2").Value.ToString() : "false";
-                 
+
                 for (int i = 0; i < ComboBox_God_Load.Items.Count; i++)
                     if (ComboBox_God_Load.Items[i].ToString() == god)
                     {
@@ -484,14 +422,14 @@ namespace Statistick
                     else
                     if (row1[1].ToString() == klass)
                     {
-                        ComboBox_Klass_Load.SelectedValue = (int) row1[0];
+                        ComboBox_Klass_Load.SelectedValue = (int)row1[0];
                         est_kalss = true;
                     }
-                   
+
                     else
                     {
-                        if (id_klass_bd < (int) row1[0])
-                            id_klass_bd = (int) row1[0];
+                        if (id_klass_bd < (int)row1[0])
+                            id_klass_bd = (int)row1[0];
 
 
 
@@ -501,11 +439,11 @@ namespace Statistick
 
                 if (!est_kalss)
                 {
-                    DialogResult dialogResult = MessageBox.Show( klass + " не найден. Добавить?", "", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show(klass + " не найден. Добавить?", "", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         DataRow rowklass = in_statDataSet.klass.NewRow();
-                      rowklass["klass"] =klass;
+                        rowklass["klass"] = klass;
                         in_statDataSet.klass.Rows.Add(rowklass);
 
                         klassTableAdapter.Update(in_statDataSet);
@@ -530,47 +468,47 @@ namespace Statistick
                         break;
                     }
                     else
-                  if (row1[1].ToString() == kontrolnie && Convert.ToDateTime(row1[2])==data)
+                  if (row1[1].ToString() == kontrolnie && Convert.ToDateTime(row1[2]) == data)
                     {
                         ComboBox_Kontrol_Load.SelectedValue = row1[0].ToString();
                         est_kontroln = true;
                     }
                     else if (row1[1].ToString() == kontrolnie && "1" == god)
-                  {
-                      
-                      DateTime date = Convert.ToDateTime(row1[2]);
-                      for (int i = 0; i < ComboBox_God_Load.Items.Count; i++)
-                      {
-                          ComboBox_God_Load.SelectedIndex = i;
+                    {
 
-                          if (ComboBox_God_Load.Text== date.Year.ToString())
-                            { break;}
+                        DateTime date = Convert.ToDateTime(row1[2]);
+                        for (int i = 0; i < ComboBox_God_Load.Items.Count; i++)
+                        {
+                            ComboBox_God_Load.SelectedIndex = i;
 
-                      }
-                      ComboBox_Kontrol_Load.SelectedValue = row1[0].ToString();
+                            if (ComboBox_God_Load.Text == date.Year.ToString())
+                            { break; }
+
+                        }
+                        ComboBox_Kontrol_Load.SelectedValue = row1[0].ToString();
                         est_kontroln = true;
                     }
                 }
 
                 if (!est_kontroln)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Контрольная "+ kontrolnie + " не найдена. Хотите перейти к созданию контрольной?", "", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Контрольная " + kontrolnie + " не найдена. Хотите перейти к созданию контрольной?", "", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         metroTabControl1.SelectedIndex = 5;
                     }
                     else if (dialogResult == DialogResult.No)
                     {
-                       
+
                     }
                 }
 
 
-            
-            //kontrolnieBindingSource.Filter = "data ='" + _idUtp + "'";
+
+                //kontrolnieBindingSource.Filter = "data ='" + _idUtp + "'";
 
 
-            int MyRows = 0;
+                int MyRows = 0;
                 while (currentSheet.get_Range("B" + row).Value2 != null)
                 {
                     Grid_Load_UUD.Rows.Add();
@@ -598,32 +536,32 @@ namespace Statistick
 
             int kol = Est_v_BD();
 
-           // but_save_db.Style style
+            // but_save_db.Style style
         }
         List<int> NoviePolz;
-        private int Est_v_BD(int kol=0)
+        private int Est_v_BD(int kol = 0)
         {
             NoviePolz = new List<int>();
 
-            for ( int i=0;i<Grid_Load_UUD.Rows.Count;i++)
+            for (int i = 0; i < Grid_Load_UUD.Rows.Count; i++)
             {
                 bool est = false;
-                foreach (DataRow row1 in in_statDataSet.user.Rows )
+                foreach (DataRow row1 in in_statDataSet.user.Rows)
                 {
-                    if ((Grid_Load_UUD.Rows[i].Cells[0].Value == null ? "": Grid_Load_UUD.Rows[i].Cells[0].Value.ToString()) == row1["fi"].ToString() && (int) row1["id_klass"]== Convert.ToInt32(ComboBox_Klass_Load.SelectedValue))
+                    if ((Grid_Load_UUD.Rows[i].Cells[0].Value == null ? "" : Grid_Load_UUD.Rows[i].Cells[0].Value.ToString()) == row1["fi"].ToString() && (int)row1["id_klass"] == Convert.ToInt32(ComboBox_Klass_Load.SelectedValue))
                     {
                         est = true;
-                       break; 
+                        break;
                     }
 
                 }
 
-                if (est==false)
-               {
+                if (est == false)
+                {
                     kol++;
-                   NoviePolz.Add(Grid_Load_UUD.Rows[i].Index);
-                   Grid_Load_UUD.Rows[i].Cells[0].Style.BackColor = Color.Yellow;
-               }
+                    NoviePolz.Add(Grid_Load_UUD.Rows[i].Index);
+                    Grid_Load_UUD.Rows[i].Cells[0].Style.BackColor = Color.Yellow;
+                }
                 else
                 {
                     Grid_Load_UUD.Rows[i].Cells[0].Style.BackColor = Color.White;
@@ -640,30 +578,30 @@ namespace Statistick
         private void Update_Combobox_Kontrol_Load()
         {
             var items = new List<KeyValuePair<string, string>>();
-          
-            DateTime nachalo=new DateTime(Convert.ToInt32(ComboBox_God_Load.Text),1,1);
-            DateTime konec = new DateTime(Convert.ToInt32(ComboBox_God_Load.Text)+1, 1, 1);
+
+            DateTime nachalo = new DateTime(Convert.ToInt32(ComboBox_God_Load.Text), 1, 1);
+            DateTime konec = new DateTime(Convert.ToInt32(ComboBox_God_Load.Text) + 1, 1, 1);
             //ComboBox_Kontrol_Load.Items.Clear();
-          
+
             foreach (DataRow row in in_statDataSet.kontrolnie.Rows)
             {
                 if (nachalo < Convert.ToDateTime(row[2]) && Convert.ToDateTime(row[2]) < konec)
                 {
-                    var znach=new KeyValuePair<string,string>(row[0].ToString(),(Convert.ToDateTime( row[2]).ToShortDateString()).ToString()+" "+row[1].ToString());
+                    var znach = new KeyValuePair<string, string>(row[0].ToString(), (Convert.ToDateTime(row[2]).ToShortDateString()).ToString() + " " + row[1].ToString());
                     items.Add(znach);
                 }
             }
 
             if (items.Count == 0)
             {
-                var net_znach = new KeyValuePair<string, string>("-1", "Нет контрольной для " + ComboBox_God_Load.Text+" года");
+                var net_znach = new KeyValuePair<string, string>("-1", "Нет контрольной для " + ComboBox_God_Load.Text + " года");
                 items.Add(net_znach);
             }
 
             ComboBox_Kontrol_Load.DataSource = items;
             ComboBox_Kontrol_Load.ValueMember = "Key";
             ComboBox_Kontrol_Load.DisplayMember = "Value";
-           
+
             //  ComboBox_Kontrol_Load.SelectedIndex1 = 0;
         }
 
@@ -761,6 +699,80 @@ namespace Statistick
             ComboBox_Kontrol_Stat3.DisplayMember = "Value";
         }
 
+        private void Update_Combobox_Kontrol_Stat5()
+        {
+            var items = new List<KeyValuePair<string, string>>();
+            DateTime nachalo = new DateTime(Convert.ToInt32(ComboBox_God_Stat5.Text), 1, 1);
+            DateTime konec = new DateTime(Convert.ToInt32(ComboBox_God_Stat5.Text) + 1, 1, 1);
+            foreach (DataRow row in in_statDataSet.kontrolnie.Rows)
+            {
+                if (nachalo < Convert.ToDateTime(row[2]) && Convert.ToDateTime(row[2]) < konec)
+                {
+                    var znach = new KeyValuePair<string, string>(row[0].ToString(), (Convert.ToDateTime(row[2]).ToShortDateString()).ToString() + " " + row[1].ToString());
+                    items.Add(znach);
+                }
+            }
+            ComboBox_Kontrol_Stat5.DataSource = items;
+            ComboBox_Kontrol_Stat5.ValueMember = "Key";
+            ComboBox_Kontrol_Stat5.DisplayMember = "Value";
+        }
+
+        private void Update_Combobox_Kontrol_Stat6()
+        {
+            var items = new List<KeyValuePair<string, string>>();
+            DateTime nachalo = new DateTime(Convert.ToInt32(ComboBox_God_Stat6.Text), 1, 1);
+            DateTime konec = new DateTime(Convert.ToInt32(ComboBox_God_Stat6.Text) + 1, 1, 1);
+            foreach (DataRow row in in_statDataSet.kontrolnie.Rows)
+            {
+                if (nachalo < Convert.ToDateTime(row[2]) && Convert.ToDateTime(row[2]) < konec)
+                {
+                    var znach = new KeyValuePair<string, string>(row[0].ToString(), (Convert.ToDateTime(row[2]).ToShortDateString()).ToString() + " " + row[1].ToString());
+                    items.Add(znach);
+                }
+            }
+            ComboBox_Kontrol_Stat6.DataSource = items;
+            ComboBox_Kontrol_Stat6.ValueMember = "Key";
+            ComboBox_Kontrol_Stat6.DisplayMember = "Value";
+        }
+
+        private void Update_Combobox_Kontrol_Stat7()
+        {
+            var items = new List<KeyValuePair<string, string>>();
+            DateTime nachalo = new DateTime(Convert.ToInt32(ComboBox_God_Stat7.Text), 1, 1);
+            DateTime konec = new DateTime(Convert.ToInt32(ComboBox_God_Stat7.Text) + 1, 1, 1);
+            foreach (DataRow row in in_statDataSet.kontrolnie.Rows)
+            {
+                if (nachalo < Convert.ToDateTime(row[2]) && Convert.ToDateTime(row[2]) < konec)
+                {
+                    var znach = new KeyValuePair<string, string>(row[0].ToString(), (Convert.ToDateTime(row[2]).ToShortDateString()).ToString() + " " + row[1].ToString());
+                    items.Add(znach);
+                }
+            }
+            ComboBox_Kontrol_Stat7.DataSource = items;
+            ComboBox_Kontrol_Stat7.ValueMember = "Key";
+            ComboBox_Kontrol_Stat7.DisplayMember = "Value";
+        }
+
+        private void Update_Combobox_Kontrol_Stat8()
+        {
+            var items = new List<KeyValuePair<string, string>>();
+            DateTime nachalo = new DateTime(Convert.ToInt32(ComboBox_God_Stat8.Text), 1, 1);
+            DateTime konec = new DateTime(Convert.ToInt32(ComboBox_God_Stat8.Text) + 1, 1, 1);
+            foreach (DataRow row in in_statDataSet.kontrolnie.Rows)
+            {
+                if (nachalo < Convert.ToDateTime(row[2]) && Convert.ToDateTime(row[2]) < konec)
+                {
+                    var znach = new KeyValuePair<string, string>(row[0].ToString(), (Convert.ToDateTime(row[2]).ToShortDateString()).ToString() + " " + row[1].ToString());
+                    items.Add(znach);
+                }
+            }
+            ComboBox_Kontrol_Stat8.DataSource = items;
+            ComboBox_Kontrol_Stat8.ValueMember = "Key";
+            ComboBox_Kontrol_Stat8.DisplayMember = "Value";
+        }
+
+
+
         private void Check_uud1_CheckedChanged(object sender, EventArgs e)
         {
             if (check_uud1.Checked)
@@ -835,159 +847,159 @@ namespace Statistick
             }
         }
 
-//<<<<<<< HEAD
-      
+        //<<<<<<< HEAD
 
-/*
-        private void DiagPoUch_Points(int id_kontr, int id_klass, int god)
-        {
-            StatchartControl1.Series.Clear();
-            StatchartControl1.Titles.Clear();
-            int uud = 0;
-            string fi = "";
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series("Ученики", DevExpress.XtraCharts.ViewType.Bar);
-            foreach (DataRow row in in_statDataSet.uud.Rows)
-            {
-                if (Convert.ToInt32(row["id_kontr"]) == id_kontr && Convert.ToInt32(row["id_klass"]) == id_klass && Convert.ToInt32(row["god"]) == god)
+
+        /*
+                private void DiagPoUch_Points(int id_kontr, int id_klass, int god)
                 {
-                    uud = Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) + Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) + Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) + Convert.ToInt16(row["uud4"]) + Convert.ToInt16(row["uud5"]);
-                    foreach (DataRow roww in in_statDataSet.user.Rows)
+                    StatchartControl1.Series.Clear();
+                    StatchartControl1.Titles.Clear();
+                    int uud = 0;
+                    string fi = "";
+                    DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series("Ученики", DevExpress.XtraCharts.ViewType.Bar);
+                    foreach (DataRow row in in_statDataSet.uud.Rows)
                     {
-                        if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                        if (Convert.ToInt32(row["id_kontr"]) == id_kontr && Convert.ToInt32(row["id_klass"]) == id_klass && Convert.ToInt32(row["god"]) == god)
                         {
-                            fi = roww["fi"].ToString();
+                            uud = Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) + Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) + Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) + Convert.ToInt16(row["uud4"]) + Convert.ToInt16(row["uud5"]);
+                            foreach (DataRow roww in in_statDataSet.user.Rows)
+                            {
+                                if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                                {
+                                    fi = roww["fi"].ToString();
+                                }
+                            }
+                            series1.Points.Add(new SeriesPoint(fi, uud));
                         }
                     }
-                    series1.Points.Add(new SeriesPoint(fi, uud));
+                    // Add the series to the chart.
+                    StatchartControl1.Series.Add(series1);
+                    // Hide the legend (if necessary).
+                    StatchartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
+                    // Rotate the diagram (if necessary).
+                    ((XYDiagram)StatchartControl1.Diagram).Rotated = false;
+                    // Add a title to the chart (if necessary).
+                    DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle
+                    {
+                        Text = "Диаграмма по учащимся"
+                    };
+                    StatchartControl1.Titles.Add(chartTitle1);
                 }
-            }
-            // Add the series to the chart.
-            StatchartControl1.Series.Add(series1);
-            // Hide the legend (if necessary).
-            StatchartControl1.Legend.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            // Rotate the diagram (if necessary).
-            ((XYDiagram)StatchartControl1.Diagram).Rotated = false;
-            // Add a title to the chart (if necessary).
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle
-            {
-                Text = "Диаграмма по учащимся"
-            };
-            StatchartControl1.Titles.Add(chartTitle1);
-        }
-        
-        private void DiagPoPoziciyam_Points(int id_kontr, int id_klass, int god)
-        {
-            StatchartControl1.Series.Clear();
-            StatchartControl1.Titles.Clear();
-            int uud1 = 0, uud2 = 0, uud3 = 0, uud4 = 0, uud5 = 0;
 
-            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series("УУД", DevExpress.XtraCharts.ViewType.Bar3D);
-            foreach (DataRow row in in_statDataSet.uud.Rows)
-            {
-                if (Convert.ToInt32(row["id_kontr"]) == id_kontr && Convert.ToInt32(row["id_klass"]) == id_klass && Convert.ToInt32(row["god"]) == god)
+                private void DiagPoPoziciyam_Points(int id_kontr, int id_klass, int god)
                 {
-                    uud1 += Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]);
-                    uud2 += Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]);
-                    uud3 += Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]);
-                    uud4 += Convert.ToInt16(row["uud4"]);
-                    uud5 += Convert.ToInt16(row["uud5"]);
+                    StatchartControl1.Series.Clear();
+                    StatchartControl1.Titles.Clear();
+                    int uud1 = 0, uud2 = 0, uud3 = 0, uud4 = 0, uud5 = 0;
 
+                    DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series("УУД", DevExpress.XtraCharts.ViewType.Bar3D);
+                    foreach (DataRow row in in_statDataSet.uud.Rows)
+                    {
+                        if (Convert.ToInt32(row["id_kontr"]) == id_kontr && Convert.ToInt32(row["id_klass"]) == id_klass && Convert.ToInt32(row["god"]) == god)
+                        {
+                            uud1 += Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]);
+                            uud2 += Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]);
+                            uud3 += Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]);
+                            uud4 += Convert.ToInt16(row["uud4"]);
+                            uud5 += Convert.ToInt16(row["uud5"]);
+
+                        }
+                    }
+                    for (int i = 1; i < 6; i++)
+                    {
+                        switch (i)
+                        {
+                            case 1:
+                                series1.Points.Add(new SeriesPoint("Может выбрать наиболее эффективные способы решения задач в зависимости от конкретных условий (УУД 1)", uud1));
+                                break;
+                            case 2:
+                                series1.Points.Add(new SeriesPoint("Может строить логическую цепь рассуждений (выявлять причинно-следственные связи, выявлять закономерности) (УУД2)", uud2));
+                                Update_Combobox_Kontrol_Load();
+                                break;
+                            case 3:
+                                series1.Points.Add(new SeriesPoint("Может структурировать найденную информацию в нужной форме(УУД3)", uud3));
+                            //    this.uudTableAdapter.Fill(this.in_statDataSet.uud);
+                                //   this.uudTableAdapter.Fill(this.in_statDataSet.uud);
+                                this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+                                this.userTableAdapter.Fill(this.in_statDataSet.user);
+                                this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+                                Update_Combobox_Kontrol_Red();
+                                break;
+                            case 4:
+                                series1.Points.Add(new SeriesPoint("Владеет умением классификации(УУД4)", uud4));
+                                this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+                                this.userTableAdapter.Fill(this.in_statDataSet.user);
+                                this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+                                Update_Combobox_Kontrol_Stat();
+                                Update_Combobox_Kontrol_Stat1();
+                                Update_Combobox_Kontrol_Stat2();
+                                Update_Combobox_Kontrol_Stat3();
+                                break;
+                            case 5:
+                                series1.Points.Add(new SeriesPoint("Умеет осмысленно читать, извлекая нужную информацию(УУД5)", uud5));
+                                this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
+                                this.userTableAdapter.Fill(this.in_statDataSet.user);
+                                this.klassTableAdapter.Fill(this.in_statDataSet.klass);
+                                break;
+                        }
+                    }
+                    // Add the series to the chart.
+                    StatchartControl1.Series.Add(series1);
+                    //     ((BarSeriesLabel)series1.Label).Visible = true;
+                    ((BarSeriesLabel)series1.Label).ResolveOverlappingMode =
+                    ResolveOverlappingMode.Default;
+
+                    // Access the series options.
+                   // series1.PointOptions.PointView = PointView.ArgumentAndValues;
+
+
+                    // Customize the view-type-specific properties of the series.
+                    Bar3DSeriesView myView = (Bar3DSeriesView)series1.View;
+                    myView.BarDepthAuto = false;
+                    myView.BarDepth = 1;
+                    myView.BarWidth = 1;
+                    myView.Transparency = 80;
+
+                    // Access the diagram's options.
+                    ((XYDiagram3D)StatchartControl1.Diagram).ZoomPercent = 110;
+
+                    // Add a title to the chart and hide the legend.
+                    DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle
+                    {
+                        Text = "Общая диограмма по позициям"
+                    };
+                    StatchartControl1.Titles.Add(chartTitle1);
+                    //   chartControl1.Legend.Visible = false;
                 }
-            }
-            for (int i = 1; i < 6; i++)
-            {
-                switch (i)
+
+
+                private void MetroTile1_Click(object sender, EventArgs e)
                 {
-                    case 1:
-                        series1.Points.Add(new SeriesPoint("Может выбрать наиболее эффективные способы решения задач в зависимости от конкретных условий (УУД 1)", uud1));
-                        break;
-                    case 2:
-                        series1.Points.Add(new SeriesPoint("Может строить логическую цепь рассуждений (выявлять причинно-следственные связи, выявлять закономерности) (УУД2)", uud2));
-                        Update_Combobox_Kontrol_Load();
-                        break;
-                    case 3:
-                        series1.Points.Add(new SeriesPoint("Может структурировать найденную информацию в нужной форме(УУД3)", uud3));
-                    //    this.uudTableAdapter.Fill(this.in_statDataSet.uud);
-                        //   this.uudTableAdapter.Fill(this.in_statDataSet.uud);
-                        this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
-                        this.userTableAdapter.Fill(this.in_statDataSet.user);
-                        this.klassTableAdapter.Fill(this.in_statDataSet.klass);
-                        Update_Combobox_Kontrol_Red();
-                        break;
-                    case 4:
-                        series1.Points.Add(new SeriesPoint("Владеет умением классификации(УУД4)", uud4));
-                        this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
-                        this.userTableAdapter.Fill(this.in_statDataSet.user);
-                        this.klassTableAdapter.Fill(this.in_statDataSet.klass);
-                        Update_Combobox_Kontrol_Stat();
-                        Update_Combobox_Kontrol_Stat1();
-                        Update_Combobox_Kontrol_Stat2();
-                        Update_Combobox_Kontrol_Stat3();
-                        break;
-                    case 5:
-                        series1.Points.Add(new SeriesPoint("Умеет осмысленно читать, извлекая нужную информацию(УУД5)", uud5));
-                        this.kontrolnieTableAdapter.Fill(this.in_statDataSet.kontrolnie);
-                        this.userTableAdapter.Fill(this.in_statDataSet.user);
-                        this.klassTableAdapter.Fill(this.in_statDataSet.klass);
-                        break;
+                    if (ComboBox_God_Stat.SelectedIndex != -1 && StatComboBox_Grafik_Stat.SelectedIndex != -1)
+                    {
+                        switch (StatComboBox_Grafik_Stat.SelectedIndex)
+                        {
+                            case 0:
+                                DiagPoUch_Points(Convert.ToInt32(ComboBox_Kontrol_Stat.SelectedValue), Convert.ToInt32(ComboBox_Klass_Stat.SelectedValue), Convert.ToInt32(ComboBox_God_Stat.SelectedItem));
+                                break;
+                            case 1:
+                                DiagPoPoziciyam_Points(Convert.ToInt32(ComboBox_Kontrol_Stat.SelectedValue), Convert.ToInt32(ComboBox_Klass_Stat.SelectedValue), Convert.ToInt32(ComboBox_God_Stat.SelectedItem));
+                                break;
+                            case 2:
+
+                                break;
+                            case 3:
+
+                                break;
+                            default:
+                                MessageBox.Show("Неизвестный график");
+                                break;
+                        }
+                    }
                 }
-            }
-            // Add the series to the chart.
-            StatchartControl1.Series.Add(series1);
-            //     ((BarSeriesLabel)series1.Label).Visible = true;
-            ((BarSeriesLabel)series1.Label).ResolveOverlappingMode =
-            ResolveOverlappingMode.Default;
 
-            // Access the series options.
-           // series1.PointOptions.PointView = PointView.ArgumentAndValues;
-
-
-            // Customize the view-type-specific properties of the series.
-            Bar3DSeriesView myView = (Bar3DSeriesView)series1.View;
-            myView.BarDepthAuto = false;
-            myView.BarDepth = 1;
-            myView.BarWidth = 1;
-            myView.Transparency = 80;
-
-            // Access the diagram's options.
-            ((XYDiagram3D)StatchartControl1.Diagram).ZoomPercent = 110;
-
-            // Add a title to the chart and hide the legend.
-            DevExpress.XtraCharts.ChartTitle chartTitle1 = new DevExpress.XtraCharts.ChartTitle
-            {
-                Text = "Общая диограмма по позициям"
-            };
-            StatchartControl1.Titles.Add(chartTitle1);
-            //   chartControl1.Legend.Visible = false;
-        }
-       
-
-        private void MetroTile1_Click(object sender, EventArgs e)
-        {
-            if (ComboBox_God_Stat.SelectedIndex != -1 && StatComboBox_Grafik_Stat.SelectedIndex != -1)
-            {
-                switch (StatComboBox_Grafik_Stat.SelectedIndex)
-                {
-                    case 0:
-                        DiagPoUch_Points(Convert.ToInt32(ComboBox_Kontrol_Stat.SelectedValue), Convert.ToInt32(ComboBox_Klass_Stat.SelectedValue), Convert.ToInt32(ComboBox_God_Stat.SelectedItem));
-                        break;
-                    case 1:
-                        DiagPoPoziciyam_Points(Convert.ToInt32(ComboBox_Kontrol_Stat.SelectedValue), Convert.ToInt32(ComboBox_Klass_Stat.SelectedValue), Convert.ToInt32(ComboBox_God_Stat.SelectedItem));
-                        break;
-                    case 2:
-
-                        break;
-                    case 3:
-
-                        break;
-                    default:
-                        MessageBox.Show("Неизвестный график");
-                        break;
-                }
-            }
-        }
-
-        */
+                */
 
 
 
@@ -1005,7 +1017,13 @@ namespace Statistick
         string _control2 = "";
         string _klass2 = "";
         string _god2 = "";
-        string _date = DateTime.Now.Day.ToString() +"."+ DateTime.Now.Month + "." + DateTime.Now.Year;
+        string _control3 = "";
+        string _klass3 = "";
+        string _god3 = "";
+        string _control4 = "";
+        string _klass4 = "";
+        string _god4 = "";
+        string _date = DateTime.Now.Day.ToString() + "." + DateTime.Now.Month + "." + DateTime.Now.Year;
         String templatePath = System.Windows.Forms.Application.StartupPath;
 
         private void Excel_Diag_tab1()
@@ -1024,7 +1042,7 @@ namespace Statistick
             Diad_tabl_1();
             if (i_rows != 2)
             {
-                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 1 " + ComboBox_Kontrol_Stat.Text + " " + ComboBox_Klass_Stat.Text + " класс.xlsx");//сохранить в эксель файл
+                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\" + ComboBox_Kontrol_Stat.Text + " " + ComboBox_Klass_Stat.Text + " класс таблица 1.xlsx");//сохранить в эксель файл
                 excelapp.Quit();
             }
             else
@@ -1047,8 +1065,8 @@ namespace Statistick
             Diad_tabl_2();
             if (i_rows != 2)
             {
-                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 2 " + ComboBox_Kontrol_Stat.Text + " " + ComboBox_Klass_Stat.Text + " класс.xlsx");//сохранить в эксель файл
-            excelapp.Quit();
+                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\" + ComboBox_Kontrol_Stat.Text + " " + ComboBox_Klass_Stat.Text + " класс таблица 2.xlsx");//сохранить в эксель файл
+                excelapp.Quit();
             }
             else
             {
@@ -1073,8 +1091,8 @@ namespace Statistick
             if (i_rows != 2)
             {
 
-                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 3 " + ComboBox_Kontrol_Stat1.Text + " " + ComboBox_Klass_Stat1.Text + ComboBox_Kontrol_Stat2.Text + " " + ComboBox_Klass_Stat2.Text + " класс.xlsx");//сохранить в эксель файл
-            excelapp.Quit();
+                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\" + ComboBox_Kontrol_Stat1.Text + " " + ComboBox_Klass_Stat1.Text + ComboBox_Kontrol_Stat2.Text + " " + ComboBox_Klass_Stat2.Text + " класс таблица 3.xlsx");//сохранить в эксель файл
+                excelapp.Quit();
             }
             else
             {
@@ -1096,17 +1114,74 @@ namespace Statistick
 
 
             Diad_tabl_4();
-                if (i_rows != 2)
-                {
+            if (i_rows != 2)
+            {
 
-                    excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 4 " + ComboBox_Kontrol_Stat1.Text + " " + ComboBox_Klass_Stat1.Text + ComboBox_Kontrol_Stat2.Text + " " + ComboBox_Klass_Stat2.Text + " класс.xlsx");//сохранить в эксель файл
-            excelapp.Quit();
+                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\" + ComboBox_Kontrol_Stat1.Text + " " + ComboBox_Klass_Stat1.Text + ComboBox_Kontrol_Stat2.Text + " " + ComboBox_Klass_Stat2.Text + " класс таблица 4.xlsx");//сохранить в эксель файл
+                excelapp.Quit();
             }
             else
             {
                 excelapp.Quit();
             }
         }
+
+        private void Excel_Diag_tab6()
+        {
+            excelapp = new Excel.Application
+            {
+                Visible = false
+            };
+            excelappworkbooks = excelapp.Workbooks;
+            String templatePath = System.Windows.Forms.Application.StartupPath;
+            excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\6.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            excelsheets = excelappworkbook.Worksheets;
+
+
+            Diad_tabl_6();
+            if (i_rows != 2)
+            {
+
+                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\" + ComboBox_Kontrol_Stat5.Text + " " + ComboBox_Klass_Stat5.Text + ComboBox_Kontrol_Stat6.Text + " " + ComboBox_Klass_Stat6.Text + ComboBox_Kontrol_Stat7.Text +/* " " + ComboBox_Klass_Stat7.Text + ComboBox_Kontrol_Stat8.Text + " " + ComboBox_Klass_Stat8.Text +*/ " класс таблица 6.xlsx");//сохранить в эксель файл
+                excelapp.Quit();
+            }
+            else
+            {
+                excelapp.Quit();
+            }
+        }
+
+        private void Excel_Diag_tab7()
+        {
+            excelapp = new Excel.Application
+            {
+                Visible = false
+            };
+            excelappworkbooks = excelapp.Workbooks;
+            String templatePath = System.Windows.Forms.Application.StartupPath;
+            excelappworkbook = excelapp.Workbooks.Open(templatePath + @"\Шаблоны\7.xlsx", Type.Missing, Type.Missing, Type.Missing, "WWWWW", "WWWWW", Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            excelsheets = excelappworkbook.Worksheets;
+
+
+            Diad_tabl_7();
+            if (i_rows != 2)
+            {
+
+                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\" + ComboBox_Kontrol_Stat5.Text + " " + ComboBox_Klass_Stat5.Text + ComboBox_Kontrol_Stat6.Text + " " + ComboBox_Klass_Stat6.Text + ComboBox_Kontrol_Stat7.Text + /*" " + ComboBox_Klass_Stat7.Text + ComboBox_Kontrol_Stat8.Text + " " + ComboBox_Klass_Stat8.Text + */" класс таблица 7.xlsx");//сохранить в эксель файл
+                excelapp.Quit();
+            }
+            else
+            {
+                excelapp.Quit();
+            }
+        }
+
+
+
+
+
 
         private void Excel_Diag_tab5()
         {
@@ -1123,17 +1198,17 @@ namespace Statistick
 
 
             Diad_tabl_5();
-                    if (i_rows != 2)
-                    {
+            if (i_rows != 2)
+            {
 
-                        excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\Таблица 5 " + ComboBox_Kontrol_Stat3.Text + " " + ComboBox_Klass_Stat3.Text + " класс.xlsx");//сохранить в эксель файл
-            excelapp.Quit();
-                }
-                else
-                {
-                    excelapp.Quit();
-                }
+                excelappworkbook.SaveAs(templatePath + @"\Отчеты\" + _date + @"\" + ComboBox_Kontrol_Stat3.Text + " " + ComboBox_Klass_Stat3.Text + " класс таблица 5.xlsx");//сохранить в эксель файл
+                excelapp.Quit();
             }
+            else
+            {
+                excelapp.Quit();
+            }
+        }
 
         private void Add_Row1()
         {
@@ -1158,6 +1233,36 @@ namespace Statistick
             {
 
                 if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control2) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass2) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god2))
+                {
+                    Add_Rows(row);
+                }
+
+            }
+        }
+
+        private void Add_Row3()
+        {
+            //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
+            i_rows = 2;
+            foreach (DataRow row in in_statDataSet.uud.Rows)
+            {
+
+                if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control3) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass3) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god3))
+                {
+                    Add_Rows(row);
+                }
+
+            }
+        }
+
+        private void Add_Row4()
+        {
+            //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
+            i_rows = 2;
+            foreach (DataRow row in in_statDataSet.uud.Rows)
+            {
+
+                if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control4) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass4) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god4))
                 {
                     Add_Rows(row);
                 }
@@ -1195,9 +1300,39 @@ namespace Statistick
             }
         }
 
+        private void Add_Row_3_v_1_3()
+        {
+            //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
+            i_rows = 2;
+            foreach (DataRow row in in_statDataSet.uud.Rows)
+            {
+
+                if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control3) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass3) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god3))
+                {
+                    Add_Rows_3_v_1(row);
+                }
+
+            }
+        }
+
+        private void Add_Row_3_v_1_4()
+        {
+            //----------------------------------------------------------заполнение строк-------------------------------------------------------------------
+            i_rows = 2;
+            foreach (DataRow row in in_statDataSet.uud.Rows)
+            {
+
+                if (Convert.ToInt32(row["id_kontr"]) == Convert.ToInt32(_control4) && Convert.ToInt32(row["id_klass"]) == Convert.ToInt32(_klass4) && Convert.ToInt32(row["god"]) == Convert.ToInt32(_god4))
+                {
+                    Add_Rows_3_v_1_2(row);
+                }
+
+            }
+        }
+
         private void Add_Rows(DataRow row)
         {
-            
+
             foreach (DataRow roww in in_statDataSet.user.Rows)
             {
                 if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
@@ -1308,90 +1443,90 @@ namespace Statistick
 
         private void Add_Rows_3_v_1(DataRow row)
         {
-                foreach (DataRow roww in in_statDataSet.user.Rows)
-                    {
-                        if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
-                        {
-                            excelworksheet.Cells[i_rows, 2] = roww["fi"].ToString();
-                        }
-                    }
-
-                    uud = "";
-                    if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
-                        uud += "1";
-                    if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
-                        uud += "2";
-                    if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
-                        uud += "3";
-                    switch (uud)
-                    {
-                        case "":
-                            excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
-                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
-                            i_rows++;
-                            break;
-                        case "1":
-                            excelworksheet.Cells[i_rows, 3] = row["uud11"];
-                            excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
-                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
-                            i_rows++;
-                            break;
-                        case "2":
-                            excelworksheet.Cells[i_rows, 4] = row["uud21"];
-                            excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
-                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
-                            i_rows++;
-                            break;
-                        case "3":
-                            excelworksheet.Cells[i_rows, 5] = row["uud31"];
-                            excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
-                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
-                            i_rows++;
-                            break;
-                        case "12":
-                            excelworksheet.Cells[i_rows, 3] = row["uud11"];
-                            excelworksheet.Cells[i_rows, 4] = row["uud21"];
-                            excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
-                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
-                            i_rows++;
-                            break;
-                        case "13":
-                            excelworksheet.Cells[i_rows, 3] = row["uud11"];
-                            excelworksheet.Cells[i_rows, 5] = row["uud31"];
-                            excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
-                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
-                            i_rows++;
-                            break;
-                        case "123":
-                            excelworksheet.Cells[i_rows, 3] = row["uud11"];
-                            excelworksheet.Cells[i_rows, 4] = row["uud21"];
-                            excelworksheet.Cells[i_rows, 5] = row["uud31"];
-                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
-                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
-                            i_rows++;
-                            break;
-                        case "23":
-                            excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
-                            excelworksheet.Cells[i_rows, 4] = row["uud21"];
-                            excelworksheet.Cells[i_rows, 5] = row["uud31"];
-                            excelworksheet.Cells[i_rows, 6] = row["uud4"];
-                            excelworksheet.Cells[i_rows, 7] = row["uud5"];
-                            i_rows++;
-                            break;
-                    }
-
+            foreach (DataRow roww in in_statDataSet.user.Rows)
+            {
+                if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                {
+                    excelworksheet.Cells[i_rows, 2] = roww["fi"].ToString();
                 }
+            }
+
+            uud = "";
+            if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
+                uud += "1";
+            if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
+                uud += "2";
+            if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
+                uud += "3";
+            switch (uud)
+            {
+                case "":
+                    excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "1":
+                    excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                    excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "2":
+                    excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                    excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "3":
+                    excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                    excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "12":
+                    excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                    excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                    excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "13":
+                    excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                    excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                    excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "123":
+                    excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                    excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                    excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+                case "23":
+                    excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                    excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                    excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                    excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                    excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                    i_rows++;
+                    break;
+            }
+
+        }
 
         private void Add_Rows_3_v_1_2(DataRow row)
         {
@@ -1479,6 +1614,93 @@ namespace Statistick
             }
 
         }
+
+        /*  private void Add_Rows_3_v_1_3(DataRow row)
+          {
+              foreach (DataRow roww in in_statDataSet.user.Rows)
+              {
+                  if (Convert.ToString(row["id_user"]) == Convert.ToString(roww["id"]))
+                  {
+                      excelworksheet.Cells[i_rows, 2] = roww["fi"].ToString();
+                  }
+              }
+
+              uud = "";
+              if (row["uud12"].ToString() == "" || row["uud13"].ToString() == "")
+                  uud += "1";
+              if (row["uud22"].ToString() == "" || row["uud23"].ToString() == "")
+                  uud += "2";
+              if (row["uud32"].ToString() == "" || row["uud33"].ToString() == "")
+                  uud += "3";
+              switch (uud)
+              {
+                  case "":
+                      excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                      excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                      i_rows++;
+                      break;
+                  case "1":
+                      excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                      excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                      excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                      i_rows++;
+                      break;
+                  case "2":
+                      excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                      excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                      excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                      i_rows++;
+                      break;
+                  case "3":
+                      excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                      excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                      excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                      i_rows++;
+                      break;
+                  case "12":
+                      excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                      excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                      excelworksheet.Cells[i_rows, 5] = (Convert.ToInt16(row["uud31"]) + Convert.ToInt16(row["uud32"]) + Convert.ToInt16(row["uud33"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                      excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                      i_rows++;
+                      break;
+                  case "13":
+                      excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                      excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                      excelworksheet.Cells[i_rows, 4] = (Convert.ToInt16(row["uud21"]) + Convert.ToInt16(row["uud22"]) + Convert.ToInt16(row["uud23"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                      excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                      i_rows++;
+                      break;
+                  case "123":
+                      excelworksheet.Cells[i_rows, 3] = row["uud11"];
+                      excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                      excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                      excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                      excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                      i_rows++;
+                      break;
+                  case "23":
+                      excelworksheet.Cells[i_rows, 3] = (Convert.ToInt16(row["uud11"]) + Convert.ToInt16(row["uud12"]) + Convert.ToInt16(row["uud13"]) > 1) ? 1 : 0;
+                      excelworksheet.Cells[i_rows, 4] = row["uud21"];
+                      excelworksheet.Cells[i_rows, 5] = row["uud31"];
+                      excelworksheet.Cells[i_rows, 6] = row["uud4"];
+                      excelworksheet.Cells[i_rows, 7] = row["uud5"];
+                      i_rows++;
+                      break;
+              }
+
+          }*/
 
         private void Del_Collums()
         {
@@ -1673,8 +1895,8 @@ namespace Statistick
                     ser.Points(7).Interior.Color = (int)XlRgbColor.rgbPurple;
                     break;
             }
-          
-       
+
+
         }
 
         private void Diad_tabl_1()
@@ -1682,24 +1904,24 @@ namespace Statistick
             i_rows = 2;
             try
             {
-                 _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
-                 _klass = ComboBox_Klass_Stat.SelectedValue.ToString();
-                 _god = ComboBox_God_Stat.SelectedItem.ToString();
+                _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
+                _klass = ComboBox_Klass_Stat.SelectedValue.ToString();
+                _god = ComboBox_God_Stat.SelectedItem.ToString();
 
-                
-                    excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
-                
-                    Add_Row1();
+
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+
+                Add_Row1();
                 if (i_rows != 2)
                 {
                     Del_Rows();
 
-                    Del_Collums();
+                    // Hiden_Collums();
                 }
                 else
                 {
                     MessageBox.Show("Такой контрольной не найденно");
-                    
+
                 }
             }
             catch (FormatException fEx)
@@ -1719,7 +1941,7 @@ namespace Statistick
             {
                 MessageBox.Show(e.ToString());
             }
-            
+
 
         }
 
@@ -1728,17 +1950,17 @@ namespace Statistick
             i_rows = 2;
             try
             {
-                 _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
-                 _klass = ComboBox_Klass_Stat.SelectedValue.ToString();
-                 _god = ComboBox_God_Stat.SelectedItem.ToString();
+                _control = ComboBox_Kontrol_Stat.SelectedValue.ToString();
+                _klass = ComboBox_Klass_Stat.SelectedValue.ToString();
+                _god = ComboBox_God_Stat.SelectedItem.ToString();
 
 
                 excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
-                
-                    Add_Row_3_v_1();
+
+                Add_Row_3_v_1();
                 if (i_rows != 2)
                 {
-                Del_Rows();
+                    Del_Rows();
                 }
                 else
                 {
@@ -1755,7 +1977,7 @@ namespace Statistick
             {
                 MessageBox.Show(oEx.ToString());
             }
-            catch (NullReferenceException )
+            catch (NullReferenceException)
             {
                 MessageBox.Show("Вы не заполнили один из комбобокс");
             }
@@ -1763,7 +1985,7 @@ namespace Statistick
             {
                 MessageBox.Show(e.ToString());
             }
-            
+
 
         }
 
@@ -1772,21 +1994,21 @@ namespace Statistick
             i_rows = 2;
             try
             {
-                 _control = ComboBox_Kontrol_Stat1.SelectedValue.ToString();
-                 _klass = ComboBox_Klass_Stat1.SelectedValue.ToString();
-                 _god = ComboBox_God_Stat1.SelectedItem.ToString();
-                 _control2 = ComboBox_Kontrol_Stat2.SelectedValue.ToString();
-                 _klass2 = ComboBox_Klass_Stat2.SelectedValue.ToString();
-                 _god2 = ComboBox_God_Stat2.SelectedItem.ToString();
+                _control = ComboBox_Kontrol_Stat1.SelectedValue.ToString();
+                _klass = ComboBox_Klass_Stat1.SelectedValue.ToString();
+                _god = ComboBox_God_Stat1.SelectedItem.ToString();
+                _control2 = ComboBox_Kontrol_Stat2.SelectedValue.ToString();
+                _klass2 = ComboBox_Klass_Stat2.SelectedValue.ToString();
+                _god2 = ComboBox_God_Stat2.SelectedItem.ToString();
 
                 excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
                 i_rows = 2;
                 Add_Row1();
                 if (i_rows != 2)
                 {
-                Del_Rows();
+                    Del_Rows();
 
-                Hiden_Collums();
+                    Hiden_Collums();
                 }
                 else
                 {
@@ -1798,9 +2020,9 @@ namespace Statistick
                 Add_Row2();
                 if (i_rows != 2)
                 {
-                Del_Rows();
+                    Del_Rows();
 
-                Hiden_Collums();
+                    Hiden_Collums();
                 }
                 else
                 {
@@ -1856,9 +2078,9 @@ namespace Statistick
                 excelworksheet = (Excel.Worksheet)excelsheets.get_Item(2);
                 i_rows = 2;
                 Add_Row_3_v_1_2();
-                    if (i_rows != 2)
-                    {
-                        Del_Rows();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
                 }
                 else
                 {
@@ -1883,9 +2105,200 @@ namespace Statistick
             {
                 MessageBox.Show(e.ToString());
             }
-            
+
 
         }
+
+        private void Diad_tabl_6()
+        {
+            i_rows = 2;
+            try
+            {
+                _control = ComboBox_Kontrol_Stat5.SelectedValue.ToString();
+                _klass = ComboBox_Klass_Stat5.SelectedValue.ToString();
+                _god = ComboBox_God_Stat5.SelectedItem.ToString();
+                _control2 = ComboBox_Kontrol_Stat6.SelectedValue.ToString();
+                _klass2 = ComboBox_Klass_Stat6.SelectedValue.ToString();
+                _god2 = ComboBox_God_Stat6.SelectedItem.ToString();
+                _control3 = ComboBox_Kontrol_Stat7.SelectedValue.ToString();
+                _klass3 = ComboBox_Klass_Stat7.SelectedValue.ToString();
+                _god3 = ComboBox_God_Stat7.SelectedItem.ToString();
+                _control4 = ComboBox_Kontrol_Stat8.SelectedValue.ToString();
+                _klass4 = ComboBox_Klass_Stat8.SelectedValue.ToString();
+                _god4 = ComboBox_God_Stat8.SelectedItem.ToString();
+
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+                i_rows = 2;
+                Add_Row1();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
+
+                    Hiden_Collums();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+
+                }
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(2);
+                i_rows = 2;
+                Add_Row2();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
+
+                    Hiden_Collums();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+
+                }
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(3);
+                i_rows = 2;
+                Add_Row3();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
+
+                    Hiden_Collums();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+
+                }
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
+                i_rows = 2;
+                Add_Row4();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
+
+                    Hiden_Collums();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+
+                }
+            }
+            catch (FormatException fEx)
+            {
+                MessageBox.Show(fEx.ToString());
+            }
+
+            catch (OverflowException oEx)
+            {
+                MessageBox.Show(oEx.ToString());
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Вы не заполнили один из комбобокс");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+
+        }
+
+        private void Diad_tabl_7()
+        {
+            i_rows = 2;
+            try
+            {
+                _control = ComboBox_Kontrol_Stat5.SelectedValue.ToString();
+                _klass = ComboBox_Klass_Stat5.SelectedValue.ToString();
+                _god = ComboBox_God_Stat5.SelectedItem.ToString();
+                _control2 = ComboBox_Kontrol_Stat6.SelectedValue.ToString();
+                _klass2 = ComboBox_Klass_Stat6.SelectedValue.ToString();
+                _god2 = ComboBox_God_Stat6.SelectedItem.ToString();
+                _control3 = ComboBox_Kontrol_Stat7.SelectedValue.ToString();
+                _klass3 = ComboBox_Klass_Stat7.SelectedValue.ToString();
+                _god3 = ComboBox_God_Stat7.SelectedItem.ToString();
+                _control4 = ComboBox_Kontrol_Stat8.SelectedValue.ToString();
+                _klass4 = ComboBox_Klass_Stat8.SelectedValue.ToString();
+                _god4 = ComboBox_God_Stat8.SelectedItem.ToString();
+
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(1);
+                i_rows = 2;
+                Add_Row_3_v_1();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+
+                }
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(2);
+                i_rows = 2;
+                Add_Row_3_v_1_2();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+
+                }
+
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(3);
+                i_rows = 2;
+                Add_Row_3_v_1_3();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+
+                }
+
+                excelworksheet = (Excel.Worksheet)excelsheets.get_Item(4);
+                i_rows = 2;
+                Add_Row_3_v_1_4();
+                if (i_rows != 2)
+                {
+                    Del_Rows();
+                }
+                else
+                {
+                    MessageBox.Show("Такой контрольной не найденно");
+
+                }
+            }
+            catch (FormatException fEx)
+            {
+                MessageBox.Show(fEx.ToString());
+            }
+
+            catch (OverflowException oEx)
+            {
+                MessageBox.Show(oEx.ToString());
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Вы не заполнили один из комбобокс");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+
+
+        }
+
+
+
+
+
 
         private void Diad_tabl_5()
         {
@@ -1917,23 +2330,23 @@ namespace Statistick
                                     }
 
                                 }
-                            for (int j = i_rows; j < 112; j++)
-                            {
-                                excelworksheet.Rows[i_rows].Delete();
-                            }
-                            i_rows = 3;
-                        sheet++;
+                                for (int j = i_rows; j < 112; j++)
+                                {
+                                    excelworksheet.Rows[i_rows].Delete();
+                                }
+                                i_rows = 3;
+                                sheet++;
 
                             }
                         }
-                        
+
                     }
                 }
 
-                for(int s = 1; s<=11-sheet;s++)
+                for (int s = 1; s <= 11 - sheet; s++)
                 {
                     //excelworksheet = (Excel.Worksheet)excelsheets.get_Item(sheet+1);
-                    ((Excel.Worksheet)this.excelapp.ActiveWorkbook.Sheets[sheet]).Visible= Excel.XlSheetVisibility.xlSheetVisible;
+                    ((Excel.Worksheet)this.excelapp.ActiveWorkbook.Sheets[sheet]).Visible = Excel.XlSheetVisibility.xlSheetVisible;
                     ((Excel.Worksheet)this.excelapp.ActiveWorkbook.Sheets[sheet]).Delete();
                     // excelworksheet.Delete();
 
@@ -1941,22 +2354,22 @@ namespace Statistick
                 excelworksheet = (Excel.Worksheet)excelsheets.get_Item(sheet);
                 for (int s = 1; s <= 11 - sheet; s++)
                 {
-                    
-                    excelworksheet.Rows[sheet+2].Delete();
+
+                    excelworksheet.Rows[sheet + 2].Delete();
                     // excelworksheet.Delete();
 
                 }
 
-               
+
                 excelworksheet.Activate();
                 Excel.ChartObjects chartsobjrcts = (Excel.ChartObjects)excelworksheet.ChartObjects(Type.Missing);
                 Excel.Chart xlChart2 = excelworksheet.ChartObjects(2).Chart;
-                
+
                 Excel.SeriesCollection seriesCollection = xlChart2.SeriesCollection();
 
                 Excel.Series series = seriesCollection.Item(1);
 
-                for (int i = 1; i <= 11-sheet ; i++)
+                for (int i = 1; i <= 11 - sheet; i++)
                 {
                     series = seriesCollection.Item(sheet);
                     series.Delete();
@@ -2002,7 +2415,7 @@ namespace Statistick
                     metroLabel16.Text = "Создается Таблица 2";
                     Excel_Diag_tab2();
                     metroLabel16.Text = "Таблицы созданы";
-                    System.Diagnostics.Process.Start("explorer", templatePath + @"\Отчеты\"+_date+"\\");
+                    System.Diagnostics.Process.Start("explorer", templatePath + @"\Отчеты\" + _date + "\\");
                     break;
                 case 1:
                     metroLabel16.Text = "Создается Таблица 3";
@@ -2013,6 +2426,14 @@ namespace Statistick
                     System.Diagnostics.Process.Start("explorer", templatePath + @"\Отчеты\" + _date + "\\");
                     break;
                 case 2:
+                    metroLabel16.Text = "Создается Таблица 6";
+                    Excel_Diag_tab6();
+                    metroLabel16.Text = "Создается Таблица 7";
+                    Excel_Diag_tab7();
+                    metroLabel16.Text = "Таблицы созданы";
+                    System.Diagnostics.Process.Start("explorer", templatePath + @"\Отчеты\" + _date + "\\");
+                    break;
+                case 3:
                     metroLabel16.Text = "Создается Таблица 5";
                     Excel_Diag_tab5();
                     metroLabel16.Text = "Таблица создана";
@@ -2021,7 +2442,7 @@ namespace Statistick
             }
         }
         private void ComboBox_God_Load_SelectedIndexChanged(object sender, EventArgs e)
-        { 
+        {
 
             Update_Combobox_Kontrol_Load();
 
@@ -2052,14 +2473,32 @@ namespace Statistick
             Update_Combobox_Kontrol_Stat3();
         }
 
+        private void ComboBox_God_Stat5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Update_Combobox_Kontrol_Stat5();
+        }
 
+        private void ComboBox_God_Stat6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Update_Combobox_Kontrol_Stat6();
+        }
+
+        private void ComboBox_God_Stat7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Update_Combobox_Kontrol_Stat7();
+        }
+
+        private void ComboBox_God_Stat8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Update_Combobox_Kontrol_Stat8();
+        }
 
 
 
         private void But_New_klass_Click(object sender, EventArgs e)
         {
             DataRow row = in_statDataSet.klass.NewRow();
-            row["klass"] = metroComboBox1.Text+ metroComboBox2.Text;
+            row["klass"] = metroComboBox1.Text + metroComboBox2.Text;
             in_statDataSet.klass.Rows.Add(row);
             klassTableAdapter.Update(in_statDataSet);
             metroLabel16.Text = "Класс создан";
@@ -2141,7 +2580,7 @@ namespace Statistick
 
         private void ComboBox_Kontrol_Load_BindingContextChanged(object sender, EventArgs e)
         {
-       
+
         }
 
         private void ComboBox_Klass_Load_SelectedValueChanged(object sender, EventArgs e)
@@ -2183,7 +2622,7 @@ namespace Statistick
                 metroLabel16.Text = "Класс удален";
                 del_klass = true;
             }
-          
+
 
         }
 
@@ -2216,7 +2655,7 @@ namespace Statistick
 
                     kontrolnieTableAdapter.Update(in_statDataSet);
                     metroLabel16.Text = "Контрольная создана";
-                    
+
                 }
                 else
                 {
@@ -2230,7 +2669,7 @@ namespace Statistick
 
         private void metroTile5_Click(object sender, EventArgs e)
         {
-            int id_grid_kontrolnie= (int)metroGrid1.Rows[metroGrid1.CurrentCell.RowIndex].Cells[2].Value;
+            int id_grid_kontrolnie = (int)metroGrid1.Rows[metroGrid1.CurrentCell.RowIndex].Cells[2].Value;
             bool est = false;
             foreach (DataRow row1 in in_statDataSet.kontrolnie.Rows)
             {
@@ -2250,7 +2689,7 @@ namespace Statistick
                 {
                     if (Convert.ToInt32(row[0]) == id_grid_kontrolnie)
                     {
-                        
+
                         if (metroComboBox3.Text != "")
                         {
                             row["nazv"] = metroComboBox3.Text;
@@ -2262,7 +2701,7 @@ namespace Statistick
 
 
 
-                
+
 
 
                 kontrolnieTableAdapter.Update(in_statDataSet);
@@ -2281,12 +2720,12 @@ namespace Statistick
         {
 
         }
-        
+
         private void metroTile3_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult =
                                    MessageBox.Show(
-                                       "Удалить контрольную и все ее записи?","Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                       "Удалить контрольную и все ее записи?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes)
             {
 
@@ -2371,7 +2810,7 @@ namespace Statistick
             { }
         }
 
-      
+
 
         TextBox editBox = null;
         TextBox editBox1 = null;
@@ -2412,6 +2851,10 @@ namespace Statistick
                 Update_Combobox_Kontrol_Stat1();
                 Update_Combobox_Kontrol_Stat2();
                 Update_Combobox_Kontrol_Stat3();
+                Update_Combobox_Kontrol_Stat5();
+                Update_Combobox_Kontrol_Stat6();
+                Update_Combobox_Kontrol_Stat7();
+                Update_Combobox_Kontrol_Stat8();
             }
             catch (Exception ex)
             {
@@ -2428,6 +2871,10 @@ namespace Statistick
                 Update_Combobox_Kontrol_Stat1();
                 Update_Combobox_Kontrol_Stat2();
                 Update_Combobox_Kontrol_Stat3();
+                Update_Combobox_Kontrol_Stat5();
+                Update_Combobox_Kontrol_Stat6();
+                Update_Combobox_Kontrol_Stat7();
+                Update_Combobox_Kontrol_Stat8();
             }
             catch (Exception ex)
             {
@@ -2444,10 +2891,19 @@ namespace Statistick
                 Update_Combobox_Kontrol_Stat1();
                 Update_Combobox_Kontrol_Stat2();
                 Update_Combobox_Kontrol_Stat3();
+                Update_Combobox_Kontrol_Stat5();
+                Update_Combobox_Kontrol_Stat6();
+                Update_Combobox_Kontrol_Stat7();
+                Update_Combobox_Kontrol_Stat8();
             }
             catch (Exception ex)
             {
             }
+        }
+
+        private void ComboBox_Klass_Stat7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

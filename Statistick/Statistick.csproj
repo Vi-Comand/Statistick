@@ -25,7 +25,7 @@
     <ProductName>Формирование УУД</ProductName>
     <PublisherName>Vi Corparation</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>13</ApplicationRevision>
+    <ApplicationRevision>15</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -55,7 +55,7 @@
     <ApplicationIcon>Stats.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>A019D5CBD607B8E45DA3B534DC9511A66287B878</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>14F34BC0701B72E9A74AD73757F031FBF41C6177</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Statistick_TemporaryKey.pfx</ManifestKeyFile>
